@@ -19,6 +19,11 @@
    
 }
 
+- (void)setSeg:(UISegmentedControl *)seg
+{
+    _seg = seg;
+}
+
 - (void)setSearchBtn:(UIButton *)searchBtn
 {
     _searchBtn = searchBtn;
