@@ -1,0 +1,19 @@
+//
+//  CoureCenterPrefixHeader.pch
+//  CourseCenter
+//
+//  Created by jian on 15/5/13.
+//  Copyright (c) 2015年 line0.com. All rights reserved.
+//
+
+#ifndef CourseCenter_CoureCenterPrefixHeader_pch
+#define CourseCenter_CoureCenterPrefixHeader_pch
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Header.h"
+#import "AppDelegate.h"
+#endif
+
+#endif
