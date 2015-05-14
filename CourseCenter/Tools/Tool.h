@@ -37,5 +37,6 @@
 +(NSString *)EmptyObjectContainEmptyString:(id)object;
     //判断手机号是否有效
 + (BOOL)isMobileNumber:(NSString *)mobileNum;
-
+#pragma mark- 按钮处理
++(void)startTimeWithBtn:(UIButton *)btn;
 @end

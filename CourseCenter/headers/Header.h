@@ -26,5 +26,6 @@
     //设备的高
 #define SHeight [UIScreen mainScreen].bounds.size.height
 #define Swidth [UIScreen mainScreen].bounds.size.width
-
+   //application单例
+#define app [UIApplication sharedApplication].delegate
 #endif

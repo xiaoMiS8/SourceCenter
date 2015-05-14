@@ -43,8 +43,7 @@
 
 - (IBAction)btnAction:(id)sender {
     NextViewController *nextVC = [NextViewController new];
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    [app.nav pushViewController:nextVC animated:YES];
+    [((AppDelegate *)app).nav pushViewController:nextVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
+		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
 		D4B2F2F71B02FA00007B017E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F61B02FA00007B017E /* main.m */; };
 		D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F91B02FA00007B017E /* AppDelegate.m */; };
 		D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2FB1B02FA00007B017E /* CourseCenter.xcdatamodeld */; };
@@ -89,6 +91,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		374BA7341B048C5100DBA477 /* NSString+HandleString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HandleString.h"; sourceTree = "<group>"; };
+		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
+		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
+		374BA7371B048C5100DBA477 /* UIView+HandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HandleView.m"; sourceTree = "<group>"; };
 		D4B2F2F11B02FA00007B017E /* CourseCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B2F2F51B02FA00007B017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B2F2F61B02FA00007B017E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -311,6 +317,10 @@
 		D4B2F31D1B02FB2E007B017E /* CustomClass */ = {
 			isa = PBXGroup;
 			children = (
+				374BA7341B048C5100DBA477 /* NSString+HandleString.h */,
+				374BA7351B048C5100DBA477 /* NSString+HandleString.m */,
+				374BA7361B048C5100DBA477 /* UIView+HandleView.h */,
+				374BA7371B048C5100DBA477 /* UIView+HandleView.m */,
 				D4B2F35C1B0339AC007B017E /* UIColor+ColorExtension.h */,
 				D4B2F35D1B0339AC007B017E /* UIColor+ColorExtension.m */,
 			);
@@ -687,6 +697,7 @@
 				D4B2F3931B033E51007B017E /* AFHTTPRequestOperation.m in Sources */,
 				D4B2F3EE1B034265007B017E /* SDWebImageCompat.m in Sources */,
 				D4B2F34E1B02FEEB007B017E /* MoreViewController.m in Sources */,
+				374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */,
 				D4B2F3F51B034265007B017E /* UIImage+GIF.m in Sources */,
 				D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */,
 				D4B2F39C1B033E51007B017E /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -710,6 +721,7 @@
 				D4B2F3F31B034265007B017E /* SDWebImagePrefetcher.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
 				D4B2F2F71B02FA00007B017E /* main.m in Sources */,
+				374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */,
 				D4B2F33F1B02FE75007B017E /* HomeViewController.m in Sources */,
 				D4B2F3E51B034265007B017E /* MJRefreshHeader.m in Sources */,
 				D4B2F39A1B033E51007B017E /* AFURLResponseSerialization.m in Sources */,
@@ -793,7 +805,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -830,7 +842,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -843,6 +855,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -854,6 +867,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
