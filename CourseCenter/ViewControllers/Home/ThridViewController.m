@@ -1,31 +1,27 @@
 //
-//  NextViewController.m
+//  ThridViewController.m
 //  CourseCenter
 //
-//  Created by jian on 15/5/13.
+//  Created by renxiaojian on 15/5/19.
 //  Copyright (c) 2015年 line0.com. All rights reserved.
 //
 
-#import "NextViewController.h"
 #import "ThridViewController.h"
-@interface NextViewController ()
+
+@interface ThridViewController ()
 
 @end
 
-@implementation NextViewController
+@implementation ThridViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"第二页";
-}
-- (IBAction)btnAction:(id)sender {
-    ThridViewController *thridVC = [ThridViewController new];
-    [self.navigationController pushViewController:thridVC animated:YES];
+    self.title = @"第三页";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    
+    // Dispose of any resources that can be recreated.
 }
 
 /*

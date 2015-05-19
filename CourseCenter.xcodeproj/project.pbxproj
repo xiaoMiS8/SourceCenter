@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
+		5995E2681B0B3048005F9B93 /* ThridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5995E2661B0B3048005F9B93 /* ThridViewController.m */; };
+		5995E2691B0B3048005F9B93 /* ThridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5995E2671B0B3048005F9B93 /* ThridViewController.xib */; };
 		D4B2F2F71B02FA00007B017E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F61B02FA00007B017E /* main.m */; };
 		D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F91B02FA00007B017E /* AppDelegate.m */; };
 		D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2FB1B02FA00007B017E /* CourseCenter.xcdatamodeld */; };
@@ -95,6 +97,9 @@
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
 		374BA7371B048C5100DBA477 /* UIView+HandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HandleView.m"; sourceTree = "<group>"; };
+		5995E2651B0B3048005F9B93 /* ThridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThridViewController.h; sourceTree = "<group>"; };
+		5995E2661B0B3048005F9B93 /* ThridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThridViewController.m; sourceTree = "<group>"; };
+		5995E2671B0B3048005F9B93 /* ThridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThridViewController.xib; sourceTree = "<group>"; };
 		D4B2F2F11B02FA00007B017E /* CourseCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B2F2F51B02FA00007B017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B2F2F61B02FA00007B017E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -407,6 +412,9 @@
 				D4B2F3541B0311EB007B017E /* NextViewController.h */,
 				D4B2F3551B0311EB007B017E /* NextViewController.m */,
 				D4B2F3561B0311EB007B017E /* NextViewController.xib */,
+				5995E2651B0B3048005F9B93 /* ThridViewController.h */,
+				5995E2661B0B3048005F9B93 /* ThridViewController.m */,
+				5995E2671B0B3048005F9B93 /* ThridViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -651,6 +659,7 @@
 				D4B2F3DF1B034265007B017E /* MJRefresh.bundle in Resources */,
 				D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */,
 				D4B2F3451B02FEC0007B017E /* NotificationViewController.xib in Resources */,
+				5995E2691B0B3048005F9B93 /* ThridViewController.xib in Resources */,
 				D4B2F3581B0311EB007B017E /* NextViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,6 +708,7 @@
 				D4B2F34E1B02FEEB007B017E /* MoreViewController.m in Sources */,
 				374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */,
 				D4B2F3F51B034265007B017E /* UIImage+GIF.m in Sources */,
+				5995E2681B0B3048005F9B93 /* ThridViewController.m in Sources */,
 				D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */,
 				D4B2F39C1B033E51007B017E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D4B2F3F61B034265007B017E /* UIImage+MultiFormat.m in Sources */,

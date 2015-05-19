@@ -35,10 +35,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupCustomBack];
     
-    
-  
-    
+}
+
+- (void)setupCustomBack
+{
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    backItem.title = @"";
+    self.navigationItem.backBarButtonItem = backItem;
 }
 
 - (void)setViewcontrollers:(NSArray *)viewcontrollers itemImages:(NSArray *)itemImages itemselectedImages:(NSArray *)itemselectedImages titles:(NSArray *)titles
