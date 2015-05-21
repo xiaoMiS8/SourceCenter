@@ -16,15 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupCustomBack];
+    [self setupCustomBackWithImage:@"barbuttonItem_back" title:@""];
     
 }
 
-- (void)setupCustomBack
+/**
+ *	@brief	设置视图控制器的backBarButtonItem
+ *
+ *	@param 	imagename 	图片
+ *	@param 	title 	标题
+ */
+- (void)setupCustomBackWithImage:(NSString *)imagename title:(NSString *)title
+
 {
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"barbuttonItem_back"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    backItem.title = @"";
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:imagename] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    backItem.title = title;
     self.navigationItem.backBarButtonItem = backItem;
 }
 
