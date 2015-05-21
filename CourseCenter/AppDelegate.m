@@ -18,22 +18,10 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
-    HomeViewController *homeVC = [HomeViewController new];
-    NotificationViewController *notificationVC = [NotificationViewController new];
-    CourseViewController *courseVC = [CourseViewController new];
-    MoreViewController *moreVC = [MoreViewController new];
-    NSArray *viewControllers = @[homeVC, notificationVC, courseVC, moreVC];
-    NSArray *titles = @[@"首页",@"通知",@"课程",@"更多"];
-    NSArray *itemImages = @[@"tabbar_home",@"tabbar_notification",@"tabbar_course",@"tabbar_more"];
-    NSArray *itemSelectedImages = @[@"tabbar_home_s",@"tabbar_notification_s",@"tabbar_course_s",@"tabbar_more_s"];
-     TabBarViewController *tabar = [[TabBarViewController alloc] init];
-    [tabar setViewcontrollers:viewControllers itemImages:itemImages itemselectedImages:itemSelectedImages titles:titles];
-    LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:tabar];
-    self.nav = nav;
-    self.window.rootViewController = nav;
+   
+    self.nav =[self inNavigationController];
+    self.window.rootViewController = self.nav;
     
     return YES;
 }
@@ -141,5 +129,19 @@
         }
     }
 }
-
+-(UINavigationController *)inNavigationController
+{
+    HomeViewController *homeVC = [HomeViewController new];
+    NotificationViewController *notificationVC = [NotificationViewController new];
+    CourseViewController *courseVC = [CourseViewController new];
+    MoreViewController *moreVC = [MoreViewController new];
+    NSArray *viewControllers = @[homeVC, notificationVC, courseVC, moreVC];
+    NSArray *titles = @[@"首页",@"通知",@"课程",@"更多"];
+    NSArray *itemImages = @[@"tabbar_home",@"tabbar_notification",@"tabbar_course",@"tabbar_more"];
+    NSArray *itemSelectedImages = @[@"tabbar_home_s",@"tabbar_notification_s",@"tabbar_course_s",@"tabbar_more_s"];
+    TabBarViewController *tabar = [[TabBarViewController alloc] init];
+    [tabar setViewcontrollers:viewControllers itemImages:itemImages itemselectedImages:itemSelectedImages titles:titles];
+    LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:tabar];
+    return nav;
+}
 @end
