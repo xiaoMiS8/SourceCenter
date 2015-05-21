@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "bottom_clothes_icon.png"
+      "filename" : "tabbar_notification.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "btn_notice.png"
+      "filename" : "tabbar_notification@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "bottom_clothes_icon@3x.png"
+      "filename" : "tabbar_notification@3x.png"
     }
   ],
   "info" : {

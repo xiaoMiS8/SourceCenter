@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"第二页";
+
 }
 - (IBAction)btnAction:(id)sender {
     ThridViewController *thridVC = [ThridViewController new];

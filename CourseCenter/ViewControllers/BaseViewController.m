@@ -23,7 +23,7 @@
 - (void)setupCustomBack
 {
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"barbuttonItem_back"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     backItem.title = @"";
     self.navigationItem.backBarButtonItem = backItem;
 }

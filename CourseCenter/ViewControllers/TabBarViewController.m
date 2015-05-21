@@ -35,21 +35,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupCustomBack];
+    [self setupCustomBackWithImage:@"barbuttonItem_back" title:@""];
     
 }
 
-- (void)setupCustomBack
+/**
+ *	@brief	设置视图控制器的backBarButtonItem
+ *
+ *	@param 	imagename 	图片
+ *	@param 	title 	标题
+ */
+- (void)setupCustomBackWithImage:(NSString *)imagename title:(NSString *)title
+
 {
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] init];
-    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
-    backItem.title = @"";
+    [backItem setBackButtonBackgroundImage:[UIImage imageNamed:imagename] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    backItem.title = title;
     self.navigationItem.backBarButtonItem = backItem;
 }
 
+/**
+ *	@brief	初始化相关
+ *
+ *	@param 	viewcontrollers 	试图控制器对象数组
+ *	@param 	itemImages 	图片数组
+ *	@param 	itemselectedImages 	高亮图片数组
+ *	@param 	titles 	标题数组
+ */
 - (void)setViewcontrollers:(NSArray *)viewcontrollers itemImages:(NSArray *)itemImages itemselectedImages:(NSArray *)itemselectedImages titles:(NSArray *)titles
+
 {
-    _viewcontrollers = viewcontrollers;
+    self.viewcontrollers = viewcontrollers;
     self.itemImages = itemImages;
     self.itemSelectedImages = itemselectedImages;
     self.itemTitles = titles;
@@ -69,7 +85,11 @@
     [self.tabbar.tabBar setTintColor:color];
 }
 
+/**
+ *	@brief	初始化UITabBarController
+ */
 - (void)initTabbar
+
 {
     self.tabbar = [[UITabBarController alloc] init];
     self.tabbar.delegate = self;
@@ -77,7 +97,11 @@
     [self.view addSubview:self.tabbar.view];
 }
 
+/**
+ *	@brief	设置tabBar.items
+ */
 - (void)setupTabbar
+
 {
    
     self.tabbar.viewControllers = self.viewcontrollers;
@@ -105,11 +129,9 @@
     if (viewController == self.viewcontrollers[0]) {
         [self addCenterandRightItem];
     }
-    
     else if (viewController == self.viewcontrollers[2]) {
         [self addcenterImg];
     }
-    
     else
     {
         [self removeCenterandRightItem];
@@ -118,7 +140,11 @@
     return YES;
 }
 
+/**
+ *	@brief	设置首页navigationItem
+ */
 - (void)addCenterandRightItem
+
 {
     HomeViewController *homeVC = self.viewcontrollers[0];
     if (self.seg == nil) {
@@ -137,19 +163,26 @@
         self.searchBtn = btn;
         
     }
-    
     UIBarButtonItem *searchItem = [[UIBarButtonItem alloc] initWithCustomView:self.searchBtn];
     self.navigationItem.rightBarButtonItem = searchItem;
       self.navigationItem.titleView = self.seg;
 }
-
+/**
+ *	@brief	取消首页navigationItem
+ */
 - (void)removeCenterandRightItem
 {
     self.navigationItem.titleView = nil;
     self.navigationItem.rightBarButtonItem = nil;
 }
 
+
+/**
+ *	@brief	设置课程navigationItem
+ */
 - (void)addcenterImg
+
+
 {
     if (self.centerImg == nil) {
         UIImageView *img = [[UIImageView alloc] init];
@@ -169,7 +202,14 @@
  
 }
 
+/**
+ *	@brief	屏幕翻转后调用
+ *
+ *	@param 	toInterfaceOrientation 	用户界面的新取向
+ *	@param 	duration 	等待旋转的持续时间
+ */
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+
 {
     NSIndexSet *set = [NSIndexSet indexSetWithIndex:toInterfaceOrientation];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AnimateRotationToInterfaceOrientation" object:set];

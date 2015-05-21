@@ -7,7 +7,7 @@
 //
 
 #import "NotificationViewController.h"
-
+#import "NextViewController.h"
 @interface NotificationViewController ()
 
 @end
@@ -17,6 +17,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+- (IBAction)btnAction:(UIButton *)sender {
+    NextViewController *nextVC = [NextViewController new];
+    [((AppDelegate *)app).nav pushViewController:nextVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

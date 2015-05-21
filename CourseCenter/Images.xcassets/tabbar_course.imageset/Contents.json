@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "bottom_bbs_icon.png"
+      "filename" : "tabbar_course.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "btn_microlecture.png"
+      "filename" : "tabbar_course@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "bottom_bbs_icon@3x.png"
+      "filename" : "tabbar_course@3x.png"
     }
   ],
   "info" : {

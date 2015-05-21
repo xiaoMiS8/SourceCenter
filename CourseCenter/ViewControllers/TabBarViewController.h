@@ -24,9 +24,21 @@
  */
 - (void)setViewcontrollers:(NSArray *)viewcontrollers itemImages:(NSArray *)itemImages itemselectedImages:(NSArray *)itemselectedImages titles:(NSArray *)titles;
 
+/**
+ *	@brief	设置tabbar的背景图片
+ *
+ *	@param 	image 	背景图片
+ */
 - (void)settabbarBackgroundImage:(UIImage *)image;
 
+
+/**
+ *	@brief	设置tabBar的按钮上的字体颜色
+ *
+ *	@param 	color 	颜色
+ */
 - (void)settabbarTintColor:(UIColor *)color;
+
 
 
 @end

@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "nav_bg-2.png"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x",
       "filename" : "nav_bg.png"
     },
     {
       "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "nav_bg@2x.png"
+    },
+    {
+      "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "nav_bg-1.png"
+      "filename" : "nav_bg@3x.png"
     }
   ],
   "info" : {

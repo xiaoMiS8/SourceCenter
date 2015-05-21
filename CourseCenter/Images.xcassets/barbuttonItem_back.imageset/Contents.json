@@ -2,16 +2,18 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x"
+      "scale" : "1x",
+      "filename" : "barbuttonItem_back.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "btn_back.png"
+      "filename" : "barbuttonItem_back@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "barbuttonItem_back@3x.png"
     }
   ],
   "info" : {
