@@ -1,22 +1,22 @@
 //
-//  ThridViewController.m
+//  ViewController.m
 //  CourseCenter
 //
-//  Created by renxiaojian on 15/5/19.
+//  Created by renxiaojian on 15/5/26.
 //  Copyright (c) 2015年 line0.com. All rights reserved.
 //
 
-#import "ThridViewController.h"
+#import "ViewController.h"
 
-@interface ThridViewController ()
+@interface ViewController ()
 
 @end
 
-@implementation ThridViewController
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"test";
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

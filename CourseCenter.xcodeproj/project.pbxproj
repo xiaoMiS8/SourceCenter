@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
-		5995E2681B0B3048005F9B93 /* ThridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5995E2661B0B3048005F9B93 /* ThridViewController.m */; };
-		5995E2691B0B3048005F9B93 /* ThridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5995E2671B0B3048005F9B93 /* ThridViewController.xib */; };
+		594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98F91B142DF500A4C3F6 /* ViewController.m */; };
+		594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */; };
+		594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */; };
+		59C478641B14044D008A49BF /* HomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C478621B14044D008A49BF /* HomeListCell.m */; };
+		59C478651B14044D008A49BF /* HomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C478631B14044D008A49BF /* HomeListCell.xib */; };
+		59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C478671B142AF3008A49BF /* HomeDetailViewController.m */; };
+		59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C478681B142AF3008A49BF /* HomeDetailViewController.xib */; };
 		D4B2F2F71B02FA00007B017E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F61B02FA00007B017E /* main.m */; };
 		D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F91B02FA00007B017E /* AppDelegate.m */; };
 		D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2FB1B02FA00007B017E /* CourseCenter.xcdatamodeld */; };
@@ -30,8 +35,6 @@
 		D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B2F3481B02FEDA007B017E /* CourseViewController.xib */; };
 		D4B2F34E1B02FEEB007B017E /* MoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F34C1B02FEEB007B017E /* MoreViewController.m */; };
 		D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B2F34D1B02FEEB007B017E /* MoreViewController.xib */; };
-		D4B2F3571B0311EB007B017E /* NextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3551B0311EB007B017E /* NextViewController.m */; };
-		D4B2F3581B0311EB007B017E /* NextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B2F3561B0311EB007B017E /* NextViewController.xib */; };
 		D4B2F35B1B032C36007B017E /* LineNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F35A1B032C36007B017E /* LineNavigationController.m */; };
 		D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F35D1B0339AC007B017E /* UIColor+ColorExtension.m */; };
 		D4B2F3641B033B34007B017E /* Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3631B033B34007B017E /* Tool.m */; };
@@ -97,9 +100,17 @@
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
 		374BA7371B048C5100DBA477 /* UIView+HandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HandleView.m"; sourceTree = "<group>"; };
-		5995E2651B0B3048005F9B93 /* ThridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThridViewController.h; sourceTree = "<group>"; };
-		5995E2661B0B3048005F9B93 /* ThridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThridViewController.m; sourceTree = "<group>"; };
-		5995E2671B0B3048005F9B93 /* ThridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThridViewController.xib; sourceTree = "<group>"; };
+		594C98F81B142DF500A4C3F6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		594C98F91B142DF500A4C3F6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		594C98FB1B1442AE00A4C3F6 /* CourseSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSearchViewController.h; sourceTree = "<group>"; };
+		594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSearchViewController.m; sourceTree = "<group>"; };
+		594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseSearchViewController.xib; sourceTree = "<group>"; };
+		59C478611B14044D008A49BF /* HomeListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListCell.h; sourceTree = "<group>"; };
+		59C478621B14044D008A49BF /* HomeListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListCell.m; sourceTree = "<group>"; };
+		59C478631B14044D008A49BF /* HomeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeListCell.xib; sourceTree = "<group>"; };
+		59C478661B142AF3008A49BF /* HomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailViewController.h; sourceTree = "<group>"; };
+		59C478671B142AF3008A49BF /* HomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailViewController.m; sourceTree = "<group>"; };
+		59C478681B142AF3008A49BF /* HomeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailViewController.xib; sourceTree = "<group>"; };
 		D4B2F2F11B02FA00007B017E /* CourseCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B2F2F51B02FA00007B017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B2F2F61B02FA00007B017E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -132,9 +143,6 @@
 		D4B2F34D1B02FEEB007B017E /* MoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreViewController.xib; sourceTree = "<group>"; };
 		D4B2F3521B02FF87007B017E /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		D4B2F3531B030A6A007B017E /* CoureCenterPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoureCenterPrefixHeader.pch; sourceTree = "<group>"; };
-		D4B2F3541B0311EB007B017E /* NextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextViewController.h; sourceTree = "<group>"; };
-		D4B2F3551B0311EB007B017E /* NextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextViewController.m; sourceTree = "<group>"; };
-		D4B2F3561B0311EB007B017E /* NextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NextViewController.xib; sourceTree = "<group>"; };
 		D4B2F3591B032C36007B017E /* LineNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineNavigationController.h; sourceTree = "<group>"; };
 		D4B2F35A1B032C36007B017E /* LineNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineNavigationController.m; sourceTree = "<group>"; };
 		D4B2F35C1B0339AC007B017E /* UIColor+ColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorExtension.h"; sourceTree = "<group>"; };
@@ -362,6 +370,8 @@
 		D4B2F3211B02FB2E007B017E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				594C98F81B142DF500A4C3F6 /* ViewController.h */,
+				594C98F91B142DF500A4C3F6 /* ViewController.m */,
 				D4B2F3291B02FC03007B017E /* TabBarViewController.h */,
 				D4B2F32A1B02FC03007B017E /* TabBarViewController.m */,
 				D4B2F32B1B02FC03007B017E /* TabBarViewController.xib */,
@@ -389,6 +399,9 @@
 		D4B2F3231B02FB2E007B017E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				59C478611B14044D008A49BF /* HomeListCell.h */,
+				59C478621B14044D008A49BF /* HomeListCell.m */,
+				59C478631B14044D008A49BF /* HomeListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -409,12 +422,12 @@
 				D4B2F33A1B02FE75007B017E /* HomeViewController.h */,
 				D4B2F33B1B02FE75007B017E /* HomeViewController.m */,
 				D4B2F33C1B02FE75007B017E /* HomeViewController.xib */,
-				D4B2F3541B0311EB007B017E /* NextViewController.h */,
-				D4B2F3551B0311EB007B017E /* NextViewController.m */,
-				D4B2F3561B0311EB007B017E /* NextViewController.xib */,
-				5995E2651B0B3048005F9B93 /* ThridViewController.h */,
-				5995E2661B0B3048005F9B93 /* ThridViewController.m */,
-				5995E2671B0B3048005F9B93 /* ThridViewController.xib */,
+				59C478661B142AF3008A49BF /* HomeDetailViewController.h */,
+				59C478671B142AF3008A49BF /* HomeDetailViewController.m */,
+				59C478681B142AF3008A49BF /* HomeDetailViewController.xib */,
+				594C98FB1B1442AE00A4C3F6 /* CourseSearchViewController.h */,
+				594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */,
+				594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -650,17 +663,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
+				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
 				D4B2F3031B02FA00007B017E /* Main.storyboard in Resources */,
+				59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */,
 				D4B2F3081B02FA00007B017E /* LaunchScreen.xib in Resources */,
 				D4B2F3321B02FD8D007B017E /* BaseViewController.xib in Resources */,
 				D4B2F3051B02FA00007B017E /* Images.xcassets in Resources */,
 				D4B2F3401B02FE75007B017E /* HomeViewController.xib in Resources */,
 				D4B2F3DF1B034265007B017E /* MJRefresh.bundle in Resources */,
 				D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */,
+				594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */,
 				D4B2F3451B02FEC0007B017E /* NotificationViewController.xib in Resources */,
-				5995E2691B0B3048005F9B93 /* ThridViewController.xib in Resources */,
-				D4B2F3581B0311EB007B017E /* NextViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +703,7 @@
 				D4B2F3441B02FEC0007B017E /* NotificationViewController.m in Sources */,
 				D4B2F3ED1B034265007B017E /* SDImageCache.m in Sources */,
 				D4B2F3941B033E51007B017E /* AFHTTPRequestOperationManager.m in Sources */,
+				594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */,
 				D4B2F3EC1B034265007B017E /* NSData+ImageContentType.m in Sources */,
 				D4B2F3491B02FEDA007B017E /* CourseViewController.m in Sources */,
 				D4B2F3981B033E51007B017E /* AFURLConnectionOperation.m in Sources */,
@@ -700,6 +715,7 @@
 				D4B2F3311B02FD8D007B017E /* BaseViewController.m in Sources */,
 				D4B2F3991B033E51007B017E /* AFURLRequestSerialization.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
+				594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */,
 				D4B2F35B1B032C36007B017E /* LineNavigationController.m in Sources */,
 				D4B2F3E61B034265007B017E /* MJRefreshLegendFooter.m in Sources */,
 				D4B2F3951B033E51007B017E /* AFHTTPSessionManager.m in Sources */,
@@ -708,12 +724,10 @@
 				D4B2F34E1B02FEEB007B017E /* MoreViewController.m in Sources */,
 				374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */,
 				D4B2F3F51B034265007B017E /* UIImage+GIF.m in Sources */,
-				5995E2681B0B3048005F9B93 /* ThridViewController.m in Sources */,
 				D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */,
 				D4B2F39C1B033E51007B017E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D4B2F3F61B034265007B017E /* UIImage+MultiFormat.m in Sources */,
 				D4B2F3971B033E51007B017E /* AFSecurityPolicy.m in Sources */,
-				D4B2F3571B0311EB007B017E /* NextViewController.m in Sources */,
 				D4B2F3A01B033E51007B017E /* UIImageView+AFNetworking.m in Sources */,
 				D4B2F3F21B034265007B017E /* SDWebImageManager.m in Sources */,
 				D4B2F3EF1B034265007B017E /* SDWebImageDecoder.m in Sources */,
@@ -728,6 +742,7 @@
 				D4B2F39E1B033E51007B017E /* UIAlertView+AFNetworking.m in Sources */,
 				D4B2F3E11B034265007B017E /* MJRefreshConst.m in Sources */,
 				D4B2F3E31B034265007B017E /* MJRefreshGifFooter.m in Sources */,
+				59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */,
 				D4B2F3F31B034265007B017E /* SDWebImagePrefetcher.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
 				D4B2F2F71B02FA00007B017E /* main.m in Sources */,
@@ -736,6 +751,7 @@
 				D4B2F3E51B034265007B017E /* MJRefreshHeader.m in Sources */,
 				D4B2F39A1B033E51007B017E /* AFURLResponseSerialization.m in Sources */,
 				D4B2F39F1B033E51007B017E /* UIButton+AFNetworking.m in Sources */,
+				59C478641B14044D008A49BF /* HomeListCell.m in Sources */,
 				D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */,
 				D4B2F3E01B034265007B017E /* MJRefreshComponent.m in Sources */,
 			);

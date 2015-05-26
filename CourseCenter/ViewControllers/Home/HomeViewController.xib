@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="courseSelectLabel" destination="0Ss-cw-HUC" id="1HQ-9G-v7T"/>
+                <outlet property="tableView" destination="tZ2-cc-rFp" id="3Dt-Td-DeB"/>
+                <outlet property="topView" destination="4HX-tA-X7b" id="hxf-SE-Sff"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,17 +18,51 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fz3-ly-xGh">
-                    <rect key="frame" x="93" y="103" width="46" height="30"/>
-                    <state key="normal" title="好">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Hmx-Fy-er4">
+                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                </activityIndicatorView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4HX-tA-X7b">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ss-cw-HUC">
+                            <rect key="frame" x="20" y="9" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="0uB-rC-8ln"/>
+                        <constraint firstItem="0Ss-cw-HUC" firstAttribute="leading" secondItem="4HX-tA-X7b" secondAttribute="leading" constant="20" id="Z3V-dD-ohd"/>
+                        <constraint firstAttribute="centerY" secondItem="0Ss-cw-HUC" secondAttribute="centerY" id="cH4-pL-AL6"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tZ2-cc-rFp">
+                    <rect key="frame" x="0.0" y="40" width="600" height="511"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <action selector="btnAction:" destination="-1" eventType="touchUpInside" id="rME-sa-ypm"/>
+                        <outlet property="dataSource" destination="-1" id="ef0-2L-Bf8"/>
+                        <outlet property="delegate" destination="-1" id="fcq-9b-7LH"/>
                     </connections>
-                </button>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="4HX-tA-X7b" secondAttribute="trailing" id="6NY-XU-lDI"/>
+                <constraint firstAttribute="trailing" secondItem="tZ2-cc-rFp" secondAttribute="trailing" id="BOP-aB-khw"/>
+                <constraint firstItem="4HX-tA-X7b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Vch-Ka-Ohr"/>
+                <constraint firstItem="tZ2-cc-rFp" firstAttribute="top" secondItem="4HX-tA-X7b" secondAttribute="bottom" id="c0A-Xh-Jzq"/>
+                <constraint firstItem="tZ2-cc-rFp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dhh-dl-obn"/>
+                <constraint firstItem="tZ2-cc-rFp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jAJ-ol-Rsk"/>
+                <constraint firstAttribute="bottom" secondItem="tZ2-cc-rFp" secondAttribute="bottom" constant="49" id="qv1-s8-2ff"/>
+                <constraint firstItem="4HX-tA-X7b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tbk-vC-mdZ"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="jAJ-ol-Rsk"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
