@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"第三页";
+    self.title = @"test";
 }
 
 - (void)didReceiveMemoryWarning {
