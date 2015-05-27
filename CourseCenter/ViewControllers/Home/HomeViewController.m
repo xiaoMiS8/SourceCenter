@@ -10,10 +10,13 @@
 #import "HomeListCell.h"
 #import "HomeDetailViewController.h"
 #import "CourseSearchViewController.h"
+#import "LoginViewController.h"
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UILabel *courseSelectLabel;
+@property (weak, nonatomic) IBOutlet UILabel *loginPrompt;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 
 @property(nonatomic, assign) CGFloat startY;
 
@@ -24,10 +27,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupTableView];
+    _loginBtn.layer.masksToBounds=YES;
+    _loginBtn.layer.cornerRadius=5;
     self.courseSelectLabel.text = @"推荐课程";
-
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSString *loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
+    if (![loginState isEqualToString:@"1"]) {
+       [_tableView removeFromSuperview];
+    }
+}
+- (IBAction)gotoLogin:(UIButton *)sender {
+    LoginViewController *loginSearchVC = [LoginViewController new];
+    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+}
 
 - (void)setSeg:(UISegmentedControl *)seg
 {
