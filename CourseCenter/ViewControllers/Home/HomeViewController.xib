@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
                 <outlet property="courseSelectLabel" destination="0Ss-cw-HUC" id="1HQ-9G-v7T"/>
+                <outlet property="loginBtn" destination="okJ-0U-ZG5" id="rnO-dA-Icj"/>
+                <outlet property="loginPrompt" destination="Sgt-JY-r7W" id="Hpg-dO-HyW"/>
                 <outlet property="tableView" destination="tZ2-cc-rFp" id="3Dt-Td-DeB"/>
                 <outlet property="topView" destination="4HX-tA-X7b" id="hxf-SE-Sff"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -18,6 +19,27 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你还没有登录哦！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgt-JY-r7W">
+                    <rect key="frame" x="0.0" y="291" width="600" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okJ-0U-ZG5">
+                    <rect key="frame" x="235" y="314" width="130" height="50"/>
+                    <color key="backgroundColor" red="0.12172352693698529" green="0.73243667317415617" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ObY-lY-sEy"/>
+                        <constraint firstAttribute="width" constant="130" id="X14-d6-qbh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <state key="normal" title="登录">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="gotoLogin:" destination="-1" eventType="touchUpInside" id="89R-gM-vjf"/>
+                    </connections>
+                </button>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Hmx-Fy-er4">
                     <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
                 </activityIndicatorView>
@@ -49,14 +71,20 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Sgt-JY-r7W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="598-N9-1pg"/>
                 <constraint firstAttribute="trailing" secondItem="4HX-tA-X7b" secondAttribute="trailing" id="6NY-XU-lDI"/>
+                <constraint firstAttribute="centerX" secondItem="Sgt-JY-r7W" secondAttribute="centerX" id="Aah-BA-0P6"/>
                 <constraint firstAttribute="trailing" secondItem="tZ2-cc-rFp" secondAttribute="trailing" id="BOP-aB-khw"/>
+                <constraint firstItem="okJ-0U-ZG5" firstAttribute="top" secondItem="Sgt-JY-r7W" secondAttribute="bottom" constant="5" id="OTa-f3-u12"/>
+                <constraint firstAttribute="centerY" secondItem="Sgt-JY-r7W" secondAttribute="centerY" id="Tpu-eF-UE9"/>
                 <constraint firstItem="4HX-tA-X7b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Vch-Ka-Ohr"/>
+                <constraint firstAttribute="trailing" secondItem="Sgt-JY-r7W" secondAttribute="trailing" id="WHA-9n-NWU"/>
                 <constraint firstItem="tZ2-cc-rFp" firstAttribute="top" secondItem="4HX-tA-X7b" secondAttribute="bottom" id="c0A-Xh-Jzq"/>
                 <constraint firstItem="tZ2-cc-rFp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dhh-dl-obn"/>
                 <constraint firstItem="tZ2-cc-rFp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jAJ-ol-Rsk"/>
                 <constraint firstAttribute="bottom" secondItem="tZ2-cc-rFp" secondAttribute="bottom" constant="49" id="qv1-s8-2ff"/>
                 <constraint firstItem="4HX-tA-X7b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tbk-vC-mdZ"/>
+                <constraint firstAttribute="centerX" secondItem="okJ-0U-ZG5" secondAttribute="centerX" id="ysZ-Jl-JfI"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
