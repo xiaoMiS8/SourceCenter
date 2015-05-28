@@ -86,25 +86,25 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0Q-D2-G63">
-                                <rect key="frame" x="2" y="172" width="42" height="21"/>
+                                <rect key="frame" x="8" y="172" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DW5-3b-lmQ">
-                                <rect key="frame" x="260" y="201" width="42" height="21"/>
+                                <rect key="frame" x="254" y="201" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zml-71-Zg2">
-                                <rect key="frame" x="216" y="201" width="42" height="21"/>
+                                <rect key="frame" x="210" y="201" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLm-5d-2vx">
-                                <rect key="frame" x="2" y="201" width="42" height="21"/>
+                                <rect key="frame" x="8" y="201" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -121,8 +121,8 @@
                             <constraint firstItem="Ri1-dH-JH2" firstAttribute="top" secondItem="Lm4-5u-uMR" secondAttribute="top" id="Ufu-Jo-ufi"/>
                             <constraint firstItem="mLm-5d-2vx" firstAttribute="top" secondItem="q0Q-D2-G63" secondAttribute="bottom" constant="8" id="aml-Gb-yHx"/>
                             <constraint firstItem="Zml-71-Zg2" firstAttribute="centerY" secondItem="DW5-3b-lmQ" secondAttribute="centerY" id="iPP-oB-OOm"/>
-                            <constraint firstAttribute="trailing" secondItem="DW5-3b-lmQ" secondAttribute="trailing" constant="2" id="k7m-f8-pgs"/>
-                            <constraint firstItem="q0Q-D2-G63" firstAttribute="leading" secondItem="Lm4-5u-uMR" secondAttribute="leading" constant="2" id="qBb-Fq-bOC"/>
+                            <constraint firstAttribute="trailing" secondItem="DW5-3b-lmQ" secondAttribute="trailing" constant="8" id="k7m-f8-pgs"/>
+                            <constraint firstItem="q0Q-D2-G63" firstAttribute="leading" secondItem="Lm4-5u-uMR" secondAttribute="leading" constant="8" id="qBb-Fq-bOC"/>
                             <constraint firstItem="Ri1-dH-JH2" firstAttribute="leading" secondItem="Lm4-5u-uMR" secondAttribute="leading" id="qLq-RD-f9Q"/>
                             <constraint firstItem="mLm-5d-2vx" firstAttribute="leading" secondItem="q0Q-D2-G63" secondAttribute="leading" id="uM5-N7-NIF"/>
                             <constraint firstItem="Ri1-dH-JH2" firstAttribute="leading" secondItem="Lm4-5u-uMR" secondAttribute="leading" id="uo7-3v-Miw"/>

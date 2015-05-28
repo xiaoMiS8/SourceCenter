@@ -102,7 +102,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
-    if (offsetY - _startY > 3) {
+    if (offsetY - _startY > 10) {
         for (NSLayoutConstraint *constraint in self.view.constraints) {
             if (constraint.firstItem == self.topView &&
                 constraint.firstAttribute == NSLayoutAttributeTop) {
@@ -114,7 +114,7 @@
             [self.view updateConstraintsIfNeeded];
         }];
     }
-    else if (offsetY - _startY < -3)
+    else if (offsetY - _startY < -10)
     {
         for (NSLayoutConstraint *constraint in self.view.constraints) {
             if (constraint.firstItem == self.topView &&
