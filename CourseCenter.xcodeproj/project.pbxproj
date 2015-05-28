@@ -26,6 +26,9 @@
 		594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98F91B142DF500A4C3F6 /* ViewController.m */; };
 		594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */; };
 		594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */; };
+		599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599A5B7B1B16C09A005597AE /* NotificationListCell.m */; };
+		599A5B7E1B16C09A005597AE /* NotificationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599A5B7C1B16C09A005597AE /* NotificationListCell.xib */; };
+		599A5B811B16FC73005597AE /* NotificationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 599A5B801B16FC73005597AE /* NotificationInfo.m */; };
 		59C478641B14044D008A49BF /* HomeListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C478621B14044D008A49BF /* HomeListCell.m */; };
 		59C478651B14044D008A49BF /* HomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C478631B14044D008A49BF /* HomeListCell.xib */; };
 		59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C478671B142AF3008A49BF /* HomeDetailViewController.m */; };
@@ -147,6 +150,12 @@
 		594C98FB1B1442AE00A4C3F6 /* CourseSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSearchViewController.h; sourceTree = "<group>"; };
 		594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSearchViewController.m; sourceTree = "<group>"; };
 		594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseSearchViewController.xib; sourceTree = "<group>"; };
+		599A5B7A1B16C09A005597AE /* NotificationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationListCell.h; sourceTree = "<group>"; };
+		599A5B7B1B16C09A005597AE /* NotificationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationListCell.m; sourceTree = "<group>"; };
+		599A5B7C1B16C09A005597AE /* NotificationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationListCell.xib; sourceTree = "<group>"; };
+		599A5B7F1B16FC73005597AE /* NotificationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationInfo.h; sourceTree = "<group>"; };
+		599A5B801B16FC73005597AE /* NotificationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationInfo.m; sourceTree = "<group>"; };
+		599A5B821B1701C9005597AE /* FontHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontHeader.h; sourceTree = "<group>"; };
 		59C478611B14044D008A49BF /* HomeListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeListCell.h; sourceTree = "<group>"; };
 		59C478621B14044D008A49BF /* HomeListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeListCell.m; sourceTree = "<group>"; };
 		59C478631B14044D008A49BF /* HomeListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeListCell.xib; sourceTree = "<group>"; };
@@ -428,6 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				D4B2F3521B02FF87007B017E /* Header.h */,
+				599A5B821B1701C9005597AE /* FontHeader.h */,
 			);
 			path = headers;
 			sourceTree = "<group>";
@@ -488,6 +498,11 @@
 				59C478611B14044D008A49BF /* HomeListCell.h */,
 				59C478621B14044D008A49BF /* HomeListCell.m */,
 				59C478631B14044D008A49BF /* HomeListCell.xib */,
+				599A5B7F1B16FC73005597AE /* NotificationInfo.h */,
+				599A5B801B16FC73005597AE /* NotificationInfo.m */,
+				599A5B7A1B16C09A005597AE /* NotificationListCell.h */,
+				599A5B7B1B16C09A005597AE /* NotificationListCell.m */,
+				599A5B7C1B16C09A005597AE /* NotificationListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -748,6 +763,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				599A5B7E1B16C09A005597AE /* NotificationListCell.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
@@ -782,6 +798,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B2F3E71B034265007B017E /* MJRefreshLegendHeader.m in Sources */,
+				599A5B811B16FC73005597AE /* NotificationInfo.m in Sources */,
 				D4B2F3F71B034265007B017E /* UIImage+WebP.m in Sources */,
 				D4B2F3F41B034265007B017E /* UIButton+WebCache.m in Sources */,
 				D4B2F3A11B033E51007B017E /* UIProgressView+AFNetworking.m in Sources */,
@@ -837,6 +854,7 @@
 				042E75E21B16148A00396AAF /* IQTitleBarButtonItem.m in Sources */,
 				D4B2F39E1B033E51007B017E /* UIAlertView+AFNetworking.m in Sources */,
 				D4B2F3E11B034265007B017E /* MJRefreshConst.m in Sources */,
+				599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */,
 				D4B2F3E31B034265007B017E /* MJRefreshGifFooter.m in Sources */,
 				59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */,
 				042E75DF1B16148A00396AAF /* IQKeyboardManager.m in Sources */,

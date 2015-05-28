@@ -7,22 +7,66 @@
 //
 
 #import "NotificationViewController.h"
-
+#import "NotificationListCell.h"
+#import "NotificationInfo.h"
 @interface NotificationViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
 @implementation NotificationViewController
 
+
+- (void)setAddBtn:(UIButton *)addBtn {
+    _addBtn = addBtn;
+    [addBtn addTarget:self
+               action:@selector(addBtnAction:)
+     forControlEvents:UIControlEventTouchUpInside];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self setupCell];
+    
+}
+
+- (void)setupCell {
+    [self.tableView registerClass:[NotificationListCell class] forCellReuseIdentifier:@"NotificationListCell"];
+}
+
+    //添加通知
+- (void)addBtnAction:(id)sender {
+    
+}
+
+#pragma mark- UITableViewDelegate && UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 6;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NotificationListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationListCell"];
+    NotificationInfo *notification = [[NotificationInfo alloc] init];
+    cell.notification = notification;
+    return cell.cellHeight;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NotificationListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationListCell"];
+    NotificationInfo *notification = [[NotificationInfo alloc] init];
+    cell.notification = notification;
+    return cell;
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
 }
 
 /*
