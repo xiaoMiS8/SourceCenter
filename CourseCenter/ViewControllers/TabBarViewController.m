@@ -9,6 +9,7 @@
 #import "TabBarViewController.h"
 #import "HomeViewController.h"
 #import "CourseViewController.h"
+#import "NotificationViewController.h"
 @interface TabBarViewController ()<UITabBarControllerDelegate>
 
 @property(nonatomic, strong) NSArray *viewcontrollers;
@@ -18,6 +19,7 @@
 @property(nonatomic, strong) UISegmentedControl *seg;
 @property(nonatomic, strong) UIImageView *centerImg;
 @property(nonatomic, strong) UIButton *searchBtn;
+@property(nonatomic, strong) UIButton *addBtn;
 
 @end
 
@@ -129,12 +131,20 @@
     if (viewController == self.viewcontrollers[0]) {
         [self addCenterandRightItem];
     }
+    else if (viewController == self.viewcontrollers[1]) {
+        [self removeCenterandRightItem];
+        [self addNotificationRightItem];
+        
+    }
     else if (viewController == self.viewcontrollers[2]) {
+        [self removeNotificationRightItem];
         [self addcenterImg];
+        
     }
     else
     {
         [self removeCenterandRightItem];
+        [self removeNotificationRightItem];
     }
     
     return YES;
@@ -165,8 +175,30 @@
     }
     UIBarButtonItem *searchItem = [[UIBarButtonItem alloc] initWithCustomView:self.searchBtn];
     self.navigationItem.rightBarButtonItem = searchItem;
-      self.navigationItem.titleView = self.seg;
+    self.navigationItem.titleView = self.seg;
 }
+
+/**
+ *  添加通知界面右Item
+ */
+- (void)addNotificationRightItem {
+    NotificationViewController *notificationVC = self.viewcontrollers[1];
+    if (self.addBtn == nil) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.bounds = CGRectMake(0, 0, 30, 30);
+        [btn setBackgroundImage:[UIImage imageNamed:@"notification_add"] forState:UIControlStateNormal];
+        notificationVC.addBtn = btn;
+        self.addBtn = btn;
+    }
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithCustomView:self.addBtn];
+    self.navigationItem.rightBarButtonItem = addItem;
+}
+
+- (void)removeNotificationRightItem {
+    self.navigationItem.titleView = nil;
+    self.navigationItem.rightBarButtonItem = nil;
+}
+
 /**
  *	@brief	取消首页navigationItem
  */
@@ -197,11 +229,6 @@
  
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
- 
-}
-
 /**
  *	@brief	屏幕翻转后调用
  *
@@ -214,6 +241,12 @@
     NSIndexSet *set = [NSIndexSet indexSetWithIndex:toInterfaceOrientation];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AnimateRotationToInterfaceOrientation" object:set];
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+ 
+}
+
 
 
 
