@@ -7,6 +7,7 @@
 //
 
 #import "NotificationListCell.h"
+#import "UIImageView+WebCache.h"
 
 #define margin              8.0
 #define margin_left         10
@@ -46,9 +47,9 @@
 
     //得到字符串的size
 - (CGSize)getSizeWithString:(NSString *)string
-                       font:(UIFont *)font {
-    CGSize size = [string boundingRectWithSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:@{NSFontAttributeName: font} context:nil].size;
-    return size;
+                       font:(UIFont *)font size:(CGSize)size {
+    CGSize stringSize = [string boundingRectWithSize:size options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:@{NSFontAttributeName: font} context:nil].size;
+    return stringSize;
 }
 
 - (void)initView {
@@ -82,22 +83,22 @@
 
 - (void)setNotification:(NotificationInfo *)notification {
     _notification = notification;
-    CGSize nameSize = [self getSizeWithString:notification.name font:self.nameLabel.font];
+    CGSize nameSize = [self getSizeWithString:notification.name font:self.nameLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
     CGRect nameRect = (CGRect){{CGRectGetMaxX(self.picImg.frame) + margin, CGRectGetMinY(self.picImg.frame) + 4}, nameSize};
     self.nameLabel.frame = nameRect;
     self.nameLabel.text = notification.name;
     
-    CGSize dateSize = [self getSizeWithString:notification.date font:self.dateLabel.font];
+    CGSize dateSize = [self getSizeWithString:notification.date font:self.dateLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
     CGRect dateRect = (CGRect){{CGRectGetMinX(nameRect),CGRectGetMaxY(nameRect) + margin_up}, dateSize};
     self.dateLabel.frame = dateRect;
     self.dateLabel.text = notification.date;
     
-    CGSize titleSize = [self getSizeWithString:notification.title font:self.titleLabel.font];
+    CGSize titleSize = [self getSizeWithString:notification.title font:self.titleLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
     CGRect titleRect = (CGRect){{margin_left,CGRectGetMaxY(self.picImg.frame) + margin_up},titleSize};
     self.titleLabel.frame = titleRect;
     self.titleLabel.text = notification.title;
     
-    CGSize messageSize = [self getSizeWithString:notification.message font:self.messageLabel.font];
+    CGSize messageSize = [self getSizeWithString:notification.message font:self.messageLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
     CGRect messageRect = (CGRect){{margin_left, CGRectGetMaxY(titleRect) + margin},messageSize};
     self.messageLabel.text = notification.message;
     self.messageLabel.frame = messageRect;
@@ -109,11 +110,13 @@
         img = nil;
     }
     for (int i=0; i<notification.imgs.count; i++) {
+        imgInfo *imgInfo = notification.imgs[i];
         int row = i % 3;
         int lon = i / 3;
         UIImageView *imgView = [[UIImageView alloc] init];
         imgView.backgroundColor = [UIColor redColor];
         imgView.frame = CGRectMake(margin_left + row * (imgWidth + margin_up), CGRectGetMaxY(messageRect) + margin + lon * (margin_up + imgWidth), imgWidth, imgWidth);
+        [imgView sd_setImageWithURL:[NSURL URLWithString:imgInfo.url]];
         [self.contentView addSubview:imgView];
         self.cellHeight = CGRectGetMaxY(imgView.frame) + margin_bom;
         [self.imgs addObject:imgView];
@@ -122,7 +125,7 @@
     if (notification.items && notification.items.count > 0) {
         if (self.lineLabel == nil) {
             UILabel *lineLabel = [[UILabel alloc] init];
-            lineLabel.backgroundColor = [UIColor redColor];
+            lineLabel.backgroundColor = [UIColor grayColor];
             [self.contentView addSubview:lineLabel];
             self.lineLabel = lineLabel;
         }
@@ -141,8 +144,8 @@
             self.commentLabel = commentAmountLabel;
            
         }
-        NSString *commentAmount = @"20条评论";
-        CGSize size = [self getSizeWithString:commentAmount font:self.commentLabel.font];
+        NSString *commentAmount = [NSString stringWithFormat:@"%ld条评论",notification.items.count];
+        CGSize size = [self getSizeWithString:commentAmount font:self.commentLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
         CGRect commentRect = (CGRect){{CGRectGetMaxX(self.iconImg.frame) + margin_up, CGRectGetMinY(self.iconImg.frame)}, size};
         self.commentLabel.frame = commentRect;
         self.commentLabel.text = commentAmount;
@@ -153,19 +156,27 @@
             view = nil;
         }
         for (int i=0; i<notification.items.count; i++) {
+            
+            Item *item = notification.items[i];
             UIView *bgView = [[UIView alloc] init];
-            bgView.backgroundColor = [UIColor brownColor];
+//            bgView.backgroundColor = [UIColor brownColor];
             [self.contentView addSubview:bgView];
             UILabel *label = [[UILabel alloc] init];
             label.font = Font_12;
             label.numberOfLines = 0;
             [bgView addSubview:label];
-            CGSize size = [self getSizeWithString:notification.items[i] font:label.font];
-            CGRect rect = (CGRect){{margin_left,self.cellHeight
+            NSString *string = nil;
+            if (item.toName == nil) {
+                string = [NSString stringWithFormat:@"%@：%@",item.itemName,item.itemContent];
+            } else {
+                string = [NSString stringWithFormat:@"%@：@%@ %@",item.itemName,item.toName,item.itemContent];
+            }
+            CGSize size = [self getSizeWithString:string font:label.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 40, CGFLOAT_MAX)];
+            CGRect rect = (CGRect){{margin_left * 3,self.cellHeight
             },size};
             bgView.frame = rect;
             label.frame = (CGRect){{0,0},size};
-            label.text = notification.items[i];
+            label.text = string;
             self.cellHeight = CGRectGetMaxY(bgView.frame) + margin;
             [self.items addObject:bgView];
         }

@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+#define kname       @"name"
+#define kdate       @"date"
+#define ktitle      @"title"
+#define kmessage    @"message"
+#define kimgs       @"imgs"
+#define kitems      @"items"
+
 @interface NotificationInfo : NSObject
 
 @property(nonatomic, strong) NSString *name;
@@ -17,5 +24,21 @@
 @property(nonatomic, strong) NSArray *imgs;
 @property(nonatomic, strong) NSArray *items;
 
+- (id)initDict:(NSDictionary *)dict;
+
+
+@end
+
+@interface Item : NSObject
+
+@property(nonatomic, strong) NSString *itemContent;
+@property(nonatomic, strong) NSString *itemName;
+@property(nonatomic, strong) NSString *toName;
+
+@end
+
+@interface imgInfo : NSObject
+
+@property(nonatomic, strong) NSString *url;
 
 @end

@@ -33,6 +33,7 @@
 		59C478651B14044D008A49BF /* HomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C478631B14044D008A49BF /* HomeListCell.xib */; };
 		59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C478671B142AF3008A49BF /* HomeDetailViewController.m */; };
 		59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C478681B142AF3008A49BF /* HomeDetailViewController.xib */; };
+		59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 59EC888A1B180DD3009495A6 /* notificationInfos.plist */; };
 		D4B2F2F71B02FA00007B017E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F61B02FA00007B017E /* main.m */; };
 		D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F91B02FA00007B017E /* AppDelegate.m */; };
 		D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2FB1B02FA00007B017E /* CourseCenter.xcdatamodeld */; };
@@ -162,6 +163,7 @@
 		59C478661B142AF3008A49BF /* HomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailViewController.h; sourceTree = "<group>"; };
 		59C478671B142AF3008A49BF /* HomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailViewController.m; sourceTree = "<group>"; };
 		59C478681B142AF3008A49BF /* HomeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailViewController.xib; sourceTree = "<group>"; };
+		59EC888A1B180DD3009495A6 /* notificationInfos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = notificationInfos.plist; sourceTree = "<group>"; };
 		D4B2F2F11B02FA00007B017E /* CourseCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B2F2F51B02FA00007B017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B2F2F61B02FA00007B017E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -498,6 +500,7 @@
 				59C478611B14044D008A49BF /* HomeListCell.h */,
 				59C478621B14044D008A49BF /* HomeListCell.m */,
 				59C478631B14044D008A49BF /* HomeListCell.xib */,
+				59EC888A1B180DD3009495A6 /* notificationInfos.plist */,
 				599A5B7F1B16FC73005597AE /* NotificationInfo.h */,
 				599A5B801B16FC73005597AE /* NotificationInfo.m */,
 				599A5B7A1B16C09A005597AE /* NotificationListCell.h */,
@@ -768,6 +771,7 @@
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
+				59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */,
 				D4B2F3031B02FA00007B017E /* Main.storyboard in Resources */,
 				59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */,
 				042E75DE1B16148A00396AAF /* IQKeyboardManager.bundle in Resources */,
