@@ -28,7 +28,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupCell];
+    [self setupTable];
+    [self loadData];
+    
+}
+
+- (void)loadData
+{
     self.notis = [[NSMutableArray alloc] init];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"notificationInfos" ofType:@"plist"];
     NSArray *array = [NSArray arrayWithContentsOfFile:path];
@@ -36,7 +42,13 @@
         NotificationInfo *not = [[NotificationInfo alloc] initDict:array[i]];
         [self.notis addObject:not];
     }
-    
+}
+
+- (void)setupTable
+{
+     self.tableView.backgroundColor = [Tool bgColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+     [self setupCell];
 }
 
 - (void)setupCell {
