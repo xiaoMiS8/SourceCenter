@@ -9,6 +9,7 @@
 #import "NotificationViewController.h"
 #import "NotificationListCell.h"
 #import "NotificationInfo.h"
+#import "NotiDetailViewController.h"
 @interface NotificationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -81,6 +82,12 @@
     cell.notification = self.notis[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NotiDetailViewController *notiDetailVC = [[NotiDetailViewController alloc] init];
+    notiDetailVC.notification = self.notis[indexPath.row];
+    [((AppDelegate *)app).nav pushViewController:notiDetailVC animated:YES];
 }
 
 
