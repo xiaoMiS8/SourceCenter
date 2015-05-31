@@ -10,7 +10,7 @@
 
 @interface HomeViewController : BaseViewController
 
-@property(nonatomic, strong) UISegmentedControl *seg;
-@property(nonatomic, strong) UIButton *searchBtn;
+@property(nonatomic, strong) UISegmentedControl *seg;//分栏控件
+@property(nonatomic, strong) UIButton *searchBtn;//搜素按钮
 
 @end

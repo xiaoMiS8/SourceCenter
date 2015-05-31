@@ -34,8 +34,12 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     NSString *loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
-    if (![loginState isEqualToString:@"1"]) {
+    if ([loginState isEqualToString:@"1"]) {
        [_tableView removeFromSuperview];
+    }else
+    {
+        [_loginPrompt removeFromSuperview];
+        [_loginBtn removeFromSuperview];
     }
 }
 - (IBAction)gotoLogin:(UIButton *)sender {
@@ -54,11 +58,6 @@
 - (void)setSearchBtn:(UIButton *)searchBtn
 {
     _searchBtn = searchBtn;
-    [self addbSearchBtnAction];
-}
-
-- (void)addbSearchBtnAction
-{
     [self.searchBtn addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -105,7 +104,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell"];
+    HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell" forIndexPath:indexPath];
     return cell;
 }
 
