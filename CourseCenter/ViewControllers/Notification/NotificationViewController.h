@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface NotificationViewController : BaseViewController
+    //添加按钮
+@property(nonatomic, strong) UIButton *addBtn;
 
 @end

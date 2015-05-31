@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationViewController">
             <connections>
+                <outlet property="tableView" destination="zQF-1I-NsM" id="X0P-w4-fDF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,7 +15,23 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zQF-1I-NsM">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="6PR-SO-18O"/>
+                        <outlet property="delegate" destination="-1" id="V6O-uY-7Y9"/>
+                    </connections>
+                </tableView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zQF-1I-NsM" secondAttribute="trailing" id="00A-WD-n3M"/>
+                <constraint firstItem="zQF-1I-NsM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5i0-Wp-EXD"/>
+                <constraint firstItem="zQF-1I-NsM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="J5E-xE-sbY"/>
+                <constraint firstAttribute="bottom" secondItem="zQF-1I-NsM" secondAttribute="bottom" constant="49" id="Spz-1H-IEP"/>
+            </constraints>
         </view>
     </objects>
 </document>

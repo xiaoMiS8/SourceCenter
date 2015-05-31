@@ -10,6 +10,17 @@
 
 @interface Tool : NSObject
 
+#pragma mark- 颜色
+
+    //十六进制颜色转化为UIColor
++ (UIColor *) colorWithHexString: (NSString *)color;
+    //背景色
++ (UIColor *)bgColor;
+    //黑色字体
++ (UIColor *)titleBlackColor;
+    //灰色字体
++ (UIColor *)titleGrayColor;
+
 #pragma mark- 时间处理
 
     //获取今天日期

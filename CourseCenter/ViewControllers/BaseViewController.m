@@ -32,6 +32,32 @@
     backItem.title = title;
     self.navigationItem.backBarButtonItem = backItem;
 }
+/**
+ *	@brief	设置视图控制器的rightBarButtonItemWithTitle
+ *
+ *	@param 	title   标题
+ *	@param 	tar     事件响应对象
+ *	@param 	act     sel事件
+ */
+- (void)setupCustomRightWithtitle:(NSString *)title target:(id)tar action:(SEL)act
+{
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:tar action:act];
+    //导航栏左右侧按钮赋值
+    self.navigationItem.rightBarButtonItem=rightItem;
+}
+/**
+ *	@brief	设置视图控制器的rightBarButtonItemWithImage
+ *
+ *	@param 	image   图片
+ *	@param 	tar     事件响应对象
+ *	@param 	act     sel事件
+ */
+- (void)setupCustomRightWithImage:(UIImage *)image target:(id)tar action:(SEL)act
+{
+    UIBarButtonItem *rightItem=[[UIBarButtonItem alloc]initWithImage:image style:UIBarButtonItemStylePlain target:tar action:act];
+    //导航栏左右侧按钮赋值
+    self.navigationItem.rightBarButtonItem=rightItem;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
