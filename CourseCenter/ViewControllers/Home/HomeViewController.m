@@ -11,6 +11,7 @@
 #import "HomeDetailViewController.h"
 #import "CourseSearchViewController.h"
 #import "LoginViewController.h"
+#import "TestViewController.h"
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
@@ -30,17 +31,19 @@
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
     self.courseSelectLabel.text = @"推荐课程";
+    
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     NSString *loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
-    if ([loginState isEqualToString:@"1"]) {
+    if (![loginState isEqualToString:@"1"]) {
        [_tableView removeFromSuperview];
-    }else
-    {
-        [_loginPrompt removeFromSuperview];
-        [_loginBtn removeFromSuperview];
     }
+}
+- (IBAction)testAction:(id)sender {
+     TestViewController*testVC = [TestViewController new];
+    [((AppDelegate *)app).nav pushViewController:testVC animated:YES];
 }
 - (IBAction)gotoLogin:(UIButton *)sender {
     LoginViewController *loginSearchVC = [LoginViewController new];
@@ -58,6 +61,11 @@
 - (void)setSearchBtn:(UIButton *)searchBtn
 {
     _searchBtn = searchBtn;
+    [self addbSearchBtnAction];
+}
+
+- (void)addbSearchBtnAction
+{
     [self.searchBtn addTarget:self action:@selector(search) forControlEvents:UIControlEventTouchUpInside];
 }
 
@@ -104,7 +112,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell" forIndexPath:indexPath];
+    HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell"];
     return cell;
 }
 

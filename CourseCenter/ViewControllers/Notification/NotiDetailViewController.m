@@ -36,10 +36,8 @@
     [self.bomView addSubview:sendbtn];
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width - 70, 40)];
     textView.delegate = self;
-    textView.bouncesZoom = NO;
-    textView.bounces = NO;
+    textView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     [self.bomView addSubview:textView];
-    textView.scrollEnabled = NO;
     textView.layer.borderColor = [UIColor blackColor].CGColor;
     textView.text = @"jjjj";
     textView.layer.borderWidth = 0.5;
