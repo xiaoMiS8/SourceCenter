@@ -26,6 +26,9 @@ typedef void (^FinishedBlock)(EnumServerStatus status,NSObject *object);
 @interface CSNetAccessor : NSObject
 
     ///发送一个post异步请求
-+ (void)sendAsyncObjectFormUrl:(NSString *)urlStr parameters:(id)parameters connectFlag:(NSString *)flag finished:(FinishedBlock)finished;
++ (void)sendAsyncObjectFormUrl:(NSString *)urlStr
+                    parameters:(id)parameters
+                   connectFlag:(NSString *)flag
+                      finished:(FinishedBlock)finished;
 
 @end

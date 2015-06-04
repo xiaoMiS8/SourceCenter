@@ -12,7 +12,8 @@
 
 @implementation ResultAnalyzer
 
-+ (ResponseObject *)analyseResult:(NSDictionary *)resultObject connecteFlag:(NSString *)flag {
++ (ResponseObject *)analyseResult:(NSDictionary *)resultObject
+                     connecteFlag:(NSString *)flag {
     ResponseObject *responseObject = [[ResponseObject alloc] initWithDict:resultObject];
     if ([flag isEqualToString:KLogin]) {
         UserInfo *user = [[UserInfo alloc] initDict:[resultObject objectForKey:Kresult]];
@@ -25,7 +26,8 @@
     return responseObject;
 }
 
-+ (ResponseObject *)analyseResultObject:(NSString *)resultString connecteFlag:(NSString *)flag {
++ (ResponseObject *)analyseResultObject:(NSString *)resultString
+                           connecteFlag:(NSString *)flag {
     return nil;
 }
 

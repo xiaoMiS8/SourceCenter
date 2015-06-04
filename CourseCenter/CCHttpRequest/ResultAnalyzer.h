@@ -14,7 +14,10 @@
 
 @interface ResultAnalyzer : NSObject
 
-+ (ResponseObject *)analyseResult:(NSDictionary *)resultObject connecteFlag:(NSString *)flag;
-+ (ResponseObject *)analyseResultObject:(NSString *)resultString connecteFlag:(NSString *)flag;
+    //数据解析
++ (ResponseObject *)analyseResult:(NSDictionary *)resultObject
+                     connecteFlag:(NSString *)flag;
++ (ResponseObject *)analyseResultObject:(NSString *)resultString
+                           connecteFlag:(NSString *)flag;
 
 @end

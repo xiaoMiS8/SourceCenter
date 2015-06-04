@@ -13,7 +13,9 @@
 - (void)loginWithLoginName:(NSString *)loginName
                        Pwd:(NSString *)pwd
                   finished:(FinishedBlock)finished {
-    [UserActions loginWithLoginName:loginName Pwd:pwd finished:^(EnumServerStatus status, NSObject *object) {
+    [UserActions loginWithLoginName:loginName
+                                Pwd:pwd
+                           finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
