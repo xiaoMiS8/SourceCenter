@@ -26,6 +26,15 @@
 		594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98F91B142DF500A4C3F6 /* ViewController.m */; };
 		594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */; };
 		594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */; };
+		5963C3531B20009400A09D30 /* CSNetAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C3521B20009400A09D30 /* CSNetAccessor.m */; };
+		5963C3561B2000B500A09D30 /* ResultAnalyzer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C3551B2000B500A09D30 /* ResultAnalyzer.m */; };
+		5963C3591B20017C00A09D30 /* ResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C3571B20017C00A09D30 /* ResponseObject.m */; };
+		5963C35C1B200E0600A09D30 /* UserActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C35B1B200E0600A09D30 /* UserActions.m */; };
+		5963C3651B201E8300A09D30 /* HttpTestResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C3631B201E8300A09D30 /* HttpTestResultViewController.m */; };
+		5963C3661B201E8300A09D30 /* HttpTestResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5963C3641B201E8300A09D30 /* HttpTestResultViewController.xib */; };
+		5963C36A1B2024A700A09D30 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C3681B2024A700A09D30 /* TestViewController.m */; };
+		5963C36B1B2024A700A09D30 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5963C3691B2024A700A09D30 /* TestViewController.xib */; };
+		5963C36E1B202C8200A09D30 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C36D1B202C8200A09D30 /* UserInfo.m */; };
 		599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599A5B7B1B16C09A005597AE /* NotificationListCell.m */; };
 		599A5B7E1B16C09A005597AE /* NotificationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599A5B7C1B16C09A005597AE /* NotificationListCell.xib */; };
 		599A5B811B16FC73005597AE /* NotificationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 599A5B801B16FC73005597AE /* NotificationInfo.m */; };
@@ -38,6 +47,7 @@
 		59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC888E1B184249009495A6 /* NotiDetailViewController.xib */; };
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
+		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
 		D4B2F2F71B02FA00007B017E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F61B02FA00007B017E /* main.m */; };
 		D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F91B02FA00007B017E /* AppDelegate.m */; };
 		D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2FB1B02FA00007B017E /* CourseCenter.xcdatamodeld */; };
@@ -155,6 +165,24 @@
 		594C98FB1B1442AE00A4C3F6 /* CourseSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSearchViewController.h; sourceTree = "<group>"; };
 		594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseSearchViewController.m; sourceTree = "<group>"; };
 		594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseSearchViewController.xib; sourceTree = "<group>"; };
+		5963C34F1B1FFF3100A09D30 /* KeyStrings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyStrings.h; sourceTree = "<group>"; };
+		5963C3501B20000F00A09D30 /* ServerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServerConfig.h; sourceTree = "<group>"; };
+		5963C3511B20009400A09D30 /* CSNetAccessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSNetAccessor.h; sourceTree = "<group>"; };
+		5963C3521B20009400A09D30 /* CSNetAccessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSNetAccessor.m; sourceTree = "<group>"; };
+		5963C3541B2000B500A09D30 /* ResultAnalyzer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultAnalyzer.h; sourceTree = "<group>"; };
+		5963C3551B2000B500A09D30 /* ResultAnalyzer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultAnalyzer.m; sourceTree = "<group>"; };
+		5963C3571B20017C00A09D30 /* ResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResponseObject.m; sourceTree = "<group>"; };
+		5963C3581B20017C00A09D30 /* ResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResponseObject.h; sourceTree = "<group>"; };
+		5963C35A1B200E0600A09D30 /* UserActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActions.h; sourceTree = "<group>"; };
+		5963C35B1B200E0600A09D30 /* UserActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActions.m; sourceTree = "<group>"; };
+		5963C3621B201E8300A09D30 /* HttpTestResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTestResultViewController.h; sourceTree = "<group>"; };
+		5963C3631B201E8300A09D30 /* HttpTestResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTestResultViewController.m; sourceTree = "<group>"; };
+		5963C3641B201E8300A09D30 /* HttpTestResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HttpTestResultViewController.xib; sourceTree = "<group>"; };
+		5963C3671B2024A700A09D30 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		5963C3681B2024A700A09D30 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		5963C3691B2024A700A09D30 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
+		5963C36C1B202C8200A09D30 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		5963C36D1B202C8200A09D30 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		599A5B7A1B16C09A005597AE /* NotificationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationListCell.h; sourceTree = "<group>"; };
 		599A5B7B1B16C09A005597AE /* NotificationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationListCell.m; sourceTree = "<group>"; };
 		599A5B7C1B16C09A005597AE /* NotificationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationListCell.xib; sourceTree = "<group>"; };
@@ -174,6 +202,8 @@
 		59EC88911B18464F009495A6 /* NotiDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiDetailCell.h; sourceTree = "<group>"; };
 		59EC88921B18464F009495A6 /* NotiDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiDetailCell.m; sourceTree = "<group>"; };
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
+		59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHttpManager.h; sourceTree = "<group>"; };
+		59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHttpManager.m; sourceTree = "<group>"; };
 		D4B2F2F11B02FA00007B017E /* CourseCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B2F2F51B02FA00007B017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B2F2F61B02FA00007B017E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -367,6 +397,49 @@
 			path = IQKeyBoardManager;
 			sourceTree = "<group>";
 		};
+		59F43FF31B1FFAA0007A01A6 /* CCHttpRequest */ = {
+			isa = PBXGroup;
+			children = (
+				5963C34F1B1FFF3100A09D30 /* KeyStrings.h */,
+				5963C3501B20000F00A09D30 /* ServerConfig.h */,
+				59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */,
+				59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */,
+				5963C3511B20009400A09D30 /* CSNetAccessor.h */,
+				5963C3521B20009400A09D30 /* CSNetAccessor.m */,
+				5963C3541B2000B500A09D30 /* ResultAnalyzer.h */,
+				5963C3551B2000B500A09D30 /* ResultAnalyzer.m */,
+				5963C3671B2024A700A09D30 /* TestViewController.h */,
+				5963C3681B2024A700A09D30 /* TestViewController.m */,
+				5963C3691B2024A700A09D30 /* TestViewController.xib */,
+				5963C3621B201E8300A09D30 /* HttpTestResultViewController.h */,
+				5963C3631B201E8300A09D30 /* HttpTestResultViewController.m */,
+				5963C3641B201E8300A09D30 /* HttpTestResultViewController.xib */,
+				59F43FF41B1FFAA0007A01A6 /* Actions */,
+				59F43FF51B1FFAA0007A01A6 /* Models */,
+			);
+			path = CCHttpRequest;
+			sourceTree = "<group>";
+		};
+		59F43FF41B1FFAA0007A01A6 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				5963C35A1B200E0600A09D30 /* UserActions.h */,
+				5963C35B1B200E0600A09D30 /* UserActions.m */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		59F43FF51B1FFAA0007A01A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5963C3581B20017C00A09D30 /* ResponseObject.h */,
+				5963C3571B20017C00A09D30 /* ResponseObject.m */,
+				5963C36C1B202C8200A09D30 /* UserInfo.h */,
+				5963C36D1B202C8200A09D30 /* UserInfo.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D4B2F2E81B02FA00007B017E = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +461,7 @@
 		D4B2F2F31B02FA00007B017E /* CourseCenter */ = {
 			isa = PBXGroup;
 			children = (
+				59F43FF31B1FFAA0007A01A6 /* CCHttpRequest */,
 				D4B2F31D1B02FB2E007B017E /* CustomClass */,
 				D4B2F31E1B02FB2E007B017E /* headers */,
 				D4B2F31F1B02FB2E007B017E /* Thirds */,
@@ -791,6 +865,7 @@
 				59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */,
 				D4B2F3031B02FA00007B017E /* Main.storyboard in Resources */,
 				59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */,
+				5963C36B1B2024A700A09D30 /* TestViewController.xib in Resources */,
 				042E75DE1B16148A00396AAF /* IQKeyboardManager.bundle in Resources */,
 				D4B2F3081B02FA00007B017E /* LaunchScreen.xib in Resources */,
 				D4B2F3321B02FD8D007B017E /* BaseViewController.xib in Resources */,
@@ -801,6 +876,7 @@
 				D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */,
 				594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */,
 				042E75C61B160C9100396AAF /* LoginViewController.xib in Resources */,
+				5963C3661B201E8300A09D30 /* HttpTestResultViewController.xib in Resources */,
 				D4B2F3451B02FEC0007B017E /* NotificationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -824,6 +900,7 @@
 				D4B2F3F71B034265007B017E /* UIImage+WebP.m in Sources */,
 				D4B2F3F41B034265007B017E /* UIButton+WebCache.m in Sources */,
 				D4B2F3A11B033E51007B017E /* UIProgressView+AFNetworking.m in Sources */,
+				59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */,
 				D4B2F3A21B033E51007B017E /* UIRefreshControl+AFNetworking.m in Sources */,
 				D4B2F3A31B033E51007B017E /* UIWebView+AFNetworking.m in Sources */,
 				D4B2F3E41B034265007B017E /* MJRefreshGifHeader.m in Sources */,
@@ -836,6 +913,8 @@
 				594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */,
 				D4B2F3EC1B034265007B017E /* NSData+ImageContentType.m in Sources */,
 				D4B2F3491B02FEDA007B017E /* CourseViewController.m in Sources */,
+				5963C36E1B202C8200A09D30 /* UserInfo.m in Sources */,
+				5963C35C1B200E0600A09D30 /* UserActions.m in Sources */,
 				59EC888F1B184249009495A6 /* NotiDetailViewController.m in Sources */,
 				D4B2F3981B033E51007B017E /* AFURLConnectionOperation.m in Sources */,
 				D4B2F32C1B02FC03007B017E /* TabBarViewController.m in Sources */,
@@ -846,6 +925,7 @@
 				042E75E41B16148A00396AAF /* NSArray+Sort.m in Sources */,
 				D4B2F3311B02FD8D007B017E /* BaseViewController.m in Sources */,
 				59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */,
+				5963C36A1B2024A700A09D30 /* TestViewController.m in Sources */,
 				D4B2F3991B033E51007B017E /* AFURLRequestSerialization.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
 				594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */,
@@ -858,6 +938,7 @@
 				042E75E11B16148A00396AAF /* IQTextView.m in Sources */,
 				374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */,
 				D4B2F3F51B034265007B017E /* UIImage+GIF.m in Sources */,
+				5963C3591B20017C00A09D30 /* ResponseObject.m in Sources */,
 				042E75C51B160C9100396AAF /* LoginViewController.m in Sources */,
 				D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */,
 				D4B2F39C1B033E51007B017E /* AFNetworkActivityIndicatorManager.m in Sources */,
@@ -869,6 +950,7 @@
 				D4B2F3EF1B034265007B017E /* SDWebImageDecoder.m in Sources */,
 				D4B2F3961B033E51007B017E /* AFNetworkReachabilityManager.m in Sources */,
 				D4B2F39B1B033E51007B017E /* AFURLSessionManager.m in Sources */,
+				5963C3531B20009400A09D30 /* CSNetAccessor.m in Sources */,
 				D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */,
 				D4B2F3E21B034265007B017E /* MJRefreshFooter.m in Sources */,
 				D4B2F3E81B034265007B017E /* UIScrollView+MJExtension.m in Sources */,
@@ -881,6 +963,7 @@
 				599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */,
 				D4B2F3E31B034265007B017E /* MJRefreshGifFooter.m in Sources */,
 				59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */,
+				5963C3561B2000B500A09D30 /* ResultAnalyzer.m in Sources */,
 				042E75DF1B16148A00396AAF /* IQKeyboardManager.m in Sources */,
 				D4B2F3F31B034265007B017E /* SDWebImagePrefetcher.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
@@ -888,6 +971,7 @@
 				374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */,
 				D4B2F33F1B02FE75007B017E /* HomeViewController.m in Sources */,
 				D4B2F3E51B034265007B017E /* MJRefreshHeader.m in Sources */,
+				5963C3651B201E8300A09D30 /* HttpTestResultViewController.m in Sources */,
 				D4B2F39A1B033E51007B017E /* AFURLResponseSerialization.m in Sources */,
 				042E75E51B16148A00396AAF /* UIView+Hierarchy.m in Sources */,
 				042E75E31B16148A00396AAF /* IQToolbar.m in Sources */,

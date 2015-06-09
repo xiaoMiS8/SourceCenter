@@ -1,0 +1,80 @@
+//
+//  TestViewController.m
+//  CourseCenter
+//
+//  Created by renxiaojian on 15/6/4.
+//  Copyright (c) 2015年 line0.com. All rights reserved.
+//
+
+#import "TestViewController.h"
+#import "HttpTestResultViewController.h"
+#import "CCHttpManager.h"
+@interface TestViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property(nonatomic, strong) NSArray *items;
+@property(nonatomic, strong) NSArray *titles;
+@property(nonatomic, strong) CCHttpManager * httpManager;
+
+@end
+
+@implementation TestViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"接口测试";
+    self.items = @[@[@"登录"]];
+    self.titles = @[@"用户"];
+    self.httpManager = [CCHttpManager new];
+}
+
+#pragma mark- UITableViewDataSource && UITableViewDelegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.titles.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.items[section] count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    cell.textLabel.text = self.items[indexPath.section][indexPath.row];
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return self.titles[section];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    HttpTestResultViewController *resultVC = [HttpTestResultViewController new];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell.textLabel.text isEqualToString:@"登录"]) {
+        [self.httpManager loginWithLoginName:@"wang1" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@",object];
+        }];
+    }
+    [self.navigationController pushViewController:resultVC animated:YES];
+    
+   
+   
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+   
+}
+
+
+
+@end
