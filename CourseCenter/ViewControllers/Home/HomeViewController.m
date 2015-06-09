@@ -69,6 +69,7 @@
 
 - (void)setupCustomCell
 {
+    //tableview注册测cell
     [self.tableView registerNib:[UINib nibWithNibName:@"HomeListCell" bundle:nil] forCellReuseIdentifier:@"HomeListCell"];
 }
 
