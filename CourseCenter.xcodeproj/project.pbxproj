@@ -48,6 +48,9 @@
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
 		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
+		D483411B1B2EC30600373043 /* MyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411A1B2EC30600373043 /* MyTextView.m */; };
+		D483411F1B2EC7ED00373043 /* NewNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411D1B2EC7ED00373043 /* NewNotificationViewController.m */; };
+		D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D483411E1B2EC7ED00373043 /* NewNotificationViewController.xib */; };
 		D4B2F2F71B02FA00007B017E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F61B02FA00007B017E /* main.m */; };
 		D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F91B02FA00007B017E /* AppDelegate.m */; };
 		D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2FB1B02FA00007B017E /* CourseCenter.xcdatamodeld */; };
@@ -115,6 +118,10 @@
 		D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3DA1B034265007B017E /* UIImageView+HighlightedWebCache.m */; };
 		D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3DC1B034265007B017E /* UIImageView+WebCache.m */; };
 		D4B2F3FA1B034265007B017E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3DE1B034265007B017E /* UIView+WebCacheOperation.m */; };
+		D4DEA5B21B2FB05F005C96D5 /* NewNotiTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEA5B01B2FB05F005C96D5 /* NewNotiTextViewCell.m */; };
+		D4DEA5B31B2FB05F005C96D5 /* NewNotiTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEA5B11B2FB05F005C96D5 /* NewNotiTextViewCell.xib */; };
+		D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */; };
+		D4DEA5BD1B3002DD005C96D5 /* NewNotiSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEA5BB1B3002DD005C96D5 /* NewNotiSelectCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -204,6 +211,11 @@
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
 		59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHttpManager.h; sourceTree = "<group>"; };
 		59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHttpManager.m; sourceTree = "<group>"; };
+		D48341191B2EC30600373043 /* MyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextView.h; sourceTree = "<group>"; };
+		D483411A1B2EC30600373043 /* MyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextView.m; sourceTree = "<group>"; };
+		D483411C1B2EC7ED00373043 /* NewNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotificationViewController.h; sourceTree = "<group>"; };
+		D483411D1B2EC7ED00373043 /* NewNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotificationViewController.m; sourceTree = "<group>"; };
+		D483411E1B2EC7ED00373043 /* NewNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotificationViewController.xib; sourceTree = "<group>"; };
 		D4B2F2F11B02FA00007B017E /* CourseCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B2F2F51B02FA00007B017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B2F2F61B02FA00007B017E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -335,6 +347,12 @@
 		D4B2F3DC1B034265007B017E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		D4B2F3DD1B034265007B017E /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		D4B2F3DE1B034265007B017E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		D4DEA5AF1B2FB05F005C96D5 /* NewNotiTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotiTextViewCell.h; sourceTree = "<group>"; };
+		D4DEA5B01B2FB05F005C96D5 /* NewNotiTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotiTextViewCell.m; sourceTree = "<group>"; };
+		D4DEA5B11B2FB05F005C96D5 /* NewNotiTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotiTextViewCell.xib; sourceTree = "<group>"; };
+		D4DEA5B91B3002DD005C96D5 /* NewNotiSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotiSelectCell.h; sourceTree = "<group>"; };
+		D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotiSelectCell.m; sourceTree = "<group>"; };
+		D4DEA5BB1B3002DD005C96D5 /* NewNotiSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotiSelectCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,6 +456,15 @@
 				5963C36D1B202C8200A09D30 /* UserInfo.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D48341181B2EC30600373043 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				D48341191B2EC30600373043 /* MyTextView.h */,
+				D483411A1B2EC30600373043 /* MyTextView.m */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		D4B2F2E81B02FA00007B017E = {
@@ -573,6 +600,7 @@
 		D4B2F3221B02FB2E007B017E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D48341181B2EC30600373043 /* CustomViews */,
 				D4B2F3231B02FB2E007B017E /* Cells */,
 			);
 			path = Views;
@@ -593,6 +621,12 @@
 				59EC88911B18464F009495A6 /* NotiDetailCell.h */,
 				59EC88921B18464F009495A6 /* NotiDetailCell.m */,
 				59EC88931B18464F009495A6 /* NotiDetailCell.xib */,
+				D4DEA5AF1B2FB05F005C96D5 /* NewNotiTextViewCell.h */,
+				D4DEA5B01B2FB05F005C96D5 /* NewNotiTextViewCell.m */,
+				D4DEA5B11B2FB05F005C96D5 /* NewNotiTextViewCell.xib */,
+				D4DEA5B91B3002DD005C96D5 /* NewNotiSelectCell.h */,
+				D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */,
+				D4DEA5BB1B3002DD005C96D5 /* NewNotiSelectCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -642,6 +676,9 @@
 				59EC888C1B184249009495A6 /* NotiDetailViewController.h */,
 				59EC888D1B184249009495A6 /* NotiDetailViewController.m */,
 				59EC888E1B184249009495A6 /* NotiDetailViewController.xib */,
+				D483411C1B2EC7ED00373043 /* NewNotificationViewController.h */,
+				D483411D1B2EC7ED00373043 /* NewNotificationViewController.m */,
+				D483411E1B2EC7ED00373043 /* NewNotificationViewController.xib */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -856,6 +893,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DEA5BD1B3002DD005C96D5 /* NewNotiSelectCell.xib in Resources */,
 				599A5B7E1B16C09A005597AE /* NotificationListCell.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
@@ -863,10 +901,12 @@
 				59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */,
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
 				59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */,
+				D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */,
 				D4B2F3031B02FA00007B017E /* Main.storyboard in Resources */,
 				59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */,
 				5963C36B1B2024A700A09D30 /* TestViewController.xib in Resources */,
 				042E75DE1B16148A00396AAF /* IQKeyboardManager.bundle in Resources */,
+				D4DEA5B31B2FB05F005C96D5 /* NewNotiTextViewCell.xib in Resources */,
 				D4B2F3081B02FA00007B017E /* LaunchScreen.xib in Resources */,
 				D4B2F3321B02FD8D007B017E /* BaseViewController.xib in Resources */,
 				D4B2F3051B02FA00007B017E /* Images.xcassets in Resources */,
@@ -907,6 +947,7 @@
 				D4B2F3641B033B34007B017E /* Tool.m in Sources */,
 				042E75E01B16148A00396AAF /* IQSegmentedNextPrevious.m in Sources */,
 				D4B2F3441B02FEC0007B017E /* NotificationViewController.m in Sources */,
+				D4DEA5B21B2FB05F005C96D5 /* NewNotiTextViewCell.m in Sources */,
 				D4B2F3ED1B034265007B017E /* SDImageCache.m in Sources */,
 				D4B2F3941B033E51007B017E /* AFHTTPRequestOperationManager.m in Sources */,
 				042E75E61B16148A00396AAF /* UIView+IQKeyboardToolbar.m in Sources */,
@@ -921,6 +962,7 @@
 				D4B2F3EB1B034265007B017E /* MKAnnotationView+WebCache.m in Sources */,
 				D4B2F39D1B033E51007B017E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				D4B2F3EA1B034265007B017E /* UIView+MJExtension.m in Sources */,
+				D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */,
 				D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */,
 				042E75E41B16148A00396AAF /* NSArray+Sort.m in Sources */,
 				D4B2F3311B02FD8D007B017E /* BaseViewController.m in Sources */,
@@ -930,6 +972,7 @@
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
 				594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */,
 				D4B2F35B1B032C36007B017E /* LineNavigationController.m in Sources */,
+				D483411B1B2EC30600373043 /* MyTextView.m in Sources */,
 				D4B2F3E61B034265007B017E /* MJRefreshLegendFooter.m in Sources */,
 				D4B2F3951B033E51007B017E /* AFHTTPSessionManager.m in Sources */,
 				D4B2F3931B033E51007B017E /* AFHTTPRequestOperation.m in Sources */,
@@ -979,6 +1022,7 @@
 				59C478641B14044D008A49BF /* HomeListCell.m in Sources */,
 				D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */,
 				D4B2F3E01B034265007B017E /* MJRefreshComponent.m in Sources */,
+				D483411F1B2EC7ED00373043 /* NewNotificationViewController.m in Sources */,
 				042E75E71B16148A00396AAF /* UIWindow+Hierarchy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,10 +9,12 @@
 #import "NotiDetailViewController.h"
 #import "NotificationListCell.h"
 #import "NotiDetailCell.h"
+#import "MyTextView.h"
 @interface NotiDetailViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *bomView;
-@property(nonatomic, strong) UITextView *textView;
+@property(nonatomic, strong) MyTextView *textView;
+@property(nonatomic, strong) UIButton *sendBtn;
 
 @end
 
@@ -30,16 +32,19 @@
 
 - (void)addFooterView {
     UIButton *sendbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    sendbtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, 10, 40, 40);
+    sendbtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, 0, 40, 40);
     [sendbtn setTitle:@"发送" forState:UIControlStateNormal];
+    sendbtn.titleLabel.font = Font_16;
+    [sendbtn addTarget:self action:@selector(sendAction:) forControlEvents:UIControlEventTouchUpInside];
     [sendbtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
     [self.bomView addSubview:sendbtn];
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 10, [UIScreen mainScreen].bounds.size.width - 70, 40)];
+    self.sendBtn = sendbtn;
+    MyTextView *textView = [[MyTextView alloc] initWithFrame:CGRectMake(10, 5, [UIScreen mainScreen].bounds.size.width - 70, 30)];
     textView.delegate = self;
-    textView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    textView.font = Font_16;
+    textView.placeholder = @"发表评论（限250字以内）";
     [self.bomView addSubview:textView];
     textView.layer.borderColor = [UIColor blackColor].CGColor;
-    textView.text = @"jjjj";
     textView.layer.borderWidth = 0.5;
     textView.layer.cornerRadius = 3;
     self.textView = textView;
@@ -93,44 +98,42 @@
     }
 }
 
-- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+- (void)textViewDidChange:(UITextView *)textView {
     if (textView.text) {
-        CGSize size = [self getSizeWithString:textView.text font:textView.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 70, CGFLOAT_MAX)];
-        CGRect rect = textView.frame;
-        rect.size.height = size.height + 20;
-        self.textView.frame = rect;
+        CGRect tempRect = textView.frame;
+        tempRect.size.height = self.textView.contentSize.height;
+        textView.frame = tempRect;
         for (NSLayoutConstraint *constraint in self.bomView.constraints) {
             if (constraint.firstItem == self.bomView && constraint.firstAttribute == NSLayoutAttributeHeight) {
-                constraint.constant = size.height + 20;
+                constraint.constant = tempRect.size.height + 10;
             }
         }
+        self.sendBtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, tempRect.size.height + 10 - 40, 40, 40);
         [self.view layoutIfNeeded];
         [self.view updateConstraintsIfNeeded];
-        
-//        self.tableView.tableFooterView = self.bomView;
     }
-    return YES;
+
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView {
-    CGSize size = [self getSizeWithString:textView.text font:textView.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 70, CGFLOAT_MAX)];
-    CGRect rect = textView.frame;
-    rect.size.height = size.height + 20;
-    self.textView.frame = rect;
-    for (NSLayoutConstraint *constraint in self.bomView.constraints) {
-        if (constraint.firstItem == self.bomView && constraint.firstAttribute == NSLayoutAttributeHeight) {
-            constraint.constant = size.height + 20;
-        }
-    }
-    [self.view layoutIfNeeded];
-    [self.view updateConstraintsIfNeeded];
-}
 
     //得到字符串的size
 - (CGSize)getSizeWithString:(NSString *)string
                        font:(UIFont *)font size:(CGSize)size {
-    CGSize stringSize = [string boundingRectWithSize:size options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading  attributes:@{NSFontAttributeName: font} context:nil].size;
+    CGSize stringSize = [string boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName: font} context:nil].size;
     return stringSize;
+}
+
+- (void)sendAction:(id)sender {
+    self.textView.text = @"";
+        for (NSLayoutConstraint *constraint in self.bomView.constraints) {
+            if (constraint.firstItem == self.bomView && constraint.firstAttribute == NSLayoutAttributeHeight) {
+                constraint.constant = 40;
+            }
+        }
+    [self.view layoutIfNeeded];
+    [self.view updateConstraintsIfNeeded];
+    self.sendBtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, 0, 40, 40);
+    [self.textView endEditing:YES];
 }
 
 

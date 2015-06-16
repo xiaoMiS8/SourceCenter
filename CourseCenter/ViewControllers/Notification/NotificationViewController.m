@@ -10,6 +10,8 @@
 #import "NotificationListCell.h"
 #import "NotificationInfo.h"
 #import "NotiDetailViewController.h"
+#import "NewNotificationViewController.h"
+#import "LineNavigationController.h"
 @interface NotificationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -58,6 +60,16 @@
 
     //添加通知
 - (void)addBtnAction:(id)sender {
+    NewNotificationViewController *newNotificationVC = [NewNotificationViewController new];
+    newNotificationVC.DoBlock = ^{
+        DLog(@"点击确定了");
+    };
+    LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newNotificationVC];
+    UIViewController *tabbar = ((AppDelegate *)app).nav.viewControllers.firstObject;
+    [tabbar presentViewController:nav animated:YES completion:^{
+        
+          }];
+
     
 }
 
