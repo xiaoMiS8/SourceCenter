@@ -42,4 +42,59 @@
     }];
 }
 
+- (void)getRecommendCourseListWithfinished:(FinishedBlock)finished {
+    [IndexActions getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getOCAllListWithSpecialtyTypeID:(long)SpecialtyTypeID
+                                    key:(NSString *)key
+                              PageIndex:(int)PageIndex
+                               PageSize:(int)PageSize
+                               finished:(FinishedBlock)finished {
+    [IndexActions getOCAllListWithSpecialtyTypeID:SpecialtyTypeID
+                                              key:key
+                                        PageIndex:PageIndex
+                                         PageSize:PageSize
+                                         finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getSpecialtyTypeTreeWithParentID:(long)ParentID finished:(FinishedBlock)finished {
+    [IndexActions getSpecialtyTypeTreeWithParentID:ParentID
+                                          finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppOCMoocGetWithOCID:(long)OCID
+                       finished:(FinishedBlock)finished {
+    [IndexActions getAppOCMoocGetWithOCID:OCID
+                                 finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getChapterStudyListwithOCID:(long)OCID
+                           finished:(FinishedBlock)finished {
+    [IndexActions getChapterStudyListwithOCID:OCID
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getOCMoocFileStudyListwithOCID:(long)OCID
+                             ChapterID:(long)ChapterID
+                              FileType:(int)FileType
+                              finished:(FinishedBlock)finished {
+    [IndexActions getOCMoocFileStudyListwithOCID:OCID
+                                       ChapterID:ChapterID
+                                        FileType:FileType
+                                        finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 @end

@@ -22,8 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"接口测试";
-    self.items = @[@[@"登录",@"注销",@"个人信息",@"修改密码"]];
-    self.titles = @[@"用户"];
+    self.items = @[@[@"登录",@"注销",@"个人信息",@"修改密码"],@[@"推荐课程",@"全部课程",@"学科列表",@"Mooc基本信息",@"课程章节",@"章节下资料列表"]];
+    self.titles = @[@"用户",@"首页"];
     self.httpManager = [CCHttpManager new];
 }
 
@@ -77,7 +77,39 @@
         [self.httpManager  updatePassWordWithYpwd:@"111" NPwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@", object];
         }];
+    } else if ([cell.textLabel.text isEqualToString:@"推荐课程"]) {
+        [self.httpManager getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"全部课程"]) {
+        [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"学科列表"]) {
+        [self.httpManager getSpecialtyTypeTreeWithParentID:-1 finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"Mooc基本信息"]) {
+        [self.httpManager getAppOCMoocGetWithOCID:2 finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"课程章节"]) {
+        [self.httpManager getChapterStudyListwithOCID:2 finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"章节下资料列表"]) {
+        [self.httpManager getOCMoocFileStudyListwithOCID:2 ChapterID:3 FileType:1 finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+        }];
+        
     }
+    
+    
     [self.navigationController pushViewController:resultVC animated:YES];
     
    

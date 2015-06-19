@@ -48,6 +48,7 @@
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
 		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
+		D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D46F48FD1B340E48001E8AEF /* OCourseInfo.m */; };
 		D483411B1B2EC30600373043 /* MyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411A1B2EC30600373043 /* MyTextView.m */; };
 		D483411F1B2EC7ED00373043 /* NewNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411D1B2EC7ED00373043 /* NewNotificationViewController.m */; };
 		D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D483411E1B2EC7ED00373043 /* NewNotificationViewController.xib */; };
@@ -118,10 +119,12 @@
 		D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3DA1B034265007B017E /* UIImageView+HighlightedWebCache.m */; };
 		D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3DC1B034265007B017E /* UIImageView+WebCache.m */; };
 		D4B2F3FA1B034265007B017E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3DE1B034265007B017E /* UIView+WebCacheOperation.m */; };
+		D4CE16661B3418C500DBBDE7 /* SpecialtyTypeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE16651B3418C500DBBDE7 /* SpecialtyTypeInfo.m */; };
 		D4DEA5B21B2FB05F005C96D5 /* NewNotiTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEA5B01B2FB05F005C96D5 /* NewNotiTextViewCell.m */; };
 		D4DEA5B31B2FB05F005C96D5 /* NewNotiTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEA5B11B2FB05F005C96D5 /* NewNotiTextViewCell.xib */; };
 		D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */; };
 		D4DEA5BD1B3002DD005C96D5 /* NewNotiSelectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEA5BB1B3002DD005C96D5 /* NewNotiSelectCell.xib */; };
+		D4F607BD1B33FBC700888FC4 /* IndexActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F607BC1B33FBC700888FC4 /* IndexActions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +214,8 @@
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
 		59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHttpManager.h; sourceTree = "<group>"; };
 		59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHttpManager.m; sourceTree = "<group>"; };
+		D46F48FC1B340E48001E8AEF /* OCourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCourseInfo.h; sourceTree = "<group>"; };
+		D46F48FD1B340E48001E8AEF /* OCourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCourseInfo.m; sourceTree = "<group>"; };
 		D48341191B2EC30600373043 /* MyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextView.h; sourceTree = "<group>"; };
 		D483411A1B2EC30600373043 /* MyTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextView.m; sourceTree = "<group>"; };
 		D483411C1B2EC7ED00373043 /* NewNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotificationViewController.h; sourceTree = "<group>"; };
@@ -347,12 +352,16 @@
 		D4B2F3DC1B034265007B017E /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		D4B2F3DD1B034265007B017E /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		D4B2F3DE1B034265007B017E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		D4CE16641B3418C500DBBDE7 /* SpecialtyTypeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialtyTypeInfo.h; sourceTree = "<group>"; };
+		D4CE16651B3418C500DBBDE7 /* SpecialtyTypeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialtyTypeInfo.m; sourceTree = "<group>"; };
 		D4DEA5AF1B2FB05F005C96D5 /* NewNotiTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotiTextViewCell.h; sourceTree = "<group>"; };
 		D4DEA5B01B2FB05F005C96D5 /* NewNotiTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotiTextViewCell.m; sourceTree = "<group>"; };
 		D4DEA5B11B2FB05F005C96D5 /* NewNotiTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotiTextViewCell.xib; sourceTree = "<group>"; };
 		D4DEA5B91B3002DD005C96D5 /* NewNotiSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotiSelectCell.h; sourceTree = "<group>"; };
 		D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotiSelectCell.m; sourceTree = "<group>"; };
 		D4DEA5BB1B3002DD005C96D5 /* NewNotiSelectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotiSelectCell.xib; sourceTree = "<group>"; };
+		D4F607BB1B33FBC700888FC4 /* IndexActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexActions.h; sourceTree = "<group>"; };
+		D4F607BC1B33FBC700888FC4 /* IndexActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexActions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,6 +452,8 @@
 			children = (
 				5963C35A1B200E0600A09D30 /* UserActions.h */,
 				5963C35B1B200E0600A09D30 /* UserActions.m */,
+				D4F607BB1B33FBC700888FC4 /* IndexActions.h */,
+				D4F607BC1B33FBC700888FC4 /* IndexActions.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -454,6 +465,10 @@
 				5963C3571B20017C00A09D30 /* ResponseObject.m */,
 				5963C36C1B202C8200A09D30 /* UserInfo.h */,
 				5963C36D1B202C8200A09D30 /* UserInfo.m */,
+				D46F48FC1B340E48001E8AEF /* OCourseInfo.h */,
+				D46F48FD1B340E48001E8AEF /* OCourseInfo.m */,
+				D4CE16641B3418C500DBBDE7 /* SpecialtyTypeInfo.h */,
+				D4CE16651B3418C500DBBDE7 /* SpecialtyTypeInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -948,6 +963,7 @@
 				042E75E01B16148A00396AAF /* IQSegmentedNextPrevious.m in Sources */,
 				D4B2F3441B02FEC0007B017E /* NotificationViewController.m in Sources */,
 				D4DEA5B21B2FB05F005C96D5 /* NewNotiTextViewCell.m in Sources */,
+				D4CE16661B3418C500DBBDE7 /* SpecialtyTypeInfo.m in Sources */,
 				D4B2F3ED1B034265007B017E /* SDImageCache.m in Sources */,
 				D4B2F3941B033E51007B017E /* AFHTTPRequestOperationManager.m in Sources */,
 				042E75E61B16148A00396AAF /* UIView+IQKeyboardToolbar.m in Sources */,
@@ -983,6 +999,8 @@
 				D4B2F3F51B034265007B017E /* UIImage+GIF.m in Sources */,
 				5963C3591B20017C00A09D30 /* ResponseObject.m in Sources */,
 				042E75C51B160C9100396AAF /* LoginViewController.m in Sources */,
+				D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */,
+				D4F607BD1B33FBC700888FC4 /* IndexActions.m in Sources */,
 				D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */,
 				D4B2F39C1B033E51007B017E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D4B2F3F61B034265007B017E /* UIImage+MultiFormat.m in Sources */,
