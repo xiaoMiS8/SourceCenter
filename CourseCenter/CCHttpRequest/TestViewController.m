@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"接口测试";
-    self.items = @[@[@"登录"]];
+    self.items = @[@[@"登录",@"注销",@"个人信息",@"修改密码"]];
     self.titles = @[@"用户"];
     self.httpManager = [CCHttpManager new];
 }
@@ -62,6 +62,20 @@
     if ([cell.textLabel.text isEqualToString:@"登录"]) {
         [self.httpManager loginWithLoginName:@"wang1" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@",object];
+        }];
+    } else if ([cell.textLabel.text isEqualToString:@"注销"]) {
+        [self.httpManager LogoutWithfinished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"个人信息"]) {
+        [self.httpManager getUserInfoWithfinished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"修改密码"]) {
+        [self.httpManager  updatePassWordWithYpwd:@"111" NPwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
         }];
     }
     [self.navigationController pushViewController:resultVC animated:YES];

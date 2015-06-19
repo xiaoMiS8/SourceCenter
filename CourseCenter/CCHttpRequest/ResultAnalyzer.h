@@ -14,9 +14,10 @@
 
 @interface ResultAnalyzer : NSObject
 
-    //数据解析
+    //字典类型的数据解析
 + (ResponseObject *)analyseResult:(NSDictionary *)resultObject
                      connecteFlag:(NSString *)flag;
+    //非字典类型的数据解析
 + (ResponseObject *)analyseResultObject:(NSString *)resultString
                            connecteFlag:(NSString *)flag;
 

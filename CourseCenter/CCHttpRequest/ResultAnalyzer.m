@@ -15,12 +15,17 @@
 + (ResponseObject *)analyseResult:(NSDictionary *)resultObject
                      connecteFlag:(NSString *)flag {
     ResponseObject *responseObject = [[ResponseObject alloc] initWithDict:resultObject];
+    responseObject.message = responseObject.errorMessage;
     if ([flag isEqualToString:KLogin]) {
         UserInfo *user = [[UserInfo alloc] initDict:[resultObject objectForKey:Kresult]];
-        responseObject.message = responseObject.errorMessage;
         if ([responseObject.errrorCode isEqualToString:KSuccess]) {
             responseObject.message = @"登录成功";
         }
+        responseObject.resultObject = user;
+    } else if ([flag isEqualToString:kLogout]) {
+        
+    } else if ([flag isEqualToString:kgetUserInfo]) {
+        UserInfo *user = [[UserInfo alloc] initDict:[resultObject objectForKey:Kresult]];
         responseObject.resultObject = user;
     }
     return responseObject;

@@ -20,4 +20,26 @@
     }];
 }
 
+- (void)LogoutWithfinished:(FinishedBlock)finished {
+    [UserActions LogoutWithfinished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getUserInfoWithfinished:(FinishedBlock)finished {
+    [UserActions getUserInfoWithfinished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)updatePassWordWithYpwd:(NSString *)Ypwd
+                          NPwd:(NSString *)NPwd
+                      finished:(FinishedBlock)finished {
+    [UserActions updatePassWordWithYpwd:Ypwd
+                                   NPwd:NPwd
+                               finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 @end
