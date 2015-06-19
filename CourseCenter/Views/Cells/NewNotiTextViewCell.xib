@@ -23,7 +23,7 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OuM-0J-PSa">
-                        <rect key="frame" x="8" y="83" width="304" height="0.5"/>
+                        <rect key="frame" x="0.0" y="83" width="320" height="0.5"/>
                         <animations/>
                         <color key="backgroundColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -40,8 +40,8 @@
                     <constraint firstAttribute="bottomMargin" secondItem="FtW-ge-Tz5" secondAttribute="bottom" id="SLV-MF-0L5"/>
                     <constraint firstAttribute="trailingMargin" secondItem="FtW-ge-Tz5" secondAttribute="trailing" id="Sis-it-VZ0"/>
                     <constraint firstItem="FtW-ge-Tz5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="dSn-TE-iTs"/>
-                    <constraint firstItem="OuM-0J-PSa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="iA6-c5-pOv"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="OuM-0J-PSa" secondAttribute="trailing" id="wRS-KX-zc0"/>
+                    <constraint firstItem="OuM-0J-PSa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="iA6-c5-pOv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="OuM-0J-PSa" secondAttribute="trailing" constant="-8" id="wRS-KX-zc0"/>
                     <constraint firstAttribute="bottomMargin" secondItem="OuM-0J-PSa" secondAttribute="bottom" constant="-12" id="wsf-DY-fbo"/>
                 </constraints>
             </tableViewCellContentView>

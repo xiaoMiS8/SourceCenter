@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3s-uA-Rt0">
-                        <rect key="frame" x="8" y="47" width="304" height="0.5"/>
+                        <rect key="frame" x="0.0" y="43" width="320" height="0.5"/>
                         <animations/>
                         <color key="backgroundColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -46,12 +46,12 @@
                 <animations/>
                 <constraints>
                     <constraint firstItem="QhA-Od-hGA" firstAttribute="centerY" secondItem="n8o-6Z-ECV" secondAttribute="centerY" id="319-GC-wJx"/>
-                    <constraint firstItem="G3s-uA-Rt0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="8Nh-R3-M37"/>
+                    <constraint firstItem="G3s-uA-Rt0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="8Nh-R3-M37"/>
                     <constraint firstItem="QhA-Od-hGA" firstAttribute="leading" secondItem="n8o-6Z-ECV" secondAttribute="trailing" constant="8" id="9y3-j2-RG5"/>
                     <constraint firstItem="n8o-6Z-ECV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="BjU-xf-ZSF"/>
                     <constraint firstItem="n8o-6Z-ECV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MtP-2J-g4v"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="G3s-uA-Rt0" secondAttribute="bottom" constant="-12" id="jlt-Fu-WhH"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="G3s-uA-Rt0" secondAttribute="trailing" id="ndU-lq-zCR"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="G3s-uA-Rt0" secondAttribute="bottom" constant="-8" id="jlt-Fu-WhH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="G3s-uA-Rt0" secondAttribute="trailing" constant="-8" id="ndU-lq-zCR"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>

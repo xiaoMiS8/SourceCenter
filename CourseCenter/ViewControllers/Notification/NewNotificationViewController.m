@@ -33,7 +33,8 @@
 
 - (void)setupTableView {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-      [self setupCell];
+    [self setupCell];
+    [self addFooter];
 }
 
 - (void)setupCell {
@@ -68,6 +69,20 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)addFooter {
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50)];
+    footerView.backgroundColor = [UIColor whiteColor];
+    NSArray *imgs = @[@"btn_camera",@"btn_photo",@"btn_transmit",@"btn_important"];
+    for (int i=0; i<4; i++) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(20 + i * (10+40), 5, 40, 40);
+        [btn setImage:[UIImage imageNamed:imgs[i]] forState:UIControlStateNormal];
+        [footerView addSubview:btn];
+    }
+    
+    self.tableView.tableFooterView = footerView;
+}
+
 #pragma mark- UITableViewDelegate & UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -93,9 +108,10 @@
         if (indexPath.row == 0) {
             return 44;
         }
-        return [UIScreen mainScreen].bounds.size.height - 230;
+        return 230;
     }
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -110,7 +126,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    btn.backgroundColor = [UIColor lightGrayColor];
+    btn.backgroundColor = [UIColor whiteColor];
     btn.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 40);
     [btn addTarget:self action:@selector(openBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     UILabel *label = [[UILabel alloc] init];
