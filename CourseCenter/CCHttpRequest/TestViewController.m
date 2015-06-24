@@ -60,7 +60,7 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell.textLabel.text isEqualToString:@"登录"]) {
-        [self.httpManager loginWithLoginName:@"wang1" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager loginWithLoginName:@"cyb" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"注销"]) {
@@ -98,12 +98,12 @@
         }];
         
     } else if ([cell.textLabel.text isEqualToString:@"课程章节"]) {
-        [self.httpManager getChapterStudyListwithOCID:2 finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager getChapterStudyListwithOCID:1 finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@", object];
         }];
         
     } else if ([cell.textLabel.text isEqualToString:@"章节下资料列表"]) {
-        [self.httpManager getOCMoocFileStudyListwithOCID:2 ChapterID:3 FileType:1 finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager getOCMoocFileStudyListwithOCID:1 ChapterID:1 FileType:2 finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@", object];
         }];
         

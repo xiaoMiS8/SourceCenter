@@ -23,8 +23,6 @@
 		042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042E75EA1B16176100396AAF /* FindPasswordViewController.xib */; };
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
-		37692A391B35079C00660BF8 /* Validate.m in Sources */ = {isa = PBXBuildFile; fileRef = 37692A381B35079C00660BF8 /* Validate.m */; };
-		37692A3D1B3512FB00660BF8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 37692A3C1B3512FB00660BF8 /* MBProgressHUD.m */; };
 		594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98F91B142DF500A4C3F6 /* ViewController.m */; };
 		594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */; };
 		594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */; };
@@ -50,10 +48,13 @@
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
 		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
+		D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D452B8751B395BDF00F5A85E /* MoocFileInfo.m */; };
 		D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D46F48FD1B340E48001E8AEF /* OCourseInfo.m */; };
 		D483411B1B2EC30600373043 /* MyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411A1B2EC30600373043 /* MyTextView.m */; };
 		D483411F1B2EC7ED00373043 /* NewNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411D1B2EC7ED00373043 /* NewNotificationViewController.m */; };
 		D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D483411E1B2EC7ED00373043 /* NewNotificationViewController.xib */; };
+		D49C64EA1B393D4E006B6D37 /* TeacherInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D49C64E91B393D4E006B6D37 /* TeacherInfo.m */; };
+		D49C64ED1B3941BC006B6D37 /* ChapterInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D49C64EC1B3941BC006B6D37 /* ChapterInfo.m */; };
 		D4B2F2F71B02FA00007B017E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F61B02FA00007B017E /* main.m */; };
 		D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2F91B02FA00007B017E /* AppDelegate.m */; };
 		D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F2FB1B02FA00007B017E /* CourseCenter.xcdatamodeld */; };
@@ -172,10 +173,6 @@
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
 		374BA7371B048C5100DBA477 /* UIView+HandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HandleView.m"; sourceTree = "<group>"; };
-		37692A371B35079C00660BF8 /* Validate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validate.h; sourceTree = "<group>"; };
-		37692A381B35079C00660BF8 /* Validate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validate.m; sourceTree = "<group>"; };
-		37692A3B1B3512FB00660BF8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		37692A3C1B3512FB00660BF8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		594C98F81B142DF500A4C3F6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		594C98F91B142DF500A4C3F6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		594C98FB1B1442AE00A4C3F6 /* CourseSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSearchViewController.h; sourceTree = "<group>"; };
@@ -220,6 +217,8 @@
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
 		59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHttpManager.h; sourceTree = "<group>"; };
 		59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHttpManager.m; sourceTree = "<group>"; };
+		D452B8741B395BDF00F5A85E /* MoocFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoocFileInfo.h; sourceTree = "<group>"; };
+		D452B8751B395BDF00F5A85E /* MoocFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoocFileInfo.m; sourceTree = "<group>"; };
 		D46F48FC1B340E48001E8AEF /* OCourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCourseInfo.h; sourceTree = "<group>"; };
 		D46F48FD1B340E48001E8AEF /* OCourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCourseInfo.m; sourceTree = "<group>"; };
 		D48341191B2EC30600373043 /* MyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextView.h; sourceTree = "<group>"; };
@@ -227,6 +226,10 @@
 		D483411C1B2EC7ED00373043 /* NewNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotificationViewController.h; sourceTree = "<group>"; };
 		D483411D1B2EC7ED00373043 /* NewNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotificationViewController.m; sourceTree = "<group>"; };
 		D483411E1B2EC7ED00373043 /* NewNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotificationViewController.xib; sourceTree = "<group>"; };
+		D49C64E81B393D4E006B6D37 /* TeacherInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherInfo.h; sourceTree = "<group>"; };
+		D49C64E91B393D4E006B6D37 /* TeacherInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherInfo.m; sourceTree = "<group>"; };
+		D49C64EB1B3941BC006B6D37 /* ChapterInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterInfo.h; sourceTree = "<group>"; };
+		D49C64EC1B3941BC006B6D37 /* ChapterInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterInfo.m; sourceTree = "<group>"; };
 		D4B2F2F11B02FA00007B017E /* CourseCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4B2F2F51B02FA00007B017E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4B2F2F61B02FA00007B017E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -430,15 +433,6 @@
 			path = IQKeyBoardManager;
 			sourceTree = "<group>";
 		};
-		37692A3A1B3512FB00660BF8 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				37692A3B1B3512FB00660BF8 /* MBProgressHUD.h */,
-				37692A3C1B3512FB00660BF8 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		59F43FF31B1FFAA0007A01A6 /* CCHttpRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -484,6 +478,12 @@
 				D46F48FD1B340E48001E8AEF /* OCourseInfo.m */,
 				D4CE16641B3418C500DBBDE7 /* SpecialtyTypeInfo.h */,
 				D4CE16651B3418C500DBBDE7 /* SpecialtyTypeInfo.m */,
+				D49C64E81B393D4E006B6D37 /* TeacherInfo.h */,
+				D49C64E91B393D4E006B6D37 /* TeacherInfo.m */,
+				D49C64EB1B3941BC006B6D37 /* ChapterInfo.h */,
+				D49C64EC1B3941BC006B6D37 /* ChapterInfo.m */,
+				D452B8741B395BDF00F5A85E /* MoocFileInfo.h */,
+				D452B8751B395BDF00F5A85E /* MoocFileInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -588,7 +588,6 @@
 		D4B2F31F1B02FB2E007B017E /* Thirds */ = {
 			isa = PBXGroup;
 			children = (
-				37692A3A1B3512FB00660BF8 /* MBProgressHUD */,
 				042E75C71B16148A00396AAF /* IQKeyBoardManager */,
 				D4B2F3A41B034265007B017E /* MJRefresh */,
 				D4B2F3BD1B034265007B017E /* SDWebImage */,
@@ -600,8 +599,6 @@
 		D4B2F3201B02FB2E007B017E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				37692A371B35079C00660BF8 /* Validate.h */,
-				37692A381B35079C00660BF8 /* Validate.m */,
 				D4B2F3621B033B34007B017E /* Tool.h */,
 				D4B2F3631B033B34007B017E /* Tool.m */,
 			);
@@ -969,13 +966,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B2F3E71B034265007B017E /* MJRefreshLegendHeader.m in Sources */,
+				D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */,
 				599A5B811B16FC73005597AE /* NotificationInfo.m in Sources */,
 				D4B2F3F71B034265007B017E /* UIImage+WebP.m in Sources */,
 				D4B2F3F41B034265007B017E /* UIButton+WebCache.m in Sources */,
 				D4B2F3A11B033E51007B017E /* UIProgressView+AFNetworking.m in Sources */,
 				59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */,
 				D4B2F3A21B033E51007B017E /* UIRefreshControl+AFNetworking.m in Sources */,
-				37692A3D1B3512FB00660BF8 /* MBProgressHUD.m in Sources */,
 				D4B2F3A31B033E51007B017E /* UIWebView+AFNetworking.m in Sources */,
 				D4B2F3E41B034265007B017E /* MJRefreshGifHeader.m in Sources */,
 				D4B2F3641B033B34007B017E /* Tool.m in Sources */,
@@ -1004,7 +1001,9 @@
 				59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */,
 				5963C36A1B2024A700A09D30 /* TestViewController.m in Sources */,
 				D4B2F3991B033E51007B017E /* AFURLRequestSerialization.m in Sources */,
+				D49C64ED1B3941BC006B6D37 /* ChapterInfo.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
+				D49C64EA1B393D4E006B6D37 /* TeacherInfo.m in Sources */,
 				594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */,
 				D4B2F35B1B032C36007B017E /* LineNavigationController.m in Sources */,
 				D483411B1B2EC30600373043 /* MyTextView.m in Sources */,
@@ -1041,7 +1040,6 @@
 				D4B2F39E1B033E51007B017E /* UIAlertView+AFNetworking.m in Sources */,
 				D4B2F3E11B034265007B017E /* MJRefreshConst.m in Sources */,
 				599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */,
-				37692A391B35079C00660BF8 /* Validate.m in Sources */,
 				D4B2F3E31B034265007B017E /* MJRefreshGifFooter.m in Sources */,
 				59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */,
 				5963C3561B2000B500A09D30 /* ResultAnalyzer.m in Sources */,

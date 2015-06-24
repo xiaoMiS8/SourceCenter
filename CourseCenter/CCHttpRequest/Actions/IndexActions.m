@@ -25,15 +25,17 @@
                                PageSize:(int)PageSize
                                finished:(FinishedBlock)finished {
     
-    NSDictionary *parameters = @{
-                                kSpecialtyTypeID: [NSNumber numberWithLong:SpecialtyTypeID],
-                                kkey: key,
-                                kPageIndex: [NSNumber numberWithInt:PageIndex],
-                                kPageSize: [NSNumber numberWithInt:PageSize]
-                                };
+    NSDictionary *parameters = nil;
     if (!key) {
+       parameters = @{
+                       kSpecialtyTypeID: [NSNumber numberWithLong:SpecialtyTypeID],
+                       kPageIndex: [NSNumber numberWithInt:PageIndex],
+                       kPageSize: [NSNumber numberWithInt:PageSize]
+                       };
+    } else {
         parameters = @{
                        kSpecialtyTypeID: [NSNumber numberWithLong:SpecialtyTypeID],
+                       kkey: key,
                        kPageIndex: [NSNumber numberWithInt:PageIndex],
                        kPageSize: [NSNumber numberWithInt:PageSize]
                        };

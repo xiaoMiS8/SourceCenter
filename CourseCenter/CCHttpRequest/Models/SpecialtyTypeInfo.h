@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#define kSpecialtyTypeID            @"SpecialtyTypeID"
+#define kSpecialtyTypeNo            @"SpecialtyTypeNo"
+#define kSpecialtyTypeName          @"SpecialtyTypeName"
+#define kParentID                   @"ParentID"
+
 @interface SpecialtyTypeInfo : NSObject
 
     //学科ID
@@ -18,5 +23,7 @@
 @property(nonatomic, strong) NSString *SpecialtyTypeName;
     //父节点ID
 @property(nonatomic, assign) long ParentID;
+
+- (id)initWithDict:(NSDictionary *)dict;
 
 @end
