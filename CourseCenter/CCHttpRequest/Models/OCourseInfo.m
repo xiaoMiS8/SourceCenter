@@ -17,6 +17,7 @@
         self.OCID = [[dict objectForKey:kOCID] longValue];
         self.Name = [dict objectForKey:kName];
         self.TeacherID = [[dict objectForKey:kTeacherID] longValue];
+        self.TeacherName = [dict objectForKey:kTeacherName];
         self.UpdateTime = [dict objectForKey:kUpdateTime];
         self.Clicks = [[dict objectForKey:kClicks] longValue];
         self.IsShow = [[dict objectForKey:kIsShow] boolValue];

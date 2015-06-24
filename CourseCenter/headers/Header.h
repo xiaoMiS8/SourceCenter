@@ -10,6 +10,7 @@
 #define CourseCenter_Header_h
 
 #import "FontHeader.h"
+#import "CCHttpManager.h"
 #import "Tool.h"
 
 /** 统一输出日志 */

@@ -12,6 +12,7 @@
 #define kOCID               @"OCID"
 #define kName               @"Name"
 #define kTeacherID          @"TeacherID"
+#define kTeacherName        @"TeacherName"
 #define kUpdateTime         @"UpdateTime"
 #define kClicks             @"Clicks"
 #define kIsShow             @"IsShow"

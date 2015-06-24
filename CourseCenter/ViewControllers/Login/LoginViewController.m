@@ -8,11 +8,13 @@
 
 #import "LoginViewController.h"
 #import "FindPasswordViewController.h"
+#import "ResponseObject.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *passWord;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-
+@property (strong,nonatomic)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
 @end
 
 @implementation LoginViewController
@@ -27,8 +29,20 @@
     _userName.clearButtonMode=UITextFieldViewModeWhileEditing;
     _passWord.secureTextEntry=YES;
     _passWord.clearButtonMode=UITextFieldViewModeWhileEditing;
+    self.httpManager = [[CCHttpManager alloc]init];
 }
 - (IBAction)login:(UIButton *)sender {
+    NSString *username=_userName.text;
+    NSString *password=_passWord.text;
+    [self.httpManager loginWithLoginName:username Pwd:password finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"isLogin"];
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }
+    }];
     
 }
 - (IBAction)forgetPassword:(UIButton *)sender {

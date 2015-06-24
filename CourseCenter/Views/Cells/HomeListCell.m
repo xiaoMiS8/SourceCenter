@@ -7,7 +7,9 @@
 //
 
 #import "HomeListCell.h"
-
+#import "UIImageView+WebCache.h"
+#define ICONIMG @"iconpro"
+#define BAGNIMG @"nav_bg"
 @interface HomeListCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgimg;
@@ -20,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *studentCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *studentLabel;
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIView *twoView;
+@property (weak, nonatomic) IBOutlet UIButton *gotoBtn;
 
 @end
 
@@ -30,10 +34,20 @@
     self.bgView.layer.borderWidth = 0.5;
     self.iconImg.layer.cornerRadius = 28;
     self.iconImg.layer.masksToBounds = YES;
-    
+    self.gotoBtn.layer.cornerRadius = 14;
+    self.gotoBtn.layer.masksToBounds = YES;
     
 }
-
+-(void)setOCourse:(OCourse *)oCourse
+{
+    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
+    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
+    [self.nameLabel setText:oCourse.TeacherName];
+    [self.collegeLabel setText:oCourse.OrganizationName];
+    [self.courseDetailLabel setText:oCourse.Name];
+    [self.studentCountLabel setText:[NSString stringWithFormat:@"%d",oCourse.StudentCount]];
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     

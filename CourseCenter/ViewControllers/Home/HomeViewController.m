@@ -12,15 +12,20 @@
 #import "CourseSearchViewController.h"
 #import "LoginViewController.h"
 #import "TestViewController.h"
+#import "ResponseObject.h"
 @interface HomeViewController ()
+{
+    NSString *loginState;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UILabel *courseSelectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *loginPrompt;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
-
-@property(nonatomic, assign) CGFloat startY;
-
+@property (strong,nonatomic)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
+@property (nonatomic, assign) CGFloat startY;
+@property (nonatomic,strong)NSMutableArray *dataArray;
 @end
 
 @implementation HomeViewController
@@ -31,15 +36,50 @@
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
     self.courseSelectLabel.text = @"推荐课程";
-    
+    self.httpManager = [[CCHttpManager alloc]init];
+    self.dataArray=[[NSMutableArray array]init];
     
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSString *loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
-    if (![loginState isEqualToString:@"1"]) {
-       [_tableView removeFromSuperview];
+    loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        _tableView.hidden=YES;
+        _loginBtn.hidden=NO;
+        _loginPrompt.hidden=NO;
+    }else
+    {
+        _tableView.hidden=NO;
+        _loginBtn.hidden=YES;
+        _loginPrompt.hidden=YES;
+        [self rLoadData];
     }
+}
+//推荐课程
+-(void)rLoadData
+{
+    [self.httpManager getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.dataArray=self.reob.resultArray;
+                [_tableView reloadData];
+            }
+        }
+    }];
+}
+//全部课程
+-(void)aLoadData
+{
+    [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.dataArray=self.reob.resultArray;
+                [_tableView reloadData];
+            }
+        }
+    }];
 }
 - (IBAction)testAction:(id)sender {
      TestViewController*testVC = [TestViewController new];
@@ -89,9 +129,15 @@
 - (void)segValueChange:(UISegmentedControl *)seg {
     if (seg.selectedSegmentIndex == 0) {
         self.courseSelectLabel.text = @"推荐课程";
+        if ([loginState isEqualToString:@"1"]) {
+            [self rLoadData];
+        }
     }
     else {
         self.courseSelectLabel.text = @"全部课程";
+        if ([loginState isEqualToString:@"1"]) {
+            [self aLoadData];
+        }
     }
 }
 
@@ -102,7 +148,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 6;
+    return self.dataArray.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,6 +159,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell"];
+    cell.oCourse=[self.dataArray objectAtIndex:indexPath.row];
     return cell;
 }
 
