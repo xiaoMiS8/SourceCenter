@@ -21,6 +21,8 @@
 		042E75E71B16148A00396AAF /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75DD1B16148A00396AAF /* UIWindow+Hierarchy.m */; };
 		042E75EB1B16176100396AAF /* FindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75E91B16176100396AAF /* FindPasswordViewController.m */; };
 		042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042E75EA1B16176100396AAF /* FindPasswordViewController.xib */; };
+		04D1BFE71B3AF74100C946B3 /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D1BFE51B3AF74100C946B3 /* CourseDetailCell.m */; };
+		04D1BFE81B3AF74100C946B3 /* CourseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1BFE61B3AF74100C946B3 /* CourseDetailCell.xib */; };
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
 		594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98F91B142DF500A4C3F6 /* ViewController.m */; };
@@ -169,6 +171,9 @@
 		042E75E81B16176100396AAF /* FindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordViewController.h; sourceTree = "<group>"; };
 		042E75E91B16176100396AAF /* FindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordViewController.m; sourceTree = "<group>"; };
 		042E75EA1B16176100396AAF /* FindPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindPasswordViewController.xib; sourceTree = "<group>"; };
+		04D1BFE41B3AF74100C946B3 /* CourseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailCell.h; sourceTree = "<group>"; };
+		04D1BFE51B3AF74100C946B3 /* CourseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailCell.m; sourceTree = "<group>"; };
+		04D1BFE61B3AF74100C946B3 /* CourseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailCell.xib; sourceTree = "<group>"; };
 		374BA7341B048C5100DBA477 /* NSString+HandleString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HandleString.h"; sourceTree = "<group>"; };
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
@@ -657,6 +662,9 @@
 				D4DEA5B91B3002DD005C96D5 /* NewNotiSelectCell.h */,
 				D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */,
 				D4DEA5BB1B3002DD005C96D5 /* NewNotiSelectCell.xib */,
+				04D1BFE41B3AF74100C946B3 /* CourseDetailCell.h */,
+				04D1BFE51B3AF74100C946B3 /* CourseDetailCell.m */,
+				04D1BFE61B3AF74100C946B3 /* CourseDetailCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -930,6 +938,7 @@
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
 				59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */,
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
+				04D1BFE81B3AF74100C946B3 /* CourseDetailCell.xib in Resources */,
 				59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */,
 				D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */,
 				D4B2F3031B02FA00007B017E /* Main.storyboard in Resources */,
@@ -982,6 +991,7 @@
 				D4CE16661B3418C500DBBDE7 /* SpecialtyTypeInfo.m in Sources */,
 				D4B2F3ED1B034265007B017E /* SDImageCache.m in Sources */,
 				D4B2F3941B033E51007B017E /* AFHTTPRequestOperationManager.m in Sources */,
+				04D1BFE71B3AF74100C946B3 /* CourseDetailCell.m in Sources */,
 				042E75E61B16148A00396AAF /* UIView+IQKeyboardToolbar.m in Sources */,
 				594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */,
 				D4B2F3EC1B034265007B017E /* NSData+ImageContentType.m in Sources */,

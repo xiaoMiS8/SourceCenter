@@ -29,6 +29,8 @@
     //设备的高
 #define SHeight [UIScreen mainScreen].bounds.size.height
 #define Swidth [UIScreen mainScreen].bounds.size.width
-   //application单例
+//颜色设置
+#define RGBA(R/*红*/,G/*绿*/,B/*蓝*/,A/*透明*/) [UIColor colorWithRed:R/255.f green:G/255.f blue:B/255.f alpha:A]
+//application单例
 #define app [UIApplication sharedApplication].delegate
 #endif
