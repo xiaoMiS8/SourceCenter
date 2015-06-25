@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>DFB48F8A-E289-40AE-8AFE-E99BCFC13865</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>CourseCenter</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E2BA9F990D21FC1D90D5BA8843B88A437CA1C396</key>
 		<string>https://github.com/xiaoMiS8/SourceCenter.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CourseCenter.xcodeproj/project.xcworkspace</string>
+	<string>CourseCenter.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>E2BA9F990D21FC1D90D5BA8843B88A437CA1C396</key>

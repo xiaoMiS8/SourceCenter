@@ -48,6 +48,8 @@
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
 		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
+		9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5FC2E1B3C3D4A005026E2 /* CourseDetailCell.m */; };
+		9FC5FC311B3C3D4A005026E2 /* CourseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC5FC2F1B3C3D4A005026E2 /* CourseDetailCell.xib */; };
 		D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D430BD921B3A4B060013BAE7 /* NoticeActions.m */; };
 		D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D452B8751B395BDF00F5A85E /* MoocFileInfo.m */; };
 		D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D46F48FD1B340E48001E8AEF /* OCourseInfo.m */; };
@@ -218,6 +220,9 @@
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
 		59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHttpManager.h; sourceTree = "<group>"; };
 		59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHttpManager.m; sourceTree = "<group>"; };
+		9FC5FC2D1B3C3D4A005026E2 /* CourseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailCell.h; sourceTree = "<group>"; };
+		9FC5FC2E1B3C3D4A005026E2 /* CourseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailCell.m; sourceTree = "<group>"; };
+		9FC5FC2F1B3C3D4A005026E2 /* CourseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailCell.xib; sourceTree = "<group>"; };
 		D430BD911B3A4B060013BAE7 /* NoticeActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeActions.h; sourceTree = "<group>"; };
 		D430BD921B3A4B060013BAE7 /* NoticeActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeActions.m; sourceTree = "<group>"; };
 		D452B8741B395BDF00F5A85E /* MoocFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoocFileInfo.h; sourceTree = "<group>"; };
@@ -662,6 +667,9 @@
 				D4DEA5B91B3002DD005C96D5 /* NewNotiSelectCell.h */,
 				D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */,
 				D4DEA5BB1B3002DD005C96D5 /* NewNotiSelectCell.xib */,
+				9FC5FC2D1B3C3D4A005026E2 /* CourseDetailCell.h */,
+				9FC5FC2E1B3C3D4A005026E2 /* CourseDetailCell.m */,
+				9FC5FC2F1B3C3D4A005026E2 /* CourseDetailCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -935,6 +943,7 @@
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
 				59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */,
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
+				9FC5FC311B3C3D4A005026E2 /* CourseDetailCell.xib in Resources */,
 				59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */,
 				D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */,
 				D4B2F3031B02FA00007B017E /* Main.storyboard in Resources */,
@@ -1042,6 +1051,7 @@
 				D4B2F3FA1B034265007B017E /* UIView+WebCacheOperation.m in Sources */,
 				D4B2F3E91B034265007B017E /* UIScrollView+MJRefresh.m in Sources */,
 				042E75E21B16148A00396AAF /* IQTitleBarButtonItem.m in Sources */,
+				9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */,
 				D4B2F39E1B033E51007B017E /* UIAlertView+AFNetworking.m in Sources */,
 				D4B2F3E11B034265007B017E /* MJRefreshConst.m in Sources */,
 				599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */,
