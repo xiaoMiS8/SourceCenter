@@ -21,8 +21,6 @@
 		042E75E71B16148A00396AAF /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75DD1B16148A00396AAF /* UIWindow+Hierarchy.m */; };
 		042E75EB1B16176100396AAF /* FindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75E91B16176100396AAF /* FindPasswordViewController.m */; };
 		042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042E75EA1B16176100396AAF /* FindPasswordViewController.xib */; };
-		04D1BFE71B3AF74100C946B3 /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D1BFE51B3AF74100C946B3 /* CourseDetailCell.m */; };
-		04D1BFE81B3AF74100C946B3 /* CourseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04D1BFE61B3AF74100C946B3 /* CourseDetailCell.xib */; };
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
 		594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98F91B142DF500A4C3F6 /* ViewController.m */; };
@@ -50,6 +48,7 @@
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
 		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
+		D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D430BD921B3A4B060013BAE7 /* NoticeActions.m */; };
 		D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D452B8751B395BDF00F5A85E /* MoocFileInfo.m */; };
 		D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D46F48FD1B340E48001E8AEF /* OCourseInfo.m */; };
 		D483411B1B2EC30600373043 /* MyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411A1B2EC30600373043 /* MyTextView.m */; };
@@ -171,9 +170,6 @@
 		042E75E81B16176100396AAF /* FindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordViewController.h; sourceTree = "<group>"; };
 		042E75E91B16176100396AAF /* FindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordViewController.m; sourceTree = "<group>"; };
 		042E75EA1B16176100396AAF /* FindPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindPasswordViewController.xib; sourceTree = "<group>"; };
-		04D1BFE41B3AF74100C946B3 /* CourseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailCell.h; sourceTree = "<group>"; };
-		04D1BFE51B3AF74100C946B3 /* CourseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailCell.m; sourceTree = "<group>"; };
-		04D1BFE61B3AF74100C946B3 /* CourseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailCell.xib; sourceTree = "<group>"; };
 		374BA7341B048C5100DBA477 /* NSString+HandleString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HandleString.h"; sourceTree = "<group>"; };
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
@@ -222,6 +218,8 @@
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
 		59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHttpManager.h; sourceTree = "<group>"; };
 		59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHttpManager.m; sourceTree = "<group>"; };
+		D430BD911B3A4B060013BAE7 /* NoticeActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeActions.h; sourceTree = "<group>"; };
+		D430BD921B3A4B060013BAE7 /* NoticeActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeActions.m; sourceTree = "<group>"; };
 		D452B8741B395BDF00F5A85E /* MoocFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoocFileInfo.h; sourceTree = "<group>"; };
 		D452B8751B395BDF00F5A85E /* MoocFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoocFileInfo.m; sourceTree = "<group>"; };
 		D46F48FC1B340E48001E8AEF /* OCourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCourseInfo.h; sourceTree = "<group>"; };
@@ -468,6 +466,8 @@
 				5963C35B1B200E0600A09D30 /* UserActions.m */,
 				D4F607BB1B33FBC700888FC4 /* IndexActions.h */,
 				D4F607BC1B33FBC700888FC4 /* IndexActions.m */,
+				D430BD911B3A4B060013BAE7 /* NoticeActions.h */,
+				D430BD921B3A4B060013BAE7 /* NoticeActions.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -662,9 +662,6 @@
 				D4DEA5B91B3002DD005C96D5 /* NewNotiSelectCell.h */,
 				D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */,
 				D4DEA5BB1B3002DD005C96D5 /* NewNotiSelectCell.xib */,
-				04D1BFE41B3AF74100C946B3 /* CourseDetailCell.h */,
-				04D1BFE51B3AF74100C946B3 /* CourseDetailCell.m */,
-				04D1BFE61B3AF74100C946B3 /* CourseDetailCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -938,7 +935,6 @@
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
 				59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */,
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
-				04D1BFE81B3AF74100C946B3 /* CourseDetailCell.xib in Resources */,
 				59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */,
 				D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */,
 				D4B2F3031B02FA00007B017E /* Main.storyboard in Resources */,
@@ -991,7 +987,6 @@
 				D4CE16661B3418C500DBBDE7 /* SpecialtyTypeInfo.m in Sources */,
 				D4B2F3ED1B034265007B017E /* SDImageCache.m in Sources */,
 				D4B2F3941B033E51007B017E /* AFHTTPRequestOperationManager.m in Sources */,
-				04D1BFE71B3AF74100C946B3 /* CourseDetailCell.m in Sources */,
 				042E75E61B16148A00396AAF /* UIView+IQKeyboardToolbar.m in Sources */,
 				594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */,
 				D4B2F3EC1B034265007B017E /* NSData+ImageContentType.m in Sources */,
@@ -1068,6 +1063,7 @@
 				59C478641B14044D008A49BF /* HomeListCell.m in Sources */,
 				D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */,
 				D4B2F3E01B034265007B017E /* MJRefreshComponent.m in Sources */,
+				D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */,
 				D483411F1B2EC7ED00373043 /* NewNotificationViewController.m in Sources */,
 				042E75E71B16148A00396AAF /* UIWindow+Hierarchy.m in Sources */,
 			);
@@ -1201,7 +1197,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B5E805A1-6763-4516-BC0E-1D01B2912F25";
 			};
 			name = Debug;
 		};
@@ -1215,7 +1210,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B5E805A1-6763-4516-BC0E-1D01B2912F25";
 			};
 			name = Release;
 		};
