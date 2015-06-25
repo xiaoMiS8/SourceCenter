@@ -67,4 +67,17 @@
     }];
 }
 
++ (void)AddNoticeResponseWithNoticeID:(long)NoticeID
+                               Conten:(NSString *)Conten
+                             finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kNoticeID: [NSNumber numberWithLong:NoticeID],
+                                 kConten: Conten};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Notice/NoticeResponse_ADD"
+                                   parameters:parameters
+                                  connectFlag:kNoticeResponse_ADD
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 @end

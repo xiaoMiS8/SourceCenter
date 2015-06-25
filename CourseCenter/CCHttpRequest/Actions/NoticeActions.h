@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CSNetAccessor.h"
 
+
+
 #define kOCID           @"OCID"
 #define kSysID          @"SysID"
 #define kModuleID       @"ModuleID"
@@ -71,6 +73,16 @@
                      IsForSMS:(BOOL)IsForSMS
                     SourceIDs:(NSArray *)SourceIDs
                      finished:(FinishedBlock)finished;
+/**
+ *  回复通知
+ *
+ *  @param NoticeID  通知ID
+ *  @param Conten    内容
+ *  @param finished  finished description
+ */
++ (void)AddNoticeResponseWithNoticeID:(long)NoticeID
+                               Conten:(NSString *)Conten
+                             finished:(FinishedBlock)finished;
 
 @end
 

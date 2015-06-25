@@ -97,4 +97,60 @@
     }];
 }
 
+- (void)getNoticeInfoListWithOCID:(long)OCID
+                            SysID:(long)SysID
+                         ModuleID:(long)ModuleID
+                        PageIndex:(int)PageIndex
+                         PageSize:(int)PageSize
+                         finished:(FinishedBlock)finished {
+    [NoticeActions getNoticeInfoListWithOCID:OCID
+                                       SysID:SysID
+                                    ModuleID:ModuleID
+                                   PageIndex:PageIndex
+                                    PageSize:PageSize
+                                    finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getNoticeResponseListWithNoticeID:(long)NoticeID
+                                PageIndex:(int)PageIndex
+                                 PageSize:(int)PageSize
+                                 finished:(FinishedBlock)finished {
+    [NoticeActions getNoticeResponseListWithNoticeID:NoticeID
+                                           PageIndex:PageIndex
+                                            PageSize:PageSize
+                                            finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status ,object);
+    }];
+}
+
+- (void)AddAppNoticeWithTitle:(NSString *)Title
+                       Conten:(NSString *)Conten
+                        IsTop:(BOOL)IsTop
+                    IsForMail:(BOOL)IsForMail
+                     IsForSMS:(BOOL)IsForSMS
+                    SourceIDs:(NSArray *)SourceIDs
+                     finished:(FinishedBlock)finished {
+    [NoticeActions AddAppNoticeWithTitle:Title
+                                  Conten:Conten
+                                   IsTop:IsTop
+                               IsForMail:IsForMail
+                                IsForSMS:IsForSMS
+                               SourceIDs:SourceIDs
+                                finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)AddNoticeResponseWithNoticeID:(long)NoticeID
+                               Conten:(NSString *)Conten
+                             finished:(FinishedBlock)finished {
+    [NoticeActions AddNoticeResponseWithNoticeID:NoticeID
+                                          Conten:Conten
+                                        finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 @end

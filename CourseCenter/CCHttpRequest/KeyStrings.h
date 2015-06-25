@@ -34,5 +34,17 @@
     //章节下资料列表
 #define kOCMoocFileStudy_List           @"OCMoocFileStudy_List"
 
+#pragma mark- Notice
+
+    //通知列表
+#define kNoticeInfo_List                @"NoticeInfo_List"
+    //通知回复列表
+#define kNoticeResponse_List            @"NoticeResponse_List"
+    //发布通知
+#define kApp_Notice_Add                 @"App_Notice_Add"
+    //回复通知
+#define kNoticeResponse_ADD             @"NoticeResponse_ADD"
+
+
 
 #endif

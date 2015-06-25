@@ -7,7 +7,7 @@
 //
 
 #import "HomeDetailViewController.h"
-#import "CourseDetailCell.h"
+//#import "CourseDetailCell.h"
 #define SECTION_STATE @"SECTION_STATE"
 @interface HomeDetailViewController ()
 {
@@ -100,11 +100,11 @@
 {
     return 70;
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-     CourseDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"CourseDetailCell"];
-    return cell;
-}
+//-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//     CourseDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"CourseDetailCell"];
+//    return cell;
+//}
 -(void)press:(UIButton *)but
 {
     NSMutableDictionary *dicto=[_array objectAtIndex:but.tag-100];
@@ -116,7 +116,7 @@
         [dicto setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
     }
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
-    NSLog(@"%d",but.tag-100);
+//    NSLog(@"%d",but.tag-100);
 }
 
 - (void)didReceiveMemoryWarning {
