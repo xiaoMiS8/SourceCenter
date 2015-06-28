@@ -9,5 +9,6 @@
 #import "BaseViewController.h"
 
 @interface HomeDetailViewController : BaseViewController
-
+@property(nonatomic,assign)long  OCID;
+@property(nonatomic,strong)NSString *teacherImgUrl;
 @end

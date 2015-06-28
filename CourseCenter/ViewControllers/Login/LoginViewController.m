@@ -39,6 +39,12 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"isLogin"];
+                [[NSUserDefaults standardUserDefaults]setObject:username forKey:@"username"];
+                [[NSUserDefaults standardUserDefaults]setObject:password forKey:@"password"];
+                [[NSUserDefaults standardUserDefaults]synchronize];
+                if (self.block) {
+                    self.block();
+                }
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }

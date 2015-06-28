@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void (^returnHomeBlock)(void);
 @interface LoginViewController : BaseViewController
-
+@property(nonatomic,strong)returnHomeBlock block;
 @end

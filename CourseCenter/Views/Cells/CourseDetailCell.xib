@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -59,6 +59,10 @@
                     <constraint firstItem="ftQ-d4-Uv5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Xfx-eN-AAw"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="TimeLength" destination="qvS-FW-5uc" id="O3z-Q7-x5I"/>
+                <outlet property="fileTitle" destination="ftQ-d4-Uv5" id="D4k-qq-PLd"/>
+            </connections>
             <point key="canvasLocation" x="217" y="241.5"/>
         </tableViewCell>
     </objects>

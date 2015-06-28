@@ -110,7 +110,22 @@
     formatter = nil;
     return timeStr;
 }
-
+//时间戳转换为时间(秒表示)
++ (NSString *)timestampToTimeEndSecond:(NSTimeInterval)timestamp
+{
+    //    NSString *longOftimesTamp = [NSString stringWithFormat:@"%.0lf", timestamp];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"mm:ss"];
+    NSDate *date = nil;
+    //    if (longOftimesTamp.length > 10) {
+    date  = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    //    }else{
+    //        date  = [NSDate dateWithTimeIntervalSince1970:timestamp];
+    //    }
+    NSString *timeStr = [formatter stringFromDate:date];
+    formatter = nil;
+    return timeStr;
+}
 + (NSMutableDictionary *)dictFromObject:(id)object
 {
     NSMutableDictionary *props = [NSMutableDictionary dictionary];

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MoocFileInfo.h"
 @interface CourseDetailCell : UITableViewCell
-
+@property(nonatomic,strong)MoocFileInfo *mooFileInfo;
 @end

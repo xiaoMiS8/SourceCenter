@@ -8,15 +8,34 @@
 
 #import "HomeDetailViewController.h"
 #import "CourseDetailCell.h"
+#import "ResponseObject.h"
+#import "TeacherInfo.h"
+#import "ChapterInfo.h"
+#import "PlayViewController.h"
+#import "UIImageView+WebCache.h"
 #define SECTION_STATE @"SECTION_STATE"
+#define ICONIMG @"iconpro"
 @interface HomeDetailViewController ()
 {
     NSMutableArray *_array;
+    NSMutableArray *_arrayData;
+    NSMutableArray *_moocFileArray;
     NSMutableDictionary *_dict;
+    TeacherInfo *_teacherInfo;
+    ChapterInfo *_chapterInfo;
 }
+@property (strong,nonatomic)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
 @property (weak, nonatomic) IBOutlet UIView *oneV;
 @property (weak, nonatomic) IBOutlet UIView *twoV;
 @property (weak, nonatomic) IBOutlet UIView *threeV;
+@property (weak, nonatomic) IBOutlet UILabel *StartDate;
+@property (weak, nonatomic) IBOutlet UILabel *TeacherName;
+@property (weak, nonatomic) IBOutlet UILabel *OrganizationName;
+@property (weak, nonatomic) IBOutlet UILabel *Ranks;
+@property (weak, nonatomic) IBOutlet UILabel *AllPlayDay;
+@property (weak, nonatomic) IBOutlet UIImageView *teacherImage;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
@@ -33,14 +52,66 @@
     self.threeV.layer.borderWidth=1;
     [self addTableViewheader];
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailCell"];
+    self.httpManager = [[CCHttpManager alloc]init];
     _array=[NSMutableArray arrayWithCapacity:0];
-    for (int section='A'; section<='Z'; section++) {
+    _arrayData=[NSMutableArray arrayWithCapacity:0];
+    _moocFileArray=[NSMutableArray arrayWithCapacity:0];
+    [self loadData];
+}
+-(void)loadData
+{
+    [self.httpManager getAppOCMoocGetWithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                _teacherInfo=self.reob.resultObject;
+                [self showteacherInfo:_teacherInfo];
+            }
+        }
+    }];
+    [self.httpManager getChapterStudyListwithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                _arrayData=self.reob.resultArray;
+                [self showCourseData];
+                [self loadOCMoocFile];
+            }
+        }
+    }];
+}
+-(void)showteacherInfo:(TeacherInfo *)info
+{
+    [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
+    //[self.StartDate setText:info.StartDate];
+    [self.TeacherName setText:info.TeacherName];
+    [self.OrganizationName setText:info.OrganizationName];
+    //[self.Ranks setText:info.Ranks];
+    [self.AllPlayDay setText:[NSString stringWithFormat:@"%ld周",info.AllPlayDay]];
+}
+-(void)showCourseData
+{
+    for (int i=0; i<_arrayData.count; i++) {
         _dict=[NSMutableDictionary dictionaryWithCapacity:0];
-        
         [_dict setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
         [_array addObject:_dict];
     }
-    
+    [_tableView reloadData];
+}
+-(void)loadOCMoocFile
+{
+    for (int i=0; i<_arrayData.count; i++) {
+        long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:i]).ChapterID;
+        int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:i]).BuildMode;
+        [self.httpManager getOCMoocFileStudyListwithOCID:528 ChapterID:6820 FileType:buildMode finished:^(EnumServerStatus status, NSObject *object) {
+            if (status==0) {
+                self.reob=(ResponseObject *)object;
+                if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                    [_moocFileArray addObject:self.reob.resultArray];
+                }
+            }
+        }];
+    }
 }
 - (void)addTableViewheader
 {
@@ -64,7 +135,7 @@
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _array.count;
+    return _arrayData.count;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -74,11 +145,12 @@
         return 0;
     }else
     {
-        return 5;
+        return ((NSMutableArray *)[_moocFileArray objectAtIndex:section]).count;
     }
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+   NSString *title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
     UIView *view=[[UIView alloc]init];
     view.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
     view.backgroundColor=[UIColor whiteColor];
@@ -86,7 +158,7 @@
     view.layer.borderWidth=0.5;
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, _tableView.frame.size.width-20, 50)];
     lable.font=Font_14;
-    lable.text=@"第一章 大熊猫的生活习性";
+    lable.text=title;//@"第一章 大熊猫的生活习性";
     [view addSubview:lable];
     UIButton *button=[[UIButton alloc]init];
     button.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
@@ -103,7 +175,14 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
      CourseDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"CourseDetailCell"];
+    cell.mooFileInfo=[[_moocFileArray objectAtIndex:indexPath.row]objectAtIndex:indexPath.row];
     return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    PlayViewController *playVC=[[PlayViewController alloc]init];
+    playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.row]objectAtIndex:indexPath.row]).ViewUrl;
+    [self presentViewController:playVC animated:YES completion:nil];
 }
 -(void)press:(UIButton *)but
 {

@@ -8,8 +8,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeDetailViewController">
             <connections>
+                <outlet property="AllPlayDay" destination="XXy-wV-6g1" id="q2l-lw-uXJ"/>
+                <outlet property="OrganizationName" destination="9z1-0r-QYJ" id="aHQ-6j-FTv"/>
+                <outlet property="Ranks" destination="51s-he-uu9" id="013-0I-dPI"/>
+                <outlet property="StartDate" destination="O6u-dC-cUH" id="Qag-0j-45X"/>
+                <outlet property="TeacherName" destination="itw-mf-cxg" id="x9m-eE-7Kz"/>
                 <outlet property="oneV" destination="WPR-fR-wqh" id="bWD-id-EkF"/>
                 <outlet property="tableView" destination="z5M-y4-z8P" id="QLX-mb-zQS"/>
+                <outlet property="teacherImage" destination="VnH-iL-So7" id="N0K-Wy-KvD"/>
                 <outlet property="threeV" destination="pIR-t3-R0i" id="4gF-pm-dru"/>
                 <outlet property="twoV" destination="L6n-ZM-rCl" id="YPx-XJ-5aL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,24 +26,25 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="nav_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Wzw-9z-5hS">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Wzw-9z-5hS">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
                     <constraints>
-                        <constraint firstAttribute="height" id="TsM-7K-twX"/>
+                        <constraint firstAttribute="height" constant="140" id="TsM-7K-twX"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPR-fR-wqh">
-                    <rect key="frame" x="10" y="-1" width="300" height="30"/>
+                    <rect key="frame" x="10" y="139" width="300" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开课时间:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nEH-1A-0SR">
-                            <rect key="frame" x="10" y="0.0" width="61" height="30"/>
+                            <rect key="frame" x="10" y="0.0" width="60.5" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 2015年08月09日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6u-dC-cUH">
-                            <rect key="frame" x="76" y="0.0" width="110" height="30"/>
+                            <rect key="frame" x="75" y="0.0" width="110" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -53,7 +60,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L6n-ZM-rCl">
-                    <rect key="frame" x="10" y="28" width="300" height="70"/>
+                    <rect key="frame" x="10" y="168" width="300" height="70"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconpro" translatesAutoresizingMaskIntoConstraints="NO" id="VnH-iL-So7">
                             <rect key="frame" x="20" y="5" width="60" height="60"/>
@@ -67,7 +74,7 @@
                                 <constraint firstAttribute="height" constant="20" id="MJy-6s-QpS"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="化学学院" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9z1-0r-QYJ">
@@ -76,7 +83,7 @@
                                 <constraint firstAttribute="height" constant="20" id="BHa-jG-WpW"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="教授" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51s-he-uu9">
@@ -85,7 +92,7 @@
                                 <constraint firstAttribute="height" constant="20" id="oIf-t9-6VC"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -104,7 +111,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIR-t3-R0i">
-                    <rect key="frame" x="10" y="97" width="300" height="30"/>
+                    <rect key="frame" x="10" y="237" width="300" height="30"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_cycle" translatesAutoresizingMaskIntoConstraints="NO" id="Xun-gU-ree">
                             <rect key="frame" x="35" y="2" width="26" height="26"/>
@@ -115,13 +122,13 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16周" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXy-wV-6g1">
                             <rect key="frame" x="161" y="0.0" width="30" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学习周期：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gsc-iO-hAw">
                             <rect key="frame" x="91" y="0.0" width="70" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -140,11 +147,11 @@
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="z5M-y4-z8P">
-                    <rect key="frame" x="10" y="137" width="300" height="431"/>
+                    <rect key="frame" x="10" y="277" width="300" height="291"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="y2F-2S-A2e"/>
-                        <outlet property="delegate" destination="-1" id="jAm-GT-U12"/>
+                        <outlet property="dataSource" destination="-1" id="xQK-3R-ZSt"/>
+                        <outlet property="delegate" destination="-1" id="eFT-1e-rZV"/>
                     </connections>
                 </tableView>
             </subviews>

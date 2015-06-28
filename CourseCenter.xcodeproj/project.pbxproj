@@ -48,6 +48,12 @@
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
 		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
+		9F49B0B81B40072600996CA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F49B0B71B40072600996CA8 /* CoreGraphics.framework */; };
+		9F49B0BA1B40073600996CA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F49B0B91B40073600996CA8 /* UIKit.framework */; };
+		9F49B0BC1B40074400996CA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F49B0BB1B40074400996CA8 /* Foundation.framework */; };
+		9F49B0C31B400AC700996CA8 /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F49B0C11B400AC700996CA8 /* PlayViewController.m */; };
+		9F49B0C41B400AC700996CA8 /* PlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F49B0C21B400AC700996CA8 /* PlayViewController.xib */; };
+		9F49B0C61B400B9F00996CA8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F49B0C51B400B9F00996CA8 /* MediaPlayer.framework */; };
 		9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5FC2E1B3C3D4A005026E2 /* CourseDetailCell.m */; };
 		9FC5FC311B3C3D4A005026E2 /* CourseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC5FC2F1B3C3D4A005026E2 /* CourseDetailCell.xib */; };
 		D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D430BD921B3A4B060013BAE7 /* NoticeActions.m */; };
@@ -220,6 +226,13 @@
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
 		59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHttpManager.h; sourceTree = "<group>"; };
 		59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHttpManager.m; sourceTree = "<group>"; };
+		9F49B0B71B40072600996CA8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9F49B0B91B40073600996CA8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9F49B0BB1B40074400996CA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9F49B0C01B400AC700996CA8 /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
+		9F49B0C11B400AC700996CA8 /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		9F49B0C21B400AC700996CA8 /* PlayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayViewController.xib; sourceTree = "<group>"; };
+		9F49B0C51B400B9F00996CA8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		9FC5FC2D1B3C3D4A005026E2 /* CourseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailCell.h; sourceTree = "<group>"; };
 		9FC5FC2E1B3C3D4A005026E2 /* CourseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailCell.m; sourceTree = "<group>"; };
 		9FC5FC2F1B3C3D4A005026E2 /* CourseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailCell.xib; sourceTree = "<group>"; };
@@ -386,6 +399,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F49B0C61B400B9F00996CA8 /* MediaPlayer.framework in Frameworks */,
+				9F49B0BC1B40074400996CA8 /* Foundation.framework in Frameworks */,
+				9F49B0BA1B40073600996CA8 /* UIKit.framework in Frameworks */,
+				9F49B0B81B40072600996CA8 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +527,10 @@
 		D4B2F2E81B02FA00007B017E = {
 			isa = PBXGroup;
 			children = (
+				9F49B0C51B400B9F00996CA8 /* MediaPlayer.framework */,
+				9F49B0BB1B40074400996CA8 /* Foundation.framework */,
+				9F49B0B91B40073600996CA8 /* UIKit.framework */,
+				9F49B0B71B40072600996CA8 /* CoreGraphics.framework */,
 				D4B2F2F31B02FA00007B017E /* CourseCenter */,
 				D4B2F3101B02FA00007B017E /* CourseCenterTests */,
 				D4B2F2F21B02FA00007B017E /* Products */,
@@ -696,6 +717,9 @@
 				594C98FB1B1442AE00A4C3F6 /* CourseSearchViewController.h */,
 				594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */,
 				594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */,
+				9F49B0C01B400AC700996CA8 /* PlayViewController.h */,
+				9F49B0C11B400AC700996CA8 /* PlayViewController.m */,
+				9F49B0C21B400AC700996CA8 /* PlayViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -938,6 +962,7 @@
 			files = (
 				D4DEA5BD1B3002DD005C96D5 /* NewNotiSelectCell.xib in Resources */,
 				599A5B7E1B16C09A005597AE /* NotificationListCell.xib in Resources */,
+				9F49B0C41B400AC700996CA8 /* PlayViewController.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
@@ -999,6 +1024,7 @@
 				042E75E61B16148A00396AAF /* UIView+IQKeyboardToolbar.m in Sources */,
 				594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */,
 				D4B2F3EC1B034265007B017E /* NSData+ImageContentType.m in Sources */,
+				9F49B0C31B400AC700996CA8 /* PlayViewController.m in Sources */,
 				D4B2F3491B02FEDA007B017E /* CourseViewController.m in Sources */,
 				5963C36E1B202C8200A09D30 /* UserInfo.m in Sources */,
 				5963C35C1B200E0600A09D30 /* UserActions.m in Sources */,

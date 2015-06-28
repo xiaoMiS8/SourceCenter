@@ -31,7 +31,8 @@
 + (NSTimeInterval)timeToTimestamp:(NSString *)timeStr;
     //时间戳转换为时间
 + (NSString *)timestampToTime:(NSTimeInterval)timestamp;
-
+//时间戳转换为时间(分钟表示)
++ (NSString *)timestampToTimeEndSecond:(NSTimeInterval)timestamp;
 #pragma mark- 对象处理
 
     //将对象装换为dic

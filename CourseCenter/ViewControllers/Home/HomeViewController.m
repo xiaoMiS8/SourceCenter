@@ -38,9 +38,9 @@
     self.courseSelectLabel.text = @"推荐课程";
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
-    
+    [self isLoginOrCourse];
 }
--(void)viewWillAppear:(BOOL)animated
+-(void)isLoginOrCourse
 {
     loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
     if ([loginState isEqualToString:@"0"]||loginState==nil) {
@@ -87,6 +87,10 @@
 }
 - (IBAction)gotoLogin:(UIButton *)sender {
     LoginViewController *loginSearchVC = [LoginViewController new];
+    loginSearchVC.block=^()
+    {
+        [self isLoginOrCourse];
+    };
     [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
 }
 
@@ -164,7 +168,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeDetailViewController *homeDetailVc = [HomeDetailViewController new];
+    HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
+    homeDetailVc.OCID=1;//((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).OCID;
+    homeDetailVc.teacherImgUrl=((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 

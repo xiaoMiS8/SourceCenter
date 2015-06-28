@@ -10,6 +10,8 @@
 #import "UIImageView+WebCache.h"
 #define ICONIMG @"iconpro"
 #define BAGNIMG @"nav_bg"
+#define STUDY   @"study"
+#define SINGUP  @"SINGUP"
 @interface HomeListCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgimg;
@@ -44,6 +46,11 @@
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
     [self.nameLabel setText:oCourse.TeacherName];
     [self.collegeLabel setText:oCourse.OrganizationName];
+    if (oCourse.RegStatus==1) {
+      [self.gotoBtn setBackgroundImage:[UIImage imageNamed:STUDY] forState:UIControlStateNormal];
+    }else{
+      [self.gotoBtn setBackgroundImage:[UIImage imageNamed:SINGUP] forState:UIControlStateNormal];
+    }
     [self.courseDetailLabel setText:oCourse.Name];
     [self.studentCountLabel setText:[NSString stringWithFormat:@"%d",oCourse.StudentCount]];
     
