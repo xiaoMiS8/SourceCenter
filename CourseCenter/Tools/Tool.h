@@ -51,4 +51,7 @@
 + (BOOL)isMobileNumber:(NSString *)mobileNum;
 #pragma mark- 按钮处理
 +(void)startTimeWithBtn:(UIButton *)btn;
+#pragma mark- Cookies处理
+//+ (void)saveCookies;
+//+ (void)loadCookies;
 @end

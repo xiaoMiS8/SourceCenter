@@ -10,8 +10,7 @@
 #import "AFNetworking.h"
 #import "ResultAnalyzer.h"
 @implementation CSNetAccessor
-
-    //发送一个post异步请求
+//发送一个post异步请求
 + (void)sendPostAsyncObjectFormUrl:(NSString *)urlStr
                     parameters:(id)parameters
                    connectFlag:(NSString *)flag
@@ -19,7 +18,6 @@
     NSString *partURL = [[[kServerIP stringByAppendingString:kServerPort] stringByAppendingString:kSerVerName] stringByAppendingString:kServiceName];
     NSString *URLString = [partURL stringByAppendingString:urlStr];
     DLog(@"url:---%@,参数:----%@",URLString,parameters);
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager new];
     [manager POST:URLString
        parameters:parameters

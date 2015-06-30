@@ -21,6 +21,7 @@
      movie =[[MPMoviePlayerController alloc]initWithContentURL:[NSURL URLWithString:self.playUrl]];
     [movie prepareToPlay];
     [movie.view setFrame:self.view.bounds];
+    [movie setControlStyle:MPMovieControlStyleFullscreen];
     [movie setShouldAutoplay:YES];
     [self.view addSubview:movie.view];
     // 注册一个播放结束的通知
@@ -30,7 +31,11 @@
 }
 -(void)myMovieFinishedCallback:(NSNotification*)notification
 {
-    
+    //销毁播放通知
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+     name:MPMoviePlayerPlaybackDidFinishNotification
+     object:movie];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

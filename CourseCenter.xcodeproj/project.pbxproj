@@ -56,6 +56,10 @@
 		9F49B0C61B400B9F00996CA8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F49B0C51B400B9F00996CA8 /* MediaPlayer.framework */; };
 		9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC5FC2E1B3C3D4A005026E2 /* CourseDetailCell.m */; };
 		9FC5FC311B3C3D4A005026E2 /* CourseDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FC5FC2F1B3C3D4A005026E2 /* CourseDetailCell.xib */; };
+		CA62FA0B1B42DCF700F80DE3 /* SubjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */; };
+		CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */; };
+		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
+		CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */; };
 		D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D430BD921B3A4B060013BAE7 /* NoticeActions.m */; };
 		D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D452B8751B395BDF00F5A85E /* MoocFileInfo.m */; };
 		D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D46F48FD1B340E48001E8AEF /* OCourseInfo.m */; };
@@ -236,6 +240,12 @@
 		9FC5FC2D1B3C3D4A005026E2 /* CourseDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseDetailCell.h; sourceTree = "<group>"; };
 		9FC5FC2E1B3C3D4A005026E2 /* CourseDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseDetailCell.m; sourceTree = "<group>"; };
 		9FC5FC2F1B3C3D4A005026E2 /* CourseDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDetailCell.xib; sourceTree = "<group>"; };
+		CA62FA081B42DCF700F80DE3 /* SubjectSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchViewController.h; sourceTree = "<group>"; };
+		CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchViewController.m; sourceTree = "<group>"; };
+		CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchViewController.xib; sourceTree = "<group>"; };
+		CA62FA0D1B42DFDE00F80DE3 /* SubjectSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchCell.h; sourceTree = "<group>"; };
+		CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchCell.m; sourceTree = "<group>"; };
+		CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchCell.xib; sourceTree = "<group>"; };
 		D430BD911B3A4B060013BAE7 /* NoticeActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeActions.h; sourceTree = "<group>"; };
 		D430BD921B3A4B060013BAE7 /* NoticeActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeActions.m; sourceTree = "<group>"; };
 		D452B8741B395BDF00F5A85E /* MoocFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoocFileInfo.h; sourceTree = "<group>"; };
@@ -691,6 +701,9 @@
 				9FC5FC2D1B3C3D4A005026E2 /* CourseDetailCell.h */,
 				9FC5FC2E1B3C3D4A005026E2 /* CourseDetailCell.m */,
 				9FC5FC2F1B3C3D4A005026E2 /* CourseDetailCell.xib */,
+				CA62FA0D1B42DFDE00F80DE3 /* SubjectSearchCell.h */,
+				CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */,
+				CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -717,6 +730,9 @@
 				594C98FB1B1442AE00A4C3F6 /* CourseSearchViewController.h */,
 				594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */,
 				594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */,
+				CA62FA081B42DCF700F80DE3 /* SubjectSearchViewController.h */,
+				CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */,
+				CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */,
 				9F49B0C01B400AC700996CA8 /* PlayViewController.h */,
 				9F49B0C11B400AC700996CA8 /* PlayViewController.m */,
 				9F49B0C21B400AC700996CA8 /* PlayViewController.xib */,
@@ -961,6 +977,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4DEA5BD1B3002DD005C96D5 /* NewNotiSelectCell.xib in Resources */,
+				CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */,
+				CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */,
 				599A5B7E1B16C09A005597AE /* NotificationListCell.xib in Resources */,
 				9F49B0C41B400AC700996CA8 /* PlayViewController.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
@@ -1096,6 +1114,8 @@
 				042E75E51B16148A00396AAF /* UIView+Hierarchy.m in Sources */,
 				042E75E31B16148A00396AAF /* IQToolbar.m in Sources */,
 				D4B2F39F1B033E51007B017E /* UIButton+AFNetworking.m in Sources */,
+				CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */,
+				CA62FA0B1B42DCF700F80DE3 /* SubjectSearchViewController.m in Sources */,
 				59C478641B14044D008A49BF /* HomeListCell.m in Sources */,
 				D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */,
 				D4B2F3E01B034265007B017E /* MJRefreshComponent.m in Sources */,

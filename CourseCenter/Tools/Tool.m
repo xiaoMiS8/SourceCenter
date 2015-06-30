@@ -291,4 +291,20 @@
     dispatch_resume(_timer);
     
 }
+//+ (void)saveCookies{
+//    NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    [defaults setObject: cookiesData forKey: @"sessionCookies"];
+//    [defaults synchronize];
+//    
+//}
+//+ (void)loadCookies{
+//    NSArray *cookies = [NSKeyedUnarchiver unarchiveObjectWithData: [[NSUserDefaults standardUserDefaults] objectForKey: @"sessionCookies"]];
+//     NSDictionary *sheaders = [NSHTTPCookie requestHeaderFieldsWithCookies:cookies];
+//    NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+//    
+//    for (NSHTTPCookie *cookie in cookies){
+//        [cookieStorage setCookie: cookie];
+//    }
+//}
 @end
