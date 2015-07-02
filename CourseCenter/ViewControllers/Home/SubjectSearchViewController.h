@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface SubjectSearchViewController : BaseViewController
+@interface SubjectSearchViewController : BaseViewController<UISearchBarDelegate>
 @property(nonatomic,assign)long SpecialtyTypeID;
 @end

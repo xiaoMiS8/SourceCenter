@@ -10,11 +10,18 @@
 #import "SubjectSearchCell.h"
 #import "ResponseObject.h"
 #import "HomeDetailViewController.h"
+#import "OCourseInfo.h"
 @interface SubjectSearchViewController ()
-
+{
+    OCourse *oCource;
+    UISearchBar *mySearchBar;
+    UISearchDisplayController *searchDC;
+}
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (nonatomic,strong)NSMutableArray *dataArray;
+@property (nonatomic,strong)NSMutableArray *KeywordArray;
+@property (nonatomic,strong)NSMutableArray *dataResult;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -28,6 +35,7 @@
     [self addTableviewHeader];
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
+    self.KeywordArray=[[NSMutableArray array]init];
     [self loadData];
 }
 -(void)loadData
@@ -44,21 +52,28 @@
 }
 - (void)addTableviewHeader
 {
-    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
-    searchBar.placeholder = @"这里可以搜索您感兴趣的视频课程哦！";
-    self.tableView.tableHeaderView = searchBar;
+    mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
+    mySearchBar.placeholder = @"这里可以搜索您感兴趣的视频课程哦！";
+    mySearchBar.delegate=self;
+    mySearchBar.showsCancelButton=YES;
+    self.tableView.tableHeaderView = mySearchBar;
+    searchDC=[[UISearchDisplayController alloc]initWithSearchBar:mySearchBar contentsController:self];
+    searchDC.searchResultsDataSource=self;
+    searchDC.searchResultsDelegate=self;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
+    NSInteger count= tableView==_tableView? self.dataArray.count: self.dataResult.count;
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SubjectSearchCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"SubjectSearchCell"];
-    cell.oCourse=[self.dataArray objectAtIndex:indexPath.row];
+    OCourse *oCourse=tableView==_tableView?[self.dataArray objectAtIndex:indexPath.row]:[self.dataResult objectAtIndex:indexPath.row];
+    cell.oCourse=oCourse;
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,6 +85,25 @@
     homeDetailVc.OCID=1;//((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).OCID;
     homeDetailVc.teacherImgUrl=((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
+}
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (self.dataResult==nil) {
+        self.dataResult=[[NSMutableArray alloc]init];
+        
+    }
+    [self.dataResult removeAllObjects];
+    //NSPredicate *predicate=[NSPredicate predicateWithFormat:@"OrganizationName==测试机构"];
+    for (OCourse *info in self.dataArray) {
+        if ([((OCourse *)self.dataArray).OrganizationName rangeOfString:searchBar.text].location != NSNotFound) {
+            
+            [self.dataResult addObject:info];
+            
+        }
+//        if ([predicate evaluateWithObject:info]) {
+//            [self.dataArray addObject:info];
+//        }
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

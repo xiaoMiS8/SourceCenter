@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface CourseSearchViewController : BaseViewController
+@interface CourseSearchViewController : BaseViewController<UISearchBarDelegate>
 
 @end
