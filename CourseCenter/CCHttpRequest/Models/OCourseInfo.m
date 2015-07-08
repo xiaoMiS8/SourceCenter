@@ -8,7 +8,7 @@
 
 #import "OCourseInfo.h"
 
-@implementation OCourse
+@implementation OCourseInfo
 
 - (id)initWithDict:(NSDictionary *)dict {
     self = [super init];
@@ -30,6 +30,15 @@
         self.RegStatus = [[dict objectForKey:kRegStatus] intValue];
         self.StudentCount = [[dict objectForKey:kStudentCount] intValue];
         self.RowsCount = [[dict objectForKey:kRowsCount] intValue];
+        self.TeachingClassName = [dict objectForKey:kTeachingClassName];
+        self.LastStudyChapter = [dict objectForKey:kLastStudyChapter];
+        self.IsShowMooc = [[dict objectForKey:kIsShowMooc] boolValue];
+        self.MyMoocRate = [dict objectForKey:kMyMoocRate];
+        self.PlanMoocRate = [dict objectForKey:kPlanMoocRate];
+        self.IsShowFC = [[dict objectForKey:kIsShowFC] boolValue];
+        self.MyFCRate = [dict objectForKey:kMyFCRate];
+        self.MyGroupFCRate = [dict objectForKey:kMyGroupFCRate];
+        self.PlanFCRate = [dict objectForKey:kPlanFCRate];
     }
     return self;
 }

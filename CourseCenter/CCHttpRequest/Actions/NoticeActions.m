@@ -80,4 +80,21 @@
     }];
 }
 
++ (void)getAppTeacherOCClass_ListWithKey:(NSString *)Key
+                               IsHistroy:(BOOL)IsHistroy
+                               PageIndex:(int)PageIndex
+                                PageSize:(int)PageSize
+                                finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kkey: Key,
+                                 kIsHistroy: [NSNumber numberWithBool:IsHistroy],
+                                 kPageIndex: [NSNumber numberWithInt:PageIndex],
+                                 kPageSize: [NSNumber numberWithInt:PageSize]};
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Notice/App_TeacherOCClass_List"
+                                  parameters:parameters
+                                 connectFlag:kApp_TeacherOCClass_List
+                                    finished:^(EnumServerStatus status, NSObject *object) {
+                                        finished(status, object);
+                                    }];
+}
+
 @end

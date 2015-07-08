@@ -13,6 +13,8 @@
 #import "TeacherInfo.h"
 #import "ChapterInfo.h"
 #import "MoocFileInfo.h"
+#import "NoticeInfo.h"
+#import "TeachingClassInfo.h"
 
 #define Kresult             @"result"
 
@@ -40,8 +42,8 @@
         if ([result isKindOfClass:[NSArray class]]) {
             NSArray *array = (NSArray *)result;
             for (int i=0; i<array.count; i++) {
-                OCourse *ocourse = [[OCourse alloc] initWithDict:array[i]];
-                [results addObject:ocourse];
+                OCourseInfo *ocourseInfo = [[OCourseInfo alloc] initWithDict:array[i]];
+                [results addObject:ocourseInfo];
             }
             responseObject.resultArray = results;
         }
@@ -83,7 +85,54 @@
             }
             responseObject.resultArray = results;
         }
+    } else if ([flag isEqualToString:kNoticeResponse_List]) {
+            id result = [resultObject objectForKey:Kresult];
+            NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+            if ([result isKindOfClass:[NSArray class]]) {
+                NSArray *array = (NSArray *)result;
+                for (int i=0; i++; i++) {
+                    NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDict:array[i]];
+                    [results addObject:noticeInfo];
+                }
+                responseObject.resultArray = results;
+            }
+    } else if ([flag isEqualToString:kNoticeResponse_List]) {
+            id result = [resultObject objectForKey:Kresult];
+            NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+            if ([result isKindOfClass:[NSArray class]]) {
+                NSArray *array = (NSArray *)result;
+                for (int i=0; i++; i++) {
+                    NoticeResponseInfo *noticeResInfo = [[NoticeResponseInfo alloc] initWithDict:array[i]];
+                    [results addObject:noticeResInfo];
+                }
+                responseObject.resultArray = results;
+            }
+    } else if ([flag isEqualToString:kApp_TeacherOCClass_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i++; i++) {
+                TeachingClassInfo *teachingclassInfo = [[TeachingClassInfo alloc] initWithDict:array[i]];
+                [results addObject:teachingclassInfo];
+            }
+            responseObject.resultArray = results;
+        }
+
+    } else if ([flag isEqualToString:kApp_OC_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i++; i++) {
+                OCourseInfo *ocoureInfo = [[OCourseInfo alloc] initWithDict:array[i]];
+                [results addObject:ocoureInfo];
+            }
+            responseObject.resultArray = results;
+        }
+        
     }
+    
     
     return responseObject;
 }

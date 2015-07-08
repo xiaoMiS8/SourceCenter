@@ -10,6 +10,7 @@
 #import "UserActions.h"
 #import "IndexActions.h"
 #import "NoticeActions.h"
+#import "CourseActions.h"
 @interface CCHttpManager : NSObject
 
 #pragma mark- User
@@ -167,6 +168,30 @@
 - (void)AddNoticeResponseWithNoticeID:(long)NoticeID
                                Conten:(NSString *)Conten
                              finished:(FinishedBlock)finished;
+/**
+ *  教师下网络教学班列表
+ *
+ *  @param Key  关键字
+ *  @param IsHistroy 是否历史教学班-1全部
+ *  @param PageIndex  第几页
+ *  @param PageSize  每页多少个
+ *  @param finished  finished description
+ */
+- (void)getAppTeacherOCClass_ListWithKey:(NSString *)Key
+                               IsHistroy:(BOOL)IsHistroy
+                               PageIndex:(int)PageIndex
+                                PageSize:(int)PageSize
+                                finished:(FinishedBlock)finished;
+#pragma mark- Course
+
+/**
+ *  我的课程列表
+ *
+ *  @param IsHistroy      是否历史课程默认-1全部
+ *  @param finished  finished description
+ */
+- (void)getAppOCListWithIsHistroy:(int)IsHistroy
+                         finished:(FinishedBlock) finished;
 
 
 

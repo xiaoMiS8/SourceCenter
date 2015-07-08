@@ -83,6 +83,19 @@
 + (void)AddNoticeResponseWithNoticeID:(long)NoticeID
                                Conten:(NSString *)Conten
                              finished:(FinishedBlock)finished;
+/**
+ *  教师下网络教学班列表
+ *
+ *  @param Key  通知ID
+ *  @param IsHistroy 第几页
+ *  @param PageSize  每页多少个
+ *  @param finished  finished description
+ */
++ (void)getAppTeacherOCClass_ListWithKey:(NSString *)Key
+                               IsHistroy:(BOOL)IsHistroy
+                               PageIndex:(int)PageIndex
+                                PageSize:(int)PageSize
+                                finished:(FinishedBlock)finished;
 
 @end
 

@@ -25,8 +25,17 @@
 #define kRegStatus          @"RegStatus"
 #define kStudentCount       @"StudentCount"
 #define kRowsCount          @"RowsCount"
+#define kTeachingClassName  @"TeachingClassName"
+#define kLastStudyChapter   @"LastStudyChapter"
+#define kIsShowMooc         @"IsShowMooc"
+#define kMyMoocRate         @"MyMoocRate"
+#define kPlanMoocRate       @"PlanMoocRate"
+#define kIsShowFC           @"IsShowFC"
+#define kMyFCRate           @"MyFCRate"
+#define kMyGroupFCRate      @"MyGroupFCRate"
+#define kPlanFCRate         @"PlanFCRate"
 
-@interface OCourse : NSObject
+@interface OCourseInfo : NSObject
 
     //id
 @property(nonatomic, assign) long ID;
@@ -62,6 +71,25 @@
 @property(nonatomic, assign) int                    StudentCount;
     //列表总数
 @property(nonatomic, assign) int                    RowsCount;
+
+    //教学班名称
+@property(nonatomic, strong) NSString *TeachingClassName;
+    //最后学到第几章第几节
+@property(nonatomic, strong) NSString *LastStudyChapter;
+    //mooc有无发放章节
+@property(nonatomic, assign) BOOL IsShowMooc;
+    //我的Mooc进度
+@property(nonatomic, strong) NSString *MyMoocRate;
+    //标准Mooc进度
+@property(nonatomic, strong) NSString *PlanMoocRate;
+    //有无翻转课堂
+@property(nonatomic, assign) BOOL IsShowFC;
+    //我的翻转课堂进度
+@property(nonatomic, strong) NSString *MyFCRate;
+    //我小组的翻转课堂进度
+@property(nonatomic, strong) NSString *MyGroupFCRate;
+    // 标准翻转课堂进度
+@property(nonatomic, strong) NSString *PlanFCRate;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

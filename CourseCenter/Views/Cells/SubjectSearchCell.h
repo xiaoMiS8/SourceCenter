@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 #import "OCourseInfo.h"
 @interface SubjectSearchCell : UITableViewCell
-@property(nonatomic,strong)OCourse *oCourse;
+@property(nonatomic,strong)OCourseInfo *oCourse;
 @end

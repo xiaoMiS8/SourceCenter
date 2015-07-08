@@ -61,6 +61,10 @@
 		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
 		CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */; };
 		D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D430BD921B3A4B060013BAE7 /* NoticeActions.m */; };
+		D44733141B4CE55C00F749D1 /* CourseActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D44733131B4CE55C00F749D1 /* CourseActions.m */; };
+		D44733171B4CE58600F749D1 /* TeachingClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D44733161B4CE58600F749D1 /* TeachingClassInfo.m */; };
+		D447331A1B4CE5A400F749D1 /* NoticeResponseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D44733191B4CE5A400F749D1 /* NoticeResponseInfo.m */; };
+		D447331D1B4CE5B200F749D1 /* NoticeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D447331C1B4CE5B200F749D1 /* NoticeInfo.m */; };
 		D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D452B8751B395BDF00F5A85E /* MoocFileInfo.m */; };
 		D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D46F48FD1B340E48001E8AEF /* OCourseInfo.m */; };
 		D483411B1B2EC30600373043 /* MyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411A1B2EC30600373043 /* MyTextView.m */; };
@@ -248,6 +252,14 @@
 		CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchCell.xib; sourceTree = "<group>"; };
 		D430BD911B3A4B060013BAE7 /* NoticeActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeActions.h; sourceTree = "<group>"; };
 		D430BD921B3A4B060013BAE7 /* NoticeActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeActions.m; sourceTree = "<group>"; };
+		D44733121B4CE55C00F749D1 /* CourseActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseActions.h; sourceTree = "<group>"; };
+		D44733131B4CE55C00F749D1 /* CourseActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseActions.m; sourceTree = "<group>"; };
+		D44733151B4CE58600F749D1 /* TeachingClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachingClassInfo.h; sourceTree = "<group>"; };
+		D44733161B4CE58600F749D1 /* TeachingClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachingClassInfo.m; sourceTree = "<group>"; };
+		D44733181B4CE5A400F749D1 /* NoticeResponseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeResponseInfo.h; sourceTree = "<group>"; };
+		D44733191B4CE5A400F749D1 /* NoticeResponseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeResponseInfo.m; sourceTree = "<group>"; };
+		D447331B1B4CE5B200F749D1 /* NoticeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeInfo.h; sourceTree = "<group>"; };
+		D447331C1B4CE5B200F749D1 /* NoticeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeInfo.m; sourceTree = "<group>"; };
 		D452B8741B395BDF00F5A85E /* MoocFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoocFileInfo.h; sourceTree = "<group>"; };
 		D452B8751B395BDF00F5A85E /* MoocFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoocFileInfo.m; sourceTree = "<group>"; };
 		D46F48FC1B340E48001E8AEF /* OCourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCourseInfo.h; sourceTree = "<group>"; };
@@ -500,6 +512,8 @@
 				D4F607BC1B33FBC700888FC4 /* IndexActions.m */,
 				D430BD911B3A4B060013BAE7 /* NoticeActions.h */,
 				D430BD921B3A4B060013BAE7 /* NoticeActions.m */,
+				D44733121B4CE55C00F749D1 /* CourseActions.h */,
+				D44733131B4CE55C00F749D1 /* CourseActions.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -521,6 +535,12 @@
 				D49C64EC1B3941BC006B6D37 /* ChapterInfo.m */,
 				D452B8741B395BDF00F5A85E /* MoocFileInfo.h */,
 				D452B8751B395BDF00F5A85E /* MoocFileInfo.m */,
+				D447331B1B4CE5B200F749D1 /* NoticeInfo.h */,
+				D447331C1B4CE5B200F749D1 /* NoticeInfo.m */,
+				D44733181B4CE5A400F749D1 /* NoticeResponseInfo.h */,
+				D44733191B4CE5A400F749D1 /* NoticeResponseInfo.m */,
+				D44733151B4CE58600F749D1 /* TeachingClassInfo.h */,
+				D44733161B4CE58600F749D1 /* TeachingClassInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1052,6 +1072,7 @@
 				D4B2F32C1B02FC03007B017E /* TabBarViewController.m in Sources */,
 				D4B2F3EB1B034265007B017E /* MKAnnotationView+WebCache.m in Sources */,
 				D4B2F39D1B033E51007B017E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				D447331D1B4CE5B200F749D1 /* NoticeInfo.m in Sources */,
 				D4B2F3EA1B034265007B017E /* UIView+MJExtension.m in Sources */,
 				D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */,
 				D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */,
@@ -1067,6 +1088,7 @@
 				D4B2F35B1B032C36007B017E /* LineNavigationController.m in Sources */,
 				D483411B1B2EC30600373043 /* MyTextView.m in Sources */,
 				D4B2F3E61B034265007B017E /* MJRefreshLegendFooter.m in Sources */,
+				D44733141B4CE55C00F749D1 /* CourseActions.m in Sources */,
 				D4B2F3951B033E51007B017E /* AFHTTPSessionManager.m in Sources */,
 				D4B2F3931B033E51007B017E /* AFHTTPRequestOperation.m in Sources */,
 				D4B2F3EE1B034265007B017E /* SDWebImageCompat.m in Sources */,
@@ -1104,6 +1126,7 @@
 				59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */,
 				5963C3561B2000B500A09D30 /* ResultAnalyzer.m in Sources */,
 				042E75DF1B16148A00396AAF /* IQKeyboardManager.m in Sources */,
+				D447331A1B4CE5A400F749D1 /* NoticeResponseInfo.m in Sources */,
 				D4B2F3F31B034265007B017E /* SDWebImagePrefetcher.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
 				D4B2F2F71B02FA00007B017E /* main.m in Sources */,
@@ -1121,6 +1144,7 @@
 				D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */,
 				D4B2F3E01B034265007B017E /* MJRefreshComponent.m in Sources */,
 				D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */,
+				D44733171B4CE58600F749D1 /* TeachingClassInfo.m in Sources */,
 				D483411F1B2EC7ED00373043 /* NewNotificationViewController.m in Sources */,
 				042E75E71B16148A00396AAF /* UIWindow+Hierarchy.m in Sources */,
 			);

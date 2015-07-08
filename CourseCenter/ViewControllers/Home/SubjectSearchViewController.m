@@ -13,7 +13,7 @@
 #import "OCourseInfo.h"
 @interface SubjectSearchViewController ()
 {
-    OCourse *oCource;
+    OCourseInfo *oCource;
     UISearchBar *mySearchBar;
     UISearchDisplayController *searchDC;
 }
@@ -72,7 +72,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SubjectSearchCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"SubjectSearchCell"];
-    OCourse *oCourse=tableView==_tableView?[self.dataArray objectAtIndex:indexPath.row]:[self.dataResult objectAtIndex:indexPath.row];
+    OCourseInfo *oCourse=tableView==_tableView?[self.dataArray objectAtIndex:indexPath.row]:[self.dataResult objectAtIndex:indexPath.row];
     cell.oCourse=oCourse;
     return cell;
 }
@@ -83,7 +83,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
     homeDetailVc.OCID=1;//((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).OCID;
-    homeDetailVc.teacherImgUrl=((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
+    homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -94,8 +94,8 @@
     }
     [self.dataResult removeAllObjects];
     //NSPredicate *predicate=[NSPredicate predicateWithFormat:@"OrganizationName==测试机构"];
-    for (OCourse *info in self.dataArray) {
-        if ([((OCourse *)self.dataArray).OrganizationName rangeOfString:searchBar.text].location != NSNotFound) {
+    for (OCourseInfo *info in self.dataArray) {
+        if ([((OCourseInfo *)self.dataArray).OrganizationName rangeOfString:searchBar.text].location != NSNotFound) {
             
             [self.dataResult addObject:info];
             

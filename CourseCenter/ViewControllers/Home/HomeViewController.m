@@ -170,7 +170,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
     homeDetailVc.OCID=1;//((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).OCID;
-    homeDetailVc.teacherImgUrl=((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
+    homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 

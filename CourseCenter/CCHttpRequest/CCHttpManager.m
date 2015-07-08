@@ -153,4 +153,22 @@
     }];
 }
 
+- (void)getAppTeacherOCClass_ListWithKey:(NSString *)Key IsHistroy:(BOOL)IsHistroy PageIndex:(int)PageIndex PageSize:(int)PageSize finished:(FinishedBlock)finished {
+    [NoticeActions getAppTeacherOCClass_ListWithKey:Key
+                                          IsHistroy:IsHistroy
+                                          PageIndex:PageIndex
+                                           PageSize:PageSize
+                                           finished:^(EnumServerStatus status, NSObject *object) {
+                                               finished(status, object);
+                                           }];
+}
+
+- (void)getAppOCListWithIsHistroy:(int)IsHistroy
+                         finished:(FinishedBlock) finished {
+    [CourseActions getAppOCListWithIsHistroy:IsHistroy
+                                    finished:^(EnumServerStatus status, NSObject *object) {
+                                        finished(status, object);
+                                    }];
+}
+
 @end

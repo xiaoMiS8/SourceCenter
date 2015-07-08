@@ -24,7 +24,7 @@
 - (void)awakeFromNib {
     // Initialization code
 }
--(void)setOCourse:(OCourse *)oCourse
+-(void)setOCourse:(OCourseInfo *)oCourse
 {
     [self.subjectImg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
     [self.nameLabel setText:oCourse.TeacherName];

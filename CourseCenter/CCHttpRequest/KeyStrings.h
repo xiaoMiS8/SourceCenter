@@ -44,6 +44,14 @@
 #define kApp_Notice_Add                 @"App_Notice_Add"
     //回复通知
 #define kNoticeResponse_ADD             @"NoticeResponse_ADD"
+    //教师下网络教学班列表
+#define kApp_TeacherOCClass_List        @"App_TeacherOCClass_List"
+
+#pragma mark- Course
+
+
+    //我的课程列表
+#define kApp_OC_List                    @"App_OC_List"
 
 
 

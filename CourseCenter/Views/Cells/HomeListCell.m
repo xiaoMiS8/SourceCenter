@@ -40,7 +40,7 @@
     self.gotoBtn.layer.masksToBounds = YES;
     
 }
--(void)setOCourse:(OCourse *)oCourse
+-(void)setOCourse:(OCourseInfo *)oCourse
 {
     [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
