@@ -10,11 +10,16 @@
 #import "NotificationListCell.h"
 #import "NotiDetailCell.h"
 #import "MyTextView.h"
+#import "CCHttpManager.h"
+#import "ResponseObject.h"
 @interface NotiDetailViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *bomView;
 @property(nonatomic, strong) MyTextView *textView;
 @property(nonatomic, strong) UIButton *sendBtn;
+
+@property(nonatomic, strong) CCHttpManager *httpManger;
+@property(nonatomic, strong) NSArray *noticeRespones;
 
 @end
 
@@ -23,11 +28,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"通知详情";
+    self.httpManger = [[CCHttpManager alloc] init];
+    [self loadData];
     [self setupTable];
     [self addFooterView];
     
-    
-    
+}
+
+- (void)loadData {
+    [self.httpManger getNoticeResponseListWithNoticeID:self.noticeInfo.NoticeID PageIndex:1 PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+        if (status == Enum_SUCCESS) {
+            if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+               self.noticeRespones = ((ResponseObject *)object).resultArray;
+            }
+          
+        
+        
+        }
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)addFooterView {
@@ -75,8 +94,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        NotificationListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationListCell"];
-        cell.notification = self.notification;
+        NotificationListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationListCell"]
+        ;
+        cell.isDetail = YES;
+        cell.noticeInfo = self.noticeInfo;
+        cell.noticeRespones = self.noticeRespones;
         return cell.cellHeight;
     }
     else {
@@ -89,7 +111,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         NotificationListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationListCell"];
-        cell.notification = self.notification;
+        cell.isDetail = YES;
+        cell.noticeInfo = self.noticeInfo;
+        cell.noticeRespones = self.noticeRespones;
         return cell;
     }
     else {
@@ -124,6 +148,13 @@
 }
 
 - (void)sendAction:(id)sender {
+    
+    DLog(@"text--%@",self.textView.text);
+    
+    [self.httpManger AddNoticeResponseWithNoticeID:self.noticeInfo.NoticeID Conten:self.textView.text finished:^(EnumServerStatus status, NSObject *object) {
+        [self loadData];
+    }];
+    
     self.textView.text = @"";
         for (NSLayoutConstraint *constraint in self.bomView.constraints) {
             if (constraint.firstItem == self.bomView && constraint.firstAttribute == NSLayoutAttributeHeight) {
@@ -133,7 +164,7 @@
     [self.view layoutIfNeeded];
     [self.view updateConstraintsIfNeeded];
     self.sendBtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, 0, 40, 40);
-    [self.textView endEditing:YES];
+    [self.view endEditing:YES];
 }
 
 

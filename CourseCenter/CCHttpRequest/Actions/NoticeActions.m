@@ -19,7 +19,7 @@
     NSDictionary *parameters = @{kOCID: [NSNumber numberWithLong:OCID],
                                  kSysID: [NSNumber numberWithLong:SysID],
                                  kModuleID: [NSNumber numberWithLong:ModuleID],
-                                 kPageSize: [NSNumber numberWithInt:PageIndex],
+                                 kPageIndex: [NSNumber numberWithInt:PageIndex],
                                  kPageSize: [NSNumber numberWithInt:PageSize]
                                  };
     [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Notice/NoticeInfo_List"

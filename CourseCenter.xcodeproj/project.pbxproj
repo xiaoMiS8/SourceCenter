@@ -557,10 +557,6 @@
 		D4B2F2E81B02FA00007B017E = {
 			isa = PBXGroup;
 			children = (
-				9F49B0C51B400B9F00996CA8 /* MediaPlayer.framework */,
-				9F49B0BB1B40074400996CA8 /* Foundation.framework */,
-				9F49B0B91B40073600996CA8 /* UIKit.framework */,
-				9F49B0B71B40072600996CA8 /* CoreGraphics.framework */,
 				D4B2F2F31B02FA00007B017E /* CourseCenter */,
 				D4B2F3101B02FA00007B017E /* CourseCenterTests */,
 				D4B2F2F21B02FA00007B017E /* Products */,
@@ -600,6 +596,10 @@
 		D4B2F2F41B02FA00007B017E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9F49B0C51B400B9F00996CA8 /* MediaPlayer.framework */,
+				9F49B0BB1B40074400996CA8 /* Foundation.framework */,
+				9F49B0B91B40073600996CA8 /* UIKit.framework */,
+				9F49B0B71B40072600996CA8 /* CoreGraphics.framework */,
 				D4B2F2F51B02FA00007B017E /* Info.plist */,
 				D4B2F2F61B02FA00007B017E /* main.m */,
 				D4B2F3531B030A6A007B017E /* CoureCenterPrefixHeader.pch */,

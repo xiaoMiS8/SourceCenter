@@ -8,8 +8,10 @@
 
 #import "BaseViewController.h"
 #import "NotificationInfo.h"
+#import "NoticeInfo.h"
 @interface NotiDetailViewController : BaseViewController
 
 @property(nonatomic, strong) NotificationInfo *notification;
+@property(nonatomic, strong) NoticeInfo *noticeInfo;
 
 @end

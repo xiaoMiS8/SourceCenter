@@ -57,6 +57,7 @@
 @property(nonatomic, assign) int            rowscount;
     //回复
 @property(nonatomic, strong) NSArray        *NoticeResponse;
+@property(nonatomic, strong) NSArray        *imgs;
 
 - (id)initWithDict:(NSDictionary *)dict;
 
