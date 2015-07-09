@@ -41,6 +41,7 @@
 @property(nonatomic, strong) NSString       *CurrentTime;
     //发表于1 天前
 @property(nonatomic, strong) NSString       *ResponseTimeStr;
+@property(nonatomic, strong) NSString       *toName;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

@@ -12,8 +12,12 @@
 #import "NotiDetailViewController.h"
 #import "NewNotificationViewController.h"
 #import "LineNavigationController.h"
+#import "CCHttpManager.h"
+#import "ResponseObject.h"
 @interface NotificationViewController ()
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(nonatomic, strong) CCHttpManager *httpManager;
 
 @property(nonatomic, strong) NSMutableArray *notis;
 
@@ -36,15 +40,25 @@
     
 }
 
+
 - (void)loadData
 {
-    self.notis = [[NSMutableArray alloc] init];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"notificationInfos" ofType:@"plist"];
-    NSArray *array = [NSArray arrayWithContentsOfFile:path];
-    for (int i=0; i<array.count; i++) {
-        NotificationInfo *not = [[NotificationInfo alloc] initDict:array[i]];
-        [self.notis addObject:not];
-    }
+    
+    
+    self.httpManager = [[CCHttpManager alloc] init];
+    [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:1 PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+        ResponseObject *responseObject = (ResponseObject *)object;
+        self.notis = responseObject.resultArray;
+        [self.tableView reloadData];
+    }];
+    
+//    self.notis = [[NSMutableArray alloc] init];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"notificationInfos" ofType:@"plist"];
+//    NSArray *array = [NSArray arrayWithContentsOfFile:path];
+//    for (int i=0; i<array.count; i++) {
+//        NotificationInfo *not = [[NotificationInfo alloc] initDict:array[i]];
+//        [self.notis addObject:not];
+//    }
 }
 
 - (void)setupTable
@@ -85,20 +99,20 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationListCell"];
-    cell.notification = self.notis[indexPath.row];
+    cell.noticeInfo = self.notis[indexPath.row];
     return cell.cellHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotificationListCell"];
-    cell.notification = self.notis[indexPath.row];
+    cell.noticeInfo = self.notis[indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NotiDetailViewController *notiDetailVC = [[NotiDetailViewController alloc] init];
-    notiDetailVC.notification = self.notis[indexPath.row];
+    notiDetailVC.noticeInfo = self.notis[indexPath.row];
     [((AppDelegate *)app).nav pushViewController:notiDetailVC animated:YES];
 }
 

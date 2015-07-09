@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "NotificationInfo.h"
+#import "NoticeInfo.h"
 @interface NotificationListCell : UITableViewCell
 
+@property(nonatomic, strong) NoticeInfo *noticeInfo;
+@property(nonatomic, strong) NSArray *noticeRespones;
 @property(nonatomic, strong) NotificationInfo *notification;
+@property(nonatomic, assign) BOOL isDetail;
 
 @property(nonatomic, assign) CGFloat cellHeight;
 

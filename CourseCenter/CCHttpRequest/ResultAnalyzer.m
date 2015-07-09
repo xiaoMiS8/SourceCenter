@@ -85,12 +85,12 @@
             }
             responseObject.resultArray = results;
         }
-    } else if ([flag isEqualToString:kNoticeResponse_List]) {
+    } else if ([flag isEqualToString:kNoticeInfo_List]) {
             id result = [resultObject objectForKey:Kresult];
             NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
             if ([result isKindOfClass:[NSArray class]]) {
                 NSArray *array = (NSArray *)result;
-                for (int i=0; i++; i++) {
+                for (int i=0; i<array.count; i++) {
                     NoticeInfo *noticeInfo = [[NoticeInfo alloc] initWithDict:array[i]];
                     [results addObject:noticeInfo];
                 }
@@ -101,7 +101,7 @@
             NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
             if ([result isKindOfClass:[NSArray class]]) {
                 NSArray *array = (NSArray *)result;
-                for (int i=0; i++; i++) {
+                for (int i=0; i<array.count; i++) {
                     NoticeResponseInfo *noticeResInfo = [[NoticeResponseInfo alloc] initWithDict:array[i]];
                     [results addObject:noticeResInfo];
                 }
@@ -112,7 +112,7 @@
         NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
         if ([result isKindOfClass:[NSArray class]]) {
             NSArray *array = (NSArray *)result;
-            for (int i=0; i++; i++) {
+            for (int i=0; i<array.count; i++) {
                 TeachingClassInfo *teachingclassInfo = [[TeachingClassInfo alloc] initWithDict:array[i]];
                 [results addObject:teachingclassInfo];
             }
@@ -124,7 +124,7 @@
         NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
         if ([result isKindOfClass:[NSArray class]]) {
             NSArray *array = (NSArray *)result;
-            for (int i=0; i++; i++) {
+            for (int i=0; i<array.count; i++) {
                 OCourseInfo *ocoureInfo = [[OCourseInfo alloc] initWithDict:array[i]];
                 [results addObject:ocoureInfo];
             }

@@ -9,10 +9,17 @@
 #import "NewNotificationViewController.h"
 #import "NewNotiTextViewCell.h"
 #import "NewNotiSelectCell.h"
+#import "CCHttpManager.h"
+#import "ResponseObject.h"
+#import "TeachingClassInfo.h"
 @interface NewNotificationViewController ()
 
 @property(nonatomic, strong) NSMutableArray *dataSource;
 @property(nonatomic, assign) BOOL isOpen;
+@property(nonatomic, strong) NSString *tmpSelectedStr;
+
+@property(nonatomic, strong)CCHttpManager *httpManager;
+@property(nonatomic, strong) NSArray *teachingClasses;
 
 @end
 
@@ -22,13 +29,23 @@
     [super viewDidLoad];
     [self initDataSource];
     self.title = @"新建通知";
+    self.tmpSelectedStr = @"请选择班级";
+    self.httpManager = [[CCHttpManager alloc] init];
     self.isOpen = NO;
+    [self loadData];
     [self addcancelItem];
     [self addokItem];
     [self setupTableView];
   
     
    
+}
+
+- (void)loadData {
+    [self.httpManager getAppTeacherOCClass_ListWithKey:@"" IsHistroy:NO PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+        self.teachingClasses = ((ResponseObject *)object).resultArray;
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)setupTableView {
@@ -45,7 +62,7 @@
 - (void)initDataSource {
     self.dataSource = [[NSMutableArray alloc] initWithCapacity:0];
     [self.dataSource addObject:[NSMutableArray arrayWithCapacity:0]];
-    [self.dataSource addObject:[NSMutableArray arrayWithObjects:@"请输入标题",@"请输入内容", nil]];
+    [self.dataSource addObject:[NSMutableArray arrayWithObjects:@"请输入标题", @"请输入内容", nil]];
     
     
 }
@@ -65,6 +82,14 @@
 }
 
 - (void)okItemAction {
+    
+    NewNotiTextViewCell *titleCell = (NewNotiTextViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:1]];
+    NewNotiTextViewCell *contentCell = (NewNotiTextViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:1]];
+    NSString *title = titleCell.textView.text;
+    NSString *content = contentCell.textView.text;
+    [self.httpManager AddAppNoticeWithTitle:title Conten:content IsTop:NO IsForMail:NO IsForSMS:NO SourceIDs:[NSArray arrayWithObjects:[NSNumber numberWithInt:16], nil] finished:^(EnumServerStatus status, NSObject *object) {
+        
+    }];
     self.DoBlock();
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -108,7 +133,7 @@
         if (indexPath.row == 0) {
             return 44;
         }
-        return 230;
+        return 150;
     }
 }
 
@@ -116,7 +141,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         NewNotiSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotiSelectCell"];
-        cell.nameLabel.text = self.dataSource[indexPath.section][indexPath.row];
+        cell.nameLabel.text = ((TeachingClassInfo *)self.dataSource[indexPath.section][indexPath.row]).TeachingClassName;
         return cell;
     }
     NewNotiTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotiTextViewCell"];
@@ -137,11 +162,10 @@
     
     UILabel *rightLabel = [UILabel new];
     rightLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    rightLabel.text = @"请选择班级";
+    rightLabel.text = self.tmpSelectedStr;
     rightLabel.font = Font_14;
     rightLabel.textColor = [UIColor grayColor];
-    [btn addSubview:rightLabel];
-    
+    [btn addSubview:rightLabel];    
     UIImageView *imgView = [[UIImageView alloc] init];
     imgView.backgroundColor = [UIColor redColor];
     imgView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -165,13 +189,23 @@
 }
 
 - (void)tableView:( UITableView *)tableView didSelectRowAtIndexPath:( NSIndexPath *)indexPath {
-    
+    if (indexPath.section == 0) {
+        NewNotiSelectCell *cell = (NewNotiSelectCell *)[tableView cellForRowAtIndexPath:indexPath];
+        self.tmpSelectedStr = cell.nameLabel.text;
+        [self controlOpen];
+    }
 }
 
+
 - (void)openBtnAction:(id)sender {
+
+    [self controlOpen];
+}
+
+- (void)controlOpen {
     self.isOpen = !self.isOpen;
     if (self.isOpen) {
-        [self.dataSource[0] addObjectsFromArray:@[@"全选",@"金融管理0701班",@"金融管理0702班"]];
+        [self.dataSource[0] addObjectsFromArray:self.teachingClasses];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
     }
     else {

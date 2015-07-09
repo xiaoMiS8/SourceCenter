@@ -60,7 +60,7 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell.textLabel.text isEqualToString:@"登录"]) {
-        [self.httpManager loginWithLoginName:@"cyb" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager loginWithLoginName:@"wang1" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"注销"]) {
