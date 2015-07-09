@@ -14,7 +14,8 @@
 #define kParentID                   @"ParentID"
 
 @interface SpecialtyTypeInfo : NSObject
-
+    //模糊搜索ID
+@property(nonatomic, strong) NSNumber* SearchID;
     //学科ID
 @property(nonatomic, assign) long SpecialtyTypeID;
     //学科编号

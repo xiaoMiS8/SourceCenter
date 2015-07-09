@@ -10,4 +10,7 @@
 
 @interface SubjectSearchViewController : BaseViewController<UISearchBarDelegate>
 @property(nonatomic,assign)long SpecialtyTypeID;
+@property (nonatomic,retain) NSMutableDictionary *contactDic;
+@property (nonatomic,retain) NSMutableArray *searchByName;
+@property (nonatomic,retain) NSMutableArray *searchByPhone;
 @end

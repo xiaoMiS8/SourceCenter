@@ -10,10 +10,11 @@
 #import "ResponseObject.h"
 #import "SpecialtyTypeInfo.h"
 #import "SubjectSearchViewController.h"
+#import "SearchCoreManager.h"
 @interface CourseSearchViewController ()
 {
     SpecialtyTypeInfo *specialtyinfo;
-    UISearchBar *searchBar;
+    UISearchBar *mysearchBar;
     UISearchDisplayController *searchDC;
 }
 @property (strong,nonatomic)CCHttpManager *httpManager;
@@ -33,6 +34,9 @@
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     self.KeywordArray=[[NSMutableArray array]init];
+    self.contactDic = [[NSMutableDictionary alloc] init];
+    self.searchByName = [[NSMutableArray alloc] init];
+    self.searchByPhone = [[NSMutableArray alloc] init];
     [self loadData];
 }
 -(void)loadData
@@ -41,7 +45,8 @@
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                self.dataArray=self.reob.resultArray;
+                //self.dataArray=self.reob.resultArray;
+                [self dataHandleWithArray:self.reob.resultArray];
                 [_tableView reloadData];
             }
         }
@@ -49,12 +54,11 @@
 }
 - (void)addTableviewHeader
 {
-    searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
-    searchBar.placeholder = @"这里可以搜索您感兴趣的视频课程哦！";
-    searchBar.delegate=self;
-    searchBar.showsCancelButton=YES;
-    self.tableView.tableHeaderView = searchBar;
-    searchDC=[[UISearchDisplayController alloc]initWithSearchBar:searchBar contentsController:self];
+    mysearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 0, 40)];
+    mysearchBar.placeholder = @"这里可以搜索您感兴趣的视频课程哦！";
+    mysearchBar.delegate=self;
+    self.tableView.tableHeaderView = mysearchBar;
+    searchDC=[[UISearchDisplayController alloc]initWithSearchBar:mysearchBar contentsController:self];
     searchDC.searchResultsDataSource=self;
     searchDC.searchResultsDelegate=self;
 }
@@ -63,8 +67,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-   NSInteger count= tableView==_tableView? self.dataArray.count: self.dataResult.count;
-    return count;
+    if (mysearchBar.text.length <= 0) {
+        return self.dataArray.count;
+    } else {
+        return self.searchByName.count + self.searchByPhone.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,35 +81,60 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
     }
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    NSString *text=tableView==_tableView?((SpecialtyTypeInfo *)[_dataArray objectAtIndex:indexPath.row]).SpecialtyTypeName: ((SpecialtyTypeInfo *)[_dataResult objectAtIndex:indexPath.row]).SpecialtyTypeName;
-    cell.textLabel.text =text;
+    if (mysearchBar.text.length <= 0) {
+        cell.textLabel.text =((SpecialtyTypeInfo *)[_dataArray objectAtIndex:indexPath.row]).SpecialtyTypeName;
+        return cell;
+    }
+    NSNumber *localID = nil;
+    NSMutableString *matchString = [NSMutableString string];
+    NSMutableArray *matchPos = [NSMutableArray array];
+    if (indexPath.row < [_searchByName count]) {
+        localID = [self.searchByName objectAtIndex:indexPath.row];
+        
+        //姓名匹配 获取对应匹配的拼音串 及高亮位置
+        if (mysearchBar.text.length) {
+            [[SearchCoreManager share] GetPinYin:localID pinYin:matchString matchPos:matchPos];
+        }
+    }else {
+        localID = [self.searchByPhone objectAtIndex:indexPath.row-[_searchByName count]];
+        NSMutableArray *matchPhones = [NSMutableArray array];
+        
+        //号码匹配 获取对应匹配的号码串 及高亮位置
+        if ([mysearchBar.text length]) {
+            [[SearchCoreManager share] GetPhoneNum:localID phone:matchPhones matchPos:matchPos];
+            [matchString appendString:[matchPhones objectAtIndex:0]];
+        }
+    }
+    SpecialtyTypeInfo  *info = [self.contactDic objectForKey:localID];
+    cell.textLabel.text =info.SpecialtyTypeName;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger number=tableView==_tableView?indexPath.row:[self.searchByName[indexPath.row] integerValue];
     SubjectSearchViewController *subjectSearchVC = [SubjectSearchViewController new];
-    subjectSearchVC.title=((SpecialtyTypeInfo *)[_dataArray objectAtIndex:indexPath.row]).SpecialtyTypeName;
-    subjectSearchVC.SpecialtyTypeID=((SpecialtyTypeInfo *)[_dataArray objectAtIndex:indexPath.row]).SpecialtyTypeID;
+    subjectSearchVC.title=((SpecialtyTypeInfo *)[_dataArray objectAtIndex:number]).SpecialtyTypeName;
+    subjectSearchVC.SpecialtyTypeID=((SpecialtyTypeInfo *)[_dataArray objectAtIndex:number]).SpecialtyTypeID;
     [((AppDelegate *)app).nav pushViewController:subjectSearchVC animated:YES];
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    if (self.dataResult==nil) {
-        self.dataResult=[[NSMutableArray alloc]init];
-        
+    searchBar.showsCancelButton=YES;
+    [[SearchCoreManager share] Search:searchText searchArray:nil nameMatch:_searchByName phoneMatch:nil];
+    [self.tableView reloadData];
+}
+-(void)dataHandleWithArray:(NSMutableArray *)array
+{
+    for (int i=0; i<array.count; i++) {
+        ((SpecialtyTypeInfo *)array[i]).SearchID=[NSNumber numberWithInt:i];
+        [self.dataArray addObject:((SpecialtyTypeInfo *)array[i])];
     }
-    [self.dataResult removeAllObjects];
-        NSPredicate *predicate=[NSPredicate predicateWithFormat:@"SpecialtyTypeName=='%@'",searchBar.text];
-    for (SpecialtyTypeInfo *info in self.dataArray) {
-        if ([predicate evaluateWithObject:info]) {
-            [self.dataArray addObject:info];
-        }
+    for (int j = 0; j < self.dataArray.count; j ++) {
+        [[SearchCoreManager share] AddContact:((SpecialtyTypeInfo *)array[j]).SearchID name:((SpecialtyTypeInfo *)array[j]).SpecialtyTypeName phone:nil];
+        [self.contactDic setObject:((SpecialtyTypeInfo *)array[j]) forKey:((SpecialtyTypeInfo *)array[j]).SearchID];
     }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     
 }
-
-
-
 @end

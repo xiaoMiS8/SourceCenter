@@ -36,7 +36,8 @@
 #define kPlanFCRate         @"PlanFCRate"
 
 @interface OCourseInfo : NSObject
-
+     //模糊搜索ID
+@property(nonatomic, strong) NSNumber* SearchID;
     //id
 @property(nonatomic, assign) long ID;
     //在线课程ID

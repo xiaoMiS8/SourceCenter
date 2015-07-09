@@ -9,5 +9,7 @@
 #import "BaseViewController.h"
 
 @interface CourseSearchViewController : BaseViewController<UISearchBarDelegate>
-
+@property (nonatomic,retain) NSMutableDictionary *contactDic;
+@property (nonatomic,retain) NSMutableArray *searchByName;
+@property (nonatomic,retain) NSMutableArray *searchByPhone;
 @end
