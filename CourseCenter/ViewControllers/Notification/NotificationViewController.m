@@ -47,9 +47,11 @@
     
     self.httpManager = [[CCHttpManager alloc] init];
     [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:1 PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
-        ResponseObject *responseObject = (ResponseObject *)object;
-        self.notis = responseObject.resultArray;
-        [self.tableView reloadData];
+        if (status == Enum_SUCCESS) {
+            ResponseObject *responseObject = (ResponseObject *)object;
+            self.notis = responseObject.resultArray;
+            [self.tableView reloadData];
+        }
     }];
     
 //    self.notis = [[NSMutableArray alloc] init];
