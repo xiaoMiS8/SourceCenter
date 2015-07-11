@@ -9,6 +9,4 @@
 #import "BaseViewController.h"
 
 @interface MoreViewController : BaseViewController
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end

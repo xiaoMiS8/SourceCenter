@@ -2,14 +2,15 @@
 //  MoreListCell.h
 //  CourseCenter
 //
-//  Created by jian on 15/7/10.
-//  Copyright © 2015年 line0.com. All rights reserved.
+//  Created by 2345 on 15/7/10.
+//  Copyright (c) 2015年 line0.com. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
 @interface MoreListCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *headImag;
+@property (weak, nonatomic) IBOutlet UILabel *headName;
+@property (weak, nonatomic) IBOutlet UILabel *messageNum;
 
 @end
