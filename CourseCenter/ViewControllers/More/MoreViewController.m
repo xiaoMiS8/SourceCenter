@@ -9,9 +9,12 @@
 #import "MoreViewController.h"
 #import "MoreListCell.h"
 #import "MyInfo.h"
+#import "SetViewController.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
+    MyInfo *myInfo;
+    SetViewController *set;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
@@ -30,6 +33,8 @@
         _tableView.scrollEnabled=NO;
     }
     [self.tableView registerNib:[UINib nibWithNibName:@"MoreListCell" bundle:nil] forCellReuseIdentifier:@"MoreListCell"];
+    myInfo=[[MyInfo alloc]init];
+    set=[[SetViewController alloc]init];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -61,14 +66,15 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MyInfo *myInfo=[[MyInfo alloc]init];
     //点击松开后,颜色恢复
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.section) {
         case 0:
             [((AppDelegate *)app).nav pushViewController:myInfo animated:YES];
             break;
-            
+        case 3:
+            [((AppDelegate *)app).nav pushViewController:set animated:YES];
+            break;
         default:
             break;
     }
