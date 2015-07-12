@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreListCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *headImag;
 @property (weak, nonatomic) IBOutlet UILabel *headName;
 @property (weak, nonatomic) IBOutlet UILabel *messageNum;
-
+@property (strong,nonatomic)NSIndexPath *indexPath;
 @end

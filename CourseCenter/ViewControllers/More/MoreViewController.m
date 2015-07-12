@@ -8,10 +8,13 @@
 
 #import "MoreViewController.h"
 #import "MoreListCell.h"
+#import "MyInfo.h"
 @interface MoreViewController ()
+{
+    NSArray *myarray;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
-
 @end
 
 @implementation MoreViewController
@@ -58,12 +61,22 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    MyInfo *myInfo=[[MyInfo alloc]init];
     //点击松开后,颜色恢复
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    switch (indexPath.section) {
+        case 0:
+            [((AppDelegate *)app).nav pushViewController:myInfo animated:YES];
+            break;
+            
+        default:
+            break;
+    }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MoreListCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"MoreListCell"];
+    cell.indexPath=indexPath;
     return cell;
 }
 - (void)didReceiveMemoryWarning {
