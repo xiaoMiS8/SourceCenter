@@ -8,6 +8,7 @@
 
 #import "MessageCenter.h"
 #import "MessageCenterCell.h"
+#import "ChatViewController.h"
 @interface MessageCenter ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -41,7 +42,10 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    //点击松开后,颜色恢复
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    ChatViewController *chat=[[ChatViewController alloc]init];
+    [((AppDelegate *)app).nav pushViewController:chat animated:YES];
 }
 -(void)addMessage
 {

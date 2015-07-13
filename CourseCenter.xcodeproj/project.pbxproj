@@ -68,6 +68,13 @@
 		CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC821B53FE7400FAD388 /* MessageCenter.xib */; };
 		CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC861B54021F00FAD388 /* MessageCenterCell.m */; };
 		CACBFC891B54021F00FAD388 /* MessageCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC871B54021F00FAD388 /* MessageCenterCell.xib */; };
+		CACBFC8D1B540B5600FAD388 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC8C1B540B5600FAD388 /* ChatViewController.m */; };
+		CACBFC921B540BF900FAD388 /* CellFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC8F1B540BF900FAD388 /* CellFrameModel.m */; };
+		CACBFC931B540BF900FAD388 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC911B540BF900FAD388 /* MessageModel.m */; };
+		CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC951B540C1500FAD388 /* NSString+Extension.m */; };
+		CACBFC981B540C3500FAD388 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC971B540C3500FAD388 /* messages.plist */; };
+		CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC9A1B540C5100FAD388 /* MessageCell.m */; };
+		CACBFC9E1B540C6D00FAD388 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC9D1B540C6D00FAD388 /* UIImage+ResizeImage.m */; };
 		CADD221B1B52418400A4F3D2 /* MyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD22191B52418400A4F3D2 /* MyInfo.m */; };
 		CADD221C1B52418400A4F3D2 /* MyInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD221A1B52418400A4F3D2 /* MyInfo.xib */; };
 		CADD22201B52488700A4F3D2 /* MyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD221E1B52488700A4F3D2 /* MyInfoCell.m */; };
@@ -283,6 +290,19 @@
 		CACBFC851B54021F00FAD388 /* MessageCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenterCell.h; sourceTree = "<group>"; };
 		CACBFC861B54021F00FAD388 /* MessageCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenterCell.m; sourceTree = "<group>"; };
 		CACBFC871B54021F00FAD388 /* MessageCenterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCenterCell.xib; sourceTree = "<group>"; };
+		CACBFC8B1B540B5600FAD388 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		CACBFC8C1B540B5600FAD388 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		CACBFC8E1B540BF900FAD388 /* CellFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellFrameModel.h; sourceTree = "<group>"; };
+		CACBFC8F1B540BF900FAD388 /* CellFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellFrameModel.m; sourceTree = "<group>"; };
+		CACBFC901B540BF900FAD388 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		CACBFC911B540BF900FAD388 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		CACBFC941B540C1500FAD388 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		CACBFC951B540C1500FAD388 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		CACBFC971B540C3500FAD388 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
+		CACBFC991B540C5100FAD388 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		CACBFC9A1B540C5100FAD388 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		CACBFC9C1B540C6D00FAD388 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
+		CACBFC9D1B540C6D00FAD388 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
 		CADD22181B52418400A4F3D2 /* MyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfo.h; sourceTree = "<group>"; };
 		CADD22191B52418400A4F3D2 /* MyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfo.m; sourceTree = "<group>"; };
 		CADD221A1B52418400A4F3D2 /* MyInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfo.xib; sourceTree = "<group>"; };
@@ -611,6 +631,26 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		CACBFC8A1B540B2200FAD388 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				CACBFC8B1B540B5600FAD388 /* ChatViewController.h */,
+				CACBFC8C1B540B5600FAD388 /* ChatViewController.m */,
+				CACBFC8E1B540BF900FAD388 /* CellFrameModel.h */,
+				CACBFC8F1B540BF900FAD388 /* CellFrameModel.m */,
+				CACBFC901B540BF900FAD388 /* MessageModel.h */,
+				CACBFC911B540BF900FAD388 /* MessageModel.m */,
+				CACBFC941B540C1500FAD388 /* NSString+Extension.h */,
+				CACBFC951B540C1500FAD388 /* NSString+Extension.m */,
+				CACBFC9C1B540C6D00FAD388 /* UIImage+ResizeImage.h */,
+				CACBFC9D1B540C6D00FAD388 /* UIImage+ResizeImage.m */,
+				CACBFC991B540C5100FAD388 /* MessageCell.h */,
+				CACBFC9A1B540C5100FAD388 /* MessageCell.m */,
+				CACBFC971B540C3500FAD388 /* messages.plist */,
+			);
+			name = chat;
+			sourceTree = "<group>";
+		};
 		D48341181B2EC30600373043 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -839,6 +879,7 @@
 		D4B2F33D1B02FE75007B017E /* More */ = {
 			isa = PBXGroup;
 			children = (
+				CACBFC8A1B540B2200FAD388 /* chat */,
 				D4B2F34B1B02FEEB007B017E /* MoreViewController.h */,
 				D4B2F34C1B02FEEB007B017E /* MoreViewController.m */,
 				D4B2F34D1B02FEEB007B017E /* MoreViewController.xib */,
@@ -1105,6 +1146,7 @@
 				9FC5FC311B3C3D4A005026E2 /* CourseDetailCell.xib in Resources */,
 				59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */,
 				D412969D1B50059E003FC6DB /* MoreListCell.xib in Resources */,
+				CACBFC981B540C3500FAD388 /* messages.plist in Resources */,
 				CADD221C1B52418400A4F3D2 /* MyInfo.xib in Resources */,
 				CADD22261B526BA300A4F3D2 /* SetViewController.xib in Resources */,
 				D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */,
@@ -1184,9 +1226,11 @@
 				D412969C1B50059E003FC6DB /* MoreListCell.m in Sources */,
 				D4B2F3311B02FD8D007B017E /* BaseViewController.m in Sources */,
 				59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */,
+				CACBFC931B540BF900FAD388 /* MessageModel.m in Sources */,
 				5963C36A1B2024A700A09D30 /* TestViewController.m in Sources */,
 				D4B2F3991B033E51007B017E /* AFURLRequestSerialization.m in Sources */,
 				D49C64ED1B3941BC006B6D37 /* ChapterInfo.m in Sources */,
+				CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
 				D49C64EA1B393D4E006B6D37 /* TeacherInfo.m in Sources */,
 				594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */,
@@ -1226,11 +1270,13 @@
 				D4B2F3E91B034265007B017E /* UIScrollView+MJRefresh.m in Sources */,
 				042E75E21B16148A00396AAF /* IQTitleBarButtonItem.m in Sources */,
 				9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */,
+				CACBFC9E1B540C6D00FAD388 /* UIImage+ResizeImage.m in Sources */,
 				D4B2F39E1B033E51007B017E /* UIAlertView+AFNetworking.m in Sources */,
 				D4B2F3E11B034265007B017E /* MJRefreshConst.m in Sources */,
 				599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */,
 				D4B2F3E31B034265007B017E /* MJRefreshGifFooter.m in Sources */,
 				59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */,
+				CACBFC921B540BF900FAD388 /* CellFrameModel.m in Sources */,
 				5963C3561B2000B500A09D30 /* ResultAnalyzer.m in Sources */,
 				042E75DF1B16148A00396AAF /* IQKeyboardManager.m in Sources */,
 				D447331A1B4CE5A400F749D1 /* NoticeResponseInfo.m in Sources */,
@@ -1238,6 +1284,7 @@
 				CADD22251B526BA300A4F3D2 /* SetViewController.m in Sources */,
 				CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
+				CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */,
 				D4B2F2F71B02FA00007B017E /* main.m in Sources */,
 				374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */,
 				D4B2F33F1B02FE75007B017E /* HomeViewController.m in Sources */,
@@ -1245,6 +1292,7 @@
 				D4B2F3E51B034265007B017E /* MJRefreshHeader.m in Sources */,
 				5963C3651B201E8300A09D30 /* HttpTestResultViewController.m in Sources */,
 				D4B2F39A1B033E51007B017E /* AFURLResponseSerialization.m in Sources */,
+				CACBFC8D1B540B5600FAD388 /* ChatViewController.m in Sources */,
 				042E75E51B16148A00396AAF /* UIView+Hierarchy.m in Sources */,
 				042E75E31B16148A00396AAF /* IQToolbar.m in Sources */,
 				D4B2F39F1B033E51007B017E /* UIButton+AFNetworking.m in Sources */,
