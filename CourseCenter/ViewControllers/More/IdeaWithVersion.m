@@ -27,6 +27,8 @@
     {
         self.title=@"更新日志";
         [self setupCustomRightWithtitle:nil target:nil action:nil];
+        _pLable.hidden = YES;
+        self.textView.editable=NO;
     }
 }
 
@@ -60,11 +62,13 @@
 {
     IQKeyboardManager *iqKey=[IQKeyboardManager sharedManager];
     iqKey.enable=NO;
+    
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
     IQKeyboardManager *iqKey=[IQKeyboardManager sharedManager];
     iqKey.enable=YES;
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

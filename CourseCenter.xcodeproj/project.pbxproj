@@ -64,6 +64,10 @@
 		CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */; };
 		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
 		CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */; };
+		CACBFC831B53FE7400FAD388 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC811B53FE7400FAD388 /* MessageCenter.m */; };
+		CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC821B53FE7400FAD388 /* MessageCenter.xib */; };
+		CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC861B54021F00FAD388 /* MessageCenterCell.m */; };
+		CACBFC891B54021F00FAD388 /* MessageCenterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC871B54021F00FAD388 /* MessageCenterCell.xib */; };
 		CADD221B1B52418400A4F3D2 /* MyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD22191B52418400A4F3D2 /* MyInfo.m */; };
 		CADD221C1B52418400A4F3D2 /* MyInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD221A1B52418400A4F3D2 /* MyInfo.xib */; };
 		CADD22201B52488700A4F3D2 /* MyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD221E1B52488700A4F3D2 /* MyInfoCell.m */; };
@@ -273,6 +277,12 @@
 		CA62FA0D1B42DFDE00F80DE3 /* SubjectSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchCell.h; sourceTree = "<group>"; };
 		CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchCell.m; sourceTree = "<group>"; };
 		CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchCell.xib; sourceTree = "<group>"; };
+		CACBFC801B53FE7400FAD388 /* MessageCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenter.h; sourceTree = "<group>"; };
+		CACBFC811B53FE7400FAD388 /* MessageCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenter.m; sourceTree = "<group>"; };
+		CACBFC821B53FE7400FAD388 /* MessageCenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCenter.xib; sourceTree = "<group>"; };
+		CACBFC851B54021F00FAD388 /* MessageCenterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenterCell.h; sourceTree = "<group>"; };
+		CACBFC861B54021F00FAD388 /* MessageCenterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenterCell.m; sourceTree = "<group>"; };
+		CACBFC871B54021F00FAD388 /* MessageCenterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCenterCell.xib; sourceTree = "<group>"; };
 		CADD22181B52418400A4F3D2 /* MyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfo.h; sourceTree = "<group>"; };
 		CADD22191B52418400A4F3D2 /* MyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfo.m; sourceTree = "<group>"; };
 		CADD221A1B52418400A4F3D2 /* MyInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfo.xib; sourceTree = "<group>"; };
@@ -787,6 +797,9 @@
 				CADD221D1B52488700A4F3D2 /* MyInfoCell.h */,
 				CADD221E1B52488700A4F3D2 /* MyInfoCell.m */,
 				CADD221F1B52488700A4F3D2 /* MyInfoCell.xib */,
+				CACBFC851B54021F00FAD388 /* MessageCenterCell.h */,
+				CACBFC861B54021F00FAD388 /* MessageCenterCell.m */,
+				CACBFC871B54021F00FAD388 /* MessageCenterCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -841,6 +854,9 @@
 				CADD22401B52C72000A4F3D2 /* IdeaWithVersion.h */,
 				CADD22411B52C72000A4F3D2 /* IdeaWithVersion.m */,
 				CADD22421B52C72000A4F3D2 /* IdeaWithVersion.xib */,
+				CACBFC801B53FE7400FAD388 /* MessageCenter.h */,
+				CACBFC811B53FE7400FAD388 /* MessageCenter.m */,
+				CACBFC821B53FE7400FAD388 /* MessageCenter.xib */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1080,6 +1096,7 @@
 				CADD222B1B52862E00A4F3D2 /* SetPassword.xib in Resources */,
 				9F49B0C41B400AC700996CA8 /* PlayViewController.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
+				CACBFC891B54021F00FAD388 /* MessageCenterCell.xib in Resources */,
 				CADD22211B52488700A4F3D2 /* MyInfoCell.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
@@ -1097,6 +1114,7 @@
 				5963C36B1B2024A700A09D30 /* TestViewController.xib in Resources */,
 				042E75DE1B16148A00396AAF /* IQKeyboardManager.bundle in Resources */,
 				D4DEA5B31B2FB05F005C96D5 /* NewNotiTextViewCell.xib in Resources */,
+				CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */,
 				D4B2F3081B02FA00007B017E /* LaunchScreen.xib in Resources */,
 				D4B2F3321B02FD8D007B017E /* BaseViewController.xib in Resources */,
 				D4B2F3051B02FA00007B017E /* Images.xcassets in Resources */,
@@ -1129,6 +1147,7 @@
 				D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */,
 				52C8EED71B4E9F3A00BDBE76 /* Array.mm in Sources */,
 				599A5B811B16FC73005597AE /* NotificationInfo.m in Sources */,
+				CACBFC831B53FE7400FAD388 /* MessageCenter.m in Sources */,
 				D4B2F3F71B034265007B017E /* UIImage+WebP.m in Sources */,
 				D4B2F3F41B034265007B017E /* UIButton+WebCache.m in Sources */,
 				D4B2F3A11B033E51007B017E /* UIProgressView+AFNetworking.m in Sources */,
@@ -1217,6 +1236,7 @@
 				D447331A1B4CE5A400F749D1 /* NoticeResponseInfo.m in Sources */,
 				D4B2F3F31B034265007B017E /* SDWebImagePrefetcher.m in Sources */,
 				CADD22251B526BA300A4F3D2 /* SetViewController.m in Sources */,
+				CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
 				D4B2F2F71B02FA00007B017E /* main.m in Sources */,
 				374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */,

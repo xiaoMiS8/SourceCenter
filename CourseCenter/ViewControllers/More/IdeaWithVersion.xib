@@ -20,7 +20,7 @@
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MHT-Dh-NkP">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <mutableString key="text">版本 2.1中的新功能  2014年10月17日 发布
+                    <string key="text">版本 2.1中的新功能  2014年10月17日 发布
 1、新增了教师端批阅的功能模块；
 2、新增了教师端论坛的功能模块；
 3、新增了教师端事务处理的功能模块；
@@ -35,7 +35,7 @@
 1、全新设计界面；
 2、优化了使用的流程，功能更加集中，方便；
 3、优化了登陆流程，用户可以以游客身份浏览课程；
-4，优化了部分BUG。</mutableString>
+4，优化了部分BUG。</string>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <connections>

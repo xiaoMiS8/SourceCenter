@@ -10,11 +10,13 @@
 #import "MoreListCell.h"
 #import "MyInfo.h"
 #import "SetViewController.h"
+#import "MessageCenter.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
     MyInfo *myInfo;
     SetViewController *set;
+    MessageCenter *messageCenter;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
@@ -35,6 +37,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MoreListCell" bundle:nil] forCellReuseIdentifier:@"MoreListCell"];
     myInfo=[[MyInfo alloc]init];
     set=[[SetViewController alloc]init];
+    messageCenter=[[MessageCenter alloc]init];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -72,6 +75,12 @@
         case 0:
             [((AppDelegate *)app).nav pushViewController:myInfo animated:YES];
             break;
+        case 1:
+            [((AppDelegate *)app).nav pushViewController:messageCenter animated:YES];
+            break;
+        case 2:
+            [self chooseViewControllerWithindexPath:indexPath];
+            break;
         case 3:
             [((AppDelegate *)app).nav pushViewController:set animated:YES];
             break;
@@ -84,6 +93,10 @@
     MoreListCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"MoreListCell"];
     cell.indexPath=indexPath;
     return cell;
+}
+-(void)chooseViewControllerWithindexPath:(NSIndexPath *)index
+{
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
