@@ -122,4 +122,17 @@
     return str1;
     
 }
+/**
+ *	@brief	字符串是否为空
+ *
+ *	@return	空 YES  OR  NO
+ */
+-(BOOL)isNull
+{
+    if([self isEqualToString:@""]||[self isKindOfClass:[NSNull class]]||self==nil||self==NULL||self.length==0)
+    {
+        return YES;
+    }
+    return NO;
+}
 @end

@@ -9,6 +9,7 @@
 #import "LoginViewController.h"
 #import "FindPasswordViewController.h"
 #import "ResponseObject.h"
+#import "NSString+HandleString.h"
 @interface LoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 @property (weak, nonatomic) IBOutlet UITextField *passWord;
@@ -34,7 +35,13 @@
 - (IBAction)login:(UIButton *)sender {
     NSString *username=_userName.text;
     NSString *password=_passWord.text;
+    if ([_userName.text isNull]||[_passWord.text isNull]) {
+        [MBProgressHUD showError:LOGINMESSAGE];
+        return;
+    }
+    [MBProgressHUD showMessage:nil];
     [self.httpManager loginWithLoginName:username Pwd:password finished:^(EnumServerStatus status, NSObject *object) {
+    [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -46,8 +53,13 @@
                     self.block();
                 }
                 [self.navigationController popViewControllerAnimated:YES];
+                return ;
             }
+            [MBProgressHUD showError:LOGINMESSAGE_B];
+            return ;
         }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+        
     }];
     
 }
@@ -56,7 +68,6 @@
     [((AppDelegate *)app).nav pushViewController:findPassword animated:YES];
 
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

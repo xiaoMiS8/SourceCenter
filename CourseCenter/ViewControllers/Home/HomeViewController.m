@@ -13,6 +13,7 @@
 #import "LoginViewController.h"
 #import "TestViewController.h"
 #import "ResponseObject.h"
+#import "NSString+HandleString.h"
 @interface HomeViewController ()
 {
     NSString *loginState;
@@ -58,27 +59,35 @@
 //推荐课程
 -(void)rLoadData
 {
+    [MBProgressHUD showMessage:nil];
     [self.httpManager getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
+                return ;
             }
         }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
 //全部课程
 -(void)aLoadData
 {
+    [MBProgressHUD showMessage:nil];
     [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
+                return ;
             }
         }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
 - (IBAction)testAction:(id)sender {

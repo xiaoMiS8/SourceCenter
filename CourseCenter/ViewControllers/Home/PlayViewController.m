@@ -28,6 +28,25 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
     selector:@selector(myMovieFinishedCallback:)name:MPMoviePlayerPlaybackDidFinishNotification
     object:movie];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mediaPlayerPlaybackStateChange:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:movie];
+    [MBProgressHUD showMessage:nil];
+}
+-(void)mediaPlayerPlaybackStateChange:(NSNotification *)notification{
+    switch (movie.playbackState) {
+        case MPMoviePlaybackStatePlaying:
+            [MBProgressHUD hideHUD];
+            NSLog(@"正在播放...");
+            break;
+        case MPMoviePlaybackStatePaused:
+            NSLog(@"暂停播放.");
+            break;
+        case MPMoviePlaybackStateStopped:
+            NSLog(@"停止播放.");
+            break;
+        default:
+            NSLog(@"播放状态:%li",(long)movie.playbackState);
+            break;
+    }
 }
 -(void)myMovieFinishedCallback:(NSNotification*)notification
 {

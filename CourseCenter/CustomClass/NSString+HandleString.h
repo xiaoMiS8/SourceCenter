@@ -15,4 +15,5 @@
 -(NSString *)changeStringWithStr:(NSString *)str;
 -(NSArray *)carveNSStringWithStr:(NSString *)str;
 -(NSString *)removeHtmlLanguage;
+-(BOOL)isNull;
 @end

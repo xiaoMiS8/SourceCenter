@@ -60,14 +60,18 @@
 }
 -(void)loadData
 {
+    [MBProgressHUD showMessage:nil];
     [self.httpManager getAppOCMoocGetWithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 _teacherInfo=self.reob.resultObject;
                 [self showteacherInfo:_teacherInfo];
+                return ;
             }
         }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
     [self.httpManager getChapterStudyListwithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {

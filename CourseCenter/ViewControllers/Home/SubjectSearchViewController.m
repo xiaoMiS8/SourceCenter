@@ -44,15 +44,19 @@
 }
 -(void)loadData
 {
+    [MBProgressHUD showMessage:nil];
     [self.httpManager getOCAllListWithSpecialtyTypeID:self.SpecialtyTypeID key:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                // self.dataArray=self.reob.resultArray;
                 [self dataHandleWithArray:self.reob.resultArray];
                 [_tableView reloadData];
+                return ;
             }
         }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
 - (void)addTableviewHeader
