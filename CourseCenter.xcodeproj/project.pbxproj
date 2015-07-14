@@ -21,6 +21,9 @@
 		042E75E71B16148A00396AAF /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75DD1B16148A00396AAF /* UIWindow+Hierarchy.m */; };
 		042E75EB1B16176100396AAF /* FindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75E91B16176100396AAF /* FindPasswordViewController.m */; };
 		042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042E75EA1B16176100396AAF /* FindPasswordViewController.xib */; };
+		066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */; };
+		066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */; };
+		066A4DD51B54B333003D29AA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DD21B54B333003D29AA /* MBProgressHUD.m */; };
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
 		52C8EED71B4E9F3A00BDBE76 /* Array.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED11B4E9F3A00BDBE76 /* Array.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -213,6 +216,11 @@
 		042E75E81B16176100396AAF /* FindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordViewController.h; sourceTree = "<group>"; };
 		042E75E91B16176100396AAF /* FindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordViewController.m; sourceTree = "<group>"; };
 		042E75EA1B16176100396AAF /* FindPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindPasswordViewController.xib; sourceTree = "<group>"; };
+		066A4DCE1B54B333003D29AA /* MBProgressHUD+R.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+R.h"; sourceTree = "<group>"; };
+		066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+R.m"; sourceTree = "<group>"; };
+		066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		066A4DD11B54B333003D29AA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		066A4DD21B54B333003D29AA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		374BA7341B048C5100DBA477 /* NSString+HandleString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HandleString.h"; sourceTree = "<group>"; };
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
@@ -551,6 +559,18 @@
 			path = IQKeyBoardManager;
 			sourceTree = "<group>";
 		};
+		066A4DCD1B54B333003D29AA /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				066A4DCE1B54B333003D29AA /* MBProgressHUD+R.h */,
+				066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */,
+				066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */,
+				066A4DD11B54B333003D29AA /* MBProgressHUD.h */,
+				066A4DD21B54B333003D29AA /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		52C8EECF1B4E9F3A00BDBE76 /* FuzzySearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +775,7 @@
 		D4B2F31F1B02FB2E007B017E /* Thirds */ = {
 			isa = PBXGroup;
 			children = (
+				066A4DCD1B54B333003D29AA /* MBProgressHUD */,
 				042E75C71B16148A00396AAF /* IQKeyBoardManager */,
 				D4B2F3A41B034265007B017E /* MJRefresh */,
 				D4B2F3BD1B034265007B017E /* SDWebImage */,
@@ -1146,6 +1167,7 @@
 				9FC5FC311B3C3D4A005026E2 /* CourseDetailCell.xib in Resources */,
 				59EC888B1B180DD3009495A6 /* notificationInfos.plist in Resources */,
 				D412969D1B50059E003FC6DB /* MoreListCell.xib in Resources */,
+				066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */,
 				CACBFC981B540C3500FAD388 /* messages.plist in Resources */,
 				CADD221C1B52418400A4F3D2 /* MyInfo.xib in Resources */,
 				CADD22261B526BA300A4F3D2 /* SetViewController.xib in Resources */,
@@ -1221,6 +1243,7 @@
 				D447331D1B4CE5B200F749D1 /* NoticeInfo.m in Sources */,
 				D4B2F3EA1B034265007B017E /* UIView+MJExtension.m in Sources */,
 				D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */,
+				066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */,
 				D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */,
 				042E75E41B16148A00396AAF /* NSArray+Sort.m in Sources */,
 				D412969C1B50059E003FC6DB /* MoreListCell.m in Sources */,
@@ -1302,6 +1325,7 @@
 				D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */,
 				D4B2F3E01B034265007B017E /* MJRefreshComponent.m in Sources */,
 				D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */,
+				066A4DD51B54B333003D29AA /* MBProgressHUD.m in Sources */,
 				D44733171B4CE58600F749D1 /* TeachingClassInfo.m in Sources */,
 				CADD221B1B52418400A4F3D2 /* MyInfo.m in Sources */,
 				D483411F1B2EC7ED00373043 /* NewNotificationViewController.m in Sources */,
