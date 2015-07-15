@@ -12,7 +12,6 @@
 #import "TeacherInfo.h"
 #import "ChapterInfo.h"
 #import "PlayViewController.h"
-#import "ELPlayViewController.h"
 #import "UIImageView+WebCache.h"
 #define SECTION_STATE @"SECTION_STATE"
 #define ICONIMG @"iconpro"
