@@ -53,6 +53,17 @@
     //我的课程列表
 #define kApp_OC_List                    @"App_OC_List"
 
+#pragma mark- Msg 
+    //获取未读消息数
+#define kApp_UnReadMessageCount_get     @"App_UnReadMessageCount_get"
+    //发送消息消息列表
+#define kApp_Message_List               @"App_Message_List"
+    //消息详细
+#define kApp_Message_Get                @"App_Message_Get"
+    //发送消息
+#define kApp_Message_Add                @"App_Message_Add"
+#define kApp_OCClass_List               @"App_OCClass_List"
+
 
 
 #endif
