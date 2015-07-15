@@ -15,6 +15,7 @@
 #import "MoocFileInfo.h"
 #import "NoticeInfo.h"
 #import "TeachingClassInfo.h"
+#import "MsgInfo.h"
 
 #define Kresult             @"result"
 
@@ -131,7 +132,27 @@
             responseObject.resultArray = results;
         }
         
+    } else if ([flag isEqualToString:kApp_UnReadMessageCount_get]) {
+        id result = [resultObject objectForKey:Kresult];
+        MsgInfo *msg = [[MsgInfo alloc] init];
+        if ([result isKindOfClass:[NSNumber class]]) {
+            msg.UnReadCount = [result intValue];
+        }
+        responseObject.resultObject = msg;
+        
+    } else if ([flag isEqualToString:kApp_Message_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                MsgInfo *msg = [[MsgInfo alloc] initWithdict:array[i]];
+                [results addObject:msg];
+            }
+            responseObject.resultArray = results;
+        }
     }
+
     
     
     return responseObject;

@@ -22,8 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"接口测试";
-    self.items = @[@[@"登录",@"注销",@"个人信息",@"修改密码"],@[@"推荐课程",@"全部课程",@"学科列表",@"Mooc基本信息",@"课程章节",@"章节下资料列表"]];
-    self.titles = @[@"用户",@"首页"];
+    self.items = @[@[@"登录",@"注销",@"个人信息",@"修改密码"],@[@"推荐课程",@"全部课程",@"学科列表",@"Mooc基本信息",@"课程章节",@"章节下资料列表"],@[@"获取未读消息数",@"发送消息消息列表",@"消息详细",@"发送消息",@"某人所在的所有教学班及组",@"教学班下联系人"]];
+    self.titles = @[@"用户",@"首页",@"消息中心"];
     self.httpManager = [CCHttpManager new];
 }
 
@@ -106,6 +106,25 @@
         [self.httpManager getOCMoocFileStudyListwithOCID:1 ChapterID:1 FileType:2 finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@", object];
         }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"获取未读消息数"]) {
+        [self.httpManager getAppUnReadMessageCountWithfinished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@", object];
+            
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"发送消息消息列表"]) {
+        [self.httpManager getAppMessageListWithkey:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@",object];
+        }];
+        
+    } else if ([cell.textLabel.text isEqualToString:@"消息详细"]) {
+        
+    } else if ([cell.textLabel.text isEqualToString:@"发送消息"]) {
+        
+    } else if ([cell.textLabel.text isEqualToString:@"某人所在的所有教学班及组"]) {
+        
+    } else if ([cell.textLabel.text isEqualToString:@"教学班下联系人"]) {
         
     }
     

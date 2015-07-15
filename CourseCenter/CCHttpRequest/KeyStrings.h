@@ -62,7 +62,10 @@
 #define kApp_Message_Get                @"App_Message_Get"
     //发送消息
 #define kApp_Message_Add                @"App_Message_Add"
+    //某人所在的所有教学班及组
 #define kApp_OCClass_List               @"App_OCClass_List"
+    //教学班下联系人
+#define kApp_ClassUser_List             @"App_ClassUser_List"
 
 
 

@@ -215,6 +215,16 @@
     }];
 }
 
+- (void)getAppClassUserListwithID:(long)ID
+                             Type:(int)Type
+                         finished:(FinishedBlock)finished {
+    [MsgAction getAppClassUserListwithID:ID
+                                    Type:Type
+                                finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 
 
 @end

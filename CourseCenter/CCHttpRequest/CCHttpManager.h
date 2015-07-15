@@ -239,6 +239,16 @@
  */
 - (void)getOCClassListWithfinished:(FinishedBlock)finished;
 
+/**
+ *  @brief  教学班下联系人
+ *
+ *  @param ID          ID
+ *  @param Type         1教学班, 2组, -1全部
+ *  @param finished       finished
+ */
+- (void)getAppClassUserListwithID:(long)ID
+                             Type:(int)Type
+                         finished:(FinishedBlock)finished;
 
 
 @end
