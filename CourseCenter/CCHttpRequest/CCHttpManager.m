@@ -171,4 +171,50 @@
                                     }];
 }
 
+- (void)getAppUnReadMessageCountWithfinished:(FinishedBlock)finished {
+    [MsgAction getAppUnReadMessageCountWithfinished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppMessageListWithkey:(NSString *)key
+                       PageIndex:(int)PageIndex
+                        PageSize:(int)PageSize
+                        finished:(FinishedBlock)finished {
+    [MsgAction getAppMessageListWithkey:key
+                              PageIndex:PageIndex
+                               PageSize:PageSize
+                               finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+                               }];
+}
+
+- (void)getAppMessageWithUserID:(long)UserID
+                       finished:(FinishedBlock)finished {
+    [MsgAction getAppMessageWithUserID:UserID
+                              finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)addAppMessageWithTitle:(NSString *)Title
+                        Conten:(NSString *)Conten
+                ReceiveUserIDs:(NSArray *)ReceiveUserIDs
+                      finished:(FinishedBlock)finished {
+    [MsgAction addAppMessageWithTitle:Title
+                               Conten:Conten
+                       ReceiveUserIDs:ReceiveUserIDs
+                             finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getOCClassListWithfinished:(FinishedBlock)finished {
+    [MsgAction getOCClassListWithfinished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+
+
 @end
