@@ -18,7 +18,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.playUrl=[self.playUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
      movie =[[MPMoviePlayerController alloc]initWithContentURL:[NSURL URLWithString:self.playUrl]];
     [movie prepareToPlay];
     [movie.view setFrame:self.view.bounds];
