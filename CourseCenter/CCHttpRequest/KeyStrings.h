@@ -67,6 +67,15 @@
     //教学班下联系人
 #define kApp_ClassUser_List             @"App_ClassUser_List"
 
+#pragma mark- File
+
+    //获取资源分类数量
+#define kApp_FileCount_Get              @"App_FileCount_Get"
+    //获取某人的课程名称列表
+#define kApp_OCName_List                @"App_OCName_List"
+    //获取资料的列表信息
+#define kApp_File_Search                @"App_File_Search"
+
 
 
 #endif
