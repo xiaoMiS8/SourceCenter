@@ -215,6 +215,53 @@
     }];
 }
 
+- (void)getAppClassUserListwithID:(long)ID
+                             Type:(int)Type
+                         finished:(FinishedBlock)finished {
+    [MsgAction getAppClassUserListwithID:ID
+                                    Type:Type
+                                finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+
+- (void)getAppFileCountWithOCID:(long)OCID
+                       finished:(FinishedBlock)finished {
+    [FileAction getAppFileCountWithOCID:OCID
+                               finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppOCNameListWithrole:(int)role
+                       IsHistroy:(BOOL)IsHistroy
+                        finished:(FinishedBlock)finished {
+    [FileAction getAppOCNameListWithrole:role
+                               IsHistroy:IsHistroy
+                                finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+    
+}
+
+- (void)getAppFileSearchwithSearchkey:(NSString *)Searchkey
+                                 OCID:(long)OCID
+                             FileType:(int)FileType
+                            PageIndex:(int)PageIndex
+                             PageSize:(int)PageSize
+                             finished:(FinishedBlock)finished {
+    [FileAction getAppFileSearchwithSearchkey:Searchkey
+                                         OCID:OCID
+                                     FileType:FileType
+                                    PageIndex:PageIndex
+                                     PageSize:PageSize
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+    
+}
+
 
 
 @end

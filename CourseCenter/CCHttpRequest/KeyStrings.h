@@ -62,7 +62,19 @@
 #define kApp_Message_Get                @"App_Message_Get"
     //发送消息
 #define kApp_Message_Add                @"App_Message_Add"
+    //某人所在的所有教学班及组
 #define kApp_OCClass_List               @"App_OCClass_List"
+    //教学班下联系人
+#define kApp_ClassUser_List             @"App_ClassUser_List"
+
+#pragma mark- File
+
+    //获取资源分类数量
+#define kApp_FileCount_Get              @"App_FileCount_Get"
+    //获取某人的课程名称列表
+#define kApp_OCName_List                @"App_OCName_List"
+    //获取资料的列表信息
+#define kApp_File_Search                @"App_File_Search"
 
 
 

@@ -19,9 +19,16 @@
 + (void)getAppMessageListWithkey:(NSString *)key
                        PageIndex:(int)PageIndex
                         PageSize:(int)PageSize finished:(FinishedBlock)finished {
-    NSDictionary *parameters = @{kkey: key,
-                                 kPageIndex: [NSNumber numberWithInt:PageIndex],
-                                 kPageSize:[NSNumber numberWithInt:PageSize]};
+    NSDictionary *parameters = nil;
+    if (key) {
+        parameters = @{kkey: key,
+                                     kPageIndex: [NSNumber numberWithInt:PageIndex],
+                                     kPageSize:[NSNumber numberWithInt:PageSize]};
+    } else {
+        parameters = @{kPageIndex: [NSNumber numberWithInt:PageIndex],
+                       kPageSize:[NSNumber numberWithInt:PageSize]};
+    }
+   
     [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Msg/App_Message_List"
                                   parameters:parameters
                                  connectFlag:kApp_Message_List
@@ -57,6 +64,19 @@
     [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Msg/App_OCClass_List"
                                   parameters:nil
                                  connectFlag:kApp_OCClass_List finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)getAppClassUserListwithID:(long)ID
+                             Type:(int)Type
+                         finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kID: [NSNumber numberWithLong:ID],
+                                 kType: [NSNumber numberWithInt:Type]};
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Msg/App_ClassUser_List"
+                                  parameters:parameters
+                                 connectFlag:kApp_ClassUser_List
+                                    finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }

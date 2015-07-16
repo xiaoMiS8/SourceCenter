@@ -12,6 +12,7 @@
 #import "NoticeActions.h"
 #import "CourseActions.h"
 #import "MsgAction.h"
+#import "FileAction.h"
 @interface CCHttpManager : NSObject
 
 #pragma mark- User
@@ -239,6 +240,53 @@
  */
 - (void)getOCClassListWithfinished:(FinishedBlock)finished;
 
+/**
+ *  @brief  教学班下联系人
+ *
+ *  @param ID          ID
+ *  @param Type         1教学班, 2组, -1全部
+ *  @param finished       finished
+ */
+- (void)getAppClassUserListwithID:(long)ID
+                             Type:(int)Type
+                         finished:(FinishedBlock)finished;
+
+#pragma mark- File
+
+/**
+ *  @brief  获取资源分类数量
+ *
+ *  @param OCID     OCID
+ *  @param finished finished
+ */
+- (void)getAppFileCountWithOCID:(long)OCID
+                       finished:(FinishedBlock)finished;
+/**
+ *  @brief  获取某人的课程名称列表
+ *
+ *  @param role      1:教师, 2:学生
+ *  @param IsHistroy IsHistroy
+ *  @param finished  finished
+ */
+- (void)getAppOCNameListWithrole:(int)role
+                       IsHistroy:(BOOL)IsHistroy
+                        finished:(FinishedBlock)finished;
+/**
+ *  @brief  获取资料的列表信息
+ *
+ *  @param Searchkey 搜索关键词
+ *  @param OCID      OCID
+ *  @param FileType  文件类型
+ *  @param PageIndex 第几页
+ *  @param PageSize  每页大小
+ *  @param finished  finished
+ */
+- (void)getAppFileSearchwithSearchkey:(NSString *)Searchkey
+                                 OCID:(long)OCID
+                             FileType:(int)FileType
+                            PageIndex:(int)PageIndex
+                             PageSize:(int)PageSize
+                             finished:(FinishedBlock)finished;
 
 
 @end
