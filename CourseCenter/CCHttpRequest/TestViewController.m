@@ -119,13 +119,23 @@
         }];
         
     } else if ([cell.textLabel.text isEqualToString:@"消息详细"]) {
-        
+        [self.httpManager getAppMessageWithUserID:183 finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@",object];
+        }];
     } else if ([cell.textLabel.text isEqualToString:@"发送消息"]) {
+        [self.httpManager addAppMessageWithTitle:@"没电了" Conten:@"还是每天这样的啊" ReceiveUserIDs:@[@183] finished:^(EnumServerStatus status, NSObject *object) {
+             resultVC.result = [NSString stringWithFormat:@"%@",object];
+        }];
         
     } else if ([cell.textLabel.text isEqualToString:@"某人所在的所有教学班及组"]) {
+        [self.httpManager getOCClassListWithfinished:^(EnumServerStatus status, NSObject *object) {
+             resultVC.result = [NSString stringWithFormat:@"%@",object];
+        }];
         
     } else if ([cell.textLabel.text isEqualToString:@"教学班下联系人"]) {
-        
+        [self.httpManager getAppClassUserListwithID:53 Type:-1 finished:^(EnumServerStatus status, NSObject *object) {
+             resultVC.result = [NSString stringWithFormat:@"%@",object];
+        }];
     }
     
     

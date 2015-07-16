@@ -19,6 +19,7 @@
         self.userNo = [dict objectForKey:KUserNo];
         self.userImg = [dict objectForKey:KUserImg];
         self.gender = [[dict objectForKey:KGender] intValue];
+        self.Role = dict[kRole];
     }
     return self;
 }

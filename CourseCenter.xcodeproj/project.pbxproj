@@ -24,6 +24,7 @@
 		066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */; };
 		066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */; };
 		066A4DD51B54B333003D29AA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DD21B54B333003D29AA /* MBProgressHUD.m */; };
+		06D1FAD61B57A0F400C18980 /* GroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1FAD51B57A0F400C18980 /* GroupInfo.m */; };
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
 		52C8EED71B4E9F3A00BDBE76 /* Array.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED11B4E9F3A00BDBE76 /* Array.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -223,6 +224,8 @@
 		066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		066A4DD11B54B333003D29AA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		066A4DD21B54B333003D29AA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		06D1FAD41B57A0F300C18980 /* GroupInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInfo.h; sourceTree = "<group>"; };
+		06D1FAD51B57A0F400C18980 /* GroupInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupInfo.m; sourceTree = "<group>"; };
 		374BA7341B048C5100DBA477 /* NSString+HandleString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HandleString.h"; sourceTree = "<group>"; };
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
@@ -657,6 +660,8 @@
 				D44733161B4CE58600F749D1 /* TeachingClassInfo.m */,
 				D4BA5E661B56C3B500580C19 /* MsgInfo.h */,
 				D4BA5E671B56C3B500580C19 /* MsgInfo.m */,
+				06D1FAD41B57A0F300C18980 /* GroupInfo.h */,
+				06D1FAD51B57A0F400C18980 /* GroupInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1322,6 +1327,7 @@
 				CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */,
 				D4B2F2F71B02FA00007B017E /* main.m in Sources */,
 				374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */,
+				06D1FAD61B57A0F400C18980 /* GroupInfo.m in Sources */,
 				D4B2F33F1B02FE75007B017E /* HomeViewController.m in Sources */,
 				CADD22201B52488700A4F3D2 /* MyInfoCell.m in Sources */,
 				D4B2F3E51B034265007B017E /* MJRefreshHeader.m in Sources */,

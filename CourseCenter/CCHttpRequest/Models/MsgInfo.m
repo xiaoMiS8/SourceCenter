@@ -10,7 +10,7 @@
 
 @implementation MsgInfo
 
-- (id)initWithdict:(NSDictionary *)dict {
+- (id)initWithDict:(NSDictionary *)dict {
     self = [super init];
     if (self) {
         self.UnReadCount = [dict[kUnReadCount] intValue];
@@ -19,9 +19,9 @@
         self.UserID = [dict[kUserID] longValue];
         self.UserName = dict[kUserName];
         self.CreateTime = dict[kCreateTime];
+        self.SendOrReceive = dict[kSendOrReceive];
     }
     return self;
 }
-
 
 @end

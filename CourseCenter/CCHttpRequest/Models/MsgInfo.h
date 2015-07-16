@@ -14,6 +14,7 @@
 #define kUserID             @"UserID"
 #define kUserName           @"UserName"
 #define kCreateTime         @"CreateTime"
+#define kSendOrReceive      @"SendOrReceive"
 
 @interface MsgInfo : NSObject
 
@@ -29,7 +30,9 @@
 @property(nonatomic, strong) NSString *UserName;
     //发送时间
 @property(nonatomic, strong) NSString *CreateTime;
+    //发信人或收信人
+@property(nonatomic, strong) NSString *SendOrReceive;
 
-- (id)initWithdict:(NSDictionary *)dict;
+- (id)initWithDict:(NSDictionary *)dict;
 
 @end
