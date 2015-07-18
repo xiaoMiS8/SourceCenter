@@ -9,6 +9,7 @@
 #import "MessageCenter.h"
 #import "MessageCenterCell.h"
 #import "ChatViewController.h"
+#import "NewMessage.h"
 @interface MessageCenter ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -49,7 +50,8 @@
 }
 -(void)addMessage
 {
-    
+    NewMessage *newMessage=[[NewMessage alloc]init];
+    [((AppDelegate *)app).nav pushViewController:newMessage animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
