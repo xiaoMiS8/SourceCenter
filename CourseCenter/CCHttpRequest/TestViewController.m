@@ -145,7 +145,7 @@
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"获取资料的列表信息"]) {
-      [self.httpManager getAppFileSearchwithSearchkey:nil OCID:161 FileType:-1 PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+      [self.httpManager getAppFileSearchwithSearchkey:nil OCID:161 FileType:1 PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
           resultVC.result = [NSString stringWithFormat:@"%@",object];
       }];
     }

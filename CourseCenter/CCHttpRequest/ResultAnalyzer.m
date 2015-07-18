@@ -17,6 +17,7 @@
 #import "TeachingClassInfo.h"
 #import "MsgInfo.h"
 #import "GroupInfo.h"
+#import "FileInfo.h"
 
 #define Kresult             @"result"
 
@@ -190,7 +191,37 @@
         }
         
 
+    }  else if ([flag isEqualToString:kApp_FileCount_Get]) {
+        FileInfo *file = [[FileInfo alloc] initWithDict:resultObject[Kresult]];
+        responseObject.resultObject = file;
+        
+    } else if ([flag isEqualToString:kApp_OCName_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                OCourseInfo *occourse = [[OCourseInfo alloc] initWithDict:array[i]];
+                [results addObject:occourse];
+            }
+            responseObject.resultArray = results;
+        }
+        
+    } else if ([flag isEqualToString:kApp_File_Search]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                FileInfo *file = [[FileInfo alloc] initWithDict:array[i]];
+                [results addObject:file];
+            }
+            responseObject.resultArray = results;
+        }
+        
     }
+
+
 
     
     
