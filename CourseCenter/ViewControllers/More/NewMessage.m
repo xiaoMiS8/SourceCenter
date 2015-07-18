@@ -7,6 +7,8 @@
 //
 
 #import "NewMessage.h"
+#import "NewMessageCell.h"
+#import "SendMesage.h"
 #define SECTION_STATE @"SECTION_STATE"
 @interface NewMessage ()
 {
@@ -28,8 +30,9 @@
     _array=[NSMutableArray arrayWithCapacity:0];
     _arrayData=[NSMutableArray arrayWithCapacity:0];
     _subArray=[NSMutableArray arrayWithCapacity:0];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NewMessageCell" bundle:nil] forCellReuseIdentifier:@"NewMessageCell"];
 _arrayData=@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10"];
-_subArray=@[@[@"1"],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[@"7"],@[@"8"],@[@"9"],@[@"10"]];
+_subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[@"7"],@[@"8"],@[@"9"],@[@"10"]];
     [self showCourseData];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -38,21 +41,10 @@ _subArray=@[@[@"1"],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[@"7"],@[@"8"],@[@"
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view=[[UIView alloc]init];
-    view.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
-    view.backgroundColor=[UIColor whiteColor];
-    view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
-    view.layer.borderWidth=0.5;
-    UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, _tableView.frame.size.width-20, 50)];
-    lable.font=Font_14;
-    lable.text=[NSString stringWithFormat:@"%d",section];//@"第一章 大熊猫的生活习性";
-    [view addSubview:lable];
-    UIButton *button=[[UIButton alloc]init];
-    button.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
-    button.backgroundColor=[UIColor clearColor];
-    button.tag=section+100;
-    [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
-    [view addSubview:button];
+    UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"HeadForTable" owner:self options:nil]objectAtIndex:0];
+    _head_title.text=[NSString stringWithFormat:@"金融管理070%d班",section];
+    _headbtn.tag=section+100;
+    [_headbtn addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
     return view;
 }
 -(void)press:(UIButton *)but
@@ -91,9 +83,20 @@ _subArray=@[@[@"1"],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[@"7"],@[@"8"],@[@"
         return ((NSMutableArray *)[_subArray objectAtIndex:section]).count;
     }
 }
--(void)sure
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NewMessageCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"NewMessageCell"];
+    return cell;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+-(void)sure
+{
+    SendMesage *sendMessage=[[SendMesage alloc]
+                             init];
+    [((AppDelegate *)app).nav pushViewController:sendMessage animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
