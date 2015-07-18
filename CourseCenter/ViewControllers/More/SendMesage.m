@@ -19,7 +19,10 @@
     // Do any additional setup after loading the view from its nib.
     self.title=@"新建消息";
     [self setupCustomRightWithtitle:@"发送" target:self action:@selector(sureMessage)];
-    
+    NSMutableArray *tags = [NSMutableArray arrayWithArray:@[@"张一鸣", @"王晓明", @"赵非凡", @"张一鸣", @"王晓明", @"赵非凡", @"张一鸣", @"王晓明", @"赵非凡"]];
+    _editingTagControl.tags = [tags mutableCopy];
+    _editingTagControl.tagPlaceholder=@"";
+    [_editingTagControl reloadTagSubviews];
 }
 -(void)sureMessage
 {

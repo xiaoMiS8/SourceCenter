@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
-
+#import "TLTagsControl.h"
 @interface SendMesage : BaseViewController
+@property (weak, nonatomic) IBOutlet TLTagsControl *editingTagControl;
 
 @end

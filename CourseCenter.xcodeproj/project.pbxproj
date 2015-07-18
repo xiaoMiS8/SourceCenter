@@ -71,6 +71,7 @@
 		CA20AA2E1B59F11800598370 /* NewMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20AA2C1B59F11800598370 /* NewMessageCell.xib */; };
 		CA20AA321B5A19A100598370 /* SendMesage.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA301B5A19A100598370 /* SendMesage.m */; };
 		CA20AA331B5A19A100598370 /* SendMesage.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20AA311B5A19A100598370 /* SendMesage.xib */; };
+		CA20AA361B5A663C00598370 /* TLTagsControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA351B5A663C00598370 /* TLTagsControl.m */; };
 		CA62FA0B1B42DCF700F80DE3 /* SubjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */; };
 		CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */; };
 		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
@@ -311,6 +312,8 @@
 		CA20AA2F1B5A19A100598370 /* SendMesage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMesage.h; sourceTree = "<group>"; };
 		CA20AA301B5A19A100598370 /* SendMesage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMesage.m; sourceTree = "<group>"; };
 		CA20AA311B5A19A100598370 /* SendMesage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendMesage.xib; sourceTree = "<group>"; };
+		CA20AA341B5A663C00598370 /* TLTagsControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTagsControl.h; sourceTree = "<group>"; };
+		CA20AA351B5A663C00598370 /* TLTagsControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLTagsControl.m; sourceTree = "<group>"; };
 		CA62FA081B42DCF700F80DE3 /* SubjectSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchViewController.h; sourceTree = "<group>"; };
 		CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchViewController.m; sourceTree = "<group>"; };
 		CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchViewController.xib; sourceTree = "<group>"; };
@@ -971,6 +974,8 @@
 				CA20AA2F1B5A19A100598370 /* SendMesage.h */,
 				CA20AA301B5A19A100598370 /* SendMesage.m */,
 				CA20AA311B5A19A100598370 /* SendMesage.xib */,
+				CA20AA341B5A663C00598370 /* TLTagsControl.h */,
+				CA20AA351B5A663C00598370 /* TLTagsControl.m */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -1329,6 +1334,7 @@
 				042E75C51B160C9100396AAF /* LoginViewController.m in Sources */,
 				D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */,
 				D4F607BD1B33FBC700888FC4 /* IndexActions.m in Sources */,
+				CA20AA361B5A663C00598370 /* TLTagsControl.m in Sources */,
 				D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */,
 				D4B2F39C1B033E51007B017E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D4B2F3F61B034265007B017E /* UIImage+MultiFormat.m in Sources */,
