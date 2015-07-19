@@ -130,10 +130,6 @@
     }
     if (viewController == self.viewcontrollers[0]) {
         [self addCenterandRightItem];
-        NSString *loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
-        if ([loginState isEqualToString:@"0"]||loginState==nil) {
-            [((HomeViewController *)viewController) viewDidLoad];
-        }
     }
     else if (viewController == self.viewcontrollers[1]) {
         [self removeCenterandRightItem];
@@ -150,7 +146,7 @@
         [self removeCenterandRightItem];
         [self removeNotificationRightItem];
     }
-    
+        [viewController viewDidLoad];
     return YES;
 }
 
