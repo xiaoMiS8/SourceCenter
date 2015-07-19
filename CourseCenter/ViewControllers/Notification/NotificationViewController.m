@@ -87,7 +87,7 @@
     
     self.index = 1;
     self.httpManager = [[CCHttpManager alloc] init];
-    [MBProgressHUD showMessage:@"正在加载"];
+    [MBProgressHUD showMessage:nil];
     [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             [MBProgressHUD hideHUD];
@@ -95,6 +95,8 @@
             self.notis = responseObject.resultArray;
             [self.tableView reloadData];
             [self.tableView.legendHeader endRefreshing];
+        } else {
+           
         }
     }];
 }

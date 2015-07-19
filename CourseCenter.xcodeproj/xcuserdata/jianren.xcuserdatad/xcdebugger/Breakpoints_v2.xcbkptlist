@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/Login/LoginViewController.m"
-            timestampString = "459011454.566898"
+            filePath = "CourseCenter/ViewControllers/More/SetViewController.m"
+            timestampString = "459012925.864214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-login:"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-exit:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
