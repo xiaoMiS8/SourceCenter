@@ -142,6 +142,7 @@
     LoginViewController *loginSearchVC = [LoginViewController new];
     loginSearchVC.block=^()
     {
+        ((AppDelegate *)app).tabar.TowLoginState=@"1";
         [self isLogin];
     };
     [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];

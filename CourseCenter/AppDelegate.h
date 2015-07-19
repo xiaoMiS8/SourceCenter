@@ -14,6 +14,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 @property(nonatomic, strong) UINavigationController *nav;
+@property(nonatomic, strong) TabBarViewController *tabar;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

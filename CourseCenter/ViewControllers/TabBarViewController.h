@@ -12,7 +12,10 @@
 
 @property(nonatomic, strong) UITabBarController *tabbar;
 @property(nonatomic, assign) int selectedIndex;
-
+@property(nonatomic, strong) NSString *OneLoginState;
+@property(nonatomic, strong) NSString *TowLoginState ;
+@property(nonatomic, strong) NSString *ThreeLoginState ;
+@property(nonatomic, strong) NSString *FourLoginState ;
 
 /**
  *  配置tabbar
