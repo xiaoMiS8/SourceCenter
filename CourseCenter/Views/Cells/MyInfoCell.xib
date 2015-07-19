@@ -25,11 +25,12 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="啦啦啦啦" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-ad-AQr">
-                        <rect key="frame" x="46" y="5" width="251" height="40"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="阿联酋 迪拜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-ad-AQr">
+                        <rect key="frame" x="81" y="5" width="216" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="OPT-lM-gzw"/>
                         </constraints>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -50,21 +51,20 @@
                         </constraints>
                     </imageView>
                     <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="学渣经常骂学霸 因为学霸经常装逼说成绩差" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-Mt-hQb">
-                        <rect key="frame" x="46" y="8" width="266" height="33.5"/>
+                        <rect key="frame" x="61" y="8" width="251" height="33.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="u1U-Ad-Y4c" firstAttribute="leading" secondItem="1aR-Mt-hQb" secondAttribute="trailing" constant="15" id="2Th-nK-LPc"/>
                     <constraint firstItem="Dk8-sM-6hn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-15" id="89X-nP-5Sj"/>
                     <constraint firstItem="u1U-Ad-Y4c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Avj-uc-Rqw"/>
                     <constraint firstItem="1aR-Mt-hQb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Cww-ve-uXy"/>
-                    <constraint firstItem="1aR-Mt-hQb" firstAttribute="leading" secondItem="ZXo-ub-WZT" secondAttribute="trailing" constant="5" id="FhK-eC-Pc3"/>
+                    <constraint firstItem="1aR-Mt-hQb" firstAttribute="leading" secondItem="ZXo-ub-WZT" secondAttribute="trailing" constant="20" id="FhK-eC-Pc3"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Dk8-sM-6hn" secondAttribute="trailing" constant="-15" id="Fz3-UG-aWT"/>
-                    <constraint firstItem="Dk8-sM-6hn" firstAttribute="top" secondItem="1aR-Mt-hQb" secondAttribute="bottom" id="KH8-i8-iEq"/>
-                    <constraint firstItem="cf2-ad-AQr" firstAttribute="leading" secondItem="ZXo-ub-WZT" secondAttribute="trailing" constant="5" id="Taj-s4-bZw"/>
+                    <constraint firstItem="cf2-ad-AQr" firstAttribute="leading" secondItem="ZXo-ub-WZT" secondAttribute="trailing" constant="40" id="Taj-s4-bZw"/>
                     <constraint firstItem="ZXo-ub-WZT" firstAttribute="centerY" secondItem="cf2-ad-AQr" secondAttribute="centerY" id="VQ1-op-gai"/>
                     <constraint firstAttribute="centerY" secondItem="ZXo-ub-WZT" secondAttribute="centerY" id="YCI-06-3BX"/>
                     <constraint firstItem="ZXo-ub-WZT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ZtW-8n-COU"/>
@@ -75,12 +75,6 @@
                     <constraint firstAttribute="bottomMargin" secondItem="1aR-Mt-hQb" secondAttribute="bottom" id="pr0-0i-Bao"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Dk8-sM-6hn" secondAttribute="bottom" constant="-8" id="tMA-6N-83v"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="KH8-i8-iEq"/>
-                        <exclude reference="2Th-nK-LPc"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="headImg" destination="u1U-Ad-Y4c" id="1bQ-lG-lF8"/>
