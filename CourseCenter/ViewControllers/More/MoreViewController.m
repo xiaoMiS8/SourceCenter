@@ -11,12 +11,14 @@
 #import "MyInfo.h"
 #import "SetViewController.h"
 #import "MessageCenter.h"
+#import "MyData.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
     MyInfo *myInfo;
     SetViewController *set;
     MessageCenter *messageCenter;
+    MyData *myData;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
@@ -38,6 +40,7 @@
     myInfo=[[MyInfo alloc]init];
     set=[[SetViewController alloc]init];
     messageCenter=[[MessageCenter alloc]init];
+    myData=[[MyData alloc]init];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -96,7 +99,19 @@
 }
 -(void)chooseViewControllerWithindexPath:(NSIndexPath *)index
 {
-
+    switch (index.row) {
+        case 0:
+            break;
+        case 1:
+            break;
+        case 2:
+            [((AppDelegate *)app).nav pushViewController:myData animated:YES];
+            break;
+        case 3:
+            break;
+        default:
+            break;
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

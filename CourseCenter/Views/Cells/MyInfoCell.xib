@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="头像" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXo-ub-WZT">
-                        <rect key="frame" x="23" y="5" width="28" height="40"/>
+                        <rect key="frame" x="13" y="5" width="28" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="ocO-49-guw"/>
                         </constraints>
@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="啦啦啦啦" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-ad-AQr">
-                        <rect key="frame" x="56" y="5" width="241" height="40"/>
+                        <rect key="frame" x="46" y="5" width="251" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="OPT-lM-gzw"/>
                         </constraints>
@@ -50,7 +50,7 @@
                         </constraints>
                     </imageView>
                     <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="学渣经常骂学霸 因为学霸经常装逼说成绩差" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-Mt-hQb">
-                        <rect key="frame" x="56" y="8" width="256" height="33.5"/>
+                        <rect key="frame" x="46" y="8" width="266" height="33.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -67,7 +67,7 @@
                     <constraint firstItem="cf2-ad-AQr" firstAttribute="leading" secondItem="ZXo-ub-WZT" secondAttribute="trailing" constant="5" id="Taj-s4-bZw"/>
                     <constraint firstItem="ZXo-ub-WZT" firstAttribute="centerY" secondItem="cf2-ad-AQr" secondAttribute="centerY" id="VQ1-op-gai"/>
                     <constraint firstAttribute="centerY" secondItem="ZXo-ub-WZT" secondAttribute="centerY" id="YCI-06-3BX"/>
-                    <constraint firstItem="ZXo-ub-WZT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="15" id="ZtW-8n-COU"/>
+                    <constraint firstItem="ZXo-ub-WZT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="ZtW-8n-COU"/>
                     <constraint firstItem="u1U-Ad-Y4c" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="dPR-7b-NkM"/>
                     <constraint firstItem="Dk8-sM-6hn" firstAttribute="top" secondItem="u1U-Ad-Y4c" secondAttribute="bottom" constant="11" id="hWW-Fn-7j0"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cf2-ad-AQr" secondAttribute="trailing" constant="15" id="lmk-29-gVh"/>
