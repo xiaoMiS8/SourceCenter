@@ -50,7 +50,9 @@
 }
 -(void)loadMyInfo
 {
+    [MBProgressHUD showMessage:nil];
     [self.httpManager getUserInfoWithfinished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
