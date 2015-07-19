@@ -12,6 +12,7 @@
 #import "SetViewController.h"
 #import "MessageCenter.h"
 #import "MyData.h"
+#import "UserInfo.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
@@ -22,6 +23,9 @@
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
+@property(nonatomic, strong)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
+@property (strong,nonatomic)UserInfo *userInfo;
 @end
 
 @implementation MoreViewController
@@ -41,6 +45,20 @@
     set=[[SetViewController alloc]init];
     messageCenter=[[MessageCenter alloc]init];
     myData=[[MyData alloc]init];
+    self.httpManager=[[CCHttpManager alloc]init];
+    [self loadMyInfo];
+}
+-(void)loadMyInfo
+{
+    [self.httpManager getUserInfoWithfinished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.userInfo=self.reob.resultObject;
+                [_tableView reloadData];
+            }
+        }
+    }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -94,6 +112,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MoreListCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"MoreListCell"];
+    cell.userInfo=self.userInfo;
     cell.indexPath=indexPath;
     return cell;
 }

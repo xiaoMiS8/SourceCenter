@@ -12,5 +12,4 @@
 
 @property(nonatomic, strong) UISegmentedControl *seg;
 @property(nonatomic, strong) UIButton *searchBtn;
-
 @end
