@@ -8,12 +8,10 @@
 
 #import "MyInfo.h"
 #import "MyInfoCell.h"
-#import "UserInfo.h"
 @interface MyInfo ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
-@property (strong,nonatomic)UserInfo *userInfo;
 @end
 
 @implementation MyInfo
@@ -25,18 +23,6 @@
     [self setupCustomRightWithtitle:@"保存" target:self action:@selector(saveInfo)];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyInfoCell" bundle:nil] forCellReuseIdentifier:@"MyInfoCell"];
     self.httpManager=[[CCHttpManager alloc]init];
-    [self loadInfo];
-}
--(void)loadInfo
-{
-    [self.httpManager getUserInfoWithfinished:^(EnumServerStatus status, NSObject *object) {
-        if (status==0) {
-            self.reob=(ResponseObject *)object;
-            if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                self.userInfo=self.reob.resultObject;
-            }
-        }
-    }];
 }
 -(void)saveInfo
 {
@@ -64,6 +50,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MyInfoCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"MyInfoCell"];
+    cell.userInfo=self.userInfo;
     cell.indexPath=indexPath;
     return cell;
 }

@@ -19,10 +19,6 @@
     _messageNum.layer.cornerRadius=5;
 
 }
--(void)setUserInfo:(UserInfo *)userInfo
-{
-    self.userInfo=userInfo;
-}
 -(void)setIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section!=0) {

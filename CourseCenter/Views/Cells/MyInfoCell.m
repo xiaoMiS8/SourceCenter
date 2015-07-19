@@ -7,7 +7,8 @@
 //
 
 #import "MyInfoCell.h"
-
+#import "UIImageView+WebCache.h"
+#define HEADIMG @"iconpro"
 @implementation MyInfoCell
 
 - (void)awakeFromNib {
@@ -19,13 +20,16 @@
         case 0:
             _textFiled.hidden=YES;
             _headImg.hidden=NO;
-            _leftLable.text=@"头像";
+            _leftLable.text=@"头   像";
+            [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:HEADIMG]];
             break;
         case 1:
             _leftLable.text=@"用户名";
+            _textFiled.text=self.userInfo.userName;
             break;
         case 2:
-            _leftLable.text=@"性别";
+            _leftLable.text=@"性   别";
+            _textFiled.text=self.userInfo.gender==1?@"男":@"nv";
             break;
         case 3:
             _leftLable.text=@"所在地";

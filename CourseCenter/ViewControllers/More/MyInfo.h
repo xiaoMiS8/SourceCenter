@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
+#import "UserInfo.h"
 @interface MyInfo : BaseViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
-
+@property (strong,nonatomic)UserInfo *userInfo;
 @end

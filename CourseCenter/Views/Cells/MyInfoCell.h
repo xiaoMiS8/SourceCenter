@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UserInfo.h"
 @interface MyInfoCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *leftLable;
 @property (weak, nonatomic) IBOutlet UITextField *textFiled;
@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong,nonatomic)NSIndexPath *indexPath;
 @property (weak, nonatomic) IBOutlet UILabel *line;
+@property (strong,nonatomic)UserInfo *userInfo;
 @end

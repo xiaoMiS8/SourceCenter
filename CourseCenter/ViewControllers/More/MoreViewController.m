@@ -94,6 +94,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.section) {
         case 0:
+            myInfo.userInfo=self.userInfo;
             [((AppDelegate *)app).nav pushViewController:myInfo animated:YES];
             break;
         case 1:
@@ -112,7 +113,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MoreListCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"MoreListCell"];
+    if(self.userInfo!=nil)
+    {
     cell.userInfo=self.userInfo;
+    }
     cell.indexPath=indexPath;
     return cell;
 }
