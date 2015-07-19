@@ -21,7 +21,7 @@
 }
 -(void)setUserInfo:(UserInfo *)userInfo
 {
-    self.userInfo=userInfo;
+    _userInfo = userInfo;
 }
 -(void)setIndexPath:(NSIndexPath *)indexPath
 {
