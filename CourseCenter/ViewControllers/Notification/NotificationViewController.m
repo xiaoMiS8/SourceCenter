@@ -14,12 +14,17 @@
 #import "LineNavigationController.h"
 #import "CCHttpManager.h"
 #import "ResponseObject.h"
+#import "LoginViewController.h"
+#import "MJRefresh.h"
 @interface NotificationViewController ()
-
+{
+    NSString *loginState;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) CCHttpManager *httpManager;
 
 @property(nonatomic, strong) NSMutableArray *notis;
+@property(nonatomic, assign) int index;
 
 @end
 
@@ -35,32 +40,76 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.index = 1;
     [self setupTable];
-    [self loadData];
+    _loginBtn.layer.masksToBounds=YES;
+    _loginBtn.layer.cornerRadius=5;
+    [self isLogin];
+    [self addtableHeader];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    [self isLogin];
+}
+
+-(void)isLogin
+{
+    
+    loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        _tableView.hidden=YES;
+        _loginBtn.hidden=NO;
+        _Message.hidden=NO;
+    }else
+    {
+        _tableView.hidden=NO;
+        _loginBtn.hidden=YES;
+        _Message.hidden=YES;
+        [self loadData];
+    }
+}
+
+- (void)addtableHeader {
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        [self loadData];
+    }];
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        [self loadMore];
+    }];
+    self.tableView.header.updatedTimeHidden = YES;
 }
 
 
 - (void)loadData
 {
     
-    
+    self.index = 1;
     self.httpManager = [[CCHttpManager alloc] init];
-    [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:1 PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [MBProgressHUD showMessage:@"正在加载"];
+    [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
+            [MBProgressHUD hideHUD];
             ResponseObject *responseObject = (ResponseObject *)object;
             self.notis = responseObject.resultArray;
             [self.tableView reloadData];
+            [self.tableView.legendHeader endRefreshing];
         }
     }];
-    
-//    self.notis = [[NSMutableArray alloc] init];
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"notificationInfos" ofType:@"plist"];
-//    NSArray *array = [NSArray arrayWithContentsOfFile:path];
-//    for (int i=0; i<array.count; i++) {
-//        NotificationInfo *not = [[NotificationInfo alloc] initDict:array[i]];
-//        [self.notis addObject:not];
-//    }
+}
+
+- (void)loadMore {
+    self.index ++;
+    self.httpManager = [[CCHttpManager alloc] init];
+    [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+        if (status == Enum_SUCCESS) {
+            ResponseObject *responseObject = (ResponseObject *)object;
+            [self.notis addObjectsFromArray:responseObject.resultArray];
+            [self.tableView reloadData];
+            [self.tableView.legendFooter endRefreshing];
+        }
+    }];
 }
 
 - (void)setupTable
@@ -87,6 +136,15 @@
           }];
 
     
+}
+
+- (IBAction)gotoLogin:(UIButton *)sender {
+    LoginViewController *loginSearchVC = [LoginViewController new];
+    loginSearchVC.block=^()
+    {
+        [self isLogin];
+    };
+    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
 }
 
 #pragma mark- UITableViewDelegate && UITableViewDataSource

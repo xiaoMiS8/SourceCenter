@@ -11,5 +11,7 @@
 @interface NotificationViewController : BaseViewController
     //添加按钮
 @property(nonatomic, strong) UIButton *addBtn;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UILabel *Message;
 
 @end

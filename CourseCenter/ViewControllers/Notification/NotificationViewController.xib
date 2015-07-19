@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8121.20" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8152.3" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8101.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationViewController">
             <connections>
+                <outlet property="Message" destination="JLj-Pv-nDC" id="CwU-uB-YkH"/>
+                <outlet property="loginBtn" destination="72t-xW-moC" id="UT4-6O-0US"/>
                 <outlet property="tableView" destination="zQF-1I-NsM" id="X0P-w4-fDF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zQF-1I-NsM">
+                <tableView clipsSubviews="YES" alpha="0.94999999999999996" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zQF-1I-NsM">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -25,15 +27,48 @@
                         <outlet property="delegate" destination="-1" id="V6O-uY-7Y9"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你还没有登录哦！" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLj-Pv-nDC">
+                    <rect key="frame" x="240" y="291" width="120" height="18"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72t-xW-moC">
+                    <rect key="frame" x="235" y="311" width="130" height="50"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.12156862745098039" green="0.73333333333333328" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="Owz-gr-dQx"/>
+                        <constraint firstAttribute="height" constant="50" id="Q2q-vb-ET2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="gotoLogin:" destination="-1" eventType="touchUpInside" id="OQq-Il-mjh"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="zQF-1I-NsM" secondAttribute="trailing" id="00A-WD-n3M"/>
                 <constraint firstItem="zQF-1I-NsM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5i0-Wp-EXD"/>
+                <constraint firstItem="72t-xW-moC" firstAttribute="centerX" secondItem="JLj-Pv-nDC" secondAttribute="centerX" id="6i0-nT-s3a"/>
                 <constraint firstItem="zQF-1I-NsM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="J5E-xE-sbY"/>
                 <constraint firstAttribute="bottom" secondItem="zQF-1I-NsM" secondAttribute="bottom" constant="49" id="Spz-1H-IEP"/>
+                <constraint firstItem="72t-xW-moC" firstAttribute="centerY" secondItem="JLj-Pv-nDC" secondAttribute="centerY" id="bcC-tj-xt1"/>
+                <constraint firstItem="JLj-Pv-nDC" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="m3o-dB-PpE"/>
+                <constraint firstItem="JLj-Pv-nDC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="p1U-hg-TV0"/>
+                <constraint firstItem="72t-xW-moC" firstAttribute="top" secondItem="JLj-Pv-nDC" secondAttribute="bottom" constant="2" id="xWv-SR-kmV"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="bcC-tj-xt1"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
