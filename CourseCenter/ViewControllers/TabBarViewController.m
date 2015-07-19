@@ -38,7 +38,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCustomBackWithImage:@"barbuttonItem_back" title:@""];
-    
 }
 
 /**
@@ -123,6 +122,7 @@
 #pragma mark- UITabBarControllerDelegate
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController
 {
+    NSString *nowLoginState =[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
     for (int i=0; i<self.viewcontrollers.count; i++) {
         if (viewController == self.viewcontrollers[i]) {
             self.title = self.itemTitles[i];
@@ -130,23 +130,36 @@
     }
     if (viewController == self.viewcontrollers[0]) {
         [self addCenterandRightItem];
+        if (![_OneLoginState isEqualToString:nowLoginState]) {
+            [viewController viewDidLoad];
+            _OneLoginState=nowLoginState;
+        }
     }
     else if (viewController == self.viewcontrollers[1]) {
         [self removeCenterandRightItem];
         [self addNotificationRightItem];
-        
+        if (![_TowLoginState isEqualToString:nowLoginState]) {
+            [viewController viewDidLoad];
+            _TowLoginState=nowLoginState;
+        }
     }
     else if (viewController == self.viewcontrollers[2]) {
         [self removeNotificationRightItem];
         [self addcenterImg];
-        
+        if (![_ThreeLoginState isEqualToString:nowLoginState]) {
+            [viewController viewDidLoad];
+            _ThreeLoginState=nowLoginState;
+        }
     }
     else
     {
         [self removeCenterandRightItem];
         [self removeNotificationRightItem];
+        if (![_FourLoginState isEqualToString:nowLoginState]) {
+            [viewController viewDidLoad];
+            _FourLoginState=nowLoginState;
+        }
     }
-        [viewController viewDidLoad];
     return YES;
 }
 

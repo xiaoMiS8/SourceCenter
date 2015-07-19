@@ -140,9 +140,9 @@
     NSArray *titles = @[@"首页",@"通知",@"课程",@"更多"];
     NSArray *itemImages = @[@"tabbar_home",@"tabbar_notification",@"tabbar_course",@"tabbar_more"];
     NSArray *itemSelectedImages = @[@"tabbar_home_s",@"tabbar_notification_s",@"tabbar_course_s",@"tabbar_more_s"];
-    TabBarViewController *tabar = [[TabBarViewController alloc] init];
-    [tabar setViewcontrollers:viewControllers itemImages:itemImages itemselectedImages:itemSelectedImages titles:titles];
-    LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:tabar];
+     _tabar = [[TabBarViewController alloc] init];
+    [_tabar setViewcontrollers:viewControllers itemImages:itemImages itemselectedImages:itemSelectedImages titles:titles];
+    LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:_tabar];
     return nav;
 }
 @end
