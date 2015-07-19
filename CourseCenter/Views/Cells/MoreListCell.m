@@ -7,7 +7,8 @@
 //
 
 #import "MoreListCell.h"
-
+#import "UIImageView+WebCache.h"
+#define HeadIMG @"iconpro"
 @implementation MoreListCell
 
 - (void)awakeFromNib {
@@ -18,6 +19,10 @@
     _messageNum.layer.cornerRadius=5;
 
 }
+-(void)setUserInfo:(UserInfo *)userInfo
+{
+    self.userInfo=userInfo;
+}
 -(void)setIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section!=0) {
@@ -25,6 +30,8 @@
     }
     switch (indexPath.section) {
         case 0:
+            [self.headImag sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:HeadIMG]];
+            _headName.text=self.userInfo.userName;
             break;
         case 1:
             _headImag.image=[UIImage imageNamed:@"icon_news"];

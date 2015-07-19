@@ -13,6 +13,7 @@
 #import "CCHttpManager.h"
 #import "Tool.h"
 #import "MBProgressHUD+R.h"
+#import "ResponseObject.h"
 
 /** 统一输出日志 */
 #ifdef DEBUG //调试阶段

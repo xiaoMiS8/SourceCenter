@@ -19,7 +19,8 @@
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *exitBtn;
-
+@property(nonatomic, strong) CCHttpManager * httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
 @end
 
 @implementation SetViewController
@@ -30,10 +31,21 @@
     self.title=@"设置";
     self.exitBtn.layer.masksToBounds=YES;
     self.exitBtn.layer.cornerRadius=5;
+    self.httpManager = [[CCHttpManager alloc]init];
     myInfo=[[MyInfo alloc]init];
     passWord=[[SetPassword alloc]init];
     idea=[[IdeaWithVersion alloc]init];
     version=[[IdeaWithVersion alloc]init];
+
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSString *loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        self.exitBtn.hidden=YES;
+        return;
+    }
+        self.exitBtn.hidden=NO;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -112,6 +124,22 @@
         default:
             break;
     }
+}
+- (IBAction)exit:(UIButton *)sender {
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager LogoutWithfinished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                [[NSUserDefaults standardUserDefaults]setObject:@"0" forKey:@"isLogin"];
+                [MBProgressHUD showSuccess:self.reob.errorMessage];
+                [self.navigationController popViewControllerAnimated:YES];
+                return ;
+            }
+            [MBProgressHUD showError:LOGINMESSAGE_F];
+        }
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
