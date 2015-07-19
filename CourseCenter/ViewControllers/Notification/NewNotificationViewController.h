@@ -13,6 +13,7 @@
 @interface NewNotificationViewController : BaseViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *footView;
 @property (nonatomic, copy) void (^DoBlock)(void);
 
 @end

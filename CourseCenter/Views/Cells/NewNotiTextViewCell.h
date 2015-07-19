@@ -11,5 +11,6 @@
 
 @interface NewNotiTextViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet MyTextView *textView;
+@property (weak, nonatomic) IBOutlet UILabel *lineLabel;
 
 @end

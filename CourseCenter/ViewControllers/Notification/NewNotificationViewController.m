@@ -9,17 +9,22 @@
 #import "NewNotificationViewController.h"
 #import "NewNotiTextViewCell.h"
 #import "NewNotiSelectCell.h"
+#import "NewNotimgCell.h"
 #import "CCHttpManager.h"
 #import "ResponseObject.h"
 #import "TeachingClassInfo.h"
-@interface NewNotificationViewController ()
+#import "QBImagePickerController.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+
+@interface NewNotificationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate,QBImagePickerControllerDelegate>
 
 @property(nonatomic, strong) NSMutableArray *dataSource;
 @property(nonatomic, assign) BOOL isOpen;
 @property(nonatomic, strong) NSString *tmpSelectedStr;
-
 @property(nonatomic, strong)CCHttpManager *httpManager;
-@property(nonatomic, strong) NSArray *teachingClasses;
+@property(nonatomic, strong) NSMutableArray *teachingClasses;
+@property(nonatomic, strong) NSMutableArray *isSelecteds;
+@property(nonatomic, strong) NSMutableArray *isSendSelecteds;
 
 @end
 
@@ -30,7 +35,10 @@
     [self initDataSource];
     self.title = @"新建通知";
     self.tmpSelectedStr = @"请选择班级";
+    self.teachingClasses = [[NSMutableArray alloc] initWithCapacity:0];
     self.httpManager = [[CCHttpManager alloc] init];
+    self.isSelecteds = [[NSMutableArray alloc] initWithCapacity:0];
+    self.isSendSelecteds = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithBool:NO],[NSNumber numberWithBool:NO], nil];
     self.isOpen = NO;
     [self loadData];
     [self addcancelItem];
@@ -43,7 +51,13 @@
 
 - (void)loadData {
     [self.httpManager getAppTeacherOCClass_ListWithKey:@"" IsHistroy:NO PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
-        self.teachingClasses = ((ResponseObject *)object).resultArray;
+        TeachingClassInfo *teachingclass = [TeachingClassInfo new];
+        teachingclass.TeachingClassName = @"全选";
+        [self.teachingClasses addObject:teachingclass];
+        [self.teachingClasses addObjectsFromArray:((ResponseObject *)object).resultArray];
+        for (int i=0; i< self.teachingClasses.count; i++) {
+            [self.isSelecteds addObject:[NSNumber numberWithBool:NO]];
+        }
         [self.tableView reloadData];
     }];
 }
@@ -57,6 +71,7 @@
 - (void)setupCell {
     [self.tableView registerNib:[UINib nibWithNibName:@"NewNotiTextViewCell" bundle:nil] forCellReuseIdentifier:@"NewNotiTextViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewNotiSelectCell" bundle:nil] forCellReuseIdentifier:@"NewNotiSelectCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NewNotimgCell" bundle:nil] forCellReuseIdentifier:@"NewNotimgCell"];
 }
 
 - (void)initDataSource {
@@ -87,7 +102,16 @@
     NewNotiTextViewCell *contentCell = (NewNotiTextViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:1]];
     NSString *title = titleCell.textView.text;
     NSString *content = contentCell.textView.text;
-    [self.httpManager AddAppNoticeWithTitle:title Conten:content IsTop:NO IsForMail:NO IsForSMS:NO SourceIDs:[NSArray arrayWithObjects:[NSNumber numberWithInt:16], nil] finished:^(EnumServerStatus status, NSObject *object) {
+    NSMutableArray *IDs = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i=1; i<self.isSelecteds.count; i++) {
+        if ([self.isSelecteds[i] boolValue]) {
+            TeachingClassInfo *teachIngClass = self.teachingClasses[i -1];
+            [IDs addObject:[NSNumber numberWithLong:teachIngClass.TeachingClassID]];
+        }
+    }
+    BOOL IsForMail = [self.isSendSelecteds[0] boolValue];
+    BOOL IsForSMS = [self.isSendSelecteds[1] boolValue];
+    [self.httpManager AddAppNoticeWithTitle:title Conten:content IsTop:NO IsForMail:IsForMail IsForSMS:IsForSMS SourceIDs:IDs finished:^(EnumServerStatus status, NSObject *object) {
         
     }];
     self.DoBlock();
@@ -95,17 +119,66 @@
 }
 
 - (void)addFooter {
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50)];
-    footerView.backgroundColor = [UIColor whiteColor];
+//    UIView *footerView = [[UIView alloc] init];
+//    footerView.translatesAutoresizingMaskIntoConstraints = NO;
+//    [self.view addSubview:footerView];
+//    NSDictionary *views = NSDictionaryOfVariableBindings(footerView);
+//    NSString *vflH = @"H:|-0-[footerView]-0-|";
+//    NSString *vflV = @"V:[footerView(50)]-0-|";
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflH options:0 metrics:nil views:views]];
+//      [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflV options:0 metrics:nil views:views]];
+    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0.5)];
+    lineLabel.backgroundColor = [UIColor blackColor];
+    [self.footView addSubview:lineLabel];
     NSArray *imgs = @[@"btn_camera",@"btn_photo",@"btn_transmit",@"btn_important"];
     for (int i=0; i<4; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.tag = 10 + i;
         btn.frame = CGRectMake(20 + i * (10+40), 5, 40, 40);
         [btn setImage:[UIImage imageNamed:imgs[i]] forState:UIControlStateNormal];
-        [footerView addSubview:btn];
+        [btn addTarget:self action:@selector(fourBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.footView addSubview:btn];
     }
+    UILabel *lineLabel2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 55, [UIScreen mainScreen].bounds.size.width, 0.5)];
+    lineLabel2.backgroundColor = [UIColor blackColor];
+    [self.footView addSubview:lineLabel2];
     
-    self.tableView.tableFooterView = footerView;
+    UIView *dowview = [UIView new];
+    dowview.backgroundColor = [Tool colorWithHexString:@"#d7d7d7"];
+    dowview.frame = CGRectMake(0, 55, [UIScreen mainScreen].bounds.size.width, 200 - 55);
+    [self.footView addSubview:dowview];
+    
+    UIButton *oneBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    oneBtn.tag = 1;
+    oneBtn.frame = CGRectMake(0, 20,[UIScreen mainScreen].bounds.size.width , 44);
+    [dowview addSubview:oneBtn];
+    
+    UIImageView *oneImg = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10, 20, 20)];
+    [oneBtn addTarget:self action:@selector(oneBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    oneImg.image = [UIImage imageNamed:@"btn_confirm"];
+    [oneBtn addSubview:oneImg];
+    
+    UILabel *oneLabel = [UILabel new];
+    oneLabel.textColor = [UIColor blackColor];
+    oneLabel.frame = CGRectMake(CGRectGetMaxX(oneImg.frame) + 2, 0, 100, 40);
+    oneLabel.text = @"发送邮件";
+    [oneBtn addSubview:oneLabel];
+    
+    UIButton *twoBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    twoBtn.tag = 2;
+    twoBtn.frame = CGRectMake(0, CGRectGetMaxY(oneBtn.frame),[UIScreen mainScreen].bounds.size.width , 44);
+    [twoBtn addTarget:self action:@selector(oneBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [dowview addSubview:twoBtn];
+    
+    UIImageView *twoImg = [[UIImageView alloc] initWithFrame:CGRectMake(30, 10, 20, 20)];
+    twoImg.image = [UIImage imageNamed:@"btn_confirm"];
+    [twoBtn addSubview:twoImg];
+    
+    UILabel *twoLabel = [UILabel new];
+    twoLabel.textColor = [UIColor blackColor];
+    twoLabel.frame = CGRectMake(CGRectGetMaxX(oneImg.frame) + 2, 0, 100, 40);
+    twoLabel.text = @"发送短信";
+    [twoBtn addSubview:twoLabel];
 }
 
 #pragma mark- UITableViewDelegate & UITableViewDataSource
@@ -128,12 +201,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 44;
+    } else if (indexPath.section == 2) {
+        return 120;
     }
     else {
         if (indexPath.row == 0) {
             return 44;
         }
-        return 150;
+        return 180;
     }
 }
 
@@ -142,11 +217,28 @@
     if (indexPath.section == 0) {
         NewNotiSelectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotiSelectCell"];
         cell.nameLabel.text = ((TeachingClassInfo *)self.dataSource[indexPath.section][indexPath.row]).TeachingClassName;
+        if ([self.isSelecteds[indexPath.row] boolValue]) {
+            cell.imgView.image = [UIImage imageNamed:@"btn_confirm_hover"];
+        } else {
+            cell.imgView.image = [UIImage imageNamed:@"btn_confirm"];
+        }
         return cell;
     }
-    NewNotiTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotiTextViewCell"];
-    cell.textView.placeholder = self.dataSource[indexPath.section][indexPath.row];
-    return cell;
+    if (indexPath.section == 2) {
+        NewNotimgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotimgCell"];
+        cell.imgs = self.dataSource[indexPath.section][indexPath.row];
+        return cell;
+    } else {
+        NewNotiTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotiTextViewCell"];
+        cell.textView.placeholder = self.dataSource[indexPath.section][indexPath.row];
+        if (indexPath.row == 1) {
+            cell.lineLabel.hidden = YES;
+        } else {
+            cell.lineLabel.hidden = NO;
+        }
+        return cell;
+    }
+ 
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -168,6 +260,7 @@
     [btn addSubview:rightLabel];    
     UIImageView *imgView = [[UIImageView alloc] init];
     imgView.backgroundColor = [UIColor redColor];
+    imgView.image = [UIImage imageNamed:@"arrow_down"];
     imgView.translatesAutoresizingMaskIntoConstraints = NO;
     [btn addSubview:imgView];
     
@@ -189,11 +282,93 @@
 }
 
 - (void)tableView:( UITableView *)tableView didSelectRowAtIndexPath:( NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        NewNotiSelectCell *cell = (NewNotiSelectCell *)[tableView cellForRowAtIndexPath:indexPath];
-        self.tmpSelectedStr = cell.nameLabel.text;
-        [self controlOpen];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        if ([self.isSelecteds[0] boolValue]) {
+            for (int i=0; i<self.isSelecteds.count; i++) {
+                [self.isSelecteds replaceObjectAtIndex:i withObject: [NSNumber numberWithBool:NO]];
+            }
+        } else {
+            for (int i=0; i<self.isSelecteds.count; i++) {
+                [self.isSelecteds replaceObjectAtIndex:i withObject: [NSNumber numberWithBool:YES]];
+            }
+        }
+    }  else {
+           [self.isSelecteds replaceObjectAtIndex:indexPath.row withObject:[NSNumber numberWithBool:![self.isSelecteds[indexPath.row] boolValue]]];
     }
+    [self .tableView reloadData];
+}
+
+- (void)fourBtnAction:(UIButton *)btn {
+    UIButton *fourBtn =(UIButton *)[self.footView viewWithTag:13];
+    switch (btn.tag - 10) {
+        case 0:
+        {
+            [fourBtn setImage:[UIImage imageNamed:@"btn_important"] forState:UIControlStateNormal];
+            [self changeToolviewHeight:50];
+            [self openCamera];
+        }
+            break;
+        case 1:
+        {
+            [fourBtn setImage:[UIImage imageNamed:@"btn_important"] forState:UIControlStateNormal];
+             [self changeToolviewHeight:50];
+            [self openPhotoLibrary];
+        }
+            break;
+        case 2:
+        {
+            [fourBtn setImage:[UIImage imageNamed:@"btn_important"] forState:UIControlStateNormal];
+            [self changeToolviewHeight:50];
+        }
+            break;
+        case 3:
+        {
+            [fourBtn setImage:[UIImage imageNamed:@"btn_important_push"] forState:UIControlStateNormal];
+            [self changeToolviewHeight:200];
+            
+        }
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)changeToolviewHeight:(CGFloat)height {
+    
+    for (NSLayoutConstraint *constraint in self.footView.constraints) {
+        if (constraint.firstItem == self.footView && constraint.firstAttribute == NSLayoutAttributeHeight) {
+            constraint.constant = height;
+        }
+    }
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.view layoutIfNeeded];
+        [self.view updateConstraintsIfNeeded];
+    }];
+}
+
+- (void)oneBtnAction:(UIButton *)btn {
+    [self.isSendSelecteds replaceObjectAtIndex:btn.tag - 1 withObject:[NSNumber numberWithBool: ![self.isSendSelecteds[btn.tag -1] boolValue]]];
+    NSArray *subviews = btn.subviews;
+    for (int i=0; i<subviews.count; i++) {
+        id sub1 = subviews[i];
+        if ([sub1 isKindOfClass:[UIImageView class]]) {
+            if ([self.isSendSelecteds[btn.tag - 1] boolValue]) {
+                ((UIImageView *)sub1).image = [UIImage imageNamed:@"btn_confirm_hover"];
+            } else {
+                 ((UIImageView *)sub1).image = [UIImage imageNamed:@"btn_confirm"];
+            }
+           
+        } else if ([sub1 isKindOfClass:[UILabel class]]) {
+            if ([self.isSendSelecteds[btn.tag - 1] boolValue]) {
+                ((UILabel *)sub1).textColor = [Tool colorWithHexString:@"#01aef0"];
+            } else {
+                ((UILabel *)sub1).textColor = [UIColor blackColor];
+            }
+        }
+    }
+    
 }
 
 
@@ -211,6 +386,77 @@
     else {
         [self.dataSource[0] removeAllObjects];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+        
+    }
+}
+
+- (void)openCamera {
+    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.delegate = self;
+        picker.sourceType = sourceType;
+        [self presentViewController:picker animated:YES completion:^{
+            
+        }];
+    }
+}
+
+- (void)openPhotoLibrary {
+    QBImagePickerController *imagePickerController = [[QBImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsMultipleSelection = YES;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:imagePickerController];
+    [self presentViewController:navigationController animated:YES completion:NULL];
+    
+    
+}
+
+- (void)imagePickerController:(QBImagePickerController *)imagePickerController didSelectAssets:(NSArray *)assets
+{
+    NSLog(@"*** imagePickerController:didSelectAssets:");
+    NSLog(@"%@", assets);
+    NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];
+    for (int i=0; i<assets.count; i++) {
+        UIImage *img = [UIImage imageWithCGImage:[assets[i] aspectRatioThumbnail]];
+        [imgs addObject:img];
+    }
+    
+    NSMutableArray *bigArray = [[NSMutableArray alloc] initWithCapacity:0];
+    int row = (int)assets.count/3;
+    int lon = assets.count % 3;
+    for (int i=0; i<row; i++) {
+        NSMutableArray *array = [[NSMutableArray alloc] init];
+        for (int j=i * 3; j<i *3 + 3; j++) {
+            [array addObject:imgs[j]];
+        }
+        [bigArray addObject:array];
+    }
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    if (lon > 0) {
+        for (int k= (int)assets.count - lon; k<assets.count; k++) {
+            [array addObject:imgs[k]];
+        }
+    }
+    [bigArray addObject:array];
+    [self.dataSource addObject:bigArray];
+    [self.tableView reloadData];
+    [self dismissImagePickerController];
+}
+
+- (void)imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
+{
+    NSLog(@"*** imagePickerControllerDidCancel:");
+    
+    [self dismissImagePickerController];
+}
+
+- (void)dismissImagePickerController
+{
+    if (self.presentedViewController) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    } else {
+        [self.navigationController popToViewController:self animated:YES];
     }
 }
 
