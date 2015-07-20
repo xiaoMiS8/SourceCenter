@@ -17,9 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCustomBackWithImage:@"barbuttonItem_back" title:@""];
-    
 }
-
 /**
  *	@brief	设置视图控制器的backBarButtonItem
  *

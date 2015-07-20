@@ -20,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
    [[NSUserDefaults standardUserDefaults]setObject:@"0" forKey:@"isLogin"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     self.nav =[self inNavigationController];
     self.window.rootViewController = self.nav;
     

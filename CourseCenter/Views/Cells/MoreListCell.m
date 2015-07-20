@@ -19,10 +19,14 @@
     _messageNum.layer.cornerRadius=5;
 
 }
+-(void)setUserInfo:(UserInfo *)userInfo
+{
+    _userInfo = userInfo;
+}
 -(void)setIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section!=0) {
-        self.topLayoutConstraint.constant=2;
+        self.topLayoutConstraint.constant= 2;
     }
     switch (indexPath.section) {
         case 0:
