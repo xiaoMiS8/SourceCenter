@@ -396,6 +396,7 @@
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         picker.delegate = self;
         picker.sourceType = sourceType;
+        picker.allowsEditing = YES;
         [self presentViewController:picker animated:YES completion:^{
             
         }];
@@ -422,27 +423,103 @@
         [imgs addObject:img];
     }
     
-    NSMutableArray *bigArray = [[NSMutableArray alloc] initWithCapacity:0];
-    int row = (int)assets.count/3;
-    int lon = assets.count % 3;
-    for (int i=0; i<row; i++) {
+    NSMutableArray *bigArray = nil;
+    
+    if (self.dataSource.count < 3) {
+        bigArray = [[NSMutableArray alloc] initWithCapacity:0];
+        int row = (int)imgs.count/3;
+        int lon = imgs.count % 3;
+        for (int i=0; i<row; i++) {
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            for (int j=i * 3; j<i *3 + 3; j++) {
+                [array addObject:imgs[j]];
+            }
+            [bigArray addObject:array];
+        }
         NSMutableArray *array = [[NSMutableArray alloc] init];
-        for (int j=i * 3; j<i *3 + 3; j++) {
-            [array addObject:imgs[j]];
+        if (lon > 0) {
+            for (int k= (int)imgs.count - lon; k<imgs.count; k++) {
+                [array addObject:imgs[k]];
+            }
         }
         [bigArray addObject:array];
-    }
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    if (lon > 0) {
-        for (int k= (int)assets.count - lon; k<assets.count; k++) {
-            [array addObject:imgs[k]];
+        [self.dataSource addObject:bigArray];
+        
+    } else {
+        bigArray = [self.dataSource lastObject];
+        NSMutableArray *array = bigArray.lastObject;
+        NSMutableArray *tmpArray = [[NSMutableArray alloc] initWithCapacity:0];
+        NSMutableArray *delArray = [[NSMutableArray alloc] initWithCapacity:0];
+        if (array.count < 3) {
+            for (int i=0; i<3-array.count; i++) {
+                [tmpArray addObject:imgs[i]];
+                [delArray addObject:imgs[i]];
+            }
+            [imgs removeObjectsInArray:delArray];
+            [array addObjectsFromArray:tmpArray];
+            int row = (int)imgs.count/3;
+            int lon = imgs.count % 3;
+            for (int i=0; i<row; i++) {
+                NSMutableArray *array = [[NSMutableArray alloc] init];
+                for (int j=i * 3; j<i *3 + 3; j++) {
+                    [array addObject:imgs[j]];
+                }
+                [bigArray addObject:array];
+            }
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            if (lon > 0) {
+                for (int k= (int)imgs.count - lon; k<imgs.count; k++) {
+                    [array addObject:imgs[k]];
+                }
+            }
+            [bigArray addObject:array];
+            
+        } else {
+            int row = (int)imgs.count/3;
+            int lon = imgs.count % 3;
+            for (int i=0; i<row; i++) {
+                NSMutableArray *array = [[NSMutableArray alloc] init];
+                for (int j=i * 3; j<i *3 + 3; j++) {
+                    [array addObject:imgs[j]];
+                }
+                [bigArray addObject:array];
+            }
+            NSMutableArray *array = [[NSMutableArray alloc] init];
+            if (lon > 0) {
+                for (int k= (int)imgs.count - lon; k<imgs.count; k++) {
+                    [array addObject:imgs[k]];
+                }
+            }
+            [bigArray addObject:array];
         }
     }
-    [bigArray addObject:array];
-    [self.dataSource addObject:bigArray];
     [self.tableView reloadData];
     [self dismissImagePickerController];
 }
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
+    NSMutableArray *bigArray = [[NSMutableArray alloc] initWithCapacity:0];
+    if (self.dataSource.count < 3) {
+        NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];
+        [imgs addObject:image];
+        [bigArray addObject:imgs];
+        [self.dataSource addObject:bigArray];
+    } else {
+        NSMutableArray *bigArray = [self.dataSource lastObject];
+        NSMutableArray *array = [bigArray lastObject];
+        if (array.count < 3) {
+            [array addObject:image];
+        }
+        else {
+            NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
+            [array addObject:image];
+            [bigArray addObject:array];
+        }
+    }
+    [self.tableView reloadData];
+    [self dismissImagePickerController];
+}
+
 
 - (void)imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
 {
