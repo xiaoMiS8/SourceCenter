@@ -8,6 +8,7 @@
 
 #import "HomeListCell.h"
 #import "UIImageView+WebCache.h"
+#import "HomeDetailViewController.h"
 #define ICONIMG @"iconpro"
 #define BAGNIMG @"nav_bg"
 #define STUDY   @"study"
@@ -26,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UIView *twoView;
 @property (weak, nonatomic) IBOutlet UIButton *gotoBtn;
-
 @end
 
 @implementation HomeListCell
@@ -38,10 +38,12 @@
     self.iconImg.layer.masksToBounds = YES;
     self.gotoBtn.layer.cornerRadius = 14;
     self.gotoBtn.layer.masksToBounds = YES;
-    
 }
 -(void)setOCourse:(OCourseInfo *)oCourse
 {
+    if (_oCourse==nil) {
+        _oCourse=oCourse;
+    }
     [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
     [self.nameLabel setText:oCourse.TeacherName];
@@ -53,7 +55,26 @@
     }
     [self.courseDetailLabel setText:oCourse.Name];
     [self.studentCountLabel setText:[NSString stringWithFormat:@"%d",oCourse.StudentCount]];
-    
+    self.gotoBtn.tag=oCourse.OCID;
+    if (oCourse.RegStatus==1) {
+        [self.gotoBtn setBackgroundImage:[UIImage imageNamed:@"study"] forState:UIControlStateNormal];
+         self.gotoBtn.titleLabel.text=@" ";
+    }else {
+        [self.gotoBtn setBackgroundImage:[UIImage imageNamed:@"signUp"] forState:UIControlStateNormal];
+    }
+}
+- (IBAction)isStudyOrSign:(id)sender {
+    UIButton *btn=sender;
+    if (![btn.titleLabel.text isEqualToString:@" "]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"此接口没做" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+        [alert show];
+        return;
+    }
+    HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
+    homeDetailVc.OCID=1;//btn.tag;
+    homeDetailVc.teacherImgUrl=_oCourse.TeacherImgUrl;
+    homeDetailVc.topImgUrl=_oCourse.CourseImgUrl;
+    [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

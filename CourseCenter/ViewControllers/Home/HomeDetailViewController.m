@@ -15,6 +15,7 @@
 #import "UIImageView+WebCache.h"
 #define SECTION_STATE @"SECTION_STATE"
 #define ICONIMG @"iconpro"
+#define BAGNIMG @"nav_bg"
 @interface HomeDetailViewController ()
 {
     NSMutableArray *_array;
@@ -26,6 +27,7 @@
 }
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
+@property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 @property (weak, nonatomic) IBOutlet UIView *oneV;
 @property (weak, nonatomic) IBOutlet UIView *twoV;
 @property (weak, nonatomic) IBOutlet UIView *threeV;
@@ -35,8 +37,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *Ranks;
 @property (weak, nonatomic) IBOutlet UILabel *AllPlayDay;
 @property (weak, nonatomic) IBOutlet UIImageView *teacherImage;
-
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) CGFloat startY;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @end
 
 @implementation HomeDetailViewController
@@ -86,6 +89,7 @@
 }
 -(void)showteacherInfo:(TeacherInfo *)info
 {
+    [self.topImageView sd_setImageWithURL:[NSURL URLWithString:_topImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
     [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
     //[self.StartDate setText:info.StartDate];
     [self.TeacherName setText:info.TeacherName];
@@ -200,6 +204,23 @@
     }
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
 //    NSLog(@"%d",but.tag-100);
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY - _startY > 10) {
+        [UIView animateWithDuration:1 animations:^{
+            self.topConstraint.constant=-140;
+        }];
+    }
+    else if (offsetY - _startY < -10)
+    {
+        [UIView animateWithDuration:1 animations:^{
+            self.topConstraint.constant=0;
+        }];
+    }
+}
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    self.startY = scrollView.contentOffset.y;
 }
 
 - (void)didReceiveMemoryWarning {

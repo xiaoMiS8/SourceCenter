@@ -13,6 +13,7 @@
 #import "MessageCenter.h"
 #import "MyData.h"
 #import "UserInfo.h"
+#import "LoginViewController.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
@@ -20,9 +21,12 @@
     SetViewController *set;
     MessageCenter *messageCenter;
     MyData *myData;
+    NSString *loginState;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
+@property (weak, nonatomic) IBOutlet UILabel *loginPrompt;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (strong,nonatomic)UserInfo *userInfo;
@@ -33,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _loginBtn.layer.masksToBounds=YES;
+    _loginBtn.layer.cornerRadius=5;
     if (SHeight<=480) {
         _tableHeight.constant=365;
     }else
@@ -46,8 +52,24 @@
     messageCenter=[[MessageCenter alloc]init];
     myData=[[MyData alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
-    [self loadMyInfo];
+    [self isLoginOrCourse];
 }
+-(void)isLoginOrCourse
+{
+    loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        _tableView.hidden=YES;
+        _loginBtn.hidden=NO;
+        _loginPrompt.hidden=NO;
+    }else
+    {
+        _tableView.hidden=NO;
+        _loginBtn.hidden=YES;
+        _loginPrompt.hidden=YES;
+        [self loadMyInfo];
+    }
+}
+
 -(void)loadMyInfo
 {
     [MBProgressHUD showMessage:nil];
@@ -137,6 +159,15 @@
         default:
             break;
     }
+}
+- (IBAction)gotoLogin:(UIButton *)sender {
+    LoginViewController *loginSearchVC = [LoginViewController new];
+    loginSearchVC.block=^()
+    {
+        ((AppDelegate *)app).tabar.FourLoginState=@"1";
+        [self isLoginOrCourse];
+    };
+    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
