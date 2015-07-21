@@ -42,16 +42,12 @@
     [super viewDidLoad];
     self.index = 1;
     [self setupTable];
+    [self addtableHeader];
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
     [self isLogin];
-    [self addtableHeader];
+  
     
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-//    [self isLogin];
 }
 
 -(void)isLogin
@@ -67,7 +63,7 @@
         _tableView.hidden=NO;
         _loginBtn.hidden=YES;
         _Message.hidden=YES;
-        [self loadData];
+        [self.tableView.legendHeader beginRefreshing];
     }
 }
 
@@ -87,7 +83,6 @@
     
     self.index = 1;
     self.httpManager = [[CCHttpManager alloc] init];
-    [MBProgressHUD showMessage:nil];
     [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             [MBProgressHUD hideHUD];
