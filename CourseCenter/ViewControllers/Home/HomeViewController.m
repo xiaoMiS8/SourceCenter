@@ -181,6 +181,7 @@
     HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
     homeDetailVc.OCID=1;//((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).OCID;
     homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
+    homeDetailVc.topImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).CourseImgUrl;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 
@@ -217,8 +218,6 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.startY = scrollView.contentOffset.y;
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

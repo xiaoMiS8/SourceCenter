@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8152.3" systemVersion="15A216g" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你还没有登录哦！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgt-JY-r7W">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你还没有登录哦!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sgt-JY-r7W">
                     <rect key="frame" x="0.0" y="291" width="600" height="18"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -28,7 +28,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okJ-0U-ZG5">
-                    <rect key="frame" x="235" y="314" width="130" height="50"/>
+                    <rect key="frame" x="235" y="311" width="130" height="50"/>
                     <animations/>
                     <color key="backgroundColor" red="0.12172352693698529" green="0.73243667317415617" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -96,7 +96,7 @@
                 <constraint firstAttribute="trailing" secondItem="4HX-tA-X7b" secondAttribute="trailing" id="6NY-XU-lDI"/>
                 <constraint firstAttribute="centerX" secondItem="Sgt-JY-r7W" secondAttribute="centerX" id="Aah-BA-0P6"/>
                 <constraint firstAttribute="trailing" secondItem="tZ2-cc-rFp" secondAttribute="trailing" id="BOP-aB-khw"/>
-                <constraint firstItem="okJ-0U-ZG5" firstAttribute="top" secondItem="Sgt-JY-r7W" secondAttribute="bottom" constant="5" id="OTa-f3-u12"/>
+                <constraint firstItem="okJ-0U-ZG5" firstAttribute="top" secondItem="Sgt-JY-r7W" secondAttribute="bottom" constant="2" id="OTa-f3-u12"/>
                 <constraint firstAttribute="centerY" secondItem="Sgt-JY-r7W" secondAttribute="centerY" id="Tpu-eF-UE9"/>
                 <constraint firstItem="4HX-tA-X7b" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Vch-Ka-Ohr"/>
                 <constraint firstAttribute="trailing" secondItem="Sgt-JY-r7W" secondAttribute="trailing" id="WHA-9n-NWU"/>
