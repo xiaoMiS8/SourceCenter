@@ -76,7 +76,6 @@
 		CA20AA3F1B5AAF5300598370 /* CourseData.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA3D1B5AAF5300598370 /* CourseData.m */; };
 		CA20AA401B5AAF5300598370 /* CourseData.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20AA3E1B5AAF5300598370 /* CourseData.xib */; };
 		CA20AA441B5AB25100598370 /* DetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA421B5AB25100598370 /* DetailData.m */; };
-		CA20AA451B5AB25100598370 /* DetailData.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20AA431B5AB25100598370 /* DetailData.xib */; };
 		CA20AA4E1B5AB39300598370 /* DetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA4C1B5AB39300598370 /* DetailDataCell.m */; };
 		CA20AA4F1B5AB39300598370 /* DetailDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20AA4D1B5AB39300598370 /* DetailDataCell.xib */; };
 		CA62FA0B1B42DCF700F80DE3 /* SubjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */; };
@@ -1588,7 +1587,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1610,6 +1609,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "72be13a7-169b-4bb9-ab40-db67f9deea1e";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1631,7 +1631,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1646,6 +1646,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "72be13a7-169b-4bb9-ab40-db67f9deea1e";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1656,7 +1657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 其富 李 (M3R5P4N775)";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1670,8 +1671,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 其富 李 (M3R5P4N775)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 其富 李 (M3R5P4N775)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
