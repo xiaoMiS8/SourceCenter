@@ -497,7 +497,7 @@
     [self dismissImagePickerController];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(nullable NSDictionary<NSString *,id> *)editingInfo {
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
     NSMutableArray *bigArray = [[NSMutableArray alloc] initWithCapacity:0];
     if (self.dataSource.count < 3) {
         NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];
