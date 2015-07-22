@@ -54,6 +54,7 @@
     self.threeV.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
     self.threeV.layer.borderWidth=1;
     [self addTableViewheader];
+    [self addTableViewFoot];
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailCell"];
     self.httpManager = [[CCHttpManager alloc]init];
     _array=[NSMutableArray arrayWithCapacity:0];
@@ -136,6 +137,26 @@
     lable.font=Font_14;
     [view addSubview:lable];
     self.tableView.tableHeaderView = view;
+}
+-(void)addTableViewFoot
+{
+    UIView *view = [UIView new];
+    view.bounds = CGRectMake(0, 0, 0, 50);
+    view.backgroundColor = [UIColor whiteColor];
+    UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake((Swidth-100)/2, 10, 100, 30)];
+    if (_RegStatus==1) {
+        [btn setTitle:@"去学习" forState:UIControlStateNormal];
+         btn.tag=1;
+    }else {
+        [btn setTitle:@"报名" forState:UIControlStateNormal];
+         btn.tag=2;
+    }
+    [btn setTintColor:[UIColor whiteColor]];
+    [btn setBackgroundColor:RGBA(31, 187, 255, 1)];
+    btn.layer.masksToBounds=YES;
+    btn.layer.cornerRadius=5;
+    [view addSubview:btn];
+    self.tableView.tableFooterView = view;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {

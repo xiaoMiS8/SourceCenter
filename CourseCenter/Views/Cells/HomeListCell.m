@@ -74,6 +74,7 @@
     homeDetailVc.OCID=1;//btn.tag;
     homeDetailVc.teacherImgUrl=_oCourse.TeacherImgUrl;
     homeDetailVc.topImgUrl=_oCourse.CourseImgUrl;
+    homeDetailVc.RegStatus=_oCourse.RegStatus;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

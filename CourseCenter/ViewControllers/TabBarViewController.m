@@ -151,7 +151,7 @@
             _ThreeLoginState=nowLoginState;
         }
     }
-    else
+    else if (viewController == self.viewcontrollers[3])
     {
         [self removeCenterandRightItem];
         [self removeNotificationRightItem];

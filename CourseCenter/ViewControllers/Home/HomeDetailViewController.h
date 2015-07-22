@@ -12,4 +12,5 @@
 @property(nonatomic,assign)long  OCID;
 @property(nonatomic,strong)NSString *teacherImgUrl;
 @property(nonatomic,strong)NSString *topImgUrl;
+@property(nonatomic,assign)int RegStatus;
 @end

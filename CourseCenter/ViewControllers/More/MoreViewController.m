@@ -80,8 +80,10 @@
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.userInfo=self.reob.resultObject;
                 [_tableView reloadData];
+                return ;
             }
         }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
