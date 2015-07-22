@@ -71,9 +71,6 @@
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
         [self loadData];
     }];
-    [self.tableView addLegendFooterWithRefreshingBlock:^{
-        [self loadMore];
-    }];
     self.tableView.header.updatedTimeHidden = YES;
 }
 
@@ -90,6 +87,9 @@
             self.notis = responseObject.resultArray;
             [self.tableView reloadData];
             [self.tableView.legendHeader endRefreshing];
+            [self.tableView addLegendFooterWithRefreshingBlock:^{
+                [self loadMore];
+            }];
         } else {
            
         }

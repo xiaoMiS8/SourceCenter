@@ -227,6 +227,20 @@
     if (indexPath.section == 2) {
         NewNotimgCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotimgCell"];
         cell.imgs = self.dataSource[indexPath.section][indexPath.row];
+        cell.deleteBlock = ^(UIButton *btn) {
+            DLog(@"tag---%ld",btn.tag);
+            NewNotimgCell *imgCell = (NewNotimgCell *)[[[btn superview] superview] superview];
+            NSIndexPath *tmpIndexpath = [tableView indexPathForCell:imgCell];
+            NSMutableArray *Array = self.dataSource.lastObject[tmpIndexpath.row];
+            [Array removeObjectAtIndex:btn.tag - 1];
+            NSMutableArray *bigArray = self.dataSource.lastObject;
+            for (int i=0; i<bigArray.count; i++) {
+                if ([bigArray[i] count] == 0) {
+                    [bigArray removeObjectAtIndex:i];
+                }
+            }
+            [self.tableView reloadData];
+        };
         return cell;
     } else {
         NewNotiTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotiTextViewCell"];
@@ -436,13 +450,13 @@
             }
             [bigArray addObject:array];
         }
-        NSMutableArray *array = [[NSMutableArray alloc] init];
         if (lon > 0) {
+             NSMutableArray *array = [[NSMutableArray alloc] init];
             for (int k= (int)imgs.count - lon; k<imgs.count; k++) {
                 [array addObject:imgs[k]];
             }
+            [bigArray addObject:array];
         }
-        [bigArray addObject:array];
         [self.dataSource addObject:bigArray];
         
     } else {
@@ -452,8 +466,10 @@
         NSMutableArray *delArray = [[NSMutableArray alloc] initWithCapacity:0];
         if (array.count < 3) {
             for (int i=0; i<3-array.count; i++) {
-                [tmpArray addObject:imgs[i]];
-                [delArray addObject:imgs[i]];
+                if (i<imgs.count) {
+                    [tmpArray addObject:imgs[i]];
+                    [delArray addObject:imgs[i]];
+                }
             }
             [imgs removeObjectsInArray:delArray];
             [array addObjectsFromArray:tmpArray];
@@ -466,13 +482,14 @@
                 }
                 [bigArray addObject:array];
             }
-            NSMutableArray *array = [[NSMutableArray alloc] init];
             if (lon > 0) {
+                 NSMutableArray *array2 = [[NSMutableArray alloc] init];
                 for (int k= (int)imgs.count - lon; k<imgs.count; k++) {
-                    [array addObject:imgs[k]];
+                    [array2 addObject:imgs[k]];
                 }
+                [bigArray addObject:array2];
             }
-            [bigArray addObject:array];
+            
             
         } else {
             int row = (int)imgs.count/3;
@@ -484,13 +501,14 @@
                 }
                 [bigArray addObject:array];
             }
-            NSMutableArray *array = [[NSMutableArray alloc] init];
+            
             if (lon > 0) {
+                NSMutableArray *array = [[NSMutableArray alloc] init];
                 for (int k= (int)imgs.count - lon; k<imgs.count; k++) {
                     [array addObject:imgs[k]];
-                }
+                } [bigArray addObject:array];
             }
-            [bigArray addObject:array];
+           
         }
     }
     [self.tableView reloadData];
