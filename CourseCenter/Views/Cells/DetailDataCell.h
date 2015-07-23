@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "FileInfo.h"
 @interface DetailDataCell : UITableViewCell
-
+@property(nonatomic,strong)FileInfo *fileInfo;
 @end

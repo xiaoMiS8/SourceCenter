@@ -13,7 +13,10 @@
 - (void)awakeFromNib {
     // Initialization code
 }
-
+-(void)setFileInfo:(FileInfo *)fileInfo
+{
+    
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

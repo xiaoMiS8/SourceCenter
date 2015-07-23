@@ -53,7 +53,7 @@
                        kPageIndex: [NSNumber numberWithInt:PageIndex],
                        kPageSize: [NSNumber numberWithInt:PageSize]};
     }
-    [CSNetAccessor sendGetAsyncObjectFormUrl:@"File/App_File_Search" parameters:parameters connectFlag:kApp_File_Search finished:^(EnumServerStatus status, NSObject *object) {
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/File/App_File_Search" parameters:parameters connectFlag:kApp_File_Search finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }

@@ -141,6 +141,22 @@
     }else
     {
         DetailData *detailData=[[DetailData alloc]init];
+        switch (indexPath.row) {
+            case 0:
+                detailData.title=@"全部资料";
+                break;
+            case 1:
+                detailData.title=@"文稿资料";
+                break;
+            case 2:
+                detailData.title=@"图片资料";
+                break;
+            case 3:
+                detailData.title=@"视频资料";
+                break;
+            default:
+                break;
+        }
         [((AppDelegate *)app).nav pushViewController:detailData animated:YES];
     }
 }
