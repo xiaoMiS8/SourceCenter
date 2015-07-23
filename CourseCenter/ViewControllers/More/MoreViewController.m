@@ -14,6 +14,7 @@
 #import "MyData.h"
 #import "UserInfo.h"
 #import "LoginViewController.h"
+#import "MsgInfo.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
@@ -30,6 +31,7 @@
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (strong,nonatomic)UserInfo *userInfo;
+@property (strong,nonatomic)MsgInfo *msgInfo;
 @end
 
 @implementation MoreViewController
@@ -79,6 +81,17 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.userInfo=self.reob.resultObject;
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+    [self.httpManager getAppUnReadMessageCountWithfinished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.msgInfo=self.reob.resultObject;
                 [_tableView reloadData];
                 return ;
             }
@@ -146,9 +159,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MoreListCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"MoreListCell"];
-    if(self.userInfo!=nil)
+    if(self.userInfo!=nil&&self.msgInfo!=nil)
     {
     cell.userInfo=self.userInfo;
+    cell.msgInfo=self.msgInfo;
     }
     cell.indexPath=indexPath;
     return cell;

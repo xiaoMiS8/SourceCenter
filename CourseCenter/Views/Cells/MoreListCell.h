@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UserInfo.h"
+#import "MsgInfo.h"
 @interface MoreListCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLayoutConstraint;
 @property (weak, nonatomic) IBOutlet UIImageView *headImag;
@@ -15,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *messageNum;
 @property (strong,nonatomic)NSIndexPath *indexPath;
 @property (strong,nonatomic)UserInfo *userInfo;
+@property (strong,nonatomic)MsgInfo *msgInfo;
 @end

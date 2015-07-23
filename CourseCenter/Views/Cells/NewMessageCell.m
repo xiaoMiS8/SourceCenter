@@ -15,7 +15,15 @@
     _cell_category.layer.masksToBounds=YES;
     _cell_category.layer.cornerRadius=5;
 }
-
+-(void)setIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_selectAll isEqualToString:@"YES"]) {
+        [_imgBtn setBackgroundImage:[UIImage imageNamed:@"btn_confirm_hover"] forState:UIControlStateNormal];
+    }else
+    {
+        [_imgBtn setBackgroundImage:[UIImage imageNamed:@"btn_confirm"] forState:UIControlStateNormal];
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
