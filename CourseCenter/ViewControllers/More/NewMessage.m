@@ -42,6 +42,12 @@ _subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"HeadForTable" owner:self options:nil]objectAtIndex:0];
+    if ([_selectAll isEqualToString:@"YES"]) {
+        _head_img.image=[UIImage imageNamed:@"btn_confirm_hover"];
+    }else
+    {
+        _head_img.image=[UIImage imageNamed:@"btn_confirm"];
+    }
     _head_title.text=[NSString stringWithFormat:@"金融管理070%d班",section];
     _headbtn.tag=section+100;
     [_headbtn addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
@@ -86,6 +92,10 @@ _subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NewMessageCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"NewMessageCell"];
+    if (_selectAll!=nil) {
+        cell.selectAll=_selectAll;
+        cell.indexPath=indexPath;
+    }
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -97,6 +107,21 @@ _subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[
     SendMesage *sendMessage=[[SendMesage alloc]
                              init];
     [((AppDelegate *)app).nav pushViewController:sendMessage animated:YES];
+}
+- (IBAction)selectAll:(UIButton *)sender {
+    static BOOL isOk=YES;
+    if (isOk) {
+        _selectAll=@"YES";
+        [sender setBackgroundImage:[UIImage imageNamed:@"btn_confirm_hover"] forState:UIControlStateNormal
+         ];
+    }else
+    {
+        _selectAll=@"NO";
+        [sender setBackgroundImage:[UIImage imageNamed:@"btn_confirm"] forState:UIControlStateNormal
+         ];
+    }
+    [_tableView reloadData];
+    isOk=!isOk;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

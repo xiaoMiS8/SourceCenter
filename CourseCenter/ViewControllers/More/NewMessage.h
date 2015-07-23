@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *head_title;
 @property (weak, nonatomic) IBOutlet UIButton *headbtn;
 @property (weak, nonatomic) IBOutlet UIButton *head_btn_left;
-
+@property (strong,nonatomic)NSString *selectAll;
 @end

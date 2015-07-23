@@ -37,6 +37,7 @@
             _headImag.image=[UIImage imageNamed:@"icon_news"];
             _headName.text=@"消息中心";
             self.messageNum.hidden=NO;
+            self.messageNum.text=[NSString stringWithFormat:@"%d",self.msgInfo.UnReadCount];
             break;
         case 2:
             [self setSectionWith:indexPath];

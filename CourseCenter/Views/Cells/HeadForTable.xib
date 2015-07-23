@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="292" height="63"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_confirm" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-Wu-tSf">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pk7-Wu-tSf">
                     <rect key="frame" x="10" y="15" width="33" height="33"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="pk7-Wu-tSf" secondAttribute="height" multiplier="1:1" id="hai-6e-if0"/>
@@ -31,7 +31,7 @@
                         <constraint firstAttribute="height" constant="20" id="ukG-fp-JQP"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dZh-UV-f7K">
@@ -98,7 +98,4 @@
             <point key="canvasLocation" x="-64" y="89.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="btn_confirm" width="25" height="25"/>
-    </resources>
 </document>

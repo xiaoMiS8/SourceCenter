@@ -10,9 +10,13 @@
 #import "MessageCenterCell.h"
 #import "ChatViewController.h"
 #import "NewMessage.h"
+#import "MsgInfo.h"
 @interface MessageCenter ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property(nonatomic, strong)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
+@property (nonatomic,strong)NSMutableArray *dataArray;
+@property (nonatomic,strong)MsgInfo *msgInfo;
 @end
 
 @implementation MessageCenter
@@ -23,6 +27,25 @@
     self.title=@"消息中心";
     [self setupCustomRightWithImage:[UIImage imageNamed:@"notification_add"] target:self action:@selector(addMessage)];
     [self.tableView registerNib:[UINib nibWithNibName:@"MessageCenterCell" bundle:nil] forCellReuseIdentifier:@"MessageCenterCell"];
+    self.httpManager = [[CCHttpManager alloc]init];
+    self.dataArray=[[NSMutableArray array]init];
+    [self loadMyInfo];
+}
+-(void)loadMyInfo
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getAppMessageListWithkey:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                 self.dataArray=self.reob.resultArray;
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -30,11 +53,12 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _dataArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MessageCenterCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"MessageCenterCell"];
+    cell.msgInfo=[_dataArray objectAtIndex:indexPath.row];
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
