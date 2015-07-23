@@ -32,7 +32,7 @@
 -(void)kLoadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppFileSearchwithSearchkey:nil OCID:161 FileType:1 PageIndex:1 PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppFileSearchwithSearchkey:nil OCID:161 FileType:1 PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
@@ -60,7 +60,10 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailDataCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"DetailDataCell"];
-    cell.fileInfo=[_dataArray objectAtIndex:indexPath.row];
+    if(_dataArray.count!=0)
+    {
+      cell.fileInfo=[_dataArray objectAtIndex:indexPath.row];
+    }
     return cell;
 }
 - (void)didReceiveMemoryWarning {

@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "FileInfo.h"
 @interface DetailDataCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UILabel *size;
 @property(nonatomic,strong)FileInfo *fileInfo;
 @end
