@@ -119,14 +119,6 @@
 }
 
 - (void)addFooter {
-//    UIView *footerView = [[UIView alloc] init];
-//    footerView.translatesAutoresizingMaskIntoConstraints = NO;
-//    [self.view addSubview:footerView];
-//    NSDictionary *views = NSDictionaryOfVariableBindings(footerView);
-//    NSString *vflH = @"H:|-0-[footerView]-0-|";
-//    NSString *vflV = @"V:[footerView(50)]-0-|";
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflH options:0 metrics:nil views:views]];
-//      [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflV options:0 metrics:nil views:views]];
     UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0.5)];
     lineLabel.backgroundColor = [UIColor blackColor];
     [self.footView addSubview:lineLabel];
@@ -273,7 +265,6 @@
     rightLabel.textColor = [UIColor grayColor];
     [btn addSubview:rightLabel];    
     UIImageView *imgView = [[UIImageView alloc] init];
-    imgView.backgroundColor = [UIColor redColor];
     imgView.image = [UIImage imageNamed:@"arrow_down"];
     imgView.translatesAutoresizingMaskIntoConstraints = NO;
     [btn addSubview:imgView];

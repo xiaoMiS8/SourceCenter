@@ -1657,7 +1657,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1671,7 +1671,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
