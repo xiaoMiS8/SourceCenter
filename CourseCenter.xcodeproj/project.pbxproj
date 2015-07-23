@@ -205,6 +205,8 @@
 		D4DF08941B5B94CA00B816DD /* QBImagePickerController.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4DF08881B5B94CA00B816DD /* QBImagePickerController.strings */; };
 		D4DF08981B5B970500B816DD /* NewNotimgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DF08961B5B970500B816DD /* NewNotimgCell.m */; };
 		D4DF08991B5B970500B816DD /* NewNotimgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DF08971B5B970500B816DD /* NewNotimgCell.xib */; };
+		D4E1FF151B613A5C00D5773D /* MyCourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E1FF131B613A5C00D5773D /* MyCourseListCell.m */; };
+		D4E1FF161B613A5C00D5773D /* MyCourseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E1FF141B613A5C00D5773D /* MyCourseListCell.xib */; };
 		D4F607BD1B33FBC700888FC4 /* IndexActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F607BC1B33FBC700888FC4 /* IndexActions.m */; };
 /* End PBXBuildFile section */
 
@@ -578,6 +580,9 @@
 		D4DF08951B5B970500B816DD /* NewNotimgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotimgCell.h; sourceTree = "<group>"; };
 		D4DF08961B5B970500B816DD /* NewNotimgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotimgCell.m; sourceTree = "<group>"; };
 		D4DF08971B5B970500B816DD /* NewNotimgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotimgCell.xib; sourceTree = "<group>"; };
+		D4E1FF121B613A5C00D5773D /* MyCourseListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCourseListCell.h; sourceTree = "<group>"; };
+		D4E1FF131B613A5C00D5773D /* MyCourseListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCourseListCell.m; sourceTree = "<group>"; };
+		D4E1FF141B613A5C00D5773D /* MyCourseListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCourseListCell.xib; sourceTree = "<group>"; };
 		D4F607BB1B33FBC700888FC4 /* IndexActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexActions.h; sourceTree = "<group>"; };
 		D4F607BC1B33FBC700888FC4 /* IndexActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexActions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -967,6 +972,9 @@
 				CA20AA4B1B5AB39300598370 /* DetailDataCell.h */,
 				CA20AA4C1B5AB39300598370 /* DetailDataCell.m */,
 				CA20AA4D1B5AB39300598370 /* DetailDataCell.xib */,
+				D4E1FF121B613A5C00D5773D /* MyCourseListCell.h */,
+				D4E1FF131B613A5C00D5773D /* MyCourseListCell.m */,
+				D4E1FF141B613A5C00D5773D /* MyCourseListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1325,6 +1333,7 @@
 				59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */,
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
 				CA20AA291B59E9F600598370 /* HeadForTable.xib in Resources */,
+				D4E1FF161B613A5C00D5773D /* MyCourseListCell.xib in Resources */,
 				9FC5FC311B3C3D4A005026E2 /* CourseDetailCell.xib in Resources */,
 				D412969D1B50059E003FC6DB /* MoreListCell.xib in Resources */,
 				066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */,
@@ -1382,6 +1391,7 @@
 				D4B2F3F71B034265007B017E /* UIImage+WebP.m in Sources */,
 				D4B2F3F41B034265007B017E /* UIButton+WebCache.m in Sources */,
 				D4B2F3A11B033E51007B017E /* UIProgressView+AFNetworking.m in Sources */,
+				D4E1FF151B613A5C00D5773D /* MyCourseListCell.m in Sources */,
 				D4DF088F1B5B94CA00B816DD /* QBAssetsCollectionViewController.m in Sources */,
 				59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */,
 				CA20AA3A1B5A979500598370 /* MyData.m in Sources */,
