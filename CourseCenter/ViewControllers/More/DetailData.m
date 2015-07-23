@@ -10,7 +10,8 @@
 #import "DetailDataCell.h"
 @interface DetailData ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (strong,nonatomic)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
 @end
 
 @implementation DetailData
@@ -18,9 +19,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=@"全部资料";
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailDataCell" bundle:nil] forCellReuseIdentifier:@"DetailDataCell"];
 }
+//-(void)kLoadData
+//{
+//    [MBProgressHUD showMessage:nil];
+//    [self.httpManager getAppOCNameListWithrole:1 IsHistroy:NO finished:^(EnumServerStatus status, NSObject *object) {
+//        [MBProgressHUD hideHUD];
+//        if (status==0) {
+//            self.reob=(ResponseObject *)object;
+//            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+//                self.dataArray=self.reob.resultArray;
+//                [_tableView reloadData];
+//                return ;
+//            }
+//        }
+//        [MBProgressHUD showError:LOGINMESSAGE_F];
+//    }];
+//}
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;

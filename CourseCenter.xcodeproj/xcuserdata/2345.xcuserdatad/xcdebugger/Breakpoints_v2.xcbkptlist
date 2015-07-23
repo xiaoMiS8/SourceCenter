@@ -9,29 +9,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/Home/HomeViewController.m"
-            timestampString = "459185900.356189"
+            filePath = "CourseCenter/ViewControllers/More/SetViewController.m"
+            timestampString = "459271188.027145"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "-rLoadData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/Home/HomeViewController.m"
-            timestampString = "459185901.860243"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-rLoadData"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,124 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CourseCenter/ViewControllers/More/MoreViewController.m"
-            timestampString = "459186127.609199"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/More/MoreViewController.m"
-            timestampString = "459186130.252066"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-isLoginOrCourse"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/Notification/NotificationViewController.m"
-            timestampString = "459186181.842608"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/Home/HomeViewController.m"
-            timestampString = "459186207.886229"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/TabBarViewController.m"
-            timestampString = "459186412.98101"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "-tabBarController:shouldSelectViewController:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/TabBarViewController.m"
-            timestampString = "459186505.262688"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "-tabBarController:shouldSelectViewController:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/More/MoreViewController.m"
-            timestampString = "459186978.803505"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "165"
-            endingLineNumber = "165"
-            landmarkName = "-gotoLogin:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/TabBarViewController.m"
-            timestampString = "459186646.699032"
+            timestampString = "459271250.331196"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
             endingLineNumber = "139"
-            landmarkName = "-tabBarController:shouldSelectViewController:"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/TabBarViewController.m"
-            timestampString = "459186670.347197"
+            filePath = "CourseCenter/ViewControllers/More/MyData.m"
+            timestampString = "459320675.940644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-tabBarController:shouldSelectViewController:"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "-kLoadData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -185,13 +57,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/More/MoreViewController.m"
-            timestampString = "459186762.04046"
+            filePath = "CourseCenter/ViewControllers/More/MyData.m"
+            timestampString = "459320675.940644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-loadMyInfo"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-kLoadData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -201,13 +73,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/Course/CourseViewController.m"
-            timestampString = "459186844.680207"
+            filePath = "CourseCenter/ViewControllers/More/MyData.m"
+            timestampString = "459320675.940644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-mLoadData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -217,13 +89,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/More/MoreViewController.m"
-            timestampString = "459186957.629502"
+            filePath = "CourseCenter/ViewControllers/More/MyData.m"
+            timestampString = "459320675.940644"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
-            landmarkName = "-loadMyInfo"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-mLoadData"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -26,7 +26,8 @@
 }
 -(void)saveInfo
 {
-    
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"此接口没做" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+    [alert show];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

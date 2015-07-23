@@ -59,14 +59,12 @@
 {
     static NSString *cellIdentifier=@"Identifier";
     static NSString *IdentifierKeyWithSwitch=@"IdentifierKeyWithSwitch";
-    //首先根据标示去缓存池取
     UITableViewCell *cell;
     if (indexPath.row==2) {
         cell=[tableView dequeueReusableCellWithIdentifier:IdentifierKeyWithSwitch];
     }else{
         cell=[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     }
-    //如果缓存池没有取到则重新创建并放到缓存池中
     if(!cell){
         if (indexPath.row==2) {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:IdentifierKeyWithSwitch];
@@ -111,6 +109,7 @@
             [((AppDelegate *)app).nav pushViewController:passWord animated:YES];
             break;
         case 1:
+            myInfo.userInfo=self.userInfo;
             [((AppDelegate *)app).nav pushViewController:myInfo animated:YES];
             break;
         case 2:
@@ -134,6 +133,11 @@
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [[NSUserDefaults standardUserDefaults]setObject:@"0" forKey:@"isLogin"];
                 [MBProgressHUD showSuccess:self.reob.errorMessage];
+                //退出回调刷新页面
+                if (self.block) {
+                    _block();
+                }
+                ((AppDelegate *)app).tabar.FourLoginState=@"0";
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;
             }

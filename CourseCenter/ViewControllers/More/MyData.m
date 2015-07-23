@@ -9,11 +9,18 @@
 #import "MyData.h"
 #import "CourseData.h"
 #import "DetailData.h"
+#import "OCourseInfo.h"
+#import "FileInfo.h"
 @interface MyData ()
 {
     UISegmentedControl *seg;
+    OCourseInfo *oCourseInfo;
+    FileInfo *fileInfo;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
+@property (nonatomic,strong)NSMutableArray *dataArray;
 @end
 
 @implementation MyData
@@ -28,12 +35,51 @@
     [seg addTarget:self action:@selector(segValueChange:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = seg;
     self.tableView.tableFooterView=[[UIView alloc]init];
+    self.httpManager = [[CCHttpManager alloc]init];
+     self.dataArray=[[NSMutableArray array]init];
+    [self kLoadData];
+}
+//课程资料
+-(void)kLoadData
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getAppOCNameListWithrole:1 IsHistroy:NO finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.dataArray=self.reob.resultArray;
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+//我的资料
+-(void)mLoadData
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getAppFileCountWithOCID:161 finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                 fileInfo=self.reob.resultObject;
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
 }
 - (void)segValueChange:(UISegmentedControl *)myseg {
     if (myseg.selectedSegmentIndex == 0) {
+        [self kLoadData];
         [_tableView reloadData];
     }
     else {
+        [self mLoadData];
         [_tableView reloadData];
     }
 }
@@ -45,11 +91,11 @@
 {
     switch (seg.selectedSegmentIndex) {
         case 0:
-            return 10;
+            return _dataArray.count;
         case 1:
             return 4;
         default:
-            return 10;
+            return 0;
     }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -61,9 +107,28 @@
         cell =seg.selectedSegmentIndex==0?[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier1]:[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier2];
     }
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = [NSString stringWithFormat:@"大学英语-%ld-%ld",indexPath.section,indexPath.row];
+    cell.textLabel.text =((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Name;
     if (seg.selectedSegmentIndex==1) {
-        cell.imageView.image=[UIImage imageNamed:@"icon_video1"];
+        switch (indexPath.row) {
+            case 0:
+                cell.imageView.image=[UIImage imageNamed:@"icon_datum1"];
+                cell.textLabel.text =[NSString stringWithFormat:@"全部资料 (%d)",fileInfo.AllCount];
+                break;
+            case 1:
+                cell.imageView.image=[UIImage imageNamed:@"icon_document"];
+                cell.textLabel.text =[NSString stringWithFormat:@"文稿资料 (%d)",fileInfo.ElseCount];
+                break;
+            case 2:
+                cell.imageView.image=[UIImage imageNamed:@"icon_photo1"];
+                cell.textLabel.text =[NSString stringWithFormat:@"图片资料 (%d)",fileInfo.PicCount];
+                break;
+            case 3:
+                cell.imageView.image=[UIImage imageNamed:@"icon_video1"];
+                cell.textLabel.text =[NSString stringWithFormat:@"视频资料 (%d)",fileInfo.VideoCount];
+                break;
+            default:
+                break;
+        }
     }
     return cell;
 }
@@ -71,6 +136,7 @@
 {
     if (seg.selectedSegmentIndex==0) {
         CourseData *courseData=[[CourseData alloc]init];
+        courseData.title=((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Name;
         [((AppDelegate *)app).nav pushViewController:courseData animated:YES];
     }else
     {

@@ -7,6 +7,5 @@
 //
 
 #import "BaseViewController.h"
-
 @interface MoreViewController : BaseViewController
 @end

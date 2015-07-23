@@ -7,9 +7,15 @@
 //
 
 #import "CourseData.h"
-
+#import "FileInfo.h"
+#import "DetailData.h"
 @interface CourseData ()
-
+{
+    FileInfo *fileInfo;
+}
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
 @end
 
 @implementation CourseData
@@ -17,7 +23,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title=@"大学英语";
+    self.tableView.tableFooterView=[[UIView alloc]init];
+    self.httpManager = [[CCHttpManager alloc]init];
+    [self mLoadData];
+    
+}
+-(void)mLoadData
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getAppFileCountWithOCID:161 finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                fileInfo=self.reob.resultObject;
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -25,7 +50,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return 4;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -35,9 +60,32 @@
         cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
     }
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = [NSString stringWithFormat:@"全部资料(%ld)",indexPath.section];
-    cell.imageView.image=[UIImage imageNamed:@"icon_video1"];
+    switch (indexPath.row) {
+        case 0:
+            cell.imageView.image=[UIImage imageNamed:@"icon_datum1"];
+            cell.textLabel.text =[NSString stringWithFormat:@"全部资料 (%d)",fileInfo.AllCount];
+            break;
+        case 1:
+            cell.imageView.image=[UIImage imageNamed:@"icon_document"];
+            cell.textLabel.text =[NSString stringWithFormat:@"文稿资料 (%d)",fileInfo.ElseCount];
+            break;
+        case 2:
+            cell.imageView.image=[UIImage imageNamed:@"icon_photo1"];
+            cell.textLabel.text =[NSString stringWithFormat:@"图片资料 (%d)",fileInfo.PicCount];
+            break;
+        case 3:
+            cell.imageView.image=[UIImage imageNamed:@"icon_video1"];
+            cell.textLabel.text =[NSString stringWithFormat:@"视频资料 (%d)",fileInfo.VideoCount];
+            break;
+        default:
+            break;
+    }
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DetailData *detailData=[[DetailData alloc]init];
+    [((AppDelegate *)app).nav pushViewController:detailData animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

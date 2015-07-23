@@ -85,6 +85,7 @@
         }
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
+        [MBProgressHUD hideHUD];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -118,6 +119,7 @@
 {
     //点击松开后,颜色恢复
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    __block typeof (self) myself =self;
     switch (indexPath.section) {
         case 0:
             myInfo.userInfo=self.userInfo;
@@ -130,6 +132,11 @@
             [self chooseViewControllerWithindexPath:indexPath];
             break;
         case 3:
+            set.block=^()
+          {
+         [myself isLoginOrCourse];
+          };
+            set.userInfo=self.userInfo;
             [((AppDelegate *)app).nav pushViewController:set animated:YES];
             break;
         default:

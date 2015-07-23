@@ -7,7 +7,9 @@
 //
 
 #import "BaseViewController.h"
-
+#import "UserInfo.h"
+typedef void(^ popViewBlock) ();
 @interface SetViewController : BaseViewController
-
+@property(nonatomic,strong)popViewBlock block;
+@property (strong,nonatomic)UserInfo *userInfo;
 @end
