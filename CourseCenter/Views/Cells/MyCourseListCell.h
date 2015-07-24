@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "OCourseInfo.h"
 @interface MyCourseListCell : UITableViewCell
+
+@property(nonatomic, strong) OCourseInfo *oCourse;
 
 @end

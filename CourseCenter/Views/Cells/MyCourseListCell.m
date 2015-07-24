@@ -7,10 +7,32 @@
 //
 
 #import "MyCourseListCell.h"
+#import "ProgressView.h"
+#import "UIImageView+WebCache.h"
 
 @interface MyCourseListCell ()
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIImageView *ocoureImg;
 @property (weak, nonatomic) IBOutlet UIView *bomView;
+@property (weak, nonatomic) IBOutlet ProgressView *progressView1;
+@property (weak, nonatomic) IBOutlet ProgressView *progressView2;
+@property (weak, nonatomic) IBOutlet UIImageView *teachImg;
+@property (weak, nonatomic) IBOutlet UILabel *teachName;
+@property (weak, nonatomic) IBOutlet UILabel *orgName;
+@property (weak, nonatomic) IBOutlet UILabel *LastStudyChapter;
+@property (weak, nonatomic) IBOutlet UILabel *ocName;
+@property (weak, nonatomic) IBOutlet UILabel *TeachingClassName;
+@property (weak, nonatomic) IBOutlet UILabel *mooc;
+@property (weak, nonatomic) IBOutlet UILabel *myPrgoress;
+@property (weak, nonatomic) IBOutlet UILabel *groupProgress;
+@property (weak, nonatomic) IBOutlet UILabel *normProgress;
+@property (weak, nonatomic) IBOutlet UILabel *fOcName;
+@property (weak, nonatomic) IBOutlet UILabel *fmyProgress;
+@property (weak, nonatomic) IBOutlet UILabel *fgroupProgress;
+@property (weak, nonatomic) IBOutlet UILabel *fnormProgress;
+@property (weak, nonatomic) IBOutlet UILabel *line;
+@property (weak, nonatomic) IBOutlet UILabel *StudentCount;
+
 
 @end
 
@@ -21,6 +43,80 @@
     self.bgView.layer.borderWidth = 0.5f;
     self.bomView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.bomView.layer.borderWidth = 0.5f;
+    
+}
+
+- (void)setOCourse:(OCourseInfo *)oCourse {
+    _oCourse = oCourse;
+    [self.teachImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl]];
+    self.teachName.text = oCourse.TeacherName;
+    self.orgName.text = oCourse.OrganizationName;
+    self.ocName.text = oCourse.Name;
+    self.TeachingClassName.text = oCourse.TeachingClassName;
+    self.StudentCount.text = [NSString stringWithFormat:@"%d",oCourse.StudentCount];
+    [self.ocoureImg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl]];
+    if (!oCourse.IsShowMooc) {
+        for (NSLayoutConstraint *constraint in self.bomView.constraints) {
+            if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+                constraint.constant = 0;
+            }
+        }
+        self.line.hidden = YES;
+        self.progressView1.hidden = YES;
+        self.progressView2.hidden = YES;
+        self.mooc.text = @"";
+        self.myPrgoress.text = @"";
+        self.groupProgress.text = @"";
+        self.normProgress.text = @"";
+        self.fmyProgress.text = @"";
+        self.fgroupProgress.text = @"";
+        self.fnormProgress.text = @"";
+        self.fOcName.text = @"";
+    } else if (!oCourse.IsShowFC) {
+        for (NSLayoutConstraint *constraint in self.bomView.constraints) {
+            if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+                constraint.constant = 90;
+            }
+        }
+        self.line.hidden = NO;
+        self.progressView1.hidden = NO;
+        self.progressView2.hidden = YES;
+        self.mooc.text = @"MOOC";
+        self.myPrgoress.text = @"我的进度25.1%";
+        self.groupProgress.text = @"";
+        self.normProgress.text = @"标准进度45.1%";
+        self.progressView1.myProgress = 0.251;
+        self.progressView1.normProgress = 0.451;
+        self.progressView1.groupProgress = 0;
+        self.fmyProgress.text = @"";
+        self.fgroupProgress.text = @"";
+        self.fnormProgress.text = @"";
+        self.fOcName.text = @"";
+    } else {
+        for (NSLayoutConstraint *constraint in self.bomView.constraints) {
+            if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+                constraint.constant = 180;
+            }
+        }
+        self.line.hidden = NO;
+        self.progressView1.hidden = NO;
+        self.progressView2.hidden = NO;
+        self.mooc.text = @"MOOC";
+        self.myPrgoress.text = @"我的进度25.1%";
+        self.groupProgress.text = @"我的小组进度35.1%";
+        self.normProgress.text = @"标准进度45.1%";
+        self.progressView1.myProgress = 0.251;
+        self.progressView1.normProgress = 0.451;
+        self.progressView1.groupProgress = 0;
+        self.progressView2.myProgress = 0.251;
+        self.progressView2.normProgress = 0.451;
+        self.progressView2.groupProgress = 0.55;
+        self.fmyProgress.text = @"我的进度25.1%";
+        self.fgroupProgress.text = @"我的小组进度55.1%";
+        self.fnormProgress.text = @"标准进度45.1%";
+        self.fOcName.text = @"翻转课堂";
+    }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -28,5 +124,6 @@
 
   
 }
+
 
 @end

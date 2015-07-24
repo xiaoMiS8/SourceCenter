@@ -113,6 +113,7 @@
 		D447331A1B4CE5A400F749D1 /* NoticeResponseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D44733191B4CE5A400F749D1 /* NoticeResponseInfo.m */; };
 		D447331D1B4CE5B200F749D1 /* NoticeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D447331C1B4CE5B200F749D1 /* NoticeInfo.m */; };
 		D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D452B8751B395BDF00F5A85E /* MoocFileInfo.m */; };
+		D45526B71B6279F7004FEBBB /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D45526B61B6279F7004FEBBB /* ProgressView.m */; };
 		D455A9B21B56AD4200358930 /* MsgAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D455A9B11B56AD4200358930 /* MsgAction.m */; };
 		D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D46F48FD1B340E48001E8AEF /* OCourseInfo.m */; };
 		D483411B1B2EC30600373043 /* MyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411A1B2EC30600373043 /* MyTextView.m */; };
@@ -403,6 +404,8 @@
 		D447331C1B4CE5B200F749D1 /* NoticeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeInfo.m; sourceTree = "<group>"; };
 		D452B8741B395BDF00F5A85E /* MoocFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoocFileInfo.h; sourceTree = "<group>"; };
 		D452B8751B395BDF00F5A85E /* MoocFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoocFileInfo.m; sourceTree = "<group>"; };
+		D45526B51B6279F7004FEBBB /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
+		D45526B61B6279F7004FEBBB /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		D455A9B01B56AD4200358930 /* MsgAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgAction.h; sourceTree = "<group>"; };
 		D455A9B11B56AD4200358930 /* MsgAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgAction.m; sourceTree = "<group>"; };
 		D46F48FC1B340E48001E8AEF /* OCourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCourseInfo.h; sourceTree = "<group>"; };
@@ -778,6 +781,8 @@
 			children = (
 				D48341191B2EC30600373043 /* MyTextView.h */,
 				D483411A1B2EC30600373043 /* MyTextView.m */,
+				D45526B51B6279F7004FEBBB /* ProgressView.h */,
+				D45526B61B6279F7004FEBBB /* ProgressView.m */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1504,6 +1509,7 @@
 				CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
 				CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */,
+				D45526B71B6279F7004FEBBB /* ProgressView.m in Sources */,
 				D4B2F2F71B02FA00007B017E /* main.m in Sources */,
 				374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */,
 				06D1FAD61B57A0F400C18980 /* GroupInfo.m in Sources */,
