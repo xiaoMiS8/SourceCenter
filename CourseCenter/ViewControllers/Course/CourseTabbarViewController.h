@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BBsViewController.h"
 
-@interface CourseTabbarViewController : UIViewController
+@interface CourseTabbarViewController :BaseViewController
 
 @property(nonatomic, strong) UITabBarController *tabbar;
 @property(nonatomic, assign) int selectedIndex;

@@ -1,5 +1,5 @@
 //
-//  FCourseViewController.h
+//  TuorialDetailViewController.h
 //  CourseCenter
 //
 //  Created by jian on 15/7/25.
@@ -8,6 +8,6 @@
 
 #import "CourseBaseViewController.h"
 
-@interface FCourseViewController : CourseBaseViewController
+@interface TuorialDetailViewController : CourseBaseViewController
 
 @end

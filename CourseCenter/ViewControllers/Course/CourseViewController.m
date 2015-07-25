@@ -88,17 +88,26 @@
 - (CourseTabbarViewController *)setTabbar {
     CourseTabbarViewController *tabbar = [[CourseTabbarViewController alloc] init];
     TutorialViewController *tutoriaVC = [[TutorialViewController alloc] init];
+    tutoriaVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
     FCourseViewController *fCourseVC = [[FCourseViewController alloc] init];
+    fCourseVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
     BBsViewController *bbsVC = [[BBsViewController alloc] init];
+    bbsVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
     HWorkViewController *hworkVC = [[HWorkViewController alloc] init];
+    hworkVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
     TPViewController *tpVC = [[TPViewController alloc] init];
-    
-    LineNavigationController *tNav = [[LineNavigationController alloc] initWithRootViewController:tutoriaVC];
-    LineNavigationController *fNav = [[LineNavigationController alloc] initWithRootViewController:fCourseVC];
-    LineNavigationController *bbsNav = [[LineNavigationController alloc] initWithRootViewController:bbsVC];
-    LineNavigationController *hNav = [[LineNavigationController alloc] initWithRootViewController:hworkVC];
-    LineNavigationController *tpNav = [[LineNavigationController alloc] initWithRootViewController:tpVC];
-    NSArray *viewControllers = @[tNav, fNav,bbsNav, hNav, tpNav];
+    tpVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
+    NSArray *viewControllers = @[tutoriaVC, fCourseVC,bbsVC, hworkVC, tpVC];
     NSArray *titles = @[@"教程",@"翻转课堂",@"论坛",@"作业",@"事务处理"];
     NSArray *itemImages = @[@"cTabbar1_n",@"cTabbar2_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
     NSArray *itemSelectedImages = @[@"cTabbar1_s",@"cTabbar2_s",@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];

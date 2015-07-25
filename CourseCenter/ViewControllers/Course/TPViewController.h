@@ -6,8 +6,8 @@
 //  Copyright © 2015年 line0.com. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "CourseBaseViewController.h"
 
-@interface TPViewController : BaseViewController
+@interface TPViewController : CourseBaseViewController
 
 @end

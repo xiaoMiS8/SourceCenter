@@ -120,6 +120,10 @@
 		D4459B8B1B63D68000DEB780 /* TPViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4459B891B63D68000DEB780 /* TPViewController.xib */; };
 		D4459B8F1B63D75A00DEB780 /* CourseTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4459B8D1B63D75A00DEB780 /* CourseTabbarViewController.m */; };
 		D4459B901B63D75A00DEB780 /* CourseTabbarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4459B8E1B63D75A00DEB780 /* CourseTabbarViewController.xib */; };
+		D4459B941B63DEB100DEB780 /* TuorialDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4459B921B63DEB100DEB780 /* TuorialDetailViewController.m */; };
+		D4459B951B63DEB100DEB780 /* TuorialDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4459B931B63DEB100DEB780 /* TuorialDetailViewController.xib */; };
+		D4459B991B63E09B00DEB780 /* CourseBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4459B971B63E09B00DEB780 /* CourseBaseViewController.m */; };
+		D4459B9A1B63E09B00DEB780 /* CourseBaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4459B981B63E09B00DEB780 /* CourseBaseViewController.xib */; };
 		D44733141B4CE55C00F749D1 /* CourseActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D44733131B4CE55C00F749D1 /* CourseActions.m */; };
 		D44733171B4CE58600F749D1 /* TeachingClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D44733161B4CE58600F749D1 /* TeachingClassInfo.m */; };
 		D447331A1B4CE5A400F749D1 /* NoticeResponseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D44733191B4CE5A400F749D1 /* NoticeResponseInfo.m */; };
@@ -424,6 +428,12 @@
 		D4459B8C1B63D75A00DEB780 /* CourseTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseTabbarViewController.h; sourceTree = "<group>"; };
 		D4459B8D1B63D75A00DEB780 /* CourseTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseTabbarViewController.m; sourceTree = "<group>"; };
 		D4459B8E1B63D75A00DEB780 /* CourseTabbarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseTabbarViewController.xib; sourceTree = "<group>"; };
+		D4459B911B63DEB100DEB780 /* TuorialDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TuorialDetailViewController.h; sourceTree = "<group>"; };
+		D4459B921B63DEB100DEB780 /* TuorialDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TuorialDetailViewController.m; sourceTree = "<group>"; };
+		D4459B931B63DEB100DEB780 /* TuorialDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TuorialDetailViewController.xib; sourceTree = "<group>"; };
+		D4459B961B63E09B00DEB780 /* CourseBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseBaseViewController.h; sourceTree = "<group>"; };
+		D4459B971B63E09B00DEB780 /* CourseBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseBaseViewController.m; sourceTree = "<group>"; };
+		D4459B981B63E09B00DEB780 /* CourseBaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseBaseViewController.xib; sourceTree = "<group>"; };
 		D44733121B4CE55C00F749D1 /* CourseActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseActions.h; sourceTree = "<group>"; };
 		D44733131B4CE55C00F749D1 /* CourseActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseActions.m; sourceTree = "<group>"; };
 		D44733151B4CE58600F749D1 /* TeachingClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachingClassInfo.h; sourceTree = "<group>"; };
@@ -1017,15 +1027,21 @@
 		D4B2F3381B02FE75007B017E /* Course */ = {
 			isa = PBXGroup;
 			children = (
-				D4B2F3461B02FEDA007B017E /* CourseViewController.h */,
-				D4B2F3471B02FEDA007B017E /* CourseViewController.m */,
-				D4B2F3481B02FEDA007B017E /* CourseViewController.xib */,
+				D4459B961B63E09B00DEB780 /* CourseBaseViewController.h */,
+				D4459B971B63E09B00DEB780 /* CourseBaseViewController.m */,
+				D4459B981B63E09B00DEB780 /* CourseBaseViewController.xib */,
 				D4459B8C1B63D75A00DEB780 /* CourseTabbarViewController.h */,
 				D4459B8D1B63D75A00DEB780 /* CourseTabbarViewController.m */,
 				D4459B8E1B63D75A00DEB780 /* CourseTabbarViewController.xib */,
+				D4B2F3461B02FEDA007B017E /* CourseViewController.h */,
+				D4B2F3471B02FEDA007B017E /* CourseViewController.m */,
+				D4B2F3481B02FEDA007B017E /* CourseViewController.xib */,
 				D4459B731B63D5C900DEB780 /* TutorialViewController.h */,
 				D4459B741B63D5C900DEB780 /* TutorialViewController.m */,
 				D4459B751B63D5C900DEB780 /* TutorialViewController.xib */,
+				D4459B911B63DEB100DEB780 /* TuorialDetailViewController.h */,
+				D4459B921B63DEB100DEB780 /* TuorialDetailViewController.m */,
+				D4459B931B63DEB100DEB780 /* TuorialDetailViewController.xib */,
 				D4459B781B63D5F400DEB780 /* FCourseViewController.h */,
 				D4459B791B63D5F400DEB780 /* FCourseViewController.m */,
 				D4459B7A1B63D5F400DEB780 /* FCourseViewController.xib */,
@@ -1381,6 +1397,7 @@
 				D4459B8B1B63D68000DEB780 /* TPViewController.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
 				CACBFC891B54021F00FAD388 /* MessageCenterCell.xib in Resources */,
+				D4459B9A1B63E09B00DEB780 /* CourseBaseViewController.xib in Resources */,
 				CADD22211B52488700A4F3D2 /* MyInfoCell.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
@@ -1388,6 +1405,7 @@
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
 				CA20AA291B59E9F600598370 /* HeadForTable.xib in Resources */,
 				D4E1FF161B613A5C00D5773D /* MyCourseListCell.xib in Resources */,
+				D4459B951B63DEB100DEB780 /* TuorialDetailViewController.xib in Resources */,
 				9FC5FC311B3C3D4A005026E2 /* CourseDetailCell.xib in Resources */,
 				D412969D1B50059E003FC6DB /* MoreListCell.xib in Resources */,
 				066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */,
@@ -1451,6 +1469,7 @@
 				D4B2F3F71B034265007B017E /* UIImage+WebP.m in Sources */,
 				D4B2F3F41B034265007B017E /* UIButton+WebCache.m in Sources */,
 				D4B2F3A11B033E51007B017E /* UIProgressView+AFNetworking.m in Sources */,
+				D4459B941B63DEB100DEB780 /* TuorialDetailViewController.m in Sources */,
 				D4459B761B63D5C900DEB780 /* TutorialViewController.m in Sources */,
 				D4E1FF151B613A5C00D5773D /* MyCourseListCell.m in Sources */,
 				D4DF088F1B5B94CA00B816DD /* QBAssetsCollectionViewController.m in Sources */,
@@ -1537,6 +1556,7 @@
 				CA20AA4E1B5AB39300598370 /* DetailDataCell.m in Sources */,
 				D455A9B21B56AD4200358930 /* MsgAction.m in Sources */,
 				D4BA5E681B56C3B500580C19 /* MsgInfo.m in Sources */,
+				D4459B991B63E09B00DEB780 /* CourseBaseViewController.m in Sources */,
 				D4B2F39B1B033E51007B017E /* AFURLSessionManager.m in Sources */,
 				CADD222A1B52862E00A4F3D2 /* SetPassword.m in Sources */,
 				5963C3531B20009400A09D30 /* CSNetAccessor.m in Sources */,
