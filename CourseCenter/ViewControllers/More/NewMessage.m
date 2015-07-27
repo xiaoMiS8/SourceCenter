@@ -11,6 +11,7 @@
 #import "SendMesage.h"
 #import "GroupInfo.h"
 #import "AFNetworking.h"
+#import "UserInfo.h"
 #define SECTION_STATE @"SECTION_STATE"
 @interface NewMessage ()
 {
@@ -20,7 +21,6 @@
     NSMutableDictionary *_dict;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic,strong)NSMutableDictionary *dictData;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (strong,nonatomic)GroupInfo *info;
@@ -37,7 +37,7 @@
     _array=[NSMutableArray arrayWithCapacity:0];
     _subArray=[NSMutableArray arrayWithCapacity:0];
     _arrayData=[NSMutableArray arrayWithCapacity:0];
-    _dictData=[NSMutableDictionary dictionaryWithCapacity:0];
+    ((AppDelegate *)app).dicData=[NSMutableDictionary dictionaryWithCapacity:0];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewMessageCell" bundle:nil] forCellReuseIdentifier:@"NewMessageCell"];
     [self aLoadData];
 }
@@ -146,7 +146,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NewMessageCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"NewMessageCell"];
-    cell.dic=_dictData;
+    cell.dic=((AppDelegate *)app).dicData;
+    NSMutableArray *array=[_subArray objectAtIndex:indexPath.section];
+    cell.info=[array objectAtIndex:indexPath.row];
     cell.indexPath=indexPath;
     return cell;
 }
@@ -154,6 +156,7 @@
 {
     SendMesage *sendMessage=[[SendMesage alloc]
                              init];
+    sendMessage.array=_subArray;
     [((AppDelegate *)app).nav pushViewController:sendMessage animated:YES];
 }
 - (IBAction)selectAll:(UIButton *)sender {
@@ -191,14 +194,14 @@
                [array addObject:noSelect];
             }
         }
-        [_dictData  setObject:array forKey:[NSString stringWithFormat:@"%d",i]];
+        [((AppDelegate *)app).dicData  setObject:array forKey:[NSString stringWithFormat:@"%d",i]];
     }
 }
 -(void)setSelectStateWith:(NSInteger)section
 {
     NSString *select=@"SEL";
     NSString *noSelect=@"NOSEL";
-    NSMutableArray *array=[_dictData objectForKey:[NSString stringWithFormat:@"%d",section]];
+    NSMutableArray *array=[((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",section]];
     for (int i=0;i<array.count; i++) {
         if ([array[i] isEqualToString:@"SEL"]) {
             array[i]=noSelect;
@@ -210,7 +213,7 @@
 }
 -(BOOL)returnWithSection:(NSInteger)section
 {
-        NSMutableArray *array=[_dictData objectForKey:[NSString stringWithFormat:@"%d",section]];
+        NSMutableArray *array=[((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",section]];
         for (int j=0; j<array.count; j++) {
             if ([array[j] isEqualToString:@"NOSEL"]) {
                 return NO;

@@ -10,5 +10,5 @@
 #import "TLTagsControl.h"
 @interface SendMesage : BaseViewController
 @property (weak, nonatomic) IBOutlet TLTagsControl *editingTagControl;
-
+@property (strong,nonatomic)NSMutableArray *array;
 @end
