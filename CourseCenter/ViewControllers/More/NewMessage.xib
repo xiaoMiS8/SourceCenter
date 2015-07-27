@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewMessage">
             <connections>
-                <outlet property="tableView" destination="9BK-fY-zcS" id="drv-kC-bsx"/>
+                <outlet property="tableView" destination="9BK-fY-zcS" id="aGM-Ht-Lxt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,8 +34,8 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全选" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeX-Dy-RXJ">
-                    <rect key="frame" x="40" y="51" width="28" height="20"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="全选" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UeX-Dy-RXJ">
+                    <rect key="frame" x="45" y="51" width="28" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="hLX-Zo-DAy"/>
                     </constraints>
@@ -43,8 +43,8 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZh-0a-CD7">
-                    <rect key="frame" x="0.0" y="81" width="320" height="1"/>
+                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HZh-0a-CD7">
+                    <rect key="frame" x="0.0" y="86" width="320" height="1"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="Kaj-bu-0Ay"/>
@@ -58,25 +58,26 @@
                         <constraint firstAttribute="height" constant="1" id="ljX-NK-WJv"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qv-h2-M9p">
-                    <rect key="frame" x="10" y="51" width="20" height="20"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qv-h2-M9p">
+                    <rect key="frame" x="10" y="51" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="l30-er-4QE"/>
                         <constraint firstAttribute="width" constant="20" id="vlm-zc-if3"/>
                     </constraints>
-                    <state key="normal" backgroundImage="btn_confirm">
+                    <state key="normal" image="btn_confirm">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <state key="selected" image="btn_confirm_hover"/>
                     <connections>
                         <action selector="selectAll:" destination="-1" eventType="touchUpInside" id="gnv-XD-iAQ"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9BK-fY-zcS">
-                    <rect key="frame" x="0.0" y="82" width="320" height="486"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9BK-fY-zcS">
+                    <rect key="frame" x="0.0" y="87" width="320" height="481"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="gcg-LL-nN4"/>
-                        <outlet property="delegate" destination="-1" id="lsQ-If-z7o"/>
+                        <outlet property="dataSource" destination="-1" id="mBE-Qb-BYR"/>
+                        <outlet property="delegate" destination="-1" id="5nq-G2-ULV"/>
                     </connections>
                 </tableView>
             </subviews>
@@ -113,5 +114,6 @@
     </objects>
     <resources>
         <image name="btn_confirm" width="25" height="25"/>
+        <image name="btn_confirm_hover" width="25" height="25"/>
     </resources>
 </document>

@@ -133,7 +133,7 @@
         }];
         
     } else if ([cell.textLabel.text isEqualToString:@"教学班下联系人"]) {
-        [self.httpManager getAppClassUserListwithID:53 Type:-1 finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager getAppClassUserListwithID:53 Type:1 finished:^(EnumServerStatus status, NSObject *object) {
              resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"获取资源分类数量"]) {

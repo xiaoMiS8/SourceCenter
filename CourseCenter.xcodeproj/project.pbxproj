@@ -78,11 +78,11 @@
 		CA20AA441B5AB25100598370 /* DetailData.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA421B5AB25100598370 /* DetailData.m */; };
 		CA20AA4E1B5AB39300598370 /* DetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA4C1B5AB39300598370 /* DetailDataCell.m */; };
 		CA20AA4F1B5AB39300598370 /* DetailDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20AA4D1B5AB39300598370 /* DetailDataCell.xib */; };
+		CA4E79AA1B64E3220079A05B /* NewMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4E79A91B64E3220079A05B /* NewMessage.m */; };
 		CA62FA0B1B42DCF700F80DE3 /* SubjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */; };
 		CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */; };
 		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
 		CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */; };
-		CA7228BE1B57F4F8006F719A /* NewMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CA7228BC1B57F4F8006F719A /* NewMessage.m */; };
 		CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7228BD1B57F4F8006F719A /* NewMessage.xib */; };
 		CACBFC831B53FE7400FAD388 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC811B53FE7400FAD388 /* MessageCenter.m */; };
 		CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC821B53FE7400FAD388 /* MessageCenter.xib */; };
@@ -343,14 +343,14 @@
 		CA20AA4B1B5AB39300598370 /* DetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDataCell.h; sourceTree = "<group>"; };
 		CA20AA4C1B5AB39300598370 /* DetailDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailDataCell.m; sourceTree = "<group>"; };
 		CA20AA4D1B5AB39300598370 /* DetailDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDataCell.xib; sourceTree = "<group>"; };
+		CA4E79A81B64E3220079A05B /* NewMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMessage.h; sourceTree = "<group>"; };
+		CA4E79A91B64E3220079A05B /* NewMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMessage.m; sourceTree = "<group>"; };
 		CA62FA081B42DCF700F80DE3 /* SubjectSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchViewController.h; sourceTree = "<group>"; };
 		CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchViewController.m; sourceTree = "<group>"; };
 		CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchViewController.xib; sourceTree = "<group>"; };
 		CA62FA0D1B42DFDE00F80DE3 /* SubjectSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchCell.h; sourceTree = "<group>"; };
 		CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchCell.m; sourceTree = "<group>"; };
 		CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchCell.xib; sourceTree = "<group>"; };
-		CA7228BB1B57F4F8006F719A /* NewMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMessage.h; sourceTree = "<group>"; };
-		CA7228BC1B57F4F8006F719A /* NewMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMessage.m; sourceTree = "<group>"; };
 		CA7228BD1B57F4F8006F719A /* NewMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessage.xib; sourceTree = "<group>"; };
 		CACBFC801B53FE7400FAD388 /* MessageCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenter.h; sourceTree = "<group>"; };
 		CACBFC811B53FE7400FAD388 /* MessageCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenter.m; sourceTree = "<group>"; };
@@ -1025,8 +1025,8 @@
 				CACBFC801B53FE7400FAD388 /* MessageCenter.h */,
 				CACBFC811B53FE7400FAD388 /* MessageCenter.m */,
 				CACBFC821B53FE7400FAD388 /* MessageCenter.xib */,
-				CA7228BB1B57F4F8006F719A /* NewMessage.h */,
-				CA7228BC1B57F4F8006F719A /* NewMessage.m */,
+				CA4E79A81B64E3220079A05B /* NewMessage.h */,
+				CA4E79A91B64E3220079A05B /* NewMessage.m */,
 				CA7228BD1B57F4F8006F719A /* NewMessage.xib */,
 				CA20AA281B59E9F600598370 /* HeadForTable.xib */,
 				CA20AA2F1B5A19A100598370 /* SendMesage.h */,
@@ -1446,6 +1446,7 @@
 				374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */,
 				D4B2F3F51B034265007B017E /* UIImage+GIF.m in Sources */,
 				D4DF08901B5B94CA00B816DD /* QBAssetsCollectionViewLayout.m in Sources */,
+				CA4E79AA1B64E3220079A05B /* NewMessage.m in Sources */,
 				5963C3591B20017C00A09D30 /* ResponseObject.m in Sources */,
 				042E75C51B160C9100396AAF /* LoginViewController.m in Sources */,
 				D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */,
@@ -1469,7 +1470,6 @@
 				5963C3531B20009400A09D30 /* CSNetAccessor.m in Sources */,
 				D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */,
 				D4B2F3E21B034265007B017E /* MJRefreshFooter.m in Sources */,
-				CA7228BE1B57F4F8006F719A /* NewMessage.m in Sources */,
 				D4B2F3E81B034265007B017E /* UIScrollView+MJExtension.m in Sources */,
 				06D1FAD91B57A6E300C18980 /* FileAction.m in Sources */,
 				D4B2F3F01B034265007B017E /* SDWebImageDownloader.m in Sources */,

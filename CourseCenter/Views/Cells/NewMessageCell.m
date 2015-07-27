@@ -17,12 +17,16 @@
 }
 -(void)setIndexPath:(NSIndexPath *)indexPath
 {
-    if ([_selectAll isEqualToString:@"YES"]) {
-        [_imgBtn setBackgroundImage:[UIImage imageNamed:@"btn_confirm_hover"] forState:UIControlStateNormal];
+    NSMutableArray *array=[_dic objectForKey:[NSString stringWithFormat:@"%d",indexPath.section]];
+    if ([array[indexPath.row] isEqualToString:@"SEL"]) {
+        _imgBtn.selected=YES;
     }else
     {
-        [_imgBtn setBackgroundImage:[UIImage imageNamed:@"btn_confirm"] forState:UIControlStateNormal];
+        _imgBtn.selected=NO;
     }
+}
+- (IBAction)left_btn:(UIButton *)sender {
+    sender.selected=!sender.selected;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

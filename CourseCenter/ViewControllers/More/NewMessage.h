@@ -9,9 +9,8 @@
 #import "BaseViewController.h"
 
 @interface NewMessage : BaseViewController
-@property (weak, nonatomic) IBOutlet UIImageView *head_img;
 @property (weak, nonatomic) IBOutlet UILabel *head_title;
-@property (weak, nonatomic) IBOutlet UIButton *headbtn;
+@property (weak, nonatomic) IBOutlet UIButton *head_btn_right;
 @property (weak, nonatomic) IBOutlet UIButton *head_btn_left;
-@property (strong,nonatomic)NSString *selectAll;
+
 @end

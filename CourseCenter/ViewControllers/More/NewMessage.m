@@ -9,6 +9,8 @@
 #import "NewMessage.h"
 #import "NewMessageCell.h"
 #import "SendMesage.h"
+#import "GroupInfo.h"
+#import "AFNetworking.h"
 #define SECTION_STATE @"SECTION_STATE"
 @interface NewMessage ()
 {
@@ -18,6 +20,10 @@
     NSMutableDictionary *_dict;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic,strong)NSMutableDictionary *dictData;
+@property(nonatomic, strong)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
+@property (strong,nonatomic)GroupInfo *info;
 @end
 
 @implementation NewMessage
@@ -27,13 +33,51 @@
     // Do any additional setup after loading the view from its nib.
     self.title=@"新建消息";
     [self setupCustomRightWithtitle:@"确定" target:self action:@selector(sure)];
+    self.httpManager = [[CCHttpManager alloc]init];
     _array=[NSMutableArray arrayWithCapacity:0];
-    _arrayData=[NSMutableArray arrayWithCapacity:0];
     _subArray=[NSMutableArray arrayWithCapacity:0];
+    _arrayData=[NSMutableArray arrayWithCapacity:0];
+    _dictData=[NSMutableDictionary dictionaryWithCapacity:0];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewMessageCell" bundle:nil] forCellReuseIdentifier:@"NewMessageCell"];
-_arrayData=@[@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10"];
-_subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[@"7"],@[@"8"],@[@"9"],@[@"10"]];
-    [self showCourseData];
+    [self aLoadData];
+}
+-(void)aLoadData
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getOCClassListWithfinished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                _arrayData=self.reob.resultArray;
+                [self showCourseData];
+                [self initSelectState:NO];
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+-(void)bLoadDataWithId:(NSString *)ID type:(NSString *)type
+{
+    NSString *partURL = [[[kServerIP stringByAppendingString:kServerPort] stringByAppendingString:kSerVerName] stringByAppendingString:kServiceName];
+    NSString *URLString =[partURL stringByAppendingString:@"/Msg/App_ClassUser_List"];
+    NSDictionary *parameters = @{@"ID": [NSNumber numberWithLong:53],@"Type": [NSNumber numberWithInt:1]};
+    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
+    NSMutableURLRequest *request = [requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
+    AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    AFHTTPResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
+    [requestOperation setResponseSerializer:responseSerializer];
+    [requestOperation start];
+    [requestOperation waitUntilFinished];
+    if ([[[requestOperation responseObject] objectForKey:@"errorCode"]isEqualToString:@"0"]) {
+        [MBProgressHUD hideHUD];
+       [_subArray addObject:[[requestOperation responseObject] objectForKey:@"result"]];
+    }else
+    {
+       [MBProgressHUD hideHUD];
+       [MBProgressHUD showError:LOGINMESSAGE_F];
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -42,19 +86,21 @@ _subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view=[[[NSBundle mainBundle]loadNibNamed:@"HeadForTable" owner:self options:nil]objectAtIndex:0];
-    if ([_selectAll isEqualToString:@"YES"]) {
-        _head_img.image=[UIImage imageNamed:@"btn_confirm_hover"];
+    _head_title.text=((GroupInfo *)[_arrayData objectAtIndex:section]).Name;
+    _head_btn_left.tag=section;
+    _head_btn_right.tag=section+100;
+    [_head_btn_right addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
+    if ([self returnWithSection:section]) {
+        _head_btn_left.selected=YES;
     }else
     {
-        _head_img.image=[UIImage imageNamed:@"btn_confirm"];
+        _head_btn_left.selected=NO;
     }
-    _head_title.text=[NSString stringWithFormat:@"金融管理070%d班",section];
-    _headbtn.tag=section+100;
-    [_headbtn addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
     return view;
 }
 -(void)press:(UIButton *)but
 {
+    [self bLoadDataWithId:nil type:nil];
     NSMutableDictionary *dicto=[_array objectAtIndex:but.tag-100];
     NSNumber *num=[dicto objectForKey:SECTION_STATE];
     if ([num boolValue]) {
@@ -67,12 +113,16 @@ _subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[
 }
 -(void)showCourseData
 {
+    
     for (int i=0; i<_arrayData.count; i++) {
         _dict=[NSMutableDictionary dictionaryWithCapacity:0];
         [_dict setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
         [_array addObject:_dict];
     }
-    [_tableView reloadData];
+    for (int i=0; i<_arrayData.count; i++) {
+        [self bLoadDataWithId:nil type:nil];
+    }
+    [MBProgressHUD hideHUD];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -86,21 +136,19 @@ _subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[
         return 0;
     }else
     {
-        return ((NSMutableArray *)[_subArray objectAtIndex:section]).count;
+        return ((NSArray *)[_subArray objectAtIndex:section]).count;
     }
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NewMessageCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"NewMessageCell"];
-    if (_selectAll!=nil) {
-        cell.selectAll=_selectAll;
-        cell.indexPath=indexPath;
-    }
-    return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NewMessageCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"NewMessageCell"];
+    cell.dic=_dictData;
+    cell.indexPath=indexPath;
+    return cell;
 }
 -(void)sure
 {
@@ -111,17 +159,64 @@ _subArray=@[@[@"1",@"3",@"4",@"sss",],@[@"2"],@[@"3"],@[@"4"],@[@"5"],@[@"6"],@[
 - (IBAction)selectAll:(UIButton *)sender {
     static BOOL isOk=YES;
     if (isOk) {
-        _selectAll=@"YES";
-        [sender setBackgroundImage:[UIImage imageNamed:@"btn_confirm_hover"] forState:UIControlStateNormal
+        [sender setImage:[UIImage imageNamed:@"btn_confirm_hover"] forState:UIControlStateNormal
          ];
+        [self initSelectState:YES];
     }else
     {
-        _selectAll=@"NO";
-        [sender setBackgroundImage:[UIImage imageNamed:@"btn_confirm"] forState:UIControlStateNormal
+        [sender setImage:[UIImage imageNamed:@"btn_confirm"] forState:UIControlStateNormal
          ];
+        [self initSelectState:NO];
     }
-    [_tableView reloadData];
     isOk=!isOk;
+    [_tableView reloadData];
+}
+- (IBAction)btn_left:(UIButton *)sender {
+    sender.selected=!sender.selected;
+    [self setSelectStateWith:sender.tag];
+    [_tableView reloadData];
+}
+-(void)initSelectState:(BOOL)isAll
+{
+    NSString *select=@"SEL";
+    NSString *noSelect=@"NOSEL";
+    for (int i=0; i<_subArray.count; i++) {
+        NSMutableArray *array=[[NSMutableArray alloc]init];
+        NSArray *ar=[_subArray objectAtIndex:i];
+        for (int j=0;j<ar.count;j++) {
+            if (isAll) {
+              [array addObject:select];
+            }else
+            {
+               [array addObject:noSelect];
+            }
+        }
+        [_dictData  setObject:array forKey:[NSString stringWithFormat:@"%d",i]];
+    }
+}
+-(void)setSelectStateWith:(NSInteger)section
+{
+    NSString *select=@"SEL";
+    NSString *noSelect=@"NOSEL";
+    NSMutableArray *array=[_dictData objectForKey:[NSString stringWithFormat:@"%d",section]];
+    for (int i=0;i<array.count; i++) {
+        if ([array[i] isEqualToString:@"SEL"]) {
+            array[i]=noSelect;
+        }else
+        {
+            array[i]=select;
+        }
+    }
+}
+-(BOOL)returnWithSection:(NSInteger)section
+{
+        NSMutableArray *array=[_dictData objectForKey:[NSString stringWithFormat:@"%d",section]];
+        for (int j=0; j<array.count; j++) {
+            if ([array[j] isEqualToString:@"NOSEL"]) {
+                return NO;
+            }
+        }
+    return YES;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

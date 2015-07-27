@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *cell_name;
 @property (weak, nonatomic) IBOutlet UILabel *cell_category;
 @property (strong,nonatomic)NSIndexPath *indexPath;
-@property (strong,nonatomic)NSString *selectAll;
+@property (nonatomic,assign)NSMutableDictionary  *dic;
 @end
