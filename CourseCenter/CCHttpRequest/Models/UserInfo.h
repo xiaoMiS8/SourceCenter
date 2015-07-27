@@ -15,6 +15,9 @@
 #define KGender                         @"Gender"
 #define KUserImg                        @"UserImg"
 #define kRole                           @"Role"
+#define kIsStudent                      @"IsStudent"
+#define kProgress                       @"Progress"
+
 @interface UserInfo : NSObject
 
     //用户ID
@@ -27,6 +30,10 @@
 @property(nonatomic, strong) NSString   *userImg;
     //身份（1教师2学生）
 @property(nonatomic, strong) NSString *Role;
+    ///是否学生
+@property(nonatomic, assign) BOOL IsStudent;
+    ///进度
+@property(nonatomic, assign) float Progress;
 
 - (id)initDict:(NSDictionary *)dict;
 

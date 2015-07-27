@@ -133,6 +133,7 @@
 		D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D452B8751B395BDF00F5A85E /* MoocFileInfo.m */; };
 		D45526B71B6279F7004FEBBB /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D45526B61B6279F7004FEBBB /* ProgressView.m */; };
 		D455A9B21B56AD4200358930 /* MsgAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D455A9B11B56AD4200358930 /* MsgAction.m */; };
+		D464D1A81B6685B0009A5ADB /* CGroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D464D1A71B6685B0009A5ADB /* CGroupInfo.m */; };
 		D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D46F48FD1B340E48001E8AEF /* OCourseInfo.m */; };
 		D483411B1B2EC30600373043 /* MyTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411A1B2EC30600373043 /* MyTextView.m */; };
 		D483411F1B2EC7ED00373043 /* NewNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D483411D1B2EC7ED00373043 /* NewNotificationViewController.m */; };
@@ -454,6 +455,8 @@
 		D45526B61B6279F7004FEBBB /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		D455A9B01B56AD4200358930 /* MsgAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgAction.h; sourceTree = "<group>"; };
 		D455A9B11B56AD4200358930 /* MsgAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgAction.m; sourceTree = "<group>"; };
+		D464D1A61B6685B0009A5ADB /* CGroupInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGroupInfo.h; sourceTree = "<group>"; };
+		D464D1A71B6685B0009A5ADB /* CGroupInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGroupInfo.m; sourceTree = "<group>"; };
 		D46F48FC1B340E48001E8AEF /* OCourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCourseInfo.h; sourceTree = "<group>"; };
 		D46F48FD1B340E48001E8AEF /* OCourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCourseInfo.m; sourceTree = "<group>"; };
 		D48341191B2EC30600373043 /* MyTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextView.h; sourceTree = "<group>"; };
@@ -802,6 +805,8 @@
 				06D1FADE1B57B54F00C18980 /* FileInfo.m */,
 				06460D521B663D160056DC8B /* FCourseInfo.h */,
 				06460D531B663D160056DC8B /* FCourseInfo.m */,
+				D464D1A61B6685B0009A5ADB /* CGroupInfo.h */,
+				D464D1A71B6685B0009A5ADB /* CGroupInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1551,6 +1556,7 @@
 				5963C3591B20017C00A09D30 /* ResponseObject.m in Sources */,
 				042E75C51B160C9100396AAF /* LoginViewController.m in Sources */,
 				D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */,
+				D464D1A81B6685B0009A5ADB /* CGroupInfo.m in Sources */,
 				D4F607BD1B33FBC700888FC4 /* IndexActions.m in Sources */,
 				D4459B801B63D60E00DEB780 /* BBsViewController.m in Sources */,
 				CA20AA361B5A663C00598370 /* TLTagsControl.m in Sources */,

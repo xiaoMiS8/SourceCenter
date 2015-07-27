@@ -18,6 +18,8 @@
 #import "MsgInfo.h"
 #import "GroupInfo.h"
 #import "FileInfo.h"
+#import "FCourseInfo.h"
+#import "CGroupInfo.h"
 
 #define Kresult             @"result"
 
@@ -219,7 +221,37 @@
             responseObject.resultArray = results;
         }
         
+    } else if ([flag isEqualToString:kApp_OCFC_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                FCourseInfo *fcourse = [[FCourseInfo alloc] initWithDict:array[i]];
+                [results addObject:fcourse];
+            }
+            responseObject.resultArray = results;
+        }
+
+    } else if ([flag isEqualToString:kApp_FCGroup_Get]) {
+        if (![resultObject[Kresult] isKindOfClass:[NSNull class]]) {
+            CGroupInfo *cgroup = [[CGroupInfo alloc] initWithDict:resultObject[Kresult]];
+            responseObject.resultObject = cgroup;
+        }
+    } else if ([flag isEqualToString:kApp_FCGroupUser_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                UserInfo *user = [[UserInfo alloc] initDict:array[i]];
+                [results addObject:user];
+            }
+            responseObject.resultArray = results;
+        }
+        
     }
+
 
 
 
