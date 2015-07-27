@@ -76,6 +76,30 @@
     //获取资料的列表信息
 #define kApp_File_Search                @"App_File_Search"
 
+    //翻转课堂列表
+#define kApp_OCFC_List                  @"App_OCFC_List"
+    //翻转课堂小组信息
+#define kApp_FCGroup_Get                @"App_FCGroup_Get"
+    //获取课堂成员
+#define kApp_FCGroupUser_List           @"App_FCGroupUser_List"
+    //翻转课堂成绩排名
+#define kApp_OCFCScoreRank_Get          @"App_OCFCScoreRank_Get"
+    //翻转课堂导航信息
+#define kOCFC_LearnNavInfo_Get          @"OCFC_LearnNavInfo_Get"
+
+    //获取翻转课堂详细
+#define kApp_OCFC_Get                   @"App_OCFC_Get"
+    //线上课堂资料列表
+#define kOCFCFile_List                  @"OCFCFile_List"
+    //线上课堂作业列表
+#define kOCFCLiveTest_List              @"OCFCLiveTest_List"
+    //线上课堂互动列表
+#define kOCFCLiveForum_List             @"OCFCLiveForum_List"
+    //翻转课堂线下课堂列表
+#define kOCFCOffline_List               @"OCFCOffline_List"
+    //翻转课堂小组的成绩统计
+#define kApp_OCFCScore_Group_Get        @"App_OCFCScore_Group_Get"
+
 
 
 #endif

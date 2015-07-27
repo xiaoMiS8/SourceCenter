@@ -1,0 +1,13 @@
+//
+//  FCourseInfo.m
+//  CourseCenter
+//
+//  Created by 永利宝 on 15/7/27.
+//  Copyright (c) 2015年 line0.com. All rights reserved.
+//
+
+#import "FCourseInfo.h"
+
+@implementation FCourseInfo
+
+@end
