@@ -21,6 +21,8 @@
 		042E75E71B16148A00396AAF /* UIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75DD1B16148A00396AAF /* UIWindow+Hierarchy.m */; };
 		042E75EB1B16176100396AAF /* FindPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75E91B16176100396AAF /* FindPasswordViewController.m */; };
 		042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042E75EA1B16176100396AAF /* FindPasswordViewController.xib */; };
+		06460D511B66205B0056DC8B /* FCourseAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 06460D501B66205B0056DC8B /* FCourseAction.m */; };
+		06460D541B663D160056DC8B /* FCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06460D531B663D160056DC8B /* FCourseInfo.m */; };
 		066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */; };
 		066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */; };
 		066A4DD51B54B333003D29AA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DD21B54B333003D29AA /* MBProgressHUD.m */; };
@@ -266,6 +268,10 @@
 		042E75E81B16176100396AAF /* FindPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindPasswordViewController.h; sourceTree = "<group>"; };
 		042E75E91B16176100396AAF /* FindPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindPasswordViewController.m; sourceTree = "<group>"; };
 		042E75EA1B16176100396AAF /* FindPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FindPasswordViewController.xib; sourceTree = "<group>"; };
+		06460D4F1B66205B0056DC8B /* FCourseAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseAction.h; sourceTree = "<group>"; };
+		06460D501B66205B0056DC8B /* FCourseAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseAction.m; sourceTree = "<group>"; };
+		06460D521B663D160056DC8B /* FCourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseInfo.h; sourceTree = "<group>"; };
+		06460D531B663D160056DC8B /* FCourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseInfo.m; sourceTree = "<group>"; };
 		066A4DCE1B54B333003D29AA /* MBProgressHUD+R.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+R.h"; sourceTree = "<group>"; };
 		066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+R.m"; sourceTree = "<group>"; };
 		066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
@@ -759,6 +765,8 @@
 				D455A9B11B56AD4200358930 /* MsgAction.m */,
 				06D1FAD71B57A6E300C18980 /* FileAction.h */,
 				06D1FAD81B57A6E300C18980 /* FileAction.m */,
+				06460D4F1B66205B0056DC8B /* FCourseAction.h */,
+				06460D501B66205B0056DC8B /* FCourseAction.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -792,6 +800,8 @@
 				06D1FAD51B57A0F400C18980 /* GroupInfo.m */,
 				06D1FADD1B57B54F00C18980 /* FileInfo.h */,
 				06D1FADE1B57B54F00C18980 /* FileInfo.m */,
+				06460D521B663D160056DC8B /* FCourseInfo.h */,
+				06460D531B663D160056DC8B /* FCourseInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1587,6 +1597,7 @@
 				CA20AA321B5A19A100598370 /* SendMesage.m in Sources */,
 				CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
+				06460D541B663D160056DC8B /* FCourseInfo.m in Sources */,
 				CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */,
 				D45526B71B6279F7004FEBBB /* ProgressView.m in Sources */,
 				D4459B8F1B63D75A00DEB780 /* CourseTabbarViewController.m in Sources */,
@@ -1603,6 +1614,7 @@
 				042E75E51B16148A00396AAF /* UIView+Hierarchy.m in Sources */,
 				042E75E31B16148A00396AAF /* IQToolbar.m in Sources */,
 				D4B2F39F1B033E51007B017E /* UIButton+AFNetworking.m in Sources */,
+				06460D511B66205B0056DC8B /* FCourseAction.m in Sources */,
 				CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */,
 				CA62FA0B1B42DCF700F80DE3 /* SubjectSearchViewController.m in Sources */,
 				59C478641B14044D008A49BF /* HomeListCell.m in Sources */,

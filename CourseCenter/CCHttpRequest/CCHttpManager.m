@@ -262,6 +262,87 @@
     
 }
 
+- (void)getAppOCFCListWithOCID:(long)OCID
+                      finished:(FinishedBlock)finished {
+    [FCourseAction getAppOCFCListWithOCID:OCID
+                                 finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppFCGroupWithOCID:(long)OCID
+                         FCID:(long)FCID
+                     finished:(FinishedBlock)finished {
+    [FCourseAction getAppFCGroupWithOCID:OCID
+                                    FCID:FCID
+                                finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppFCGroupUserListWithOCID:(long)OCID
+                                 FCID:(long)FCID
+                             finished:(FinishedBlock)finished {
+    [FCourseAction getAppFCGroupUserListWithOCID:OCID
+                                            FCID:FCID
+                                        finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppOCFCScoreRankWithFCID:(long)FCID
+                           finished:(FinishedBlock)finished {
+    [FCourseAction getAppOCFCScoreRankWithFCID:FCID finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppOCFCWithFCID:(long)FCID
+                  finished:(FinishedBlock)finished {
+    [FCourseAction getAppOCFCWithFCID:FCID
+                             finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getOCFCFileListWithFCID:(long)FCID
+                       finished:(FinishedBlock)finished {
+    [FCourseAction getOCFCFileListWithFCID:FCID
+                                  finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+- (void)getOCFCLiveTestListWithFCID:(long)FCID
+                           finished:(FinishedBlock)finished {
+    [FCourseAction getOCFCLiveTestListWithFCID:FCID
+                                      finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+- (void)getOCFCLiveForumListWithFCID:(long)FCID
+                            finished:(FinishedBlock)finished {
+    [FCourseAction getOCFCLiveForumListWithFCID:FCID
+                                       finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getOCFCOfflineListWithFCID:(long)FCID
+                          finished:(FinishedBlock)finished {
+    [FCourseAction getOCFCOfflineListWithFCID:FCID
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppOCFCScoreGroupWithFCID:(long)FCID
+                            finished:(FinishedBlock)finished {
+   [FCourseAction getAppOCFCScoreGroupWithFCID:FCID
+                                      finished:^(EnumServerStatus status, NSObject *object) {
+       finished(status, object);
+   }];
+}
+
 
 
 @end
