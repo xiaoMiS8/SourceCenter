@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好几只" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQp-Pl-XEE">
-                        <rect key="frame" x="56" y="13" width="42" height="20"/>
+                        <rect key="frame" x="56" y="20" width="42" height="20"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Au8-GM-MPe"/>
@@ -50,10 +50,10 @@
                 <animations/>
                 <constraints>
                     <constraint firstAttribute="centerY" secondItem="xNp-Es-HAa" secondAttribute="centerY" id="558-lu-zHb"/>
-                    <constraint firstItem="gQp-Pl-XEE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="AF5-ef-vJe"/>
                     <constraint firstItem="4Xj-qA-QRn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Ekl-Wk-ZMQ"/>
                     <constraint firstItem="xNp-Es-HAa" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="SEE-gf-1Wu"/>
                     <constraint firstItem="gQp-Pl-XEE" firstAttribute="leading" secondItem="4Xj-qA-QRn" secondAttribute="trailing" constant="5" id="Y6G-N4-X2q"/>
+                    <constraint firstAttribute="centerY" secondItem="gQp-Pl-XEE" secondAttribute="centerY" id="e1f-LD-432"/>
                     <constraint firstAttribute="bottomMargin" secondItem="4Xj-qA-QRn" secondAttribute="bottom" id="fwf-ve-Urp"/>
                     <constraint firstItem="4Xj-qA-QRn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hKz-cl-pfU"/>
                 </constraints>
@@ -63,7 +63,6 @@
                 <outlet property="headImag" destination="4Xj-qA-QRn" id="8qr-Ib-cdi"/>
                 <outlet property="headName" destination="gQp-Pl-XEE" id="ZY6-aV-eCg"/>
                 <outlet property="messageNum" destination="xNp-Es-HAa" id="nsq-sV-gum"/>
-                <outlet property="topLayoutConstraint" destination="AF5-ef-vJe" id="o00-ZT-OVM"/>
             </connections>
             <point key="canvasLocation" x="245" y="334.5"/>
         </tableViewCell>

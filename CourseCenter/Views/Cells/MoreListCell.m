@@ -25,9 +25,6 @@
 }
 -(void)setIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section!=0) {
-        self.topLayoutConstraint.constant= 9;
-    }
     switch (indexPath.section) {
         case 0:
             [self.headImag sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:HeadIMG]];
