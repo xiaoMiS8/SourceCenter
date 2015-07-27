@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface NewMessageCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *imgBtn;
 @property (weak, nonatomic) IBOutlet UILabel *cell_name;
 @property (weak, nonatomic) IBOutlet UILabel *cell_category;
 @property (strong,nonatomic)NSIndexPath *indexPath;
 @property (nonatomic,assign)NSMutableDictionary  *dic;
+@property (nonatomic,strong)NSMutableDictionary *info;
 @end
