@@ -1,14 +1,14 @@
 //
-//  FCourseInfo.m
+//  FCourseDetailInfo.m
 //  CourseCenter
 //
-//  Created by 永利宝 on 15/7/27.
+//  Created by 永利宝 on 15/7/28.
 //  Copyright (c) 2015年 line0.com. All rights reserved.
 //
 
-#import "FCourseInfo.h"
+#import "FCourseDetailInfo.h"
 
-@implementation FCourseInfo
+@implementation FCourseDetailInfo
 
 - (id)initWithDict:(NSDictionary *)dict {
     self = [super init];
@@ -21,6 +21,10 @@
         self.FCLiveGroupCount = [dict[kFCLiveGroupCount] intValue];
         self.ClassNames = dict[kClassNames];
         self.Progress = [dict[kProgress] floatValue];
+        self.OnlineProgress = [dict[kOnlineProgress] floatValue];
+        self.TestProgress = [dict[kTestProgress] floatValue];
+        self.TopicProgress = [dict[kTopicProgress] floatValue];
+        self.StudentScoreProgress = [dict[kStudentScoreProgress] floatValue];
     }
     return self;
 }

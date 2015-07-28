@@ -330,6 +330,15 @@
 - (void)getAppOCFCScoreRankWithFCID:(long)FCID
                            finished:(FinishedBlock)finished;
 /**
+ *  @brief  翻转课堂导航信息
+ *
+ *  @param OCID     在线课程ID
+ *  @param FCID     翻转课堂ID
+ *  @param finished finished description
+ */
+- (void)getOCFCLearnNavInfowithOCID:(long)OCID
+                               FCID:(long)FCID finished:(FinishedBlock)finished;
+/**
  *  @brief  获取翻转课堂详细
  *
  *  @param FCID      翻转课堂ID

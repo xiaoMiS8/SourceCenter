@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#define kFCID                       @"FCID"
+#define kTitle                      @"Title"
+#define kIsEnd                      @"IsEnd"
+#define kStartDate                  @"StartDate"
+#define kFCStudentCount             @"FCStudentCount"
+#define kFCLiveGroupCount           @"FCLiveGroupCount"
+#define kClassNames                 @"ClassNames"
+#define kProgress                   @"Progress"
+
 @interface FCourseInfo : NSObject
 
     ///翻转课堂ID
@@ -26,5 +35,7 @@
 @property(nonatomic, strong) NSString *ClassNames;
     ///总进度
 @property(nonatomic, assign) float Progress;
+
+- (id)initWithDict:(NSDictionary *)dict;
 
 @end

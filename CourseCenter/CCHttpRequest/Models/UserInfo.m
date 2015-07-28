@@ -20,6 +20,8 @@
         self.userImg = [dict objectForKey:KUserImg];
         self.gender = [[dict objectForKey:KGender] intValue];
         self.Role = dict[kRole];
+        self.IsStudent = [dict[kIsStudent] boolValue];
+        self.Progress = [dict[kProgress] floatValue];
     }
     return self;
 }

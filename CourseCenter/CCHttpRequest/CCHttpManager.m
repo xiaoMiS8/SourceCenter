@@ -297,6 +297,15 @@
     }];
 }
 
+- (void)getOCFCLearnNavInfowithOCID:(long)OCID
+                               FCID:(long)FCID finished:(FinishedBlock)finished {
+    [FCourseAction getOCFCLearnNavInfowithOCID:OCID
+                                          FCID:FCID
+                                      finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 - (void)getAppOCFCWithFCID:(long)FCID
                   finished:(FinishedBlock)finished {
     [FCourseAction getAppOCFCWithFCID:FCID

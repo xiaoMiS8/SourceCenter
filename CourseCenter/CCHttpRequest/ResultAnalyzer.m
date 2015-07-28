@@ -18,6 +18,15 @@
 #import "MsgInfo.h"
 #import "GroupInfo.h"
 #import "FileInfo.h"
+#import "FCourseInfo.h"
+#import "CGroupInfo.h"
+#import "FRankInfo.h"
+#import "OCFCLearnNavInfo.h"
+#import "FCourseDetailInfo.h"
+#import "OCFCFileInfo.h"
+#import "TestInfo.h"
+#import "LiveForumInfo.h"
+#import "FCOfflineInfo.h"
 
 #define Kresult             @"result"
 
@@ -219,12 +228,114 @@
             responseObject.resultArray = results;
         }
         
+    } else if ([flag isEqualToString:kApp_OCFC_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                FCourseInfo *fcourse = [[FCourseInfo alloc] initWithDict:array[i]];
+                [results addObject:fcourse];
+            }
+            responseObject.resultArray = results;
+        }
+
+    } else if ([flag isEqualToString:kApp_FCGroup_Get]) {
+        if (![resultObject[Kresult] isKindOfClass:[NSNull class]]) {
+            CGroupInfo *cgroup = [[CGroupInfo alloc] initWithDict:resultObject[Kresult]];
+            responseObject.resultObject = cgroup;
+        }
+    } else if ([flag isEqualToString:kApp_FCGroupUser_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                UserInfo *user = [[UserInfo alloc] initDict:array[i]];
+                [results addObject:user];
+            }
+            responseObject.resultArray = results;
+        }
+        
+    } else if ([flag isEqualToString:kApp_OCFCScoreRank_Get])
+    {
+        if (![resultObject[Kresult] isKindOfClass:[NSNull class]]) {
+            FRankInfo *frank = [[FRankInfo alloc] initWithDict:resultObject[Kresult]];
+            responseObject.resultObject = frank;
+        }
+    } else if ([flag isEqualToString:kOCFC_LearnNavInfo_Get])
+    {
+        if (![resultObject[Kresult] isKindOfClass:[NSNull class]]) {
+            OCFCLearnNavInfo *learnNav = [[OCFCLearnNavInfo alloc] initWithDict:resultObject[Kresult]];
+            responseObject.resultObject = learnNav;
+        }
+    } else if ([flag isEqualToString:kApp_OCFC_Get]) {
+        if (![resultObject[Kresult] isKindOfClass:[NSNull class]]) {
+            FCourseDetailInfo *fcourseDetail = [[FCourseDetailInfo alloc] initWithDict:resultObject[Kresult]];
+            responseObject.resultObject = fcourseDetail;
+        }
+    } else if ([flag isEqualToString:kOCFCFile_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                 OCFCFileInfo*file = [[OCFCFileInfo alloc] initWithDict:array[i]];
+                [results addObject:file];
+            }
+            responseObject.resultArray = results;
+        }
+        
+    } else if ([flag isEqualToString:kOCFCLiveTest_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                TestInfo *test = [[TestInfo alloc] initWithDict:array[i]];
+                [results addObject:test];
+            }
+            responseObject.resultArray = results;
+        }
+        
+    } else if ([flag isEqualToString:kOCFCLiveForum_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                LiveForumInfo *liveForum = [[LiveForumInfo alloc] initWithDict:array[i]];
+                [results addObject:liveForum];
+            }
+            responseObject.resultArray = results;
+        }
+        
+    } else if ([flag isEqualToString:kOCFCOffline_List]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                FCOfflineInfo *fcoffline = [[FCOfflineInfo alloc] initWithDict:array[i]];
+                [results addObject:fcoffline];
+            }
+            responseObject.resultArray = results;
+        }
+        
+    } else if ([flag isEqualToString:kApp_OCFCScore_Group_Get]) {
+        id result = [resultObject objectForKey:Kresult];
+        NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+        if ([result isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)result;
+            for (int i=0; i<array.count; i++) {
+                RankInfo *rank = [[RankInfo alloc] initWithDict:array[i]];
+                [results addObject:rank];
+            }
+            responseObject.resultArray = results;
+        }
+        
     }
 
-
-
-    
-    
     return responseObject;
 }
 

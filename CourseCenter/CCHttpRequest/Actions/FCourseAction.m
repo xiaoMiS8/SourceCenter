@@ -39,7 +39,7 @@
                              finished:(FinishedBlock)finished {
     NSDictionary *parameters = @{kOCID:[NSNumber numberWithLong:OCID],
                                  kFCID: [NSNumber numberWithLong:FCID]};
-    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/FC/App_FCGroup_Get"
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/FC/App_FCGroupUser_List"
                                   parameters:parameters
                                  connectFlag:kApp_FCGroupUser_List
                                     finished:^(EnumServerStatus status, NSObject *object) {
@@ -72,7 +72,7 @@
 + (void)getAppOCFCWithFCID:(long)FCID
                   finished:(FinishedBlock)finished {
     NSDictionary *parameters = @{kFCID:@(FCID)};
-    [CSNetAccessor sendGetAsyncObjectFormUrl:@"FC/App_OCFC_Get" parameters:parameters connectFlag:kApp_OCFC_Get finished:^(EnumServerStatus status, NSObject *object) {
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/FC/App_OCFC_Get" parameters:parameters connectFlag:kApp_OCFC_Get finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
@@ -80,7 +80,7 @@
 + (void)getOCFCFileListWithFCID:(long)FCID
                        finished:(FinishedBlock)finished {
     NSDictionary *parameters = @{kFCID:@(FCID)};
-    [CSNetAccessor sendGetAsyncObjectFormUrl:@"FC/OCFCFile_List" parameters:parameters connectFlag:kOCFCFile_List finished:^(EnumServerStatus status, NSObject *object) {
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/FC/OCFCFile_List" parameters:parameters connectFlag:kOCFCFile_List finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
@@ -88,7 +88,7 @@
 + (void)getOCFCLiveTestListWithFCID:(long)FCID
                            finished:(FinishedBlock)finished {
     NSDictionary *parameters = @{kFCID:@(FCID)};
-    [CSNetAccessor sendGetAsyncObjectFormUrl:@"FC/OCFCLiveTest_List" parameters:parameters connectFlag:kOCFCLiveTest_List finished:^(EnumServerStatus status, NSObject *object) {
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/FC/OCFCLiveTest_List" parameters:parameters connectFlag:kOCFCLiveTest_List finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
@@ -96,7 +96,7 @@
 + (void)getOCFCLiveForumListWithFCID:(long)FCID
                             finished:(FinishedBlock)finished {
     NSDictionary *parameters = @{kFCID:@(FCID)};
-    [CSNetAccessor sendGetAsyncObjectFormUrl:@"FC/OCFCLiveForum_List" parameters:parameters connectFlag:kOCFCLiveForum_List finished:^(EnumServerStatus status, NSObject *object) {
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/FC/OCFCLiveForum_List" parameters:parameters connectFlag:kOCFCLiveForum_List finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
@@ -104,7 +104,7 @@
 + (void)getOCFCOfflineListWithFCID:(long)FCID
                           finished:(FinishedBlock)finished {
     NSDictionary *parameters = @{kFCID:@(FCID)};
-    [CSNetAccessor sendGetAsyncObjectFormUrl:@"FC/OCFCOffline_List" parameters:parameters connectFlag:kOCFCOffline_List finished:^(EnumServerStatus status, NSObject *object) {
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/FC/OCFCOffline_List" parameters:parameters connectFlag:kOCFCOffline_List finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
@@ -112,7 +112,7 @@
 + (void)getAppOCFCScoreGroupWithFCID:(long)FCID
                             finished:(FinishedBlock)finished {
     NSDictionary *parameters = @{kFCID:@(FCID)};
-    [CSNetAccessor sendGetAsyncObjectFormUrl:@"FC/App_OCFCScore_Group_Get" parameters:parameters connectFlag:kApp_OCFCScore_Group_Get finished:^(EnumServerStatus status, NSObject *object) {
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/FC/App_OCFCScore_Group_Get" parameters:parameters connectFlag:kApp_OCFCScore_Group_Get finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
