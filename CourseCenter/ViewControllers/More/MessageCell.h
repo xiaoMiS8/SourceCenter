@@ -12,4 +12,5 @@
 
 @property (nonatomic, strong) CellFrameModel *cellFrame;
 
+@property (nonatomic,strong)NSMutableDictionary *dic;
 @end
