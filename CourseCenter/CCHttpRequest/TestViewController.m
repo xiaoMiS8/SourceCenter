@@ -60,7 +60,7 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell.textLabel.text isEqualToString:@"登录"]) {
-        [self.httpManager loginWithLoginName:@"able" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager loginWithLoginName:@"stu11" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"注销"]) {
@@ -161,7 +161,7 @@
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"翻转课堂成绩排名"]) {
-        [self.httpManager getAppOCFCScoreRankWithFCID:570 finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager getAppOCFCScoreRankWithFCID:175 finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"翻转课堂导航信息"]) {

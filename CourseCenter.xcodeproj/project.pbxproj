@@ -26,6 +26,15 @@
 		066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */; };
 		066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */; };
 		066A4DD51B54B333003D29AA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DD21B54B333003D29AA /* MBProgressHUD.m */; };
+		06B2149F1B6723DF00CE9A19 /* RankInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2149E1B6723DF00CE9A19 /* RankInfo.m */; };
+		06B214A21B6751A700CE9A19 /* FRankInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214A11B6751A700CE9A19 /* FRankInfo.m */; };
+		06B214A51B67563500CE9A19 /* OCFCFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214A41B67563500CE9A19 /* OCFCFileInfo.m */; };
+		06B214A81B675B7700CE9A19 /* SourceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214A71B675B7700CE9A19 /* SourceInfo.m */; };
+		06B214AB1B675D4D00CE9A19 /* FCOfflineInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214AA1B675D4D00CE9A19 /* FCOfflineInfo.m */; };
+		06B214AE1B675F5D00CE9A19 /* OCFCLearnNavInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214AD1B675F5D00CE9A19 /* OCFCLearnNavInfo.m */; };
+		06B214B11B6772AB00CE9A19 /* FCourseDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214B01B6772AB00CE9A19 /* FCourseDetailInfo.m */; };
+		06B214B41B67769C00CE9A19 /* TestInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214B31B67769C00CE9A19 /* TestInfo.m */; };
+		06B214B71B6778FC00CE9A19 /* LiveForumInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214B61B6778FC00CE9A19 /* LiveForumInfo.m */; };
 		06D1FAD61B57A0F400C18980 /* GroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1FAD51B57A0F400C18980 /* GroupInfo.m */; };
 		06D1FAD91B57A6E300C18980 /* FileAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1FAD81B57A6E300C18980 /* FileAction.m */; };
 		06D1FADF1B57B54F00C18980 /* FileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06D1FADE1B57B54F00C18980 /* FileInfo.m */; };
@@ -278,6 +287,24 @@
 		066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		066A4DD11B54B333003D29AA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		066A4DD21B54B333003D29AA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		06B2149D1B6723DF00CE9A19 /* RankInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankInfo.h; sourceTree = "<group>"; };
+		06B2149E1B6723DF00CE9A19 /* RankInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankInfo.m; sourceTree = "<group>"; };
+		06B214A01B6751A700CE9A19 /* FRankInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRankInfo.h; sourceTree = "<group>"; };
+		06B214A11B6751A700CE9A19 /* FRankInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRankInfo.m; sourceTree = "<group>"; };
+		06B214A31B67563500CE9A19 /* OCFCFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCFCFileInfo.h; sourceTree = "<group>"; };
+		06B214A41B67563500CE9A19 /* OCFCFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCFCFileInfo.m; sourceTree = "<group>"; };
+		06B214A61B675B7700CE9A19 /* SourceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceInfo.h; sourceTree = "<group>"; };
+		06B214A71B675B7700CE9A19 /* SourceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SourceInfo.m; sourceTree = "<group>"; };
+		06B214A91B675D4D00CE9A19 /* FCOfflineInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCOfflineInfo.h; sourceTree = "<group>"; };
+		06B214AA1B675D4D00CE9A19 /* FCOfflineInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCOfflineInfo.m; sourceTree = "<group>"; };
+		06B214AC1B675F5D00CE9A19 /* OCFCLearnNavInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCFCLearnNavInfo.h; sourceTree = "<group>"; };
+		06B214AD1B675F5D00CE9A19 /* OCFCLearnNavInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCFCLearnNavInfo.m; sourceTree = "<group>"; };
+		06B214AF1B6772AB00CE9A19 /* FCourseDetailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseDetailInfo.h; sourceTree = "<group>"; };
+		06B214B01B6772AB00CE9A19 /* FCourseDetailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseDetailInfo.m; sourceTree = "<group>"; };
+		06B214B21B67769C00CE9A19 /* TestInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestInfo.h; sourceTree = "<group>"; };
+		06B214B31B67769C00CE9A19 /* TestInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestInfo.m; sourceTree = "<group>"; };
+		06B214B51B6778FC00CE9A19 /* LiveForumInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveForumInfo.h; sourceTree = "<group>"; };
+		06B214B61B6778FC00CE9A19 /* LiveForumInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveForumInfo.m; sourceTree = "<group>"; };
 		06D1FAD41B57A0F300C18980 /* GroupInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInfo.h; sourceTree = "<group>"; };
 		06D1FAD51B57A0F400C18980 /* GroupInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupInfo.m; sourceTree = "<group>"; };
 		06D1FAD71B57A6E300C18980 /* FileAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileAction.h; sourceTree = "<group>"; };
@@ -805,8 +832,26 @@
 				06D1FADE1B57B54F00C18980 /* FileInfo.m */,
 				06460D521B663D160056DC8B /* FCourseInfo.h */,
 				06460D531B663D160056DC8B /* FCourseInfo.m */,
+				06B214AF1B6772AB00CE9A19 /* FCourseDetailInfo.h */,
+				06B214B01B6772AB00CE9A19 /* FCourseDetailInfo.m */,
 				D464D1A61B6685B0009A5ADB /* CGroupInfo.h */,
 				D464D1A71B6685B0009A5ADB /* CGroupInfo.m */,
+				06B2149D1B6723DF00CE9A19 /* RankInfo.h */,
+				06B2149E1B6723DF00CE9A19 /* RankInfo.m */,
+				06B214A01B6751A700CE9A19 /* FRankInfo.h */,
+				06B214A11B6751A700CE9A19 /* FRankInfo.m */,
+				06B214A31B67563500CE9A19 /* OCFCFileInfo.h */,
+				06B214A41B67563500CE9A19 /* OCFCFileInfo.m */,
+				06B214A61B675B7700CE9A19 /* SourceInfo.h */,
+				06B214A71B675B7700CE9A19 /* SourceInfo.m */,
+				06B214A91B675D4D00CE9A19 /* FCOfflineInfo.h */,
+				06B214AA1B675D4D00CE9A19 /* FCOfflineInfo.m */,
+				06B214AC1B675F5D00CE9A19 /* OCFCLearnNavInfo.h */,
+				06B214AD1B675F5D00CE9A19 /* OCFCLearnNavInfo.m */,
+				06B214B21B67769C00CE9A19 /* TestInfo.h */,
+				06B214B31B67769C00CE9A19 /* TestInfo.m */,
+				06B214B51B6778FC00CE9A19 /* LiveForumInfo.h */,
+				06B214B61B6778FC00CE9A19 /* LiveForumInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1485,12 +1530,15 @@
 				D4B2F3F41B034265007B017E /* UIButton+WebCache.m in Sources */,
 				D4B2F3A11B033E51007B017E /* UIProgressView+AFNetworking.m in Sources */,
 				D4459B941B63DEB100DEB780 /* TuorialDetailViewController.m in Sources */,
+				06B214AB1B675D4D00CE9A19 /* FCOfflineInfo.m in Sources */,
 				D4459B761B63D5C900DEB780 /* TutorialViewController.m in Sources */,
 				D4E1FF151B613A5C00D5773D /* MyCourseListCell.m in Sources */,
 				D4DF088F1B5B94CA00B816DD /* QBAssetsCollectionViewController.m in Sources */,
+				06B214A81B675B7700CE9A19 /* SourceInfo.m in Sources */,
 				59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */,
 				CA20AA3A1B5A979500598370 /* MyData.m in Sources */,
 				D4B2F3A21B033E51007B017E /* UIRefreshControl+AFNetworking.m in Sources */,
+				06B214A21B6751A700CE9A19 /* FRankInfo.m in Sources */,
 				D4B2F3A31B033E51007B017E /* UIWebView+AFNetworking.m in Sources */,
 				D4DF08981B5B970500B816DD /* NewNotimgCell.m in Sources */,
 				D4B2F3E41B034265007B017E /* MJRefreshGifHeader.m in Sources */,
@@ -1552,6 +1600,7 @@
 				374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */,
 				D4B2F3F51B034265007B017E /* UIImage+GIF.m in Sources */,
 				D4DF08901B5B94CA00B816DD /* QBAssetsCollectionViewLayout.m in Sources */,
+				06B214A51B67563500CE9A19 /* OCFCFileInfo.m in Sources */,
 				CA4E79AA1B64E3220079A05B /* NewMessage.m in Sources */,
 				5963C3591B20017C00A09D30 /* ResponseObject.m in Sources */,
 				042E75C51B160C9100396AAF /* LoginViewController.m in Sources */,
@@ -1568,10 +1617,12 @@
 				D4B2F3A01B033E51007B017E /* UIImageView+AFNetworking.m in Sources */,
 				D4B2F3F21B034265007B017E /* SDWebImageManager.m in Sources */,
 				D4B2F3EF1B034265007B017E /* SDWebImageDecoder.m in Sources */,
+				06B2149F1B6723DF00CE9A19 /* RankInfo.m in Sources */,
 				52C8EED91B4E9F3A00BDBE76 /* SearchCore.mm in Sources */,
 				D4B2F3961B033E51007B017E /* AFNetworkReachabilityManager.m in Sources */,
 				CA20AA4E1B5AB39300598370 /* DetailDataCell.m in Sources */,
 				D455A9B21B56AD4200358930 /* MsgAction.m in Sources */,
+				06B214B11B6772AB00CE9A19 /* FCourseDetailInfo.m in Sources */,
 				D4BA5E681B56C3B500580C19 /* MsgInfo.m in Sources */,
 				D4459B991B63E09B00DEB780 /* CourseBaseViewController.m in Sources */,
 				D4B2F39B1B033E51007B017E /* AFURLSessionManager.m in Sources */,
@@ -1592,6 +1643,7 @@
 				D4B2F3E11B034265007B017E /* MJRefreshConst.m in Sources */,
 				599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */,
 				D4B2F3E31B034265007B017E /* MJRefreshGifFooter.m in Sources */,
+				06B214B41B67769C00CE9A19 /* TestInfo.m in Sources */,
 				59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */,
 				D4DF08911B5B94CA00B816DD /* QBImagePickerController.m in Sources */,
 				CACBFC921B540BF900FAD388 /* CellFrameModel.m in Sources */,
@@ -1602,6 +1654,7 @@
 				CADD22251B526BA300A4F3D2 /* SetViewController.m in Sources */,
 				CA20AA321B5A19A100598370 /* SendMesage.m in Sources */,
 				CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */,
+				06B214AE1B675F5D00CE9A19 /* OCFCLearnNavInfo.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
 				06460D541B663D160056DC8B /* FCourseInfo.m in Sources */,
 				CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */,
@@ -1618,6 +1671,7 @@
 				CA20AA2D1B59F11800598370 /* NewMessageCell.m in Sources */,
 				CACBFC8D1B540B5600FAD388 /* ChatViewController.m in Sources */,
 				042E75E51B16148A00396AAF /* UIView+Hierarchy.m in Sources */,
+				06B214B71B6778FC00CE9A19 /* LiveForumInfo.m in Sources */,
 				042E75E31B16148A00396AAF /* IQToolbar.m in Sources */,
 				D4B2F39F1B033E51007B017E /* UIButton+AFNetworking.m in Sources */,
 				06460D511B66205B0056DC8B /* FCourseAction.m in Sources */,

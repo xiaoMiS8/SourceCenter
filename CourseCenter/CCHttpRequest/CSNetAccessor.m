@@ -19,6 +19,7 @@
     NSString *URLString = [partURL stringByAppendingString:urlStr];
     DLog(@"url:---%@,参数:----%@",URLString,parameters);
     AFHTTPSessionManager *manager = [AFHTTPSessionManager new];
+    [manager.requestSerializer setHTTPShouldHandleCookies:YES];
     [manager POST:URLString
        parameters:parameters
           success:^(NSURLSessionDataTask *task, id responseObject) {
