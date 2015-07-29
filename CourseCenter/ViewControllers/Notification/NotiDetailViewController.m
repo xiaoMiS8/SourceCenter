@@ -122,22 +122,22 @@
     }
 }
 
-- (void)textViewDidChange:(UITextView *)textView {
-    if (textView.text) {
-        CGRect tempRect = textView.frame;
-        tempRect.size.height = self.textView.contentSize.height;
-        textView.frame = tempRect;
-        for (NSLayoutConstraint *constraint in self.bomView.constraints) {
-            if (constraint.firstItem == self.bomView && constraint.firstAttribute == NSLayoutAttributeHeight) {
-                constraint.constant = tempRect.size.height + 10;
-            }
-        }
-        self.sendBtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, tempRect.size.height + 10 - 40, 40, 40);
-        [self.view layoutIfNeeded];
-        [self.view updateConstraintsIfNeeded];
-    }
-
-}
+//- (void)textViewDidChange:(UITextView *)textView {
+//    if (textView.text) {
+//        CGRect tempRect = textView.frame;
+//        tempRect.size.height = self.textView.contentSize.height;
+//        textView.frame = tempRect;
+//        for (NSLayoutConstraint *constraint in self.bomView.constraints) {
+//            if (constraint.firstItem == self.bomView && constraint.firstAttribute == NSLayoutAttributeHeight) {
+//                constraint.constant = tempRect.size.height + 10;
+//            }
+//        }
+//        self.sendBtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width - 50, tempRect.size.height + 10 - 40, 40, 40);
+//        [self.view layoutIfNeeded];
+//        [self.view updateConstraintsIfNeeded];
+//    }
+//
+//}
 
 
     //得到字符串的size

@@ -14,6 +14,7 @@
 #import "MsgAction.h"
 #import "FileAction.h"
 #import "FCourseAction.h"
+#import "BbsAction.h"
 @interface CCHttpManager : NSObject
 
 #pragma mark- User
@@ -386,7 +387,29 @@
  */
 - (void)getAppOCFCScoreGroupWithFCID:(long)FCID
                             finished:(FinishedBlock)finished;
+#pragma mark- BBS
 
-
+/**
+ *  @brief  获取论坛列表
+ *
+ *  @param OCID        OCID
+ *  @param ForumTypeID 板块ID,0表示全部版块
+ *  @param IsEssence   是否精华
+ *  @param IsMyStart   是否我创建
+ *  @param IsMyJoin    是否我参与
+ *  @param SearchKey   关键字
+ *  @param PageIndex   PageIndex
+ *  @param PageSize    PageSize
+ *  @param finished    finished
+ */
+- (void)getAppForumTopicListWithOCID:(long)OCID
+                         ForumTypeID:(long)ForumTypeID
+                           IsEssence:(BOOL)IsEssence
+                           IsMyStart:(BOOL)IsMyStart
+                            IsMyJoin:(BOOL)IsMyJoin
+                           SearchKey:(NSString *)SearchKey
+                           PageIndex:(int)PageIndex
+                            PageSize:(int)PageSize
+                            finished:(FinishedBlock)finished;
 
 @end
