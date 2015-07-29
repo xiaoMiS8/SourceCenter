@@ -21,4 +21,8 @@
 + (ResponseObject *)analyseResultObject:(NSString *)resultString
                            connecteFlag:(NSString *)flag;
 
+    //字典类型的数据解析
++ (ResponseObject *)analyseResult:(NSDictionary *)resultObject
+                     connecteClass:(Class)Class;
+
 @end

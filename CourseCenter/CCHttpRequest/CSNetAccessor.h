@@ -36,4 +36,15 @@ typedef void (^FinishedBlock)(EnumServerStatus status,NSObject *object);
                        connectFlag:(NSString *)flag
                           finished:(FinishedBlock)finished;
 
+    ///发送一个post异步请求
++ (void)sendPostAsyncObjectFormUrl:(NSString *)urlStr
+                        parameters:(id)parameters
+                       connectClass:(Class)Class
+                          finished:(FinishedBlock)finished;
+    ///发送一个get异步请求
++ (void)sendGetAsyncObjectFormUrl:(NSString *)urlStr
+                       parameters:(id)parameters
+                      connectClass:(Class)Class
+                         finished:(FinishedBlock)finished;
+
 @end

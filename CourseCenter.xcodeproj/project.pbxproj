@@ -23,9 +23,12 @@
 		042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042E75EA1B16176100396AAF /* FindPasswordViewController.xib */; };
 		06460D511B66205B0056DC8B /* FCourseAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 06460D501B66205B0056DC8B /* FCourseAction.m */; };
 		06460D541B663D160056DC8B /* FCourseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06460D531B663D160056DC8B /* FCourseInfo.m */; };
+		065C03951B68AF630090EA46 /* BbsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 065C03941B68AF630090EA46 /* BbsAction.m */; };
+		065C03981B68B16D0090EA46 /* TopicInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 065C03971B68B16D0090EA46 /* TopicInfo.m */; };
 		066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */; };
 		066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */; };
 		066A4DD51B54B333003D29AA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 066A4DD21B54B333003D29AA /* MBProgressHUD.m */; };
+		06A53B0D1B68D41800C1580D /* TopicResponseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06A53B0C1B68D41800C1580D /* TopicResponseInfo.m */; };
 		06B2149F1B6723DF00CE9A19 /* RankInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B2149E1B6723DF00CE9A19 /* RankInfo.m */; };
 		06B214A21B6751A700CE9A19 /* FRankInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214A11B6751A700CE9A19 /* FRankInfo.m */; };
 		06B214A51B67563500CE9A19 /* OCFCFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B214A41B67563500CE9A19 /* OCFCFileInfo.m */; };
@@ -282,11 +285,17 @@
 		06460D501B66205B0056DC8B /* FCourseAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseAction.m; sourceTree = "<group>"; };
 		06460D521B663D160056DC8B /* FCourseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseInfo.h; sourceTree = "<group>"; };
 		06460D531B663D160056DC8B /* FCourseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseInfo.m; sourceTree = "<group>"; };
+		065C03931B68AF630090EA46 /* BbsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BbsAction.h; sourceTree = "<group>"; };
+		065C03941B68AF630090EA46 /* BbsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BbsAction.m; sourceTree = "<group>"; };
+		065C03961B68B16D0090EA46 /* TopicInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicInfo.h; sourceTree = "<group>"; };
+		065C03971B68B16D0090EA46 /* TopicInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicInfo.m; sourceTree = "<group>"; };
 		066A4DCE1B54B333003D29AA /* MBProgressHUD+R.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+R.h"; sourceTree = "<group>"; };
 		066A4DCF1B54B333003D29AA /* MBProgressHUD+R.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+R.m"; sourceTree = "<group>"; };
 		066A4DD01B54B333003D29AA /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		066A4DD11B54B333003D29AA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		066A4DD21B54B333003D29AA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		06A53B0B1B68D41800C1580D /* TopicResponseInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicResponseInfo.h; sourceTree = "<group>"; };
+		06A53B0C1B68D41800C1580D /* TopicResponseInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicResponseInfo.m; sourceTree = "<group>"; };
 		06B2149D1B6723DF00CE9A19 /* RankInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankInfo.h; sourceTree = "<group>"; };
 		06B2149E1B6723DF00CE9A19 /* RankInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankInfo.m; sourceTree = "<group>"; };
 		06B214A01B6751A700CE9A19 /* FRankInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRankInfo.h; sourceTree = "<group>"; };
@@ -797,6 +806,8 @@
 				06D1FAD81B57A6E300C18980 /* FileAction.m */,
 				06460D4F1B66205B0056DC8B /* FCourseAction.h */,
 				06460D501B66205B0056DC8B /* FCourseAction.m */,
+				065C03931B68AF630090EA46 /* BbsAction.h */,
+				065C03941B68AF630090EA46 /* BbsAction.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -852,6 +863,10 @@
 				06B214B31B67769C00CE9A19 /* TestInfo.m */,
 				06B214B51B6778FC00CE9A19 /* LiveForumInfo.h */,
 				06B214B61B6778FC00CE9A19 /* LiveForumInfo.m */,
+				065C03961B68B16D0090EA46 /* TopicInfo.h */,
+				065C03971B68B16D0090EA46 /* TopicInfo.m */,
+				06A53B0B1B68D41800C1580D /* TopicResponseInfo.h */,
+				06A53B0C1B68D41800C1580D /* TopicResponseInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1413,7 +1428,7 @@
 				TargetAttributes = {
 					D4B2F2F01B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = YQV68UZ2XR;
+						DevelopmentTeam = DRJ42M455V;
 					};
 					D4B2F30C1B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1564,6 +1579,7 @@
 				5963C36E1B202C8200A09D30 /* UserInfo.m in Sources */,
 				5963C35C1B200E0600A09D30 /* UserActions.m in Sources */,
 				59EC888F1B184249009495A6 /* NotiDetailViewController.m in Sources */,
+				06A53B0D1B68D41800C1580D /* TopicResponseInfo.m in Sources */,
 				D4B2F3981B033E51007B017E /* AFURLConnectionOperation.m in Sources */,
 				D4B2F32C1B02FC03007B017E /* TabBarViewController.m in Sources */,
 				CADD22431B52C72000A4F3D2 /* IdeaWithVersion.m in Sources */,
@@ -1583,6 +1599,7 @@
 				5963C36A1B2024A700A09D30 /* TestViewController.m in Sources */,
 				D4B2F3991B033E51007B017E /* AFURLRequestSerialization.m in Sources */,
 				D49C64ED1B3941BC006B6D37 /* ChapterInfo.m in Sources */,
+				065C03981B68B16D0090EA46 /* TopicInfo.m in Sources */,
 				CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
 				CA20AA441B5AB25100598370 /* DetailData.m in Sources */,
@@ -1636,6 +1653,7 @@
 				D4B2F3F01B034265007B017E /* SDWebImageDownloader.m in Sources */,
 				D4B2F3FA1B034265007B017E /* UIView+WebCacheOperation.m in Sources */,
 				D4B2F3E91B034265007B017E /* UIScrollView+MJRefresh.m in Sources */,
+				065C03951B68AF630090EA46 /* BbsAction.m in Sources */,
 				042E75E21B16148A00396AAF /* IQTitleBarButtonItem.m in Sources */,
 				9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */,
 				CACBFC9E1B540C6D00FAD388 /* UIImage+ResizeImage.m in Sources */,
@@ -1777,7 +1795,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "72be13a7-169b-4bb9-ab40-db67f9deea1e";
+				PROVISIONING_PROFILE = "4e940a60-9ace-4425-bb69-2218b5dcc4b7";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1814,7 +1832,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "72be13a7-169b-4bb9-ab40-db67f9deea1e";
+				PROVISIONING_PROFILE = "4e940a60-9ace-4425-bb69-2218b5dcc4b7";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1826,6 +1844,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1841,6 +1860,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

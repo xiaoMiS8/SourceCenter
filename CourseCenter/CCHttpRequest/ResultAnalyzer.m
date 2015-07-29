@@ -344,4 +344,27 @@
     return nil;
 }
 
+    //字典类型的数据解析
++ (ResponseObject *)analyseResult:(NSDictionary *)resultObject
+                    connecteClass:(Class)Class {
+    ResponseObject *responseObject = [[ResponseObject alloc] initWithDict:resultObject];
+    responseObject.message = responseObject.errorMessage;
+    if ([Tool dicContainsKey:resultObject keyValue:Kresult]) {
+        id reslut = resultObject[Kresult];
+        if ([reslut isKindOfClass:[NSArray class]]) {
+            NSArray *array = (NSArray *)reslut;
+             NSMutableArray *resluts = [[NSMutableArray alloc] initWithCapacity:0];
+            for (int i=0; i<array.count; i++) {
+                id reslut = [[Class alloc] initWithDict:array[i]];
+                [resluts addObject:reslut];
+            }
+            responseObject.resultArray = resluts;
+        } else {
+            id reslut = [[Class alloc] initWithDict:resultObject[Kresult]];
+            responseObject.resultObject =reslut;
+        }
+    }
+    return responseObject;
+}
+
 @end
