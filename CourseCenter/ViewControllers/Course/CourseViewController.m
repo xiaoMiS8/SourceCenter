@@ -9,7 +9,7 @@
 #import "CourseViewController.h"
 #import "MyCourseListCell.h"
 #import "CCHttpManager.h"
-
+#import "LoginViewController.h"
 #import "CourseTabbarViewController.h"
 #import "TutorialViewController.h"
 #import "FCourseViewController.h"
@@ -19,8 +19,13 @@
 #import "LineNavigationController.h"
 
 @interface CourseViewController ()
+{
+    NSString *loginState;
+}
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *loginPrompt;
+@property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property(nonatomic, strong) CCHttpManager *manager;
 @property(nonatomic, strong) NSMutableArray *OCList;
 
@@ -30,13 +35,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _loginBtn.layer.masksToBounds=YES;
+    _loginBtn.layer.cornerRadius=5;
     [self initmanager];
     [self setCell];
-    [self loadData];
+    [self isLoginOrCourse];
     
   
 }
-
+-(void)isLoginOrCourse
+{
+    loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        _tableView.hidden=YES;
+        _loginBtn.hidden=NO;
+        _loginPrompt.hidden=NO;
+        _topLabel.hidden=YES;
+    }else
+    {
+        _tableView.hidden=NO;
+        _loginBtn.hidden=YES;
+        _loginPrompt.hidden=YES;
+        _topLabel.hidden=NO;
+        [self loadData];
+    }
+}
 - (void)setCenterImg:(UIImageView *)centerImg {
     _centerImg = centerImg;
      centerImg.image = [UIImage imageNamed:@"iconpro"];
@@ -115,7 +138,15 @@
     return tabbar;
     
 }
-
+- (IBAction)gotoLogin:(UIButton *)sender {
+    LoginViewController *loginSearchVC = [LoginViewController new];
+    loginSearchVC.block=^()
+    {
+        ((AppDelegate *)app).tabar.ThreeLoginState=@"1";
+        [self isLoginOrCourse];
+    };
+    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
