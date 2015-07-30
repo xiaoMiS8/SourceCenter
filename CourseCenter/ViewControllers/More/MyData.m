@@ -137,7 +137,7 @@
     if (seg.selectedSegmentIndex==0) {
         CourseData *courseData=[[CourseData alloc]init];
         courseData.title=((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Name;
-        [((AppDelegate *)app).nav pushViewController:courseData animated:YES];
+        [self.navigationController pushViewController:courseData animated:YES];
     }else
     {
         DetailData *detailData=[[DetailData alloc]init];
