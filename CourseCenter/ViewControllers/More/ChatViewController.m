@@ -10,6 +10,7 @@
 #import "CellFrameModel.h"
 #import "MessageCell.h"
 #import "IQKeyboardManager.h"
+#import "MsgInfo.h"
 #define kToolBarH 44
 #define kTextFieldH 30
 
@@ -20,6 +21,9 @@
     UIImageView *_toolBar;
     
 }
+@property(nonatomic, strong)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
+@property (nonatomic,strong)NSMutableArray *myDataArray;
 @end
 
 @implementation ChatViewController
@@ -38,17 +42,49 @@
     [super viewDidLoad];
     self.title=@"林媚";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
-    //0.加载数据
-    [self loadData];
-    
+    self.httpManager = [[CCHttpManager alloc]init];
+    self.myDataArray=[[NSMutableArray alloc]init];
+    [self initMsg];
     //1.tableView
     [self addChatView];
-    
     //2.工具栏
     [self addToolBar];
 }
+-(void)initMsg
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getAppMessageWithUserID:183 finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.myDataArray=self.reob.resultArray;
+                [self readDataForPlistWithArray:self.reob.resultArray];
+                //0.加载数据
+                [self loadData];
+                [_chatView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+-(void)readDataForPlistWithArray:(NSMutableArray *)array
+{
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"messages" ofType:@"plist"];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
+    [data removeAllObjects];
+    [data writeToFile:plistPath atomically:YES];
+    NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
+    for (int i=0; i<array.count;i++) {
+        [dic setObject:((MsgInfo *)array[i]).Conten forKey:@"text"];
+        [dic setObject:((MsgInfo *)array[i]).CreateTime forKey:@"time"];
+        [dic setObject:((MsgInfo *)array[i]).SendOrReceive forKey:@"type"];
+        [data addObject:dic];
+    }
+    [data writeToFile:plistPath atomically:YES];
 
+}
 /**
  *  记载数据
  */
@@ -137,7 +173,7 @@
     if (cell == nil) {
         cell = [[MessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
+    cell.dic=[_myDataArray objectAtIndex:indexPath.row];
     cell.cellFrame = _cellFrameDatas[indexPath.row];
     
     return cell;

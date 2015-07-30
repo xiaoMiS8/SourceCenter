@@ -1,8 +1,8 @@
 //
-//  DetailData.m
+//  CourseDataDetailViewController.m
 //  CourseCenter
 //
-//  Created by 2345 on 15/7/19.
+//  Created by 永利宝 on 15/7/30.
 //  Copyright (c) 2015年 line0.com. All rights reserved.
 //
 
@@ -13,19 +13,21 @@
 {
     FileInfo *fileInfo;
 }
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (strong,nonatomic)NSMutableArray *dataArray;
+
 @end
 
 @implementation DetailData
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+        // Do any additional setup after loading the view from its nib.
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailDataCell" bundle:nil] forCellReuseIdentifier:@"DetailDataCell"];
-     self.httpManager = [[CCHttpManager alloc]init];
+    self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray = [[NSMutableArray alloc]init];
     [self kLoadData];
 }
@@ -62,13 +64,13 @@
     DetailDataCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"DetailDataCell"];
     if(_dataArray.count!=0)
     {
-      cell.fileInfo=[_dataArray objectAtIndex:indexPath.row];
+        cell.fileInfo=[_dataArray objectAtIndex:indexPath.row];
     }
     return cell;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.
 }
 
 /*

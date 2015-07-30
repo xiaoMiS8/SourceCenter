@@ -352,6 +352,28 @@
    }];
 }
 
+- (void)getAppForumTopicListWithOCID:(long)OCID
+                         ForumTypeID:(long)ForumTypeID
+                           IsEssence:(BOOL)IsEssence
+                           IsMyStart:(BOOL)IsMyStart
+                            IsMyJoin:(BOOL)IsMyJoin
+                           SearchKey:(NSString *)SearchKey
+                           PageIndex:(int)PageIndex
+                            PageSize:(int)PageSize
+                            finished:(FinishedBlock)finished {
+    [BbsAction getAppForumTopicListWithOCID:OCID
+                                ForumTypeID:ForumTypeID
+                                  IsEssence:IsEssence
+                                  IsMyStart:IsMyStart
+                                   IsMyJoin:IsMyJoin
+                                  SearchKey:SearchKey
+                                  PageIndex:PageIndex
+                                   PageSize:PageSize
+                                   finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 
 
 @end

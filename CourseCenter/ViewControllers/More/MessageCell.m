@@ -10,7 +10,8 @@
 #import "CellFrameModel.h"
 #import "MessageModel.h"
 #import "UIImage+ResizeImage.h"
-
+#import "MsgInfo.h"
+#import "UIImageView+WebCache.h"
 @interface MessageCell()
 {
     UILabel *_timeLabel;
@@ -55,9 +56,9 @@
     _timeLabel.text = message.time;
     
     _iconView.frame = cellFrame.iconFrame;
-    NSString *iconStr = message.type ? @"other" : @"me";
-    _iconView.image = [UIImage imageNamed:iconStr];
-    
+//    NSString *iconStr = message.type ? @"other" : @"me";
+//    _iconView.image = [UIImage imageNamed:iconStr];
+    [ _iconView sd_setImageWithURL:[NSURL URLWithString:((MsgInfo *)_dic).UserImgUrl] placeholderImage:[UIImage imageNamed:@"other"]];
     _textView.frame = cellFrame.textFrame;
     NSString *textBg = message.type ? @"chat_recive_nor" : @"chat_send_nor";
     UIColor *textColor = message.type ? [UIColor blackColor] : [UIColor whiteColor];

@@ -22,8 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"接口测试";
-    self.items = @[@[@"登录",@"注销",@"个人信息",@"修改密码"],@[@"推荐课程",@"全部课程",@"学科列表",@"Mooc基本信息",@"课程章节",@"章节下资料列表"],@[@"获取未读消息数",@"发送消息消息列表",@"消息详细",@"发送消息",@"某人所在的所有教学班及组",@"教学班下联系人"],@[@"获取资源分类数量",@"获取某人的课程名称列表",@"获取资料的列表信息"],@[@"翻转课堂列表",@"翻转课堂小组信息",@"获取课堂成员",@"翻转课堂成绩排名",@"翻转课堂导航信息",@"获取翻转课堂详细",@"线上课堂资料列表",@"线上课堂作业列表",@"线上课堂互动列表",@"翻转课堂线下课堂列表",@"翻转课堂小组的成绩统计"]];
-    self.titles = @[@"用户",@"首页",@"消息中心",@"我的资料",@"翻转课堂"];
+    self.items = @[@[@"登录",@"注销",@"个人信息",@"修改密码"],@[@"推荐课程",@"全部课程",@"学科列表",@"Mooc基本信息",@"课程章节",@"章节下资料列表"],@[@"获取未读消息数",@"发送消息消息列表",@"消息详细",@"发送消息",@"某人所在的所有教学班及组",@"教学班下联系人"],@[@"获取资源分类数量",@"获取某人的课程名称列表",@"获取资料的列表信息"],@[@"翻转课堂列表",@"翻转课堂小组信息",@"获取课堂成员",@"翻转课堂成绩排名",@"翻转课堂导航信息",@"获取翻转课堂详细",@"线上课堂资料列表",@"线上课堂作业列表",@"线上课堂互动列表",@"翻转课堂线下课堂列表",@"翻转课堂小组的成绩统计"],@[@"获取论坛列表"]];
+    self.titles = @[@"用户",@"首页",@"消息中心",@"我的资料",@"翻转课堂",@"论坛"];
     self.httpManager = [CCHttpManager new];
 }
 
@@ -60,7 +60,7 @@
     
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell.textLabel.text isEqualToString:@"登录"]) {
-        [self.httpManager loginWithLoginName:@"able" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager loginWithLoginName:@"wang1" Pwd:@"1" finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"注销"]) {
@@ -161,7 +161,7 @@
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"翻转课堂成绩排名"]) {
-        [self.httpManager getAppOCFCScoreRankWithFCID:570 finished:^(EnumServerStatus status, NSObject *object) {
+        [self.httpManager getAppOCFCScoreRankWithFCID:175 finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     } else if ([cell.textLabel.text isEqualToString:@"翻转课堂导航信息"]) {
@@ -190,6 +190,10 @@
         }];
     } else if ([cell.textLabel.text isEqualToString:@"翻转课堂小组的成绩统计"]) {
         [self.httpManager getAppOCFCScoreGroupWithFCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+            resultVC.result = [NSString stringWithFormat:@"%@",object];
+        }];
+    } else if ([cell.textLabel.text isEqualToString:@"获取论坛列表"]) {
+        [self.httpManager getAppForumTopicListWithOCID:161 ForumTypeID:1 IsEssence:NO IsMyStart:NO IsMyJoin:NO SearchKey:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
             resultVC.result = [NSString stringWithFormat:@"%@",object];
         }];
     }
