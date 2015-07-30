@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8152.3" systemVersion="15A226f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8124.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CourseViewController">
             <connections>
+                <outlet property="loginBtn" destination="4gQ-L0-bRu" id="QmM-WE-0sZ"/>
+                <outlet property="loginPrompt" destination="GlG-BP-S4k" id="rR3-Bo-ffm"/>
                 <outlet property="tableView" destination="5n0-eZ-ID7" id="qZn-6S-CMJ"/>
                 <outlet property="topLabel" destination="GWw-Zt-MSO" id="HtC-EZ-AeH"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -18,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5n0-eZ-ID7">
-                    <rect key="frame" x="0.0" y="50.5" width="600" height="500.5"/>
+                    <rect key="frame" x="0.0" y="40" width="600" height="510.5"/>
                     <animations/>
                     <color key="backgroundColor" red="0.95686274509803926" green="0.95686274509803926" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -26,22 +28,56 @@
                         <outlet property="delegate" destination="-1" id="iGI-00-5AK"/>
                     </connections>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的课程" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWw-Zt-MSO">
-                    <rect key="frame" x="20" y="20" width="68" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你还没有登录哦!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlG-BP-S4k">
+                    <rect key="frame" x="245" y="291" width="109.5" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-L0-bRu">
+                    <rect key="frame" x="235" y="311" width="130" height="50"/>
+                    <color key="backgroundColor" red="0.1217235269" green="0.73243667320000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="130" id="KNU-WK-zt0"/>
+                        <constraint firstAttribute="height" constant="50" id="TRa-wU-ZuO"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="YZ2-MV-QKy"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="130" id="tI4-wu-gdw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="gotoLogin:" destination="-1" eventType="touchUpInside" id="XO3-sI-rvp"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    我的课程" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWw-Zt-MSO">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
                     <animations/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="8Ud-Yz-GIV"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.8666666666666667" green="0.87058823529411766" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="5n0-eZ-ID7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2Lg-C7-kgS"/>
-                <constraint firstItem="GWw-Zt-MSO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="TpZ-yA-BNF"/>
+                <constraint firstAttribute="trailing" secondItem="GWw-Zt-MSO" secondAttribute="trailing" id="2aH-e6-ggw"/>
+                <constraint firstItem="4gQ-L0-bRu" firstAttribute="top" secondItem="GlG-BP-S4k" secondAttribute="bottom" constant="2" id="5Ms-YI-a5v"/>
+                <constraint firstAttribute="centerX" secondItem="4gQ-L0-bRu" secondAttribute="centerX" id="HeX-Jg-19P"/>
+                <constraint firstAttribute="centerY" secondItem="GlG-BP-S4k" secondAttribute="centerY" id="Hth-Ox-yRt"/>
+                <constraint firstItem="GWw-Zt-MSO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TpZ-yA-BNF"/>
                 <constraint firstAttribute="bottom" secondItem="5n0-eZ-ID7" secondAttribute="bottom" constant="49" id="ZlF-bt-BOg"/>
-                <constraint firstItem="GWw-Zt-MSO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aoS-5I-F42"/>
-                <constraint firstItem="5n0-eZ-ID7" firstAttribute="top" secondItem="GWw-Zt-MSO" secondAttribute="bottom" constant="10" id="sZA-4W-WNz"/>
+                <constraint firstItem="GWw-Zt-MSO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aoS-5I-F42"/>
+                <constraint firstAttribute="centerX" secondItem="GlG-BP-S4k" secondAttribute="centerX" id="nBn-mc-8wT"/>
+                <constraint firstItem="5n0-eZ-ID7" firstAttribute="top" secondItem="GWw-Zt-MSO" secondAttribute="bottom" id="sZA-4W-WNz"/>
                 <constraint firstAttribute="trailing" secondItem="5n0-eZ-ID7" secondAttribute="trailing" id="tsT-It-CFW"/>
             </constraints>
         </view>
