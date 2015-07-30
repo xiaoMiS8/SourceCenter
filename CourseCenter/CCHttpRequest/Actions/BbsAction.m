@@ -62,10 +62,136 @@
     NSDictionary *parameters = @{kTopicID: @(TopicID)};
     [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Forum/App_ForumResponseInfo_List"
                                   parameters:parameters
-                                connectClass:[TopicInfo class]
+                                connectClass:[TopicResponseInfo class]
                                     finished:^(EnumServerStatus status, NSObject *object) {
                                         finished(status, object);
                                     }];
+}
+
++ (void)addForumResponseWithTopicID:(long)TopicID
+                           ParentID:(long)ParentID
+                             Conten:(NSString *)Conten
+                           finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kTopicID: @(TopicID),
+                                 kParentID: @(ParentID),
+                                 kConten: Conten
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumResponse_ADD"
+                                   parameters:parameters
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)getForumTypeListwithOCID:(long)OCID
+                        finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kOCID: @(OCID)};
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Forum/ForumType_List"
+                                  parameters:parameters
+                                connectClass:[ForumTypeInfo class]
+                                    finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)addForumTypeWithOCID:(long)OCID
+                    CourseID:(long)CourseID
+                       Title:(NSString *)Title
+                   IsEssence:(BOOL)IsEssence
+                    IsPublic:(BOOL)IsPublic
+                       Brief:(NSString *)Brief
+             TeachingClassID:(long)TeachingClassID
+                       IsSys:(BOOL)IsSys
+                    finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kOCID: @(OCID),
+                                 kCourseID: @(CourseID),
+                                 kTitle: Title,
+                                 kIsEssence: @(IsEssence),
+                                 kIsPublic: @(IsPublic),
+                                 kBrief: Brief,
+                                 kTeachingClassID: @(TeachingClassID),
+                                 kIsSys: @(IsSys)
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumType_ADD"
+                                   parameters:parameters
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)updateForumTypeWithOCID:(long)OCID
+                       CourseID:(long)CourseID
+                          Title:(NSString *)Title
+                      IsEssence:(BOOL)IsEssence
+                       IsPublic:(BOOL)IsPublic
+                          Brief:(NSString *)Brief
+                TeachingClassID:(long)TeachingClassID
+                          IsSys:(BOOL)IsSys
+                       finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kOCID: @(OCID),
+                                 kCourseID: @(CourseID),
+                                 kTitle: Title,
+                                 kIsEssence: @(IsEssence),
+                                 kIsPublic: @(IsPublic),
+                                 kBrief: Brief,
+                                 kTeachingClassID: @(TeachingClassID),
+                                 kIsSys: @(IsSys)
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumType_Upd"
+                                   parameters:parameters
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+                                         finished(status, object);
+                                     }];
+    
+}
++ (void)addForumTopicWithOCID:(long)OCID
+                     CourseID:(long)CourseID
+                  ForumTypeID:(long)ForumTypeID
+                  GroupTaskID:(long)GroupTaskID
+                        Title:(NSString *)Title
+                       Conten:(NSString *)Conten
+                    TopicType:(int)TopicType
+                         Tags:(NSArray *)Tags
+                    ChapterID:(long)ChapterID
+                       Source:(NSString *)Source
+                     SourceID:(long)SourceID
+                     finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kOCID: @(OCID),
+                                 kCourseID: @(CourseID),
+                                 kForumTypeID: @(ForumTypeID),
+                                 kGroupTaskID: @(GroupTaskID),
+                                 kTitle: Title,
+                                 kConten: Conten,
+                                 kTopicType: @(TopicType),
+                                 kTags: Tags,
+                                 kChapterID: @(ChapterID),
+                                 kSource: Source,
+                                 kSourceID: @(SourceID)
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumTopic_Add"
+                                   parameters:parameters
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+    
+}
+
++ (void)deleteForumTypeWithForumTypeID:(long)ForumTypeID
+                                  OCID:(long)OCID
+                              finished:(FinishedBlock)finished {
+    NSDictionary *parameters = @{kForumTypeID: @(ForumTypeID),
+                                 kOCID: @(OCID)
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumType_Del"
+                                   parameters:parameters
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
 }
 
 @end

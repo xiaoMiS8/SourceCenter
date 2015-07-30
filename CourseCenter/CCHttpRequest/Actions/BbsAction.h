@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CSNetAccessor.h"
 #import "TopicInfo.h"
+#import "TopicResponseInfo.h"
+#import "ForumTypeInfo.h"
 
 #define kOCID               @"OCID"
 #define kForumTypeID        @"ForumTypeID"
@@ -19,6 +21,21 @@
 #define kPageIndex          @"PageIndex"
 #define kPageSize           @"PageSize"
 #define kTopicID            @"TopicID"
+#define kParentID           @"ParentID"
+#define kConten             @"Conten"
+#define kCourseID           @"CourseID"
+#define kTitle              @"Title"
+#define kIsEssence          @"IsEssence"
+#define kIsPublic           @"IsPublic"
+#define kBrief              @"Brief"
+#define kTeachingClassID    @"TeachingClassID"
+#define kIsSys              @"IsSys"
+#define kGroupTaskID        @"GroupTaskID"
+#define kTopicType          @"TopicType"
+#define kTags               @"Tags"
+#define kChapterID          @"ChapterID"
+#define kSource             @"Source"
+#define kSourceID           @"SourceID"
 
 @interface BbsAction : NSObject
 
@@ -49,5 +66,44 @@
                            finished:(FinishedBlock)finished;
 + (void)getAppForumResponseInfoListWithTopicID:(long)TopicID
                                       finished:(FinishedBlock)finished;
++ (void)addForumResponseWithTopicID:(long)TopicID
+                           ParentID:(long)ParentID
+                             Conten:(NSString *)Conten
+                           finished:(FinishedBlock)finished;
++ (void)getForumTypeListwithOCID:(long)OCID
+                        finished:(FinishedBlock)finished;
++ (void)addForumTypeWithOCID:(long)OCID
+                    CourseID:(long)CourseID
+                       Title:(NSString *)Title
+                   IsEssence:(BOOL)IsEssence
+                    IsPublic:(BOOL)IsPublic
+                       Brief:(NSString *)Brief
+             TeachingClassID:(long)TeachingClassID
+                       IsSys:(BOOL)IsSys
+                    finished:(FinishedBlock)finished;
++ (void)updateForumTypeWithOCID:(long)OCID
+                       CourseID:(long)CourseID
+                          Title:(NSString *)Title
+                      IsEssence:(BOOL)IsEssence
+                       IsPublic:(BOOL)IsPublic
+                          Brief:(NSString *)Brief
+                TeachingClassID:(long)TeachingClassID
+                          IsSys:(BOOL)IsSys
+                       finished:(FinishedBlock)finished;
++ (void)addForumTopicWithOCID:(long)OCID
+                     CourseID:(long)CourseID
+                  ForumTypeID:(long)ForumTypeID
+                  GroupTaskID:(long)GroupTaskID
+                        Title:(NSString *)Title
+                       Conten:(NSString *)Conten
+                    TopicType:(int)TopicType
+                         Tags:(NSArray *)Tags
+                    ChapterID:(long)ChapterID
+                       Source:(NSString *)Source
+                     SourceID:(long)SourceID
+                     finished:(FinishedBlock)finished;
++ (void)deleteForumTypeWithForumTypeID:(long)ForumTypeID
+                                  OCID:(long)OCID
+                              finished:(FinishedBlock)finished;
 
 @end
