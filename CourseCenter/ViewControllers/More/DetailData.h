@@ -1,8 +1,8 @@
 //
-//  DetailData.h
+//  CourseDataDetailViewController.h
 //  CourseCenter
 //
-//  Created by 2345 on 15/7/19.
+//  Created by 永利宝 on 15/7/30.
 //  Copyright (c) 2015年 line0.com. All rights reserved.
 //
 

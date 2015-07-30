@@ -84,7 +84,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailData *detailData=[[DetailData alloc]init];
+    DetailData *detailData= [[DetailData alloc] init];
     switch (indexPath.row) {
         case 0:
             detailData.title=@"全部资料";
@@ -101,7 +101,7 @@
         default:
             break;
     }
-    [((AppDelegate *)app).nav pushViewController:detailData animated:YES];
+    [self.navigationController pushViewController:detailData animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
