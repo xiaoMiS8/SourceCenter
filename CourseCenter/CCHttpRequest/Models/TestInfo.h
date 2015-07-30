@@ -13,6 +13,11 @@
 #define kName               @"Name"
 #define kEndDate            @"EndDate"
 #define kExerciseCount      @"ExerciseCount"
+#define kPaperID            @"PaperID"
+#define kType               @"Type"
+#define kLiveType           @"LiveType"
+#define kBuildMode          @"BuildMode"
+#define kFastScore          @"FastScore"
 
 @interface TestInfo : NSObject
 
@@ -26,6 +31,16 @@
 @property(nonatomic, strong) NSString *EndDate;
     ///习题数
 @property(nonatomic, assign) int ExerciseCount;
+    ///试卷ID
+@property(nonatomic, assign) long PaperID;
+    ///类型
+@property(nonatomic, assign) int Type;
+    ///互动的名称
+@property(nonatomic, strong) NSString *LiveType;
+    ///试卷类型
+@property(nonatomic, assign) int BuildMode;
+    ///快速设分
+@property(nonatomic, assign) int FastScore;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

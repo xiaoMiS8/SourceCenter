@@ -144,6 +144,8 @@
 		D447331A1B4CE5A400F749D1 /* NoticeResponseInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D44733191B4CE5A400F749D1 /* NoticeResponseInfo.m */; };
 		D447331D1B4CE5B200F749D1 /* NoticeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D447331C1B4CE5B200F749D1 /* NoticeInfo.m */; };
 		D452B8761B395BDF00F5A85E /* MoocFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D452B8751B395BDF00F5A85E /* MoocFileInfo.m */; };
+		D454C79D1B6A7912005E2C5F /* RecruitInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D454C79C1B6A7912005E2C5F /* RecruitInfo.m */; };
+		D454C7A01B6A821C005E2C5F /* TestAtion.m in Sources */ = {isa = PBXBuildFile; fileRef = D454C79F1B6A821C005E2C5F /* TestAtion.m */; };
 		D45526B71B6279F7004FEBBB /* ProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D45526B61B6279F7004FEBBB /* ProgressView.m */; };
 		D455A9B21B56AD4200358930 /* MsgAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D455A9B11B56AD4200358930 /* MsgAction.m */; };
 		D464D1A81B6685B0009A5ADB /* CGroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D464D1A71B6685B0009A5ADB /* CGroupInfo.m */; };
@@ -221,6 +223,7 @@
 		D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3DC1B034265007B017E /* UIImageView+WebCache.m */; };
 		D4B2F3FA1B034265007B017E /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B2F3DE1B034265007B017E /* UIView+WebCacheOperation.m */; };
 		D4BA5E681B56C3B500580C19 /* MsgInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BA5E671B56C3B500580C19 /* MsgInfo.m */; };
+		D4C1BB8D1B6A6C2200048D91 /* OCClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BB8C1B6A6C2200048D91 /* OCClassInfo.m */; };
 		D4CE16661B3418C500DBBDE7 /* SpecialtyTypeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE16651B3418C500DBBDE7 /* SpecialtyTypeInfo.m */; };
 		D4DEA5B21B2FB05F005C96D5 /* NewNotiTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEA5B01B2FB05F005C96D5 /* NewNotiTextViewCell.m */; };
 		D4DEA5B31B2FB05F005C96D5 /* NewNotiTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEA5B11B2FB05F005C96D5 /* NewNotiTextViewCell.xib */; };
@@ -489,6 +492,10 @@
 		D447331C1B4CE5B200F749D1 /* NoticeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeInfo.m; sourceTree = "<group>"; };
 		D452B8741B395BDF00F5A85E /* MoocFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoocFileInfo.h; sourceTree = "<group>"; };
 		D452B8751B395BDF00F5A85E /* MoocFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoocFileInfo.m; sourceTree = "<group>"; };
+		D454C79B1B6A7912005E2C5F /* RecruitInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecruitInfo.h; sourceTree = "<group>"; };
+		D454C79C1B6A7912005E2C5F /* RecruitInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecruitInfo.m; sourceTree = "<group>"; };
+		D454C79E1B6A821C005E2C5F /* TestAtion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAtion.h; sourceTree = "<group>"; };
+		D454C79F1B6A821C005E2C5F /* TestAtion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAtion.m; sourceTree = "<group>"; };
 		D45526B51B6279F7004FEBBB /* ProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressView.h; sourceTree = "<group>"; };
 		D45526B61B6279F7004FEBBB /* ProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressView.m; sourceTree = "<group>"; };
 		D455A9B01B56AD4200358930 /* MsgAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgAction.h; sourceTree = "<group>"; };
@@ -639,6 +646,8 @@
 		D4B2F3DE1B034265007B017E /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		D4BA5E661B56C3B500580C19 /* MsgInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MsgInfo.h; sourceTree = "<group>"; };
 		D4BA5E671B56C3B500580C19 /* MsgInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MsgInfo.m; sourceTree = "<group>"; };
+		D4C1BB8B1B6A6C2200048D91 /* OCClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCClassInfo.h; sourceTree = "<group>"; };
+		D4C1BB8C1B6A6C2200048D91 /* OCClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCClassInfo.m; sourceTree = "<group>"; };
 		D4CE16641B3418C500DBBDE7 /* SpecialtyTypeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialtyTypeInfo.h; sourceTree = "<group>"; };
 		D4CE16651B3418C500DBBDE7 /* SpecialtyTypeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialtyTypeInfo.m; sourceTree = "<group>"; };
 		D4DEA5AF1B2FB05F005C96D5 /* NewNotiTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotiTextViewCell.h; sourceTree = "<group>"; };
@@ -812,6 +821,8 @@
 				06460D501B66205B0056DC8B /* FCourseAction.m */,
 				065C03931B68AF630090EA46 /* BbsAction.h */,
 				065C03941B68AF630090EA46 /* BbsAction.m */,
+				D454C79E1B6A821C005E2C5F /* TestAtion.h */,
+				D454C79F1B6A821C005E2C5F /* TestAtion.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -873,6 +884,10 @@
 				06A53B0C1B68D41800C1580D /* TopicResponseInfo.m */,
 				D77E0EC41B6A23300057FFF9 /* ForumTypeInfo.h */,
 				D77E0EC51B6A23300057FFF9 /* ForumTypeInfo.m */,
+				D4C1BB8B1B6A6C2200048D91 /* OCClassInfo.h */,
+				D4C1BB8C1B6A6C2200048D91 /* OCClassInfo.m */,
+				D454C79B1B6A7912005E2C5F /* RecruitInfo.h */,
+				D454C79C1B6A7912005E2C5F /* RecruitInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1658,6 +1673,7 @@
 				06D1FAD91B57A6E300C18980 /* FileAction.m in Sources */,
 				D4459B7B1B63D5F400DEB780 /* FCourseViewController.m in Sources */,
 				D4B2F3F01B034265007B017E /* SDWebImageDownloader.m in Sources */,
+				D454C7A01B6A821C005E2C5F /* TestAtion.m in Sources */,
 				D4B2F3FA1B034265007B017E /* UIView+WebCacheOperation.m in Sources */,
 				D4B2F3E91B034265007B017E /* UIScrollView+MJRefresh.m in Sources */,
 				065C03951B68AF630090EA46 /* BbsAction.m in Sources */,
@@ -1666,6 +1682,7 @@
 				CACBFC9E1B540C6D00FAD388 /* UIImage+ResizeImage.m in Sources */,
 				D4B2F39E1B033E51007B017E /* UIAlertView+AFNetworking.m in Sources */,
 				D4B2F3E11B034265007B017E /* MJRefreshConst.m in Sources */,
+				D4C1BB8D1B6A6C2200048D91 /* OCClassInfo.m in Sources */,
 				599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */,
 				D4B2F3E31B034265007B017E /* MJRefreshGifFooter.m in Sources */,
 				06B214B41B67769C00CE9A19 /* TestInfo.m in Sources */,
@@ -1689,6 +1706,7 @@
 				374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */,
 				06D1FAD61B57A0F400C18980 /* GroupInfo.m in Sources */,
 				D4B2F33F1B02FE75007B017E /* HomeViewController.m in Sources */,
+				D454C79D1B6A7912005E2C5F /* RecruitInfo.m in Sources */,
 				CADD22201B52488700A4F3D2 /* MyInfoCell.m in Sources */,
 				D4B2F3E51B034265007B017E /* MJRefreshHeader.m in Sources */,
 				5963C3651B201E8300A09D30 /* HttpTestResultViewController.m in Sources */,
