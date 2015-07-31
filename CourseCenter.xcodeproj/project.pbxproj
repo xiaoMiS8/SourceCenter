@@ -244,6 +244,8 @@
 		D4E1FF151B613A5C00D5773D /* MyCourseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E1FF131B613A5C00D5773D /* MyCourseListCell.m */; };
 		D4E1FF161B613A5C00D5773D /* MyCourseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E1FF141B613A5C00D5773D /* MyCourseListCell.xib */; };
 		D4F607BD1B33FBC700888FC4 /* IndexActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F607BC1B33FBC700888FC4 /* IndexActions.m */; };
+		D726E6AB1B6B7DE200DD7E98 /* TestAnswerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D726E6AA1B6B7DE200DD7E98 /* TestAnswerInfo.m */; };
+		D726E6AE1B6B842D00DD7E98 /* TestUserNotCheckInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D726E6AD1B6B842D00DD7E98 /* TestUserNotCheckInfo.m */; };
 		D759DA911B6B245600E58EF2 /* TestPaperInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D759DA901B6B245600E58EF2 /* TestPaperInfo.m */; };
 		D759DA941B6B246B00E58EF2 /* PaperInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D759DA931B6B246B00E58EF2 /* PaperInfo.m */; };
 		D759DA971B6B24AD00E58EF2 /* PaperGroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D759DA961B6B24AD00E58EF2 /* PaperGroupInfo.m */; };
@@ -690,6 +692,10 @@
 		D4E1FF141B613A5C00D5773D /* MyCourseListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCourseListCell.xib; sourceTree = "<group>"; };
 		D4F607BB1B33FBC700888FC4 /* IndexActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexActions.h; sourceTree = "<group>"; };
 		D4F607BC1B33FBC700888FC4 /* IndexActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexActions.m; sourceTree = "<group>"; };
+		D726E6A91B6B7DE200DD7E98 /* TestAnswerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestAnswerInfo.h; sourceTree = "<group>"; };
+		D726E6AA1B6B7DE200DD7E98 /* TestAnswerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestAnswerInfo.m; sourceTree = "<group>"; };
+		D726E6AC1B6B842D00DD7E98 /* TestUserNotCheckInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUserNotCheckInfo.h; sourceTree = "<group>"; };
+		D726E6AD1B6B842D00DD7E98 /* TestUserNotCheckInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUserNotCheckInfo.m; sourceTree = "<group>"; };
 		D759DA8F1B6B245600E58EF2 /* TestPaperInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPaperInfo.h; sourceTree = "<group>"; };
 		D759DA901B6B245600E58EF2 /* TestPaperInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPaperInfo.m; sourceTree = "<group>"; };
 		D759DA921B6B246B00E58EF2 /* PaperInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperInfo.h; sourceTree = "<group>"; };
@@ -918,6 +924,10 @@
 				D759DA9C1B6B251400E58EF2 /* ExerciseChoicesInfo.m */,
 				D759DA9E1B6B256E00E58EF2 /* AttachmentInfo.h */,
 				D759DA9F1B6B256E00E58EF2 /* AttachmentInfo.m */,
+				D726E6A91B6B7DE200DD7E98 /* TestAnswerInfo.h */,
+				D726E6AA1B6B7DE200DD7E98 /* TestAnswerInfo.m */,
+				D726E6AC1B6B842D00DD7E98 /* TestUserNotCheckInfo.h */,
+				D726E6AD1B6B842D00DD7E98 /* TestUserNotCheckInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1726,6 +1736,7 @@
 				5963C3561B2000B500A09D30 /* ResultAnalyzer.m in Sources */,
 				042E75DF1B16148A00396AAF /* IQKeyboardManager.m in Sources */,
 				D447331A1B4CE5A400F749D1 /* NoticeResponseInfo.m in Sources */,
+				D726E6AB1B6B7DE200DD7E98 /* TestAnswerInfo.m in Sources */,
 				D759DA9D1B6B251400E58EF2 /* ExerciseChoicesInfo.m in Sources */,
 				D4B2F3F31B034265007B017E /* SDWebImagePrefetcher.m in Sources */,
 				CADD22251B526BA300A4F3D2 /* SetViewController.m in Sources */,
@@ -1738,6 +1749,7 @@
 				CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */,
 				D45526B71B6279F7004FEBBB /* ProgressView.m in Sources */,
 				D4459B8F1B63D75A00DEB780 /* CourseTabbarViewController.m in Sources */,
+				D726E6AE1B6B842D00DD7E98 /* TestUserNotCheckInfo.m in Sources */,
 				D4B2F2F71B02FA00007B017E /* main.m in Sources */,
 				374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */,
 				06D1FAD61B57A0F400C18980 /* GroupInfo.m in Sources */,

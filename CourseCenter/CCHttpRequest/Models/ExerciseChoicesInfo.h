@@ -30,5 +30,7 @@
     ///排序题，排序值
 @property(nonatomic, assign) int OrderNum;
 
+- (id)initWithDict:(NSDictionary *)dict;
+
 @end
 

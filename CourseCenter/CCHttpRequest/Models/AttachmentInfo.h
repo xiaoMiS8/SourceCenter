@@ -8,7 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-
+#define kFileExtType            @"FileExtType"
+#define kThumbnail              @"Thumbnail"
+#define kAttachmentID           @"AttachmentID"
+#define kServerID               @"ServerID"
+#define kFileName               @"FileName"
+#define kTitle                  @"Title"
+#define kFileSize               @"FileSize"
+#define kSource                 @"Source"
+#define kSourceID               @"SourceID"
+#define kUpdatetime             @"Updatetime"
+#define kDownURL                @"DownURL"
+#define kViewURL                @"ViewURL"
 
 @interface AttachmentInfo : NSObject
 
@@ -36,5 +47,7 @@
 @property(nonatomic, strong) NSString *DownURL;
     ///预览地址
 @property(nonatomic, strong) NSString *ViewURL;
+
+- (id)initWithDict:(NSDictionary *)dict;
 
 @end

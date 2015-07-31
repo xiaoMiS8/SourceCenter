@@ -61,6 +61,8 @@
     ///习题答案
 @property(nonatomic, strong) NSString *Answer;
 
+- (id)initWithDict:(NSDictionary *)dict;
+
 
 @end
 
