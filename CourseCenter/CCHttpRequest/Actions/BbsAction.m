@@ -194,4 +194,94 @@
     }];
 }
 
++ (void)getOCClassDropdownListWithOCID:(long)OCID
+                              finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kOCID: @(OCID)};
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Forum/OCClass_Dropdown_List"
+                                  parameters:p connectClass:[OCClassInfo class]
+                                    finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)updateForumMyIsGoodWithTopicID:(long)TopicID
+                            ResponseID:(long)ResponseID
+                              finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kTopicID: @(TopicID),
+                        kResponseID: @(ResponseID)
+                        };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumMy_IsGood_Upd"
+                                   parameters:p
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)deleteForumTopicwithTopicID:(long)TopicID
+                           finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kTopicID: @(TopicID)};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumTopic_Del"
+                                   parameters:p
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)deleteForumResponseWithResponseID:(long)ResponseID
+                                 finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kResponseID: @(ResponseID)};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumResponse_Del"
+                                   parameters:p
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)getAppChapterzhangListWithOCID:(long)OCID
+                              finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kOCID: @(OCID)};
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Forum/App_Chapter_zhang_List"
+                                   parameters:p
+                                 connectClass:[ChapterInfo class]
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)setAppForumTopicIsTopWithTopicID:(long)TopicID
+                                finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kTopicID: @(TopicID)};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/App_ForumTopic_IsTop_Set"
+                                   parameters:p
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)setAppForumTopicIsEssenceWithTopicID:(long)TopicID
+                                    finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kTopicID: @(TopicID)};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/App_ForumTopic_IsEssence_Set"
+                                   parameters:p
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
++ (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                               finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kTopicID: @(TopicID)};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"Forum/App_ForumTopicType_Add"
+                                   parameters:p
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 @end

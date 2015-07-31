@@ -18,8 +18,18 @@
         self.Name = dict[kName];
         self.EndDate = dict[kEndDate];
         self.ExerciseCount = [dict[kExerciseCount] intValue];
+        self.PaperID = [dict[kPaperID] longValue];
+        self.Type = [dict[kType] intValue];
+        self.LiveType = dict[kLiveType];
+        self.BuildMode = [dict[kBuildMode] intValue];
+        self.FastScore = [dict[kFastScore] intValue];
     }
     return self;
 }
 
 @end
+
+#define kPaperID            @"PaperID"
+#define kType               @"Type"
+#define kLiveType           @"LiveType"
+#define kBuildMode          @"BuildMode"

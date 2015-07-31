@@ -21,4 +21,38 @@
     }];
 }
 
++ (void)getOCMoocRecruitCanListWithOCID:(long)OCID
+                               finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kOCID: @(OCID)};
+    [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Course/OCMoocRecruit_Can_List"
+                                  parameters:p
+                                connectClass:[RecruitInfo class]
+                                    finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
++ (void)jsonOCMoocRecruitClassWithRecruitID:(long)RecruitID
+                                   finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kRecruitID: @(RecruitID)};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Course/OCMoocRecruitClass_Join"
+                                   parameters:p
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
++ (void)OCRegisterWithRegNum:(NSString *)RegNum
+                        OCID:(long)OCID
+                    finished:(FinishedBlock)finished {
+    NSDictionary *p = @{kOCID: @(OCID),
+                        kRegNum: RegNum};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Course/OC_Register"
+                                   parameters:p
+                                 connectClass:Nil
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+    
+}
+
 @end

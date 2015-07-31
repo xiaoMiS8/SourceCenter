@@ -196,6 +196,32 @@
  */
 - (void)getAppOCListWithIsHistroy:(int)IsHistroy
                          finished:(FinishedBlock) finished;
+/**
+ *  可以报名的网络招生班级列表
+ *
+ *  @param OCID      OCID
+ *  @param finished  finished description
+ */
+- (void)getOCMoocRecruitCanListWithOCID:(long)OCID
+                               finished:(FinishedBlock)finished;
+/**
+ *  报名网络招生班级
+ *
+ *  @param RecruitID      RecruitID
+ *  @param finished  finished description
+ */
+- (void)jsonOCMoocRecruitClassWithRecruitID:(long)RecruitID
+                                   finished:(FinishedBlock)finished;
+/**
+ *  注册在线教学班
+ *
+ *  @param RegNum    注册码
+ *  @param OCID      OCID
+ *  @param finished  finished description
+ */
+- (void)OCRegisterWithRegNum:(NSString *)RegNum
+                        OCID:(long)OCID
+                    finished:(FinishedBlock)finished;
 
 #pragma mark-Msg
 /**

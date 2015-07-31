@@ -171,6 +171,32 @@
                                     }];
 }
 
+- (void)getOCMoocRecruitCanListWithOCID:(long)OCID
+                               finished:(FinishedBlock)finished {
+    [CourseActions getOCMoocRecruitCanListWithOCID:OCID
+                                          finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)jsonOCMoocRecruitClassWithRecruitID:(long)RecruitID
+                                   finished:(FinishedBlock)finished {
+    [CourseActions jsonOCMoocRecruitClassWithRecruitID:RecruitID
+                                              finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)OCRegisterWithRegNum:(NSString *)RegNum
+                        OCID:(long)OCID
+                    finished:(FinishedBlock)finished {
+    [CourseActions OCRegisterWithRegNum:RegNum
+                                   OCID:OCID
+                               finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
 - (void)getAppUnReadMessageCountWithfinished:(FinishedBlock)finished {
     [MsgAction getAppUnReadMessageCountWithfinished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);

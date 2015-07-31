@@ -11,6 +11,8 @@
 #import "TopicInfo.h"
 #import "TopicResponseInfo.h"
 #import "ForumTypeInfo.h"
+#import "OCClassInfo.h"
+#import "ChapterInfo.h"
 
 #define kOCID               @"OCID"
 #define kForumTypeID        @"ForumTypeID"
@@ -105,5 +107,22 @@
 + (void)deleteForumTypeWithForumTypeID:(long)ForumTypeID
                                   OCID:(long)OCID
                               finished:(FinishedBlock)finished;
++ (void)getOCClassDropdownListWithOCID:(long)OCID
+                              finished:(FinishedBlock)finished;
++ (void)updateForumMyIsGoodWithTopicID:(long)TopicID
+                            ResponseID:(long)ResponseID
+                              finished:(FinishedBlock)finished;
++ (void)deleteForumTopicwithTopicID:(long)TopicID
+                           finished:(FinishedBlock)finished;
++ (void)deleteForumResponseWithResponseID:(long)ResponseID
+                                 finished:(FinishedBlock)finished;
++ (void)getAppChapterzhangListWithOCID:(long)OCID
+                              finished:(FinishedBlock)finished;
++ (void)setAppForumTopicIsTopWithTopicID:(long)TopicID
+                                finished:(FinishedBlock)finished;
++ (void)setAppForumTopicIsEssenceWithTopicID:(long)TopicID
+                                    finished:(FinishedBlock)finished;
++ (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                               finished:(FinishedBlock)finished;
 
 @end
