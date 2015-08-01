@@ -728,6 +728,65 @@
     }];
 }
 
+- (void)getSurveyMyJoinListWithKey:(NSString *)Key
+                              OCID:(long)OCID
+                          finished:(FinishedBlock)finished{
+    [SurveyAction getSurveyMyJoinListWithKey:Key
+                                        OCID:OCID
+                                    finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getSurveyToObjectWithSurveyID:(long)SurveyID
+                             finished:(FinishedBlock)finished {
+    [SurveyAction getSurveyToObjectWithSurveyID:SurveyID
+                                       finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)getSurveyInfoWithSurveyID:(long)SurveyID
+                         finished:(FinishedBlock)finished {
+    [SurveyAction getSurveyInfoWithSurveyID:SurveyID
+                                   finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)getSurveyAnswerWithSurveyID:(long)SurveyID
+                           ObjectID:(long)ObjectID
+                           finished:(FinishedBlock)finished {
+    [SurveyAction getSurveyAnswerWithSurveyID:SurveyID
+                                     ObjectID:ObjectID
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)getSurveyAnswerInfoWithSurveyID:(long)SurveyID
+                               finished:(FinishedBlock)finished {
+    [SurveyAction getSurveyInfoWithSurveyID:SurveyID
+                                   finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+
+- (void)editSurveyAnswerwithSurveyID:(long)SurveyID
+                              Conten:(NSString *)Conten
+                              Status:(int)Status
+                            ObjectID:(long)ObjectID
+                            finished:(FinishedBlock)finished {
+    [SurveyAction editSurveyAnswerwithSurveyID:SurveyID
+                                        Conten:Conten
+                                        Status:Status
+                                      ObjectID:ObjectID
+                                      finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
 
 
 
