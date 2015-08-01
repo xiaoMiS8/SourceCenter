@@ -400,6 +400,309 @@
     }];
 }
 
+- (void)getAppForumTopicWithTopicID:(long)TopicID
+                           finished:(FinishedBlock)finished {
+    [BbsAction getAppForumTopicWithTopicID:TopicID
+                                  finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppForumResponseInfoListWithTopicID:(long)TopicID
+                                      finished:(FinishedBlock)finished {
+    [BbsAction getAppForumResponseInfoListWithTopicID:TopicID
+                                             finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)addForumResponseWithTopicID:(long)TopicID
+                           ParentID:(long)ParentID
+                             Conten:(NSString *)Conten
+                           finished:(FinishedBlock)finished {
+    [BbsAction addForumResponseWithTopicID:TopicID
+                                  ParentID:ParentID
+                                    Conten:Conten
+                                  finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+
+- (void)getForumTypeListwithOCID:(long)OCID
+                        finished:(FinishedBlock)finished {
+    [BbsAction getForumTypeListwithOCID:OCID
+                               finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)addForumTypeWithOCID:(long)OCID
+                    CourseID:(long)CourseID
+                       Title:(NSString *)Title
+                   IsEssence:(BOOL)IsEssence
+                    IsPublic:(BOOL)IsPublic
+                       Brief:(NSString *)Brief
+             TeachingClassID:(long)TeachingClassID
+                       IsSys:(BOOL)IsSys
+                    finished:(FinishedBlock)finished {
+    
+    [BbsAction addForumTypeWithOCID:OCID
+                           CourseID:CourseID
+                              Title:Title
+                          IsEssence:IsEssence
+                           IsPublic:IsPublic
+                              Brief:Brief
+                    TeachingClassID:TeachingClassID
+                              IsSys:IsSys
+                           finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)updateForumTypeWithOCID:(long)OCID
+                       CourseID:(long)CourseID
+                          Title:(NSString *)Title
+                      IsEssence:(BOOL)IsEssence
+                       IsPublic:(BOOL)IsPublic
+                          Brief:(NSString *)Brief
+                TeachingClassID:(long)TeachingClassID
+                          IsSys:(BOOL)IsSys
+                       finished:(FinishedBlock)finished {
+    [BbsAction updateForumTypeWithOCID:OCID
+                              CourseID:CourseID
+                                 Title:Title
+                             IsEssence:IsEssence
+                              IsPublic:IsPublic
+                                 Brief:Brief
+                       TeachingClassID:TeachingClassID
+                                 IsSys:IsSys
+                              finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)addForumTopicWithOCID:(long)OCID
+                     CourseID:(long)CourseID
+                  ForumTypeID:(long)ForumTypeID
+                  GroupTaskID:(long)GroupTaskID
+                        Title:(NSString *)Title
+                       Conten:(NSString *)Conten
+                    TopicType:(int)TopicType
+                         Tags:(NSArray *)Tags
+                    ChapterID:(long)ChapterID
+                       Source:(NSString *)Source
+                     SourceID:(long)SourceID
+                     finished:(FinishedBlock)finished {
+    
+    [BbsAction addForumTopicWithOCID:OCID
+                            CourseID:CourseID
+                         ForumTypeID:ForumTypeID
+                         GroupTaskID:GroupTaskID
+                               Title:Title
+                              Conten:Conten
+                           TopicType:TopicType
+                                Tags:Tags
+                           ChapterID:ChapterID
+                              Source:Source
+                            SourceID:SourceID
+                            finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)deleteForumTypeWithForumTypeID:(long)ForumTypeID
+                                  OCID:(long)OCID
+                              finished:(FinishedBlock)finished {
+    [BbsAction deleteForumTypeWithForumTypeID:ForumTypeID
+                                         OCID:OCID
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getOCClassDropdownListWithOCID:(long)OCID
+                              finished:(FinishedBlock)finished {
+    [BbsAction getOCClassDropdownListWithOCID:OCID
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)updateForumMyIsGoodWithTopicID:(long)TopicID
+                            ResponseID:(long)ResponseID
+                              finished:(FinishedBlock)finished {
+    [BbsAction updateForumMyIsGoodWithTopicID:TopicID
+                                   ResponseID:ResponseID
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)deleteForumTopicwithTopicID:(long)TopicID
+                           finished:(FinishedBlock)finished {
+    [BbsAction deleteForumTopicwithTopicID:TopicID
+                                  finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)deleteForumResponseWithResponseID:(long)ResponseID
+                                 finished:(FinishedBlock)finished {
+    [BbsAction deleteForumResponseWithResponseID:ResponseID
+                                        finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)getAppChapterzhangListWithOCID:(long)OCID
+                              finished:(FinishedBlock)finished {
+    [BbsAction getAppChapterzhangListWithOCID:OCID
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)setAppForumTopicIsTopWithTopicID:(long)TopicID
+                                finished:(FinishedBlock)finished {
+    [BbsAction setAppForumTopicIsTopWithTopicID:TopicID
+                                       finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)setAppForumTopicIsEssenceWithTopicID:(long)TopicID
+                                    finished:(FinishedBlock)finished {
+    [BbsAction setAppForumTopicIsEssenceWithTopicID:TopicID
+                                           finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                               finished:(FinishedBlock)finished {
+    [BbsAction addAppForumTopicTypeWithTopicID:TopicID
+                                      finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+
+
+- (void)getAppTestNotSumbitListWithOCID:(long)OCID
+                               finished:(FinishedBlock)finished {
+    [TestAtion getAppTestNotSumbitListWithOCID:OCID
+                                      finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)getAppTestInfoSumbitListWithOCID:(long)OCID
+                                finished:(FinishedBlock)finished {
+    [TestAtion getAppTestInfoSumbitListWithOCID:OCID
+                                       finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)addAppOCAffairsWithOCID:(long)OCID
+                           Type:(int)Type
+                         TestID:(long)TestID
+                          Reson:(NSString *)Reson
+                       finished:(FinishedBlock)finished {
+    [TestAtion addAppOCAffairsWithOCID:OCID
+                                  Type:Type
+                                TestID:TestID
+                                 Reson:Reson
+                              finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)TestCanSeeTestWithTestID:(long)TestID
+                        finished:(FinishedBlock)finished {
+    [TestAtion TestCanSeeTestWithTestID:TestID
+                               finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)getPaperInfoWithPaperID:(long)PaperID
+                         TestID:(long)TestID
+                       finished:(FinishedBlock)finished {
+    [TestAtion getPaperInfoWithPaperID:PaperID
+                                TestID:TestID
+                              finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)getTestAnswerWithTestID:(long)TestID
+                       finished:(FinishedBlock)finished {
+    [TestAtion getTestAnswerWithTestID:TestID
+                              finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)saveTestTempwithTestID:(long)TestID
+                        Answer:(NSString *)Answer
+                      finished:(FinishedBlock)finished {
+    [TestAtion saveTestTempwithTestID:TestID
+                               Answer:Answer
+                             finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)SubmitTestWithTestID:(long)TestID
+                      Answer:(NSString *)Answer
+                    finished:(FinishedBlock)finished {
+    [TestAtion SubmitTestWithTestID:TestID
+                             Answer:Answer
+                           finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)updateTestUserStatusWithUserID:(long)UserID
+                                TestID:(long)TestID
+                                Status:(int)Status
+                              finished:(FinishedBlock)finished {
+    [TestAtion updateTestUserStatusWithUserID:UserID
+                                       TestID:TestID
+                                       Status:Status
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+- (void)getTestListwithOCID:(long)OCID
+                       Type:(int)Type
+                  PageIndex:(int)PageIndex
+                   PageSize:(int)PageSize
+                   finished:(FinishedBlock)finished {
+    [TestAtion getTestListwithOCID:OCID
+                              Type:Type
+                         PageIndex:PageIndex
+                          PageSize:PageSize
+                          finished:^(EnumServerStatus status, NSObject *object) {
+         finished(status, object);
+    }];
+}
+
+- (void)getTestUserListWithTestID:(long)TestID
+                        PageIndex:(int)PageIndex
+                         PageSize:(int)PageSize
+                         finished:(FinishedBlock)finished {
+    [TestAtion getTestUserListWithTestID:TestID
+                               PageIndex:PageIndex
+                                PageSize:PageSize
+                                finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+
 
 
 @end

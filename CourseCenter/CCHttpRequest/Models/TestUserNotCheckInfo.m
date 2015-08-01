@@ -10,4 +10,19 @@
 
 @implementation TestUserNotCheckInfo
 
+- (id)initWithDict:(NSDictionary *)dict {
+    self = [super init];
+    if (self) {
+        self.TestID = [dict[kTestID] longValue];
+        self.TestName = dict[kTestName];
+        self.SubmitTime = dict[kSubmitTime];
+        self.UserID = [dict[kUserID] longValue];
+        self.UserNo = dict[kUserNo];
+        self.UserName = dict[kUserName];
+        self.SpecialtyName = dict[kSpecialtyName];
+        self.BuildMode = [dict[kBuildMode] intValue];
+    }
+    return self;
+}
+
 @end

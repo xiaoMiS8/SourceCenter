@@ -18,6 +18,9 @@
 #define kLiveType           @"LiveType"
 #define kBuildMode          @"BuildMode"
 #define kFastScore          @"FastScore"
+#define kUncommittedCount   @"UncommittedCount"
+#define ksubmittedCount     @"submittedCount"
+#define kMarkingCount       @"MarkingCount"
 
 @interface TestInfo : NSObject
 
@@ -41,6 +44,12 @@
 @property(nonatomic, assign) int BuildMode;
     ///快速设分
 @property(nonatomic, assign) int FastScore;
+    ///未交数
+@property(nonatomic, assign) int UncommittedCount;
+    ///待批数
+@property(nonatomic, assign) int submittedCount;
+    ///批阅数
+@property(nonatomic, assign) int MarkingCount;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

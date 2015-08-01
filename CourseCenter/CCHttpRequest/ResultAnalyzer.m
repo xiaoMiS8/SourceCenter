@@ -37,7 +37,7 @@
     ResponseObject *responseObject = [[ResponseObject alloc] initWithDict:resultObject];
     responseObject.message = responseObject.errorMessage;
     if ([flag isEqualToString:KLogin]) {
-        UserInfo *user = [[UserInfo alloc] initDict:[resultObject objectForKey:Kresult]];
+        UserInfo *user = [[UserInfo alloc] initWithDict:[resultObject objectForKey:Kresult]];
         if ([responseObject.errrorCode isEqualToString:KSuccess]) {
             responseObject.message = @"登录成功";
         }
@@ -45,7 +45,7 @@
     } else if ([flag isEqualToString:kLogout]) {
         
     } else if ([flag isEqualToString:kgetUserInfo]) {
-        UserInfo *user = [[UserInfo alloc] initDict:[resultObject objectForKey:Kresult]];
+        UserInfo *user = [[UserInfo alloc] initWithDict:[resultObject objectForKey:Kresult]];
         responseObject.resultObject = user;
     } else if ([flag isEqualToString:kRecommendCourse_List] ||
                [flag isEqualToString:kOC_All_List]) {
@@ -193,7 +193,7 @@
         if ([result isKindOfClass:[NSArray class]]) {
             NSArray *array = (NSArray *)result;
             for (int i=0; i<array.count; i++) {
-                UserInfo *user = [[UserInfo alloc] initDict:array[i]];
+                UserInfo *user = [[UserInfo alloc] initWithDict:array[i]];
                 [results addObject:user];
             }
             responseObject.resultArray = results;
@@ -251,7 +251,7 @@
         if ([result isKindOfClass:[NSArray class]]) {
             NSArray *array = (NSArray *)result;
             for (int i=0; i<array.count; i++) {
-                UserInfo *user = [[UserInfo alloc] initDict:array[i]];
+                UserInfo *user = [[UserInfo alloc] initWithDict:array[i]];
                 [results addObject:user];
             }
             responseObject.resultArray = results;

@@ -10,7 +10,7 @@
 
 @implementation UserInfo
 
-- (id)initDict:(NSDictionary *)dict {
+- (id)initWithDict:(NSDictionary *)dict {
     self = [super init];
     if (self) {
         self.userID = [[dict objectForKey:KUserID] longValue];
@@ -22,8 +22,13 @@
         self.Role = dict[kRole];
         self.IsStudent = [dict[kIsStudent] boolValue];
         self.Progress = [dict[kProgress] floatValue];
+        self.TestID = [dict[kTestID] longValue];
+        self.ClassName = dict[kClassName];
+        self.Status = [dict[kStatus] intValue];
+        self.FastScore = [dict[kFastScore] intValue];
     }
     return self;
 }
 
 @end
+
