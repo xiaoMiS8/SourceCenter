@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ApplyViewController">
+            <connections>
+                <outlet property="tableView" destination="Dhc-01-qsZ" id="fmi-mg-nEK"/>
+                <outlet property="textF" destination="1KW-l1-bFn" id="1Fl-Ea-L1P"/>
+                <outlet property="titleL" destination="gN8-M5-dpg" id="JYf-Zj-J3I"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本课程教师要求通过[注册码]报名课程,请在下方输入:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gN8-M5-dpg">
+                    <rect key="frame" x="10" y="10" width="300" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="FzG-En-wLS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1KW-l1-bFn">
+                    <rect key="frame" x="10" y="58" width="300" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="HUO-4p-0LT"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dhc-01-qsZ">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="DWE-H8-iyF"/>
+                        <outlet property="delegate" destination="-1" id="04S-5E-sXQ"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="1KW-l1-bFn" secondAttribute="trailing" constant="10" id="1ZM-Aa-9kz"/>
+                <constraint firstAttribute="bottom" secondItem="Dhc-01-qsZ" secondAttribute="bottom" id="Aci-e8-JdQ"/>
+                <constraint firstItem="gN8-M5-dpg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Gsg-XF-STQ"/>
+                <constraint firstItem="1KW-l1-bFn" firstAttribute="top" secondItem="gN8-M5-dpg" secondAttribute="bottom" constant="10" id="SY1-q6-eed"/>
+                <constraint firstItem="Dhc-01-qsZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xnx-fE-q14"/>
+                <constraint firstItem="1KW-l1-bFn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="aKZ-PJ-liu"/>
+                <constraint firstAttribute="trailing" secondItem="gN8-M5-dpg" secondAttribute="trailing" constant="10" id="aiw-Lf-IeB"/>
+                <constraint firstItem="Dhc-01-qsZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="mIP-mu-hRh"/>
+                <constraint firstItem="gN8-M5-dpg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="t77-cF-SxD"/>
+                <constraint firstAttribute="trailing" secondItem="Dhc-01-qsZ" secondAttribute="trailing" id="zPL-OI-LOV"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+</document>

@@ -9,6 +9,7 @@
 #import "HomeListCell.h"
 #import "UIImageView+WebCache.h"
 #import "HomeDetailViewController.h"
+#import "ApplyViewController.h"
 #define ICONIMG @"iconpro"
 #define BAGNIMG @"nav_bg"
 #define STUDY   @"study"
@@ -59,6 +60,8 @@
     if (oCourse.RegStatus==1) {
         self.gotoBtn.userInteractionEnabled=YES;
         [self.gotoBtn setBackgroundImage:[UIImage imageNamed:@"study"] forState:UIControlStateNormal];
+        //去学习的标识
+        self.gotoBtn.titleLabel.text=@" ";
     }else if (oCourse.RegStatus==2 ||oCourse.RegStatus==4) {
         self.gotoBtn.userInteractionEnabled=YES;
         [self.gotoBtn setBackgroundImage:[UIImage imageNamed:@"signUp"] forState:UIControlStateNormal];
@@ -70,12 +73,13 @@
 - (IBAction)isStudyOrSign:(id)sender {
     UIButton *btn=sender;
     if (![btn.titleLabel.text isEqualToString:@" "]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"此接口没做" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
-        [alert show];
+        ApplyViewController *applyVc = [[ApplyViewController alloc]init];
+        applyVc.OCID=btn.tag;
+        [((AppDelegate *)app).nav pushViewController:applyVc animated:YES];
         return;
     }
     HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
-    homeDetailVc.OCID=1;//btn.tag;
+    homeDetailVc.OCID=btn.tag;
     homeDetailVc.teacherImgUrl=_oCourse.TeacherImgUrl;
     homeDetailVc.topImgUrl=_oCourse.CourseImgUrl;
     homeDetailVc.RegStatus=_oCourse.RegStatus;

@@ -120,6 +120,8 @@
 		CADD222B1B52862E00A4F3D2 /* SetPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD22291B52862E00A4F3D2 /* SetPassword.xib */; };
 		CADD22431B52C72000A4F3D2 /* IdeaWithVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD22411B52C72000A4F3D2 /* IdeaWithVersion.m */; };
 		CADD22441B52C72000A4F3D2 /* IdeaWithVersion.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD22421B52C72000A4F3D2 /* IdeaWithVersion.xib */; };
+		CAE2F3B91B6D0DE300BF4132 /* ApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE2F3B71B6D0DE300BF4132 /* ApplyViewController.m */; };
+		CAE2F3BA1B6D0DE300BF4132 /* ApplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE2F3B81B6D0DE300BF4132 /* ApplyViewController.xib */; };
 		D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A31B6CBBB90044CAE5 /* AffairsAction.m */; };
 		D40691A71B6CBDF30044CAE5 /* AffairInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A61B6CBDF30044CAE5 /* AffairInfo.m */; };
 		D40691AA1B6CE2970044CAE5 /* SurveyAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A91B6CE2970044CAE5 /* SurveyAction.m */; };
@@ -471,6 +473,9 @@
 		CADD22401B52C72000A4F3D2 /* IdeaWithVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdeaWithVersion.h; sourceTree = "<group>"; };
 		CADD22411B52C72000A4F3D2 /* IdeaWithVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdeaWithVersion.m; sourceTree = "<group>"; };
 		CADD22421B52C72000A4F3D2 /* IdeaWithVersion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdeaWithVersion.xib; sourceTree = "<group>"; };
+		CAE2F3B61B6D0DE300BF4132 /* ApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyViewController.h; sourceTree = "<group>"; };
+		CAE2F3B71B6D0DE300BF4132 /* ApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyViewController.m; sourceTree = "<group>"; };
+		CAE2F3B81B6D0DE300BF4132 /* ApplyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyViewController.xib; sourceTree = "<group>"; };
 		D40691A21B6CBBB90044CAE5 /* AffairsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairsAction.h; sourceTree = "<group>"; };
 		D40691A31B6CBBB90044CAE5 /* AffairsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffairsAction.m; sourceTree = "<group>"; };
 		D40691A51B6CBDF30044CAE5 /* AffairInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairInfo.h; sourceTree = "<group>"; };
@@ -1262,6 +1267,9 @@
 				9F49B0C01B400AC700996CA8 /* PlayViewController.h */,
 				9F49B0C11B400AC700996CA8 /* PlayViewController.m */,
 				9F49B0C21B400AC700996CA8 /* PlayViewController.xib */,
+				CAE2F3B61B6D0DE300BF4132 /* ApplyViewController.h */,
+				CAE2F3B71B6D0DE300BF4132 /* ApplyViewController.m */,
+				CAE2F3B81B6D0DE300BF4132 /* ApplyViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1607,6 +1615,7 @@
 				06E1B5101B69D6D70052FF42 /* DetailData.xib in Resources */,
 				042E75DE1B16148A00396AAF /* IQKeyboardManager.bundle in Resources */,
 				D4DEA5B31B2FB05F005C96D5 /* NewNotiTextViewCell.xib in Resources */,
+				CAE2F3BA1B6D0DE300BF4132 /* ApplyViewController.xib in Resources */,
 				CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */,
 				CA20AA331B5A19A100598370 /* SendMesage.xib in Resources */,
 				CA20AA4F1B5AB39300598370 /* DetailDataCell.xib in Resources */,
@@ -1690,6 +1699,7 @@
 				9F49B0C31B400AC700996CA8 /* PlayViewController.m in Sources */,
 				D4B2F3491B02FEDA007B017E /* CourseViewController.m in Sources */,
 				D4DF088D1B5B94CA00B816DD /* QBAssetsCollectionOverlayView.m in Sources */,
+				CAE2F3B91B6D0DE300BF4132 /* ApplyViewController.m in Sources */,
 				5963C36E1B202C8200A09D30 /* UserInfo.m in Sources */,
 				5963C35C1B200E0600A09D30 /* UserActions.m in Sources */,
 				59EC888F1B184249009495A6 /* NotiDetailViewController.m in Sources */,
