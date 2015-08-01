@@ -1489,7 +1489,7 @@
 				TargetAttributes = {
 					D4B2F2F01B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = DRJ42M455V;
+						DevelopmentTeam = YQV68UZ2XR;
 					};
 					D4B2F30C1B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1948,6 +1948,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1959,6 +1960,7 @@
 				INFOPLIST_FILE = CourseCenterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CourseCenter.app/CourseCenter";
 			};
 			name = Debug;
@@ -1967,6 +1969,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -1974,6 +1977,7 @@
 				INFOPLIST_FILE = CourseCenterTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CourseCenter.app/CourseCenter";
 			};
 			name = Release;

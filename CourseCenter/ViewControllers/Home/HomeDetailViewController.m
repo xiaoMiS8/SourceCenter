@@ -16,6 +16,7 @@
 #define SECTION_STATE @"SECTION_STATE"
 #define ICONIMG @"iconpro"
 #define BAGNIMG @"nav_bg"
+static NSInteger tag;
 @interface HomeDetailViewController ()
 {
     NSMutableArray *_array;
@@ -60,13 +61,13 @@
     _array=[NSMutableArray arrayWithCapacity:0];
     _arrayData=[NSMutableArray arrayWithCapacity:0];
     _moocFileArray=[NSMutableArray arrayWithCapacity:0];
+    tag=0;
     [self loadData];
 }
 -(void)loadData
 {
     [MBProgressHUD showMessage:nil];
     [self.httpManager getAppOCMoocGetWithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
-        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -92,10 +93,10 @@
 {
     [self.topImageView sd_setImageWithURL:[NSURL URLWithString:_topImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
     [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
-    //[self.StartDate setText:info.StartDate];
+    [self.StartDate setText:info.StartDate];
     [self.TeacherName setText:info.TeacherName];
     [self.OrganizationName setText:info.OrganizationName];
-    //[self.Ranks setText:info.Ranks];
+    [self.Ranks setText:info.Ranks];
     [self.AllPlayDay setText:[NSString stringWithFormat:@"%ld周",info.AllPlayDay]];
 }
 -(void)showCourseData
@@ -109,18 +110,22 @@
 }
 -(void)loadOCMoocFile
 {
-    for (int i=0; i<_arrayData.count; i++) {
-        long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:i]).ChapterID;
-        int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:i]).BuildMode;
-        [self.httpManager getOCMoocFileStudyListwithOCID:528 ChapterID:6820 FileType:buildMode finished:^(EnumServerStatus status, NSObject *object) {
+        if (tag==_arrayData.count) {
+        [MBProgressHUD hideHUD];
+        return ;
+        }
+        long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:tag]).ChapterID;
+        int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
+        [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:buildMode finished:^(EnumServerStatus status, NSObject *object) {
             if (status==0) {
                 self.reob=(ResponseObject *)object;
                 if ([self.reob.errrorCode isEqualToString:@"0"]) {
                     [_moocFileArray addObject:self.reob.resultArray];
+                    tag++;
+                    [self loadOCMoocFile];
                 }
             }
         }];
-    }
 }
 - (void)addTableViewheader
 {
@@ -147,9 +152,14 @@
     if (_RegStatus==1) {
         [btn setTitle:@"去学习" forState:UIControlStateNormal];
          btn.tag=1;
-    }else {
+         btn.hidden=NO;
+    }else if (_RegStatus==2||_RegStatus==4) {
         [btn setTitle:@"报名" forState:UIControlStateNormal];
          btn.tag=2;
+         btn.hidden=NO;
+    }else
+    {
+        btn.hidden=YES;
     }
     [btn setTintColor:[UIColor whiteColor]];
     [btn setBackgroundColor:RGBA(31, 187, 255, 1)];
@@ -187,7 +197,7 @@
     view.layer.borderWidth=0.5;
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, _tableView.frame.size.width-20, 50)];
     lable.font=Font_14;
-    lable.text=title;//@"第一章 大熊猫的生活习性";
+    lable.text=title;
     [view addSubview:lable];
     UIButton *button=[[UIButton alloc]init];
     button.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
@@ -204,14 +214,21 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
      CourseDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"CourseDetailCell"];
-    cell.mooFileInfo=[[_moocFileArray objectAtIndex:indexPath.row]objectAtIndex:indexPath.row];
+    
+    cell.mooFileInfo=[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PlayViewController *playVC=[[PlayViewController alloc]init];
-    playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.row]objectAtIndex:indexPath.row]).ViewUrl;
-    [self presentViewController:playVC animated:YES completion:nil];
+    if (((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileType==1) {
+        PlayViewController *playVC=[[PlayViewController alloc]init];
+        playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
+        [self presentViewController:playVC animated:YES completion:nil];
+    }else
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请使用第三方软件打开该类型资源" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 -(void)press:(UIButton *)but
 {

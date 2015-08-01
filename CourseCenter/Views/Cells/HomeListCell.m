@@ -57,10 +57,14 @@
     [self.studentCountLabel setText:[NSString stringWithFormat:@"%d",oCourse.StudentCount]];
     self.gotoBtn.tag=oCourse.OCID;
     if (oCourse.RegStatus==1) {
+        self.gotoBtn.userInteractionEnabled=YES;
         [self.gotoBtn setBackgroundImage:[UIImage imageNamed:@"study"] forState:UIControlStateNormal];
-         self.gotoBtn.titleLabel.text=@" ";
-    }else {
+    }else if (oCourse.RegStatus==2 ||oCourse.RegStatus==4) {
+        self.gotoBtn.userInteractionEnabled=YES;
         [self.gotoBtn setBackgroundImage:[UIImage imageNamed:@"signUp"] forState:UIControlStateNormal];
+    }else
+    {
+        self.gotoBtn.userInteractionEnabled=NO;
     }
 }
 - (IBAction)isStudyOrSign:(id)sender {
