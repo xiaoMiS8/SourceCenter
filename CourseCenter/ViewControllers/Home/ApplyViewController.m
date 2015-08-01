@@ -7,8 +7,16 @@
 //
 
 #import "ApplyViewController.h"
+#import "NSString+HandleString.h"
 @interface ApplyViewController ()
+{
+    UISegmentedControl *myseg;
+}
 @property(nonatomic,assign) NSInteger myrow;
+@property(nonatomic, strong)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
+@property (nonatomic,strong)NSMutableArray *dataArray;
+@property (nonatomic,strong)RecruitInfo *info;
 @end
 
 @implementation ApplyViewController
@@ -18,12 +26,14 @@
     // Do any additional setup after loading the view from its nib.
     [self setupCustomRightWithtitle:@"确定" target:self action:@selector(sure)];
     _myrow=100000;
+    self.httpManager = [[CCHttpManager alloc]init];
+    self.dataArray=[[NSMutableArray array]init];
     NSArray *array = @[@"教学班注册",@"网络班注册"];
-    UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:array];
-    seg.selectedSegmentIndex = 0;
-    seg.bounds = CGRectMake(0, 0, 160, 30);
-    self.navigationItem.titleView =seg;
-    [seg addTarget:self action:@selector(segValueChange:) forControlEvents:UIControlEventValueChanged];
+    myseg = [[UISegmentedControl alloc] initWithItems:array];
+    myseg.selectedSegmentIndex = 0;
+    myseg.bounds = CGRectMake(0, 0, 160, 30);
+    self.navigationItem.titleView =myseg;
+    [myseg addTarget:self action:@selector(segValueChange:) forControlEvents:UIControlEventValueChanged];
     UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, Swidth, 40)];
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(-1, -1, Swidth+2, 40)];
     lable.layer.borderColor=[UIColor grayColor].CGColor;
@@ -33,8 +43,24 @@
     lable.textAlignment=NSTextAlignmentCenter;
     lable.text=@"请选择网络招生班级,点击下方注册按钮报名:";
     [view addSubview:lable];
-    
     _tableView.tableHeaderView=view;
+    [self segValueChange:0];
+}
+-(void)LoadData
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getOCMoocRecruitCanListWithOCID:(long)self.OCID finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.dataArray=self.reob.resultArray;
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
 }
 - (void)segValueChange:(UISegmentedControl *)seg {
     if (seg.selectedSegmentIndex == 0) {
@@ -46,6 +72,7 @@
         _tableView.hidden=NO;
         _titleL.hidden=YES;
         _textF.hidden=YES;
+        [self LoadData];
     }
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -54,7 +81,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _dataArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -64,7 +91,12 @@
     cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0,80, cell.frame.size.height)];
     lable.textAlignment=NSTextAlignmentRight;
-    lable.text=@"20/100";
+      if (((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).UserLimit==0) {
+      lable.text=[NSString stringWithFormat:@"%d/%@",((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).InReadStudentNum,@"无上限"];
+      }else
+      {
+        lable.text=[NSString stringWithFormat:@"%d/%d",((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).InReadStudentNum,((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).UserLimit];
+      }
     cell.accessoryView=lable;
    }
     if (_myrow!=100000) {
@@ -78,7 +110,7 @@
     {
     cell.imageView.image=[UIImage imageNamed:@"btn_confirm"];
     }
-    cell.textLabel.text =[NSString stringWithFormat:@"网络招生0702班"];
+    cell.textLabel.text =((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).ClassName;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,7 +122,53 @@
 }
 -(void)sure
 {
-    
+    if (myseg.selectedSegmentIndex==0) {
+        if ([_textF.text isNull]) {
+            [MBProgressHUD showError:REGISTERROR2];
+        }else
+        {
+            [MBProgressHUD showMessage:nil];
+            [self.httpManager OCRegisterWithRegNum:(NSString *)_textF.text OCID:self.OCID  finished:^(EnumServerStatus status, NSObject *object) {
+                [MBProgressHUD hideHUD];
+                if (status==0) {
+                    self.reob=(ResponseObject *)object;
+                    if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                        [MBProgressHUD showSuccess:REGISTSUCCESS];
+                        return ;
+                    }else{
+                        [MBProgressHUD showError:self.reob.errorMessage];
+                        return ;
+                    }
+                }
+                [MBProgressHUD showError:LOGINMESSAGE_F];
+            }];
+        }
+        
+    }else
+    {
+        if (_myrow==100000) {
+          [MBProgressHUD showError:REGISTERROR1];
+        }else
+        {
+            NSInteger reid=((RecruitInfo *)[_dataArray objectAtIndex:_myrow]).RecruitID;
+            [MBProgressHUD showMessage:nil];
+            [self.httpManager jsonOCMoocRecruitClassWithRecruitID:(long)reid finished:^(EnumServerStatus status, NSObject *object) {
+                [MBProgressHUD hideHUD];
+                if (status==0) {
+                    self.reob=(ResponseObject *)object;
+                    if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                        [MBProgressHUD showSuccess:REGISTSUCCESS];
+                        [self.navigationController popoverPresentationController];
+                        return ;
+                    }else{
+                        [MBProgressHUD showError:self.reob.errorMessage];
+                        return ;
+                    }
+                }
+                [MBProgressHUD showError:LOGINMESSAGE_F];
+            }];
+        }
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
