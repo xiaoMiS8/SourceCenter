@@ -120,6 +120,8 @@
 		CADD222B1B52862E00A4F3D2 /* SetPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD22291B52862E00A4F3D2 /* SetPassword.xib */; };
 		CADD22431B52C72000A4F3D2 /* IdeaWithVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD22411B52C72000A4F3D2 /* IdeaWithVersion.m */; };
 		CADD22441B52C72000A4F3D2 /* IdeaWithVersion.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD22421B52C72000A4F3D2 /* IdeaWithVersion.xib */; };
+		D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A31B6CBBB90044CAE5 /* AffairsAction.m */; };
+		D40691A71B6CBDF30044CAE5 /* AffairInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A61B6CBDF30044CAE5 /* AffairInfo.m */; };
 		D412969C1B50059E003FC6DB /* MoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D412969A1B50059E003FC6DB /* MoreListCell.m */; };
 		D412969D1B50059E003FC6DB /* MoreListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D412969B1B50059E003FC6DB /* MoreListCell.xib */; };
 		D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D430BD921B3A4B060013BAE7 /* NoticeActions.m */; };
@@ -461,6 +463,10 @@
 		CADD22401B52C72000A4F3D2 /* IdeaWithVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdeaWithVersion.h; sourceTree = "<group>"; };
 		CADD22411B52C72000A4F3D2 /* IdeaWithVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdeaWithVersion.m; sourceTree = "<group>"; };
 		CADD22421B52C72000A4F3D2 /* IdeaWithVersion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdeaWithVersion.xib; sourceTree = "<group>"; };
+		D40691A21B6CBBB90044CAE5 /* AffairsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairsAction.h; sourceTree = "<group>"; };
+		D40691A31B6CBBB90044CAE5 /* AffairsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffairsAction.m; sourceTree = "<group>"; };
+		D40691A51B6CBDF30044CAE5 /* AffairInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairInfo.h; sourceTree = "<group>"; };
+		D40691A61B6CBDF30044CAE5 /* AffairInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffairInfo.m; sourceTree = "<group>"; };
 		D41296991B50059E003FC6DB /* MoreListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreListCell.h; sourceTree = "<group>"; };
 		D412969A1B50059E003FC6DB /* MoreListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreListCell.m; sourceTree = "<group>"; };
 		D412969B1B50059E003FC6DB /* MoreListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreListCell.xib; sourceTree = "<group>"; };
@@ -847,6 +853,8 @@
 				065C03941B68AF630090EA46 /* BbsAction.m */,
 				D454C79E1B6A821C005E2C5F /* TestAtion.h */,
 				D454C79F1B6A821C005E2C5F /* TestAtion.m */,
+				D40691A21B6CBBB90044CAE5 /* AffairsAction.h */,
+				D40691A31B6CBBB90044CAE5 /* AffairsAction.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -928,6 +936,8 @@
 				D726E6AA1B6B7DE200DD7E98 /* TestAnswerInfo.m */,
 				D726E6AC1B6B842D00DD7E98 /* TestUserNotCheckInfo.h */,
 				D726E6AD1B6B842D00DD7E98 /* TestUserNotCheckInfo.m */,
+				D40691A51B6CBDF30044CAE5 /* AffairInfo.h */,
+				D40691A61B6CBDF30044CAE5 /* AffairInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1665,6 +1675,7 @@
 				065C03981B68B16D0090EA46 /* TopicInfo.m in Sources */,
 				CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
+				D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */,
 				D49C64EA1B393D4E006B6D37 /* TeacherInfo.m in Sources */,
 				594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */,
 				D4B2F35B1B032C36007B017E /* LineNavigationController.m in Sources */,
@@ -1747,6 +1758,7 @@
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
 				06460D541B663D160056DC8B /* FCourseInfo.m in Sources */,
 				CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */,
+				D40691A71B6CBDF30044CAE5 /* AffairInfo.m in Sources */,
 				D45526B71B6279F7004FEBBB /* ProgressView.m in Sources */,
 				D4459B8F1B63D75A00DEB780 /* CourseTabbarViewController.m in Sources */,
 				D726E6AE1B6B842D00DD7E98 /* TestUserNotCheckInfo.m in Sources */,

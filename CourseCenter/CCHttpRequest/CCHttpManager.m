@@ -703,6 +703,32 @@
 }
 
 
+- (void)getAffairsListWithType:(int)Type
+                          OCID:(long)OCID
+                     IsHistory:(BOOL)IsHistory
+                     PageIndex:(int)PageIndex
+                      PageSize:(int)PageSize
+                      finished:(FinishedBlock)finished {
+    
+    [AffairsAction getAffairsListWithType:Type
+                                     OCID:OCID
+                                IsHistory:IsHistory
+                                PageIndex:PageIndex
+                                 PageSize:PageSize
+                                 finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
+
+- (void)updateOCAffairsStatusWithAffairID:(long)AffairID Status:(int)Status finished:(FinishedBlock)finished {
+    [AffairsAction updateOCAffairsStatusWithAffairID:AffairID
+                                              Status:Status
+                                            finished:^(EnumServerStatus status, NSObject *object) {
+        finished(Status, object);
+    }];
+}
+
+
 
 
 @end
