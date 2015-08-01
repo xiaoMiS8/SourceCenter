@@ -17,6 +17,10 @@
 #define kRole                           @"Role"
 #define kIsStudent                      @"IsStudent"
 #define kProgress                       @"Progress"
+#define kTestID                                 @"TestID"
+#define kClassName                              @"ClassName"
+#define kStatus                                 @"Status"
+#define kFastScore                              @"FastScore"
 
 @interface UserInfo : NSObject
 
@@ -35,6 +39,14 @@
     ///进度
 @property(nonatomic, assign) float Progress;
 
-- (id)initDict:(NSDictionary *)dict;
+@property(nonatomic, assign) long TestID;
+    ///班级名称
+@property(nonatomic, strong) NSString *ClassName;
+    ///作业状态
+@property(nonatomic, assign) int Status;
+    ///得分
+@property(nonatomic, assign) int FastScore;
+
+- (id)initWithDict:(NSDictionary *)dict;
 
 @end

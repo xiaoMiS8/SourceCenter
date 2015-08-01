@@ -120,6 +120,16 @@
 		CADD222B1B52862E00A4F3D2 /* SetPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD22291B52862E00A4F3D2 /* SetPassword.xib */; };
 		CADD22431B52C72000A4F3D2 /* IdeaWithVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD22411B52C72000A4F3D2 /* IdeaWithVersion.m */; };
 		CADD22441B52C72000A4F3D2 /* IdeaWithVersion.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD22421B52C72000A4F3D2 /* IdeaWithVersion.xib */; };
+		D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A31B6CBBB90044CAE5 /* AffairsAction.m */; };
+		D40691A71B6CBDF30044CAE5 /* AffairInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A61B6CBDF30044CAE5 /* AffairInfo.m */; };
+		D40691AA1B6CE2970044CAE5 /* SurveyAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A91B6CE2970044CAE5 /* SurveyAction.m */; };
+		D40691AD1B6CE36D0044CAE5 /* SurveyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691AC1B6CE36D0044CAE5 /* SurveyInfo.m */; };
+		D40691B01B6CE5C10044CAE5 /* ObjectInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691AF1B6CE5C10044CAE5 /* ObjectInfo.m */; };
+		D40691B31B6CE7EA0044CAE5 /* QuestionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691B21B6CE7EA0044CAE5 /* QuestionInfo.m */; };
+		D40691B61B6CE8100044CAE5 /* QuestionItemInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691B51B6CE8100044CAE5 /* QuestionItemInfo.m */; };
+		D40691B91B6CECCB0044CAE5 /* surveyDetailInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691B81B6CECCB0044CAE5 /* surveyDetailInfo.m */; };
+		D40691BC1B6CF1CE0044CAE5 /* AnswerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691BB1B6CF1CE0044CAE5 /* AnswerInfo.m */; };
+		D40691BF1B6CF6590044CAE5 /* SurveyAnswerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691BE1B6CF6590044CAE5 /* SurveyAnswerInfo.m */; };
 		D412969C1B50059E003FC6DB /* MoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D412969A1B50059E003FC6DB /* MoreListCell.m */; };
 		D412969D1B50059E003FC6DB /* MoreListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D412969B1B50059E003FC6DB /* MoreListCell.xib */; };
 		D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D430BD921B3A4B060013BAE7 /* NoticeActions.m */; };
@@ -461,6 +471,26 @@
 		CADD22401B52C72000A4F3D2 /* IdeaWithVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IdeaWithVersion.h; sourceTree = "<group>"; };
 		CADD22411B52C72000A4F3D2 /* IdeaWithVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IdeaWithVersion.m; sourceTree = "<group>"; };
 		CADD22421B52C72000A4F3D2 /* IdeaWithVersion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IdeaWithVersion.xib; sourceTree = "<group>"; };
+		D40691A21B6CBBB90044CAE5 /* AffairsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairsAction.h; sourceTree = "<group>"; };
+		D40691A31B6CBBB90044CAE5 /* AffairsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffairsAction.m; sourceTree = "<group>"; };
+		D40691A51B6CBDF30044CAE5 /* AffairInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairInfo.h; sourceTree = "<group>"; };
+		D40691A61B6CBDF30044CAE5 /* AffairInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffairInfo.m; sourceTree = "<group>"; };
+		D40691A81B6CE2970044CAE5 /* SurveyAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyAction.h; sourceTree = "<group>"; };
+		D40691A91B6CE2970044CAE5 /* SurveyAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyAction.m; sourceTree = "<group>"; };
+		D40691AB1B6CE36D0044CAE5 /* SurveyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyInfo.h; sourceTree = "<group>"; };
+		D40691AC1B6CE36D0044CAE5 /* SurveyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyInfo.m; sourceTree = "<group>"; };
+		D40691AE1B6CE5C10044CAE5 /* ObjectInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectInfo.h; sourceTree = "<group>"; };
+		D40691AF1B6CE5C10044CAE5 /* ObjectInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectInfo.m; sourceTree = "<group>"; };
+		D40691B11B6CE7EA0044CAE5 /* QuestionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionInfo.h; sourceTree = "<group>"; };
+		D40691B21B6CE7EA0044CAE5 /* QuestionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionInfo.m; sourceTree = "<group>"; };
+		D40691B41B6CE8100044CAE5 /* QuestionItemInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionItemInfo.h; sourceTree = "<group>"; };
+		D40691B51B6CE8100044CAE5 /* QuestionItemInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionItemInfo.m; sourceTree = "<group>"; };
+		D40691B71B6CECCB0044CAE5 /* surveyDetailInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = surveyDetailInfo.h; sourceTree = "<group>"; };
+		D40691B81B6CECCB0044CAE5 /* surveyDetailInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = surveyDetailInfo.m; sourceTree = "<group>"; };
+		D40691BA1B6CF1CE0044CAE5 /* AnswerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerInfo.h; sourceTree = "<group>"; };
+		D40691BB1B6CF1CE0044CAE5 /* AnswerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerInfo.m; sourceTree = "<group>"; };
+		D40691BD1B6CF6590044CAE5 /* SurveyAnswerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurveyAnswerInfo.h; sourceTree = "<group>"; };
+		D40691BE1B6CF6590044CAE5 /* SurveyAnswerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurveyAnswerInfo.m; sourceTree = "<group>"; };
 		D41296991B50059E003FC6DB /* MoreListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreListCell.h; sourceTree = "<group>"; };
 		D412969A1B50059E003FC6DB /* MoreListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreListCell.m; sourceTree = "<group>"; };
 		D412969B1B50059E003FC6DB /* MoreListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreListCell.xib; sourceTree = "<group>"; };
@@ -847,6 +877,10 @@
 				065C03941B68AF630090EA46 /* BbsAction.m */,
 				D454C79E1B6A821C005E2C5F /* TestAtion.h */,
 				D454C79F1B6A821C005E2C5F /* TestAtion.m */,
+				D40691A21B6CBBB90044CAE5 /* AffairsAction.h */,
+				D40691A31B6CBBB90044CAE5 /* AffairsAction.m */,
+				D40691A81B6CE2970044CAE5 /* SurveyAction.h */,
+				D40691A91B6CE2970044CAE5 /* SurveyAction.m */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -928,6 +962,22 @@
 				D726E6AA1B6B7DE200DD7E98 /* TestAnswerInfo.m */,
 				D726E6AC1B6B842D00DD7E98 /* TestUserNotCheckInfo.h */,
 				D726E6AD1B6B842D00DD7E98 /* TestUserNotCheckInfo.m */,
+				D40691A51B6CBDF30044CAE5 /* AffairInfo.h */,
+				D40691A61B6CBDF30044CAE5 /* AffairInfo.m */,
+				D40691AB1B6CE36D0044CAE5 /* SurveyInfo.h */,
+				D40691AC1B6CE36D0044CAE5 /* SurveyInfo.m */,
+				D40691B71B6CECCB0044CAE5 /* surveyDetailInfo.h */,
+				D40691B81B6CECCB0044CAE5 /* surveyDetailInfo.m */,
+				D40691BD1B6CF6590044CAE5 /* SurveyAnswerInfo.h */,
+				D40691BE1B6CF6590044CAE5 /* SurveyAnswerInfo.m */,
+				D40691AE1B6CE5C10044CAE5 /* ObjectInfo.h */,
+				D40691AF1B6CE5C10044CAE5 /* ObjectInfo.m */,
+				D40691B11B6CE7EA0044CAE5 /* QuestionInfo.h */,
+				D40691B21B6CE7EA0044CAE5 /* QuestionInfo.m */,
+				D40691B41B6CE8100044CAE5 /* QuestionItemInfo.h */,
+				D40691B51B6CE8100044CAE5 /* QuestionItemInfo.m */,
+				D40691BA1B6CF1CE0044CAE5 /* AnswerInfo.h */,
+				D40691BB1B6CF1CE0044CAE5 /* AnswerInfo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1617,6 +1667,7 @@
 				D4B2F3A21B033E51007B017E /* UIRefreshControl+AFNetworking.m in Sources */,
 				06B214A21B6751A700CE9A19 /* FRankInfo.m in Sources */,
 				D4B2F3A31B033E51007B017E /* UIWebView+AFNetworking.m in Sources */,
+				D40691AD1B6CE36D0044CAE5 /* SurveyInfo.m in Sources */,
 				D4DF08981B5B970500B816DD /* NewNotimgCell.m in Sources */,
 				D4B2F3E41B034265007B017E /* MJRefreshGifHeader.m in Sources */,
 				D4B2F3641B033B34007B017E /* Tool.m in Sources */,
@@ -1645,6 +1696,7 @@
 				06A53B0D1B68D41800C1580D /* TopicResponseInfo.m in Sources */,
 				D4B2F3981B033E51007B017E /* AFURLConnectionOperation.m in Sources */,
 				D4B2F32C1B02FC03007B017E /* TabBarViewController.m in Sources */,
+				D40691BF1B6CF6590044CAE5 /* SurveyAnswerInfo.m in Sources */,
 				CADD22431B52C72000A4F3D2 /* IdeaWithVersion.m in Sources */,
 				D4B2F3EB1B034265007B017E /* MKAnnotationView+WebCache.m in Sources */,
 				D4B2F39D1B033E51007B017E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -1654,6 +1706,7 @@
 				D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */,
 				066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */,
 				D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */,
+				D40691B61B6CE8100044CAE5 /* QuestionItemInfo.m in Sources */,
 				042E75E41B16148A00396AAF /* NSArray+Sort.m in Sources */,
 				D412969C1B50059E003FC6DB /* MoreListCell.m in Sources */,
 				D4B2F3311B02FD8D007B017E /* BaseViewController.m in Sources */,
@@ -1665,6 +1718,7 @@
 				065C03981B68B16D0090EA46 /* TopicInfo.m in Sources */,
 				CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
+				D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */,
 				D49C64EA1B393D4E006B6D37 /* TeacherInfo.m in Sources */,
 				594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */,
 				D4B2F35B1B032C36007B017E /* LineNavigationController.m in Sources */,
@@ -1683,6 +1737,7 @@
 				CA4E79AA1B64E3220079A05B /* NewMessage.m in Sources */,
 				5963C3591B20017C00A09D30 /* ResponseObject.m in Sources */,
 				042E75C51B160C9100396AAF /* LoginViewController.m in Sources */,
+				D40691B91B6CECCB0044CAE5 /* surveyDetailInfo.m in Sources */,
 				D46F48FE1B340E48001E8AEF /* OCourseInfo.m in Sources */,
 				D464D1A81B6685B0009A5ADB /* CGroupInfo.m in Sources */,
 				D4F607BD1B33FBC700888FC4 /* IndexActions.m in Sources */,
@@ -1692,6 +1747,7 @@
 				D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */,
 				D4B2F39C1B033E51007B017E /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D4B2F3F61B034265007B017E /* UIImage+MultiFormat.m in Sources */,
+				D40691BC1B6CF1CE0044CAE5 /* AnswerInfo.m in Sources */,
 				D759DA911B6B245600E58EF2 /* TestPaperInfo.m in Sources */,
 				042E75EB1B16176100396AAF /* FindPasswordViewController.m in Sources */,
 				D4B2F3971B033E51007B017E /* AFSecurityPolicy.m in Sources */,
@@ -1721,10 +1777,12 @@
 				D759DA9A1B6B24EF00E58EF2 /* ExerciseInfo.m in Sources */,
 				065C03951B68AF630090EA46 /* BbsAction.m in Sources */,
 				042E75E21B16148A00396AAF /* IQTitleBarButtonItem.m in Sources */,
+				D40691B01B6CE5C10044CAE5 /* ObjectInfo.m in Sources */,
 				9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */,
 				D759DAA01B6B256E00E58EF2 /* AttachmentInfo.m in Sources */,
 				CACBFC9E1B540C6D00FAD388 /* UIImage+ResizeImage.m in Sources */,
 				D4B2F39E1B033E51007B017E /* UIAlertView+AFNetworking.m in Sources */,
+				D40691B31B6CE7EA0044CAE5 /* QuestionInfo.m in Sources */,
 				D4B2F3E11B034265007B017E /* MJRefreshConst.m in Sources */,
 				D4C1BB8D1B6A6C2200048D91 /* OCClassInfo.m in Sources */,
 				599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */,
@@ -1745,8 +1803,10 @@
 				06B214AE1B675F5D00CE9A19 /* OCFCLearnNavInfo.m in Sources */,
 				D759DA971B6B24AD00E58EF2 /* PaperGroupInfo.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
+				D40691AA1B6CE2970044CAE5 /* SurveyAction.m in Sources */,
 				06460D541B663D160056DC8B /* FCourseInfo.m in Sources */,
 				CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */,
+				D40691A71B6CBDF30044CAE5 /* AffairInfo.m in Sources */,
 				D45526B71B6279F7004FEBBB /* ProgressView.m in Sources */,
 				D4459B8F1B63D75A00DEB780 /* CourseTabbarViewController.m in Sources */,
 				D726E6AE1B6B842D00DD7E98 /* TestUserNotCheckInfo.m in Sources */,

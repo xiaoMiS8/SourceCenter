@@ -28,6 +28,13 @@
         self.Score = [dict[kScore] intValue];
         self.Orde = dict[kOrde];
         self.Answer = dict[kAnswer];
+        NSArray *array = dict[kExerciseChoices];
+        NSMutableArray *ExerciseChoices = [[NSMutableArray alloc] initWithCapacity:0];
+        for (int i=0; i<array.count; i++) {
+            ExerciseChoicesInfo *exchoice = [[ExerciseChoicesInfo alloc] initWithDict:array[i]];
+            [ExerciseChoices addObject:exchoice];
+        }
+        self.ExerciseChoices = ExerciseChoices;
     }
     return self;
 }

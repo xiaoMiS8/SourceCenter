@@ -23,13 +23,11 @@
         self.LiveType = dict[kLiveType];
         self.BuildMode = [dict[kBuildMode] intValue];
         self.FastScore = [dict[kFastScore] intValue];
+        self.UncommittedCount = [dict[kUncommittedCount] intValue];
+        self.submittedCount = [dict[ksubmittedCount] intValue];
+        self.MarkingCount = [dict[kMarkingCount] intValue];
     }
     return self;
 }
 
 @end
-
-#define kPaperID            @"PaperID"
-#define kType               @"Type"
-#define kLiveType           @"LiveType"
-#define kBuildMode          @"BuildMode"

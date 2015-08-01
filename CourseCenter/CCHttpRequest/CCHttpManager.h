@@ -15,6 +15,9 @@
 #import "FileAction.h"
 #import "FCourseAction.h"
 #import "BbsAction.h"
+#import "TestAtion.h"
+#import "AffairsAction.h"
+#import "SurveyAction.h"
 @interface CCHttpManager : NSObject
 
 #pragma mark- User
@@ -436,6 +439,395 @@
                            SearchKey:(NSString *)SearchKey
                            PageIndex:(int)PageIndex
                             PageSize:(int)PageSize
+                            finished:(FinishedBlock)finished;
+/**
+ *  论坛主题的详细信息
+ *
+ *  @param TopicID  论坛主题ID
+ *  @param finished finished description
+ */
+- (void)getAppForumTopicWithTopicID:(long)TopicID
+                           finished:(FinishedBlock)finished;
+/**
+ *  获取论坛回复列表
+ *
+ *  @param TopicID  论坛主题ID
+ *  @param finished finished description
+ */
+- (void)getAppForumResponseInfoListWithTopicID:(long)TopicID
+                                      finished:(FinishedBlock)finished;
+/**
+ *  论坛回复
+ *
+ *  @param TopicID  论坛主题ID
+ *  @param ParentID 回复的父级
+ *  @param Conten   内容
+ *  @param finished finished description
+ */
+- (void)addForumResponseWithTopicID:(long)TopicID
+                           ParentID:(long)ParentID
+                             Conten:(NSString *)Conten
+                           finished:(FinishedBlock)finished;
+/**
+ *  论坛版块列表
+ *
+ *  @param OCID     在线课程Id
+ *  @param finished finished description
+ */
+- (void)getForumTypeListwithOCID:(long)OCID
+                        finished:(FinishedBlock)finished;
+/**
+ *  新建讨论板块
+ *
+ *  @param OCID            在线课程Id
+ *  @param CourseID        课程ID
+ *  @param Title           标题
+ *  @param IsEssence       是否精华
+ *  @param IsPublic        是否公告板块
+ *  @param Brief           简介
+ *  @param TeachingClassID 教学班ID
+ *  @param IsSys           是否系统
+ *  @param finished        finished description
+ */
+- (void)addForumTypeWithOCID:(long)OCID
+                    CourseID:(long)CourseID
+                       Title:(NSString *)Title
+                   IsEssence:(BOOL)IsEssence
+                    IsPublic:(BOOL)IsPublic
+                       Brief:(NSString *)Brief
+             TeachingClassID:(long)TeachingClassID
+                       IsSys:(BOOL)IsSys
+                    finished:(FinishedBlock)finished;
+/**
+ *  论坛版块修改
+ *
+ *  @param OCID            在线课程Id
+ *  @param CourseID        课程ID
+ *  @param Title           标题
+ *  @param IsEssence       是否精华
+ *  @param IsPublic        是否公告板块
+ *  @param Brief           简介
+ *  @param TeachingClassID 教学班ID
+ *  @param IsSys           是否系统
+ *  @param finished        finished description
+ */
+- (void)updateForumTypeWithOCID:(long)OCID
+                       CourseID:(long)CourseID
+                          Title:(NSString *)Title
+                      IsEssence:(BOOL)IsEssence
+                       IsPublic:(BOOL)IsPublic
+                          Brief:(NSString *)Brief
+                TeachingClassID:(long)TeachingClassID
+                          IsSys:(BOOL)IsSys
+                       finished:(FinishedBlock)finished;
+/**
+ *  发帖
+ *
+ *  @param OCID        在线课程Id
+ *  @param CourseID    课程ID
+ *  @param ForumTypeID 板块ID,0表示全部版块
+ *  @param GroupTaskID 小组讨论的编号，如果不是小组讨论中发帖，该编号设置为0
+ *  @param Title       标题
+ *  @param Conten      内容
+ *  @param TopicType   发帖的主题类型; PBL中发帖，该编号设置为3
+ *  @param Tags        标签 ,用逗号分隔;  Source --附件名称,SourceID --附件ID
+ *  @param ChapterID   章节ID
+ *  @param Source      没有传""
+ *  @param SourceID    小组讨论任务编号没有传0
+ *  @param finished    finished description
+ */
+- (void)addForumTopicWithOCID:(long)OCID
+                     CourseID:(long)CourseID
+                  ForumTypeID:(long)ForumTypeID
+                  GroupTaskID:(long)GroupTaskID
+                        Title:(NSString *)Title
+                       Conten:(NSString *)Conten
+                    TopicType:(int)TopicType
+                         Tags:(NSArray *)Tags
+                    ChapterID:(long)ChapterID
+                       Source:(NSString *)Source
+                     SourceID:(long)SourceID
+                     finished:(FinishedBlock)finished;
+/**
+ *  删除板块
+ *
+ *  @param ForumTypeID 板块ID,0表示全部版块
+ *  @param OCID        在线课程Id
+ *  @param finished    finished description
+ */
+- (void)deleteForumTypeWithForumTypeID:(long)ForumTypeID
+                                  OCID:(long)OCID
+                              finished:(FinishedBlock)finished;
+/**
+ *  教学班列表
+ *
+ *  @param OCID     在线课程Id
+ *  @param finished finished description
+ */
+- (void)getOCClassDropdownListWithOCID:(long)OCID
+                              finished:(FinishedBlock)finished;
+/**
+ *  为论坛主题或回复点赞
+ *
+ *  @param TopicID    主题
+ *  @param ResponseID 回复ID,0表示为主题加赞
+ *  @param finished   finished description
+ */
+- (void)updateForumMyIsGoodWithTopicID:(long)TopicID
+                            ResponseID:(long)ResponseID
+                              finished:(FinishedBlock)finished;
+/**
+ *  删除帖子
+ *
+ *  @param TopicID  论坛主题ID
+ *  @param finished finished description
+ */
+- (void)deleteForumTopicwithTopicID:(long)TopicID
+                           finished:(FinishedBlock)finished;
+/**
+ *  删除回复
+ *
+ *  @param ResponseID 回复Id
+ *  @param finished   finished description
+ */
+- (void)deleteForumResponseWithResponseID:(long)ResponseID
+                                 finished:(FinishedBlock)finished;
+/**
+ *  获取Mooc章的列表
+ *
+ *  @param OCID     在线课程Id
+ *  @param finished finished description
+ */
+- (void)getAppChapterzhangListWithOCID:(long)OCID
+                              finished:(FinishedBlock)finished;
+/**
+ *  帖子设置置顶
+ *
+ *  @param TopicID  论坛主题ID
+ *  @param finished finished description
+ */
+- (void)setAppForumTopicIsTopWithTopicID:(long)TopicID
+                                finished:(FinishedBlock)finished;
+/**
+ *  帖子设置精华
+ *
+ *  @param TopicID  论坛主题ID
+ *  @param finished finished description
+ */
+- (void)setAppForumTopicIsEssenceWithTopicID:(long)TopicID
+                                    finished:(FinishedBlock)finished;
+/**
+ *  帖子分享到其他板块
+ *
+ *  @param TopicID  论坛主题ID
+ *  @param finished finished description
+ */
+- (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                               finished:(FinishedBlock)finished;
+
+#pragma mark -Test
+
+/**
+ *  未提交作业列表
+ *
+ *  @param OCID     在线课程Id
+ *  @param finished finished description
+ */
+- (void)getAppTestNotSumbitListWithOCID:(long)OCID
+                               finished:(FinishedBlock)finished;
+/**
+ *  已提交作业列表
+ *
+ *  @param OCID     在线课程Id
+ *  @param finished finished description
+ */
+- (void)getAppTestInfoSumbitListWithOCID:(long)OCID
+                                finished:(FinishedBlock)finished;
+/**
+ *  补交作业申请提交
+ *
+ *  @param OCID     在线课程Id
+ *  @param Type     Type(此处传1)
+ *  @param TestID   TestID description
+ *  @param Reson    Reson description
+ *  @param finished finished description
+ */
+- (void)addAppOCAffairsWithOCID:(long)OCID
+                           Type:(int)Type
+                         TestID:(long)TestID
+                          Reson:(NSString *)Reson
+                       finished:(FinishedBlock)finished;
+/**
+ *  用户是否有权限查看测试的内容
+ *
+ *  @param TestID   TestID description
+ *  @param finished finished description
+ */
+- (void)TestCanSeeTestWithTestID:(long)TestID
+                        finished:(FinishedBlock)finished;
+/**
+ *  获取试卷的详细信息
+ *
+ *  @param PaperID  试卷编号
+ *  @param TestID   作业考试编号
+ *  @param finished finished description
+ */
+- (void)getPaperInfoWithPaperID:(long)PaperID
+                         TestID:(long)TestID
+                       finished:(FinishedBlock)finished;
+/**
+ *  获取试卷保存的答案
+ *
+ *  @param TestID   作业考试编号
+ *  @param finished finished description
+ */
+- (void)getTestAnswerWithTestID:(long)TestID
+                       finished:(FinishedBlock)finished;
+/**
+ *  暂存学生的答案信息
+ *
+ *  @param TestID   作业考试编号
+ *  @param Answer   Answer -- 答案格式: ExerciseID + "wshgkjqbwhfbxlfrh_b" + (答案) + "wshgkjqbwhfbxlfrh_a"
+ *  @param finished finished description
+ */
+- (void)saveTestTempwithTestID:(long)TestID
+                        Answer:(NSString *)Answer
+                      finished:(FinishedBlock)finished;
+/**
+ *  提交学生的答案信息
+ *
+ *  @param TestID   作业考试编号
+ *  @param Answer   Answer -- 答案格式: ExerciseID + "wshgkjqbwhfbxlfrh_b" + (答案) + "wshgkjqbwhfbxlfrh_a"
+ *  @param finished finished description
+ */
+- (void)SubmitTestWithTestID:(long)TestID
+                      Answer:(NSString *)Answer
+                    finished:(FinishedBlock)finished;
+/**
+ *  更新学生批阅状态
+ *
+ *  @param UserID   UserID description
+ *  @param TestID   TestID description
+ *  @param Status   11退回重做,23批阅完成,30成绩发放
+ *  @param finished finished description
+ */
+- (void)updateTestUserStatusWithUserID:(long)UserID
+                                TestID:(long)TestID
+                                Status:(int)Status
+                              finished:(FinishedBlock)finished;
+/**
+ *  作业列表
+ *
+ *  @param OCID      OCID description
+ *  @param Type       1.作业2考试3达标训练 4录入成绩,-1全部
+ *  @param PageIndex PageIndex description
+ *  @param PageSize  PageSize description
+ *  @param finished  finished description
+ */
+- (void)getTestListwithOCID:(long)OCID
+                       Type:(int)Type
+                  PageIndex:(int)PageIndex
+                   PageSize:(int)PageSize
+                   finished:(FinishedBlock)finished;
+/**
+ *  作业下的学生列表
+ *
+ *  @param TestID    TestID description
+ *  @param PageIndex PageIndex description
+ *  @param PageSize  PageSize description
+ *  @param finished  finished description
+ */
+- (void)getTestUserListWithTestID:(long)TestID
+                        PageIndex:(int)PageIndex
+                         PageSize:(int)PageSize
+                         finished:(FinishedBlock)finished;
+
+#pragma mark- Affairs
+/**
+ *  事务申请列表
+ *
+ *  @param Type      1 我审核的事务, 2 我申请的事务
+ *  @param OCID      在线课程ID
+ *  @param IsHistory 1 历史事务  0 待处理事务  -1 全部
+ *  @param PageIndex PageIndex description
+ *  @param PageSize  PageSize description
+ *  @param finished  finished description
+ */
+- (void)getAffairsListWithType:(int)Type
+                          OCID:(long)OCID
+                     IsHistory:(BOOL)IsHistory
+                     PageIndex:(int)PageIndex
+                      PageSize:(int)PageSize
+                      finished:(FinishedBlock)finished;
+/**
+ *  事务审核
+ *
+ *  @param AffairID AffairID description
+ *  @param Status   状态 0:未审核,1:拒绝, 2:同意
+ *  @param finished finished description
+ */
+- (void)updateOCAffairsStatusWithAffairID:(long)AffairID Status:(int)Status finished:(FinishedBlock)finished;
+
+#pragma mark- Survey
+
+/**
+ *  我参与的问卷列表
+ *
+ *  @param Key      Key description
+ *  @param OCID     在线课程ID
+ *  @param finished finished description
+ */
+- (void)getSurveyMyJoinListWithKey:(NSString *)Key
+                              OCID:(long)OCID
+                          finished:(FinishedBlock)finished;
+/**
+ *  获取调查问卷的被评价对象
+ *
+ *  @param SurveyID SurveyID description
+ *  @param finished finished description
+ */
+- (void)getSurveyToObjectWithSurveyID:(long)SurveyID
+                             finished:(FinishedBlock)finished;
+/**
+ *  问卷调查详细信息
+ *
+ *  @param SurveyID SurveyID description
+ *  @param finished finished description
+ */
+- (void)getSurveyInfoWithSurveyID:(long)SurveyID
+                         finished:(FinishedBlock)finished;
+/**
+ *  调查问卷的答案详细信息
+ *
+ *  @param SurveyID SurveyID description
+ *  @param ObjectID ObjectID description
+ *  @param finished finished description
+ */
+- (void)getSurveyAnswerWithSurveyID:(long)SurveyID
+                           ObjectID:(long)ObjectID
+                           finished:(FinishedBlock)finished;
+/**
+ *  问卷调查详细及答案
+ *
+ *  @param SurveyID SurveyID description
+ *  @param finished finished description
+ */
+- (void)getSurveyAnswerInfoWithSurveyID:(long)SurveyID
+                               finished:(FinishedBlock)finished;
+
+/**
+ *  问卷调查投票
+ *
+ *  @param SurveyID SurveyID description
+ *  @param Conten   Conten description
+ *  @param Status   Status description
+ *  @param ObjectID 被评对象编号,无对象传0
+ *  @param finished finished description
+ */
+- (void)editSurveyAnswerwithSurveyID:(long)SurveyID
+                              Conten:(NSString *)Conten
+                              Status:(int)Status
+                            ObjectID:(long)ObjectID
                             finished:(FinishedBlock)finished;
 
 @end

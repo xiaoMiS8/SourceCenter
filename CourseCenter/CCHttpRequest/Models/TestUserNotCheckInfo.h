@@ -8,6 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#define kTestID                 @"TestID"
+#define kTestName               @"TestName"
+#define kSubmitTime             @"SubmitTime"
+#define kUserID                 @"UserID"
+#define kUserNo                 @"UserNo"
+#define kUserName               @"UserName"
+#define kSpecialtyName          @"SpecialtyName"
+#define kClassName              @"ClassName"
+#define kBuildMode              @"BuildMode"
+
 @interface TestUserNotCheckInfo : NSObject
 
     ///作业ID
@@ -28,5 +38,7 @@
 @property(nonatomic, strong) NSString *ClassName;
     ///试卷类型
 @property(nonatomic, assign) int BuildMode;
+
+- (id)initWithDict:(NSDictionary *)dict;
 
 @end

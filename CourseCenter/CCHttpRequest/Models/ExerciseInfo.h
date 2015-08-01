@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "ExerciseChoicesInfo.h"
+
 #define kPaperExerciseID            @"PaperExerciseID"
 #define kPaperID                    @"PaperID"
 #define kPaperGroupID               @"PaperGroupID"
@@ -24,6 +26,7 @@
 #define kScore                      @"Score"
 #define kOrde                       @"Orde"
 #define kAnswer                     @"Answer"
+#define kExerciseChoices            @"ExerciseChoices"
 
 
 @interface ExerciseInfo : NSObject
@@ -60,6 +63,8 @@
 @property(nonatomic, strong) NSString *Orde;
     ///习题答案
 @property(nonatomic, strong) NSString *Answer;
+    ///习题下的选项
+@property(nonatomic, strong) NSArray *ExerciseChoices;
 
 - (id)initWithDict:(NSDictionary *)dict;
 
