@@ -29,7 +29,7 @@
     selector:@selector(myMovieFinishedCallback:)name:MPMoviePlayerPlaybackDidFinishNotification
     object:movie];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(mediaPlayerPlaybackStateChange:) name:MPMoviePlayerPlaybackStateDidChangeNotification object:movie];
-    [MBProgressHUD showMessage:nil];
+    [MBProgressHUD showMessage:@"视频加载中..."];
 }
 -(void)mediaPlayerPlaybackStateChange:(NSNotification *)notification{
     switch (movie.playbackState) {

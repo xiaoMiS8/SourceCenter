@@ -179,7 +179,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
-    homeDetailVc.OCID=1;//((OCourse *)[self.dataArray objectAtIndex:indexPath.row]).OCID;
+    homeDetailVc.OCID=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).OCID;
     homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
     homeDetailVc.topImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).CourseImgUrl;
     homeDetailVc.RegStatus=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).RegStatus;
