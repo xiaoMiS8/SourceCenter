@@ -38,7 +38,7 @@ static NSInteger tag;
 -(void)loadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getChapterStudyListwithOCID:528 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getChapterStudyListwithOCID:1 finished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -127,10 +127,9 @@ static NSInteger tag;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
     if (!cell) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
-        UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0,80, cell.frame.size.height)];
-        lable.textAlignment=NSTextAlignmentRight;
-        lable.text=@"9087";
-        cell.accessoryView=lable;
+        UIButton *btnView=[[UIButton alloc]initWithFrame:CGRectMake(0, 10,40, cell.frame.size.height-20)];
+        [btnView setBackgroundImage:[UIImage imageNamed:@"btn_download"] forState:UIControlStateNormal];
+        cell.accessoryView=btnView;
     }
         cell.imageView.image=[UIImage imageNamed:@"btn_confirm"];
     [self picHandleWithCell:cell withFileType:info.FileType];

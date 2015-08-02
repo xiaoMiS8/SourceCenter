@@ -20,7 +20,7 @@
         self.FCStudentCount = [dict[kFCStudentCount] intValue];
         self.FCLiveGroupCount = [dict[kFCLiveGroupCount] intValue];
         self.ClassNames = dict[kClassNames];
-        self.Progress = [dict[kProgress] floatValue];
+        self.Progress =dict[kProgress];
         self.OnlineProgress = [dict[kOnlineProgress] floatValue];
         self.TestProgress = [dict[kTestProgress] floatValue];
         self.TopicProgress = [dict[kTopicProgress] floatValue];

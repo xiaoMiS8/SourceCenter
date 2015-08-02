@@ -34,7 +34,7 @@
     ///教学班名称
 @property(nonatomic, strong) NSString *ClassNames;
     ///总进度
-@property(nonatomic, assign) float Progress;
+@property(nonatomic, strong) NSString *Progress;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

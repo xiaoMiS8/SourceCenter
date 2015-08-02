@@ -23,6 +23,7 @@
     MessageCenter *messageCenter;
     MyData *myData;
     NSString *loginState;
+    __block  BOOL isBlock;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableHeight;
@@ -100,7 +101,6 @@
                 return ;
             }
         }
-        [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

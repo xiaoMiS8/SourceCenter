@@ -122,6 +122,8 @@
 		CADD22441B52C72000A4F3D2 /* IdeaWithVersion.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD22421B52C72000A4F3D2 /* IdeaWithVersion.xib */; };
 		CAE2F3B91B6D0DE300BF4132 /* ApplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE2F3B71B6D0DE300BF4132 /* ApplyViewController.m */; };
 		CAE2F3BA1B6D0DE300BF4132 /* ApplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE2F3B81B6D0DE300BF4132 /* ApplyViewController.xib */; };
+		CAE5D4501B6E570D004F5D5B /* FCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE5D44E1B6E570D004F5D5B /* FCourseCell.m */; };
+		CAE5D4511B6E570D004F5D5B /* FCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE5D44F1B6E570D004F5D5B /* FCourseCell.xib */; };
 		D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A31B6CBBB90044CAE5 /* AffairsAction.m */; };
 		D40691A71B6CBDF30044CAE5 /* AffairInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A61B6CBDF30044CAE5 /* AffairInfo.m */; };
 		D40691AA1B6CE2970044CAE5 /* SurveyAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A91B6CE2970044CAE5 /* SurveyAction.m */; };
@@ -476,6 +478,9 @@
 		CAE2F3B61B6D0DE300BF4132 /* ApplyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplyViewController.h; sourceTree = "<group>"; };
 		CAE2F3B71B6D0DE300BF4132 /* ApplyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplyViewController.m; sourceTree = "<group>"; };
 		CAE2F3B81B6D0DE300BF4132 /* ApplyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ApplyViewController.xib; sourceTree = "<group>"; };
+		CAE5D44D1B6E570D004F5D5B /* FCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseCell.h; sourceTree = "<group>"; };
+		CAE5D44E1B6E570D004F5D5B /* FCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseCell.m; sourceTree = "<group>"; };
+		CAE5D44F1B6E570D004F5D5B /* FCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCourseCell.xib; sourceTree = "<group>"; };
 		D40691A21B6CBBB90044CAE5 /* AffairsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairsAction.h; sourceTree = "<group>"; };
 		D40691A31B6CBBB90044CAE5 /* AffairsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffairsAction.m; sourceTree = "<group>"; };
 		D40691A51B6CBDF30044CAE5 /* AffairInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairInfo.h; sourceTree = "<group>"; };
@@ -1211,6 +1216,9 @@
 				D4E1FF121B613A5C00D5773D /* MyCourseListCell.h */,
 				D4E1FF131B613A5C00D5773D /* MyCourseListCell.m */,
 				D4E1FF141B613A5C00D5773D /* MyCourseListCell.xib */,
+				CAE5D44D1B6E570D004F5D5B /* FCourseCell.h */,
+				CAE5D44E1B6E570D004F5D5B /* FCourseCell.m */,
+				CAE5D44F1B6E570D004F5D5B /* FCourseCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1639,6 +1647,7 @@
 				D4DF08991B5B970500B816DD /* NewNotimgCell.xib in Resources */,
 				D4B2F3451B02FEC0007B017E /* NotificationViewController.xib in Resources */,
 				CA20AA3B1B5A979500598370 /* MyData.xib in Resources */,
+				CAE5D4511B6E570D004F5D5B /* FCourseCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1836,6 +1845,7 @@
 				042E75E31B16148A00396AAF /* IQToolbar.m in Sources */,
 				D4B2F39F1B033E51007B017E /* UIButton+AFNetworking.m in Sources */,
 				06460D511B66205B0056DC8B /* FCourseAction.m in Sources */,
+				CAE5D4501B6E570D004F5D5B /* FCourseCell.m in Sources */,
 				CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */,
 				CA62FA0B1B42DCF700F80DE3 /* SubjectSearchViewController.m in Sources */,
 				59C478641B14044D008A49BF /* HomeListCell.m in Sources */,
