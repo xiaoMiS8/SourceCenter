@@ -9,6 +9,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SendMesage">
             <connections>
                 <outlet property="editingTagControl" destination="oWV-w3-gef" id="36g-Br-m4Y"/>
+                <outlet property="textF" destination="CC6-1b-mtx" id="tYA-B7-AnH"/>
+                <outlet property="textV" destination="nbO-1o-RFt" id="Sap-tm-frR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

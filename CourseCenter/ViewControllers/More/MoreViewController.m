@@ -87,6 +87,10 @@
         }
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
+        [MBProgressHUD hideHUD];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
     [self.httpManager getAppUnReadMessageCountWithfinished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {
             self.reob=(ResponseObject *)object;
@@ -98,7 +102,6 @@
         }
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
-        [MBProgressHUD hideHUD];
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -112,7 +115,7 @@
         case 1:
             return 1;
         case 2:
-            return 4;
+            return 2;
         case 3:
             return 1;
         default:
@@ -173,12 +176,13 @@
         case 0:
             break;
         case 1:
-            break;
-        case 2:
             [((AppDelegate *)app).nav pushViewController:myData animated:YES];
             break;
-        case 3:
-            break;
+//        case 2:
+//            [((AppDelegate *)app).nav pushViewController:myData animated:YES];
+//            break;
+//        case 3:
+//            break;
         default:
             break;
     }

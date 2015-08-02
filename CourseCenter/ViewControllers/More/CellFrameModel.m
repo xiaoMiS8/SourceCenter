@@ -32,7 +32,7 @@
     }
     
     //2.头像的Frame
-    CGFloat iconFrameX = message.type ? padding : (frame.size.width - padding - iconW);
+    CGFloat iconFrameX = message.type==kMessageModelTypeOther ? padding : (frame.size.width - padding - iconW);
     CGFloat iconFrameY = CGRectGetMaxY(_timeFrame);
     CGFloat iconFrameW = iconW;
     CGFloat iconFrameH = iconH;
@@ -43,7 +43,7 @@
     CGSize textSize = [message.text sizeWithFont:[UIFont systemFontOfSize:14.0] maxSize:textMaxSize];
     CGSize textRealSize = CGSizeMake(textSize.width + textPadding * 2, textSize.height + textPadding * 2);
     CGFloat textFrameY = iconFrameY;
-    CGFloat textFrameX = message.type ? (2 * padding + iconFrameW) : (frame.size.width - (padding * 2 + iconFrameW + textRealSize.width));
+    CGFloat textFrameX = message.type==kMessageModelTypeOther ? (2 * padding + iconFrameW) : (frame.size.width - (padding * 2 + iconFrameW + textRealSize.width));
     _textFrame = (CGRect){textFrameX, textFrameY, textRealSize};
     
     //4.cell的高度

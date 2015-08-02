@@ -132,6 +132,7 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [[NSUserDefaults standardUserDefaults]setObject:@"0" forKey:@"isLogin"];
+                [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"role"];
                 [MBProgressHUD showSuccess:self.reob.errorMessage];
                 //退出回调刷新页面
                 if (self.block) {

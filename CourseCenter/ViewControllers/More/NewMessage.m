@@ -100,7 +100,7 @@
 }
 -(void)press:(UIButton *)but
 {
-    [self bLoadDataWithId:nil type:nil];
+   // [self bLoadDataWithId:nil type:nil];
     NSMutableDictionary *dicto=[_array objectAtIndex:but.tag-100];
     NSNumber *num=[dicto objectForKey:SECTION_STATE];
     if ([num boolValue]) {
@@ -109,7 +109,8 @@
     {
         [dicto setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
     }
-    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
+    [_tableView reloadData];
+   // [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
 }
 -(void)showCourseData
 {
@@ -148,8 +149,8 @@
     NewMessageCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"NewMessageCell"];
     cell.dic=((AppDelegate *)app).dicData;
     NSMutableArray *array=[_subArray objectAtIndex:indexPath.section];
-    cell.info=[array objectAtIndex:indexPath.row];
     cell.indexPath=indexPath;
+    cell.info=[array objectAtIndex:indexPath.row];
     return cell;
 }
 -(void)sure
@@ -203,11 +204,11 @@
     NSString *noSelect=@"NOSEL";
     NSMutableArray *array=[((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",section]];
     for (int i=0;i<array.count; i++) {
-        if ([array[i] isEqualToString:@"SEL"]) {
-            array[i]=noSelect;
+        if (_head_btn_left.selected) {
+            [((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",section]][i]=select;
         }else
         {
-            array[i]=select;
+            [((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",section]][i]=noSelect;
         }
     }
 }

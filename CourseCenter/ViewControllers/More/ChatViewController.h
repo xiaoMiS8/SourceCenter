@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ChatViewController : UIViewController
-
+@property (nonatomic,assign)long userID;
 @end

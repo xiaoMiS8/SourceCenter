@@ -11,7 +11,7 @@
 #import "MessageCell.h"
 #import "IQKeyboardManager.h"
 #import "MsgInfo.h"
-#define kToolBarH 44
+#define kToolBarH  0 //44
 #define kTextFieldH 30
 
 @interface ChatViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
@@ -40,7 +40,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title=@"林媚";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     self.httpManager = [[CCHttpManager alloc]init];
     self.myDataArray=[[NSMutableArray alloc]init];
@@ -48,12 +47,12 @@
     //1.tableView
     [self addChatView];
     //2.工具栏
-    [self addToolBar];
+    //[self addToolBar];
 }
 -(void)initMsg
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppMessageWithUserID:183 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppMessageWithUserID:_userID finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
@@ -75,8 +74,8 @@
     NSMutableArray *data = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
     [data removeAllObjects];
     [data writeToFile:plistPath atomically:YES];
-    NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
     for (int i=0; i<array.count;i++) {
+        NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
         [dic setObject:((MsgInfo *)array[i]).Conten forKey:@"text"];
         [dic setObject:((MsgInfo *)array[i]).CreateTime forKey:@"time"];
         [dic setObject:((MsgInfo *)array[i]).SendOrReceive forKey:@"type"];
