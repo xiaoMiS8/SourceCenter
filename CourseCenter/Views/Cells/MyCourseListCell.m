@@ -55,6 +55,7 @@
     self.orgName.text = oCourse.OrganizationName;
     self.ocName.text = oCourse.Name;
     self.TeachingClassName.text = oCourse.TeachingClassName;
+    self.LastStudyChapter.text = oCourse.LastStudyChapter;
     self.StudentCount.text = [NSString stringWithFormat:@"%d",oCourse.StudentCount];
     [self.ocoureImg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl]];
     if (!oCourse.IsShowMooc) {

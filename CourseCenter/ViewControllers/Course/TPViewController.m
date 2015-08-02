@@ -14,6 +14,18 @@
 
 @implementation TPViewController
 
+- (void)setRightBtn:(UIButton *)rightBtn {
+    _rightBtn = rightBtn;
+    [rightBtn setImage:[UIImage imageNamed:@"btn_history"] forState:UIControlStateNormal];
+    [rightBtn removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [rightBtn addTarget:self action:@selector(rightBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)rightBtnAction:(id)sender {
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.navigationController.navigationBar.hidden = YES;
@@ -21,7 +33,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+   
 }
 
 /*

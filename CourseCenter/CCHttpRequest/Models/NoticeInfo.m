@@ -16,6 +16,7 @@
         self.NoticeID = [[dict objectForKey:kNoticeID] longValue];
         self.UserID = [[dict objectForKey:kUserID] longValue];
         self.UserName = [dict objectForKey:kUserName];
+        self.UserImg = [dict objectForKey:KUserImg];
         self.Title = [dict objectForKey:kTitle];
         self.Conten = [dict objectForKey:kConten];
         self.UpdateTime = [dict objectForKey:kUpdateTime];
