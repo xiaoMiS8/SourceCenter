@@ -85,8 +85,10 @@ static NSInteger tag;
                 _arrayData=self.reob.resultArray;
                 [self showCourseData];
                 [self loadOCMoocFile];
+                return ;
             }
         }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
 -(void)showteacherInfo:(TeacherInfo *)info
