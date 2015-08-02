@@ -920,13 +920,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CourseCenter/Views/Cells/FCourseCell.m"
-            timestampString = "460219410.493273"
+            timestampString = "460222290.863727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-setInfo:"
-            landmarkType = "5">
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "@implementation FCourseCell"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -936,13 +936,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CourseCenter/Views/Cells/FCourseCell.m"
-            timestampString = "460220502.938257"
+            timestampString = "460222290.863727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-setInfo:"
-            landmarkType = "5">
+            startingLineNumber = "58"
+            endingLineNumber = "58">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -952,13 +950,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CourseCenter/Views/Cells/FCourseCell.m"
-            timestampString = "460220965.209809"
+            timestampString = "460222290.863727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-setInfo:"
-            landmarkType = "5">
+            startingLineNumber = "58"
+            endingLineNumber = "58">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

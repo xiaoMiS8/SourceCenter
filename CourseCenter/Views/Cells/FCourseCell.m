@@ -26,8 +26,8 @@
     }
     if(info.IsEnd==YES)
     {
-       _lable2.backgroundColor=[UIColor grayColor];
-       _lable2.text=@"已完成";
+        _lable2.backgroundColor=[UIColor grayColor];
+        _lable2.text=@"已完成";
     }
     _lable1.text=info.Title;
     _lable3.text=[NSString stringWithFormat:@"%d",info.FCStudentCount];
@@ -38,7 +38,7 @@
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
 }
 
