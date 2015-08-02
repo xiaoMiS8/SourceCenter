@@ -54,6 +54,8 @@
 @property(nonatomic, assign) BOOL           IsGood;
     ///列表总数
 @property(nonatomic, assign) long           RowsCount;
+    ///图片（接口暂时没有该字段）
+@property(nonatomic, strong) NSArray *imgs;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

@@ -24,6 +24,7 @@
 #define kIsCanDel               @"IsCanDel"
 #define krowscount              @"rowscount"
 #define kNoticeResponse         @"NoticeResponse"
+#define kKUserImg               @"KUserImg"
 
 @interface NoticeInfo : NSObject
 
@@ -33,6 +34,7 @@
 @property(nonatomic, assign) long           UserID;
     //姓名
 @property(nonatomic, strong) NSString       *UserName;
+@property(nonatomic, strong) NSString       *UserImg;
     //通知标题
 @property(nonatomic, strong) NSString       *Title;
     //通知内容

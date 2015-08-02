@@ -10,4 +10,6 @@
 
 @interface TPViewController : CourseBaseViewController
 
+@property(nonatomic, strong) UIButton *rightBtn;
+
 @end

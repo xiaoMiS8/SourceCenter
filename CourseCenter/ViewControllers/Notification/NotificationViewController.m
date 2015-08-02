@@ -80,7 +80,7 @@
     
     self.index = 1;
     self.httpManager = [[CCHttpManager alloc] init];
-    [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getNoticeInfoListWithOCID:0 SysID:1 ModuleID:-1 PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             [MBProgressHUD hideHUD];
             ResponseObject *responseObject = (ResponseObject *)object;
@@ -99,7 +99,7 @@
 - (void)loadMore {
     self.index ++;
     self.httpManager = [[CCHttpManager alloc] init];
-    [self.httpManager getNoticeInfoListWithOCID:2 SysID:1 ModuleID:-1 PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getNoticeInfoListWithOCID:0 SysID:1 ModuleID:-1 PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             ResponseObject *responseObject = (ResponseObject *)object;
             [self.notis addObjectsFromArray:responseObject.resultArray];

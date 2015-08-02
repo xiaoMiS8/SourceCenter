@@ -136,6 +136,8 @@
 		D40691BF1B6CF6590044CAE5 /* SurveyAnswerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691BE1B6CF6590044CAE5 /* SurveyAnswerInfo.m */; };
 		D412969C1B50059E003FC6DB /* MoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D412969A1B50059E003FC6DB /* MoreListCell.m */; };
 		D412969D1B50059E003FC6DB /* MoreListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D412969B1B50059E003FC6DB /* MoreListCell.xib */; };
+		D42BF0D81B6DDD12003F798E /* BBSListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D42BF0D61B6DDD12003F798E /* BBSListCell.m */; };
+		D42BF0D91B6DDD12003F798E /* BBSListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42BF0D71B6DDD12003F798E /* BBSListCell.xib */; };
 		D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */ = {isa = PBXBuildFile; fileRef = D430BD921B3A4B060013BAE7 /* NoticeActions.m */; };
 		D4459B761B63D5C900DEB780 /* TutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4459B741B63D5C900DEB780 /* TutorialViewController.m */; };
 		D4459B771B63D5C900DEB780 /* TutorialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4459B751B63D5C900DEB780 /* TutorialViewController.xib */; };
@@ -504,6 +506,9 @@
 		D41296991B50059E003FC6DB /* MoreListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreListCell.h; sourceTree = "<group>"; };
 		D412969A1B50059E003FC6DB /* MoreListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreListCell.m; sourceTree = "<group>"; };
 		D412969B1B50059E003FC6DB /* MoreListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreListCell.xib; sourceTree = "<group>"; };
+		D42BF0D51B6DDD12003F798E /* BBSListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSListCell.h; sourceTree = "<group>"; };
+		D42BF0D61B6DDD12003F798E /* BBSListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSListCell.m; sourceTree = "<group>"; };
+		D42BF0D71B6DDD12003F798E /* BBSListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSListCell.xib; sourceTree = "<group>"; };
 		D430BD911B3A4B060013BAE7 /* NoticeActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoticeActions.h; sourceTree = "<group>"; };
 		D430BD921B3A4B060013BAE7 /* NoticeActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoticeActions.m; sourceTree = "<group>"; };
 		D4459B731B63D5C900DEB780 /* TutorialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TutorialViewController.h; sourceTree = "<group>"; };
@@ -1216,9 +1221,9 @@
 				D4E1FF121B613A5C00D5773D /* MyCourseListCell.h */,
 				D4E1FF131B613A5C00D5773D /* MyCourseListCell.m */,
 				D4E1FF141B613A5C00D5773D /* MyCourseListCell.xib */,
-				CAE5D44D1B6E570D004F5D5B /* FCourseCell.h */,
-				CAE5D44E1B6E570D004F5D5B /* FCourseCell.m */,
-				CAE5D44F1B6E570D004F5D5B /* FCourseCell.xib */,
+				D42BF0D51B6DDD12003F798E /* BBSListCell.h */,
+				D42BF0D61B6DDD12003F798E /* BBSListCell.m */,
+				D42BF0D71B6DDD12003F798E /* BBSListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1599,6 +1604,7 @@
 				D4459B8B1B63D68000DEB780 /* TPViewController.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
 				CACBFC891B54021F00FAD388 /* MessageCenterCell.xib in Resources */,
+				D42BF0D91B6DDD12003F798E /* BBSListCell.xib in Resources */,
 				D4459B9A1B63E09B00DEB780 /* CourseBaseViewController.xib in Resources */,
 				CADD22211B52488700A4F3D2 /* MyInfoCell.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
@@ -1687,6 +1693,7 @@
 				D4B2F3A31B033E51007B017E /* UIWebView+AFNetworking.m in Sources */,
 				D40691AD1B6CE36D0044CAE5 /* SurveyInfo.m in Sources */,
 				D4DF08981B5B970500B816DD /* NewNotimgCell.m in Sources */,
+				D42BF0D81B6DDD12003F798E /* BBSListCell.m in Sources */,
 				D4B2F3E41B034265007B017E /* MJRefreshGifHeader.m in Sources */,
 				D4B2F3641B033B34007B017E /* Tool.m in Sources */,
 				042E75E01B16148A00396AAF /* IQSegmentedNextPrevious.m in Sources */,

@@ -10,4 +10,9 @@
 
 @interface BBsViewController : CourseBaseViewController
 
+@property(nonatomic, strong) UIButton *rightBtn1;
+@property(nonatomic, strong) UIButton *rightBtn2;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @end

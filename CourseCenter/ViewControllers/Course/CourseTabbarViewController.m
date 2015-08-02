@@ -15,6 +15,10 @@
 @property(nonatomic, strong) NSArray *itemSelectedImages;
 @property(nonatomic, strong) NSArray *itemTitles;
 
+@property(nonatomic, strong) UISegmentedControl *seg;
+@property(nonatomic, strong) UIButton *oneBtn;
+@property(nonatomic, strong) UIButton *rightBtn;
+
 @end
 
 @implementation CourseTabbarViewController
@@ -34,6 +38,59 @@
     
     
     
+}
+
+- (void)addCenterSeg {
+    if (self.seg == nil) {
+        NSArray *array = @[@"未上交",@"已上交"];
+        UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:array];
+        seg.selectedSegmentIndex = 0;
+        seg.bounds = CGRectMake(0, 0, 160, 30);
+        self.seg = seg;
+    }
+   self.navigationItem.titleView = self.seg;
+}
+
+- (void)removeCenterSeg {
+    self.navigationItem.titleView = nil;
+}
+
+- (void)addrightItemsWithIsTwo:(BOOL)isTwo andViewcontroller:(UIViewController *)viewController {
+    
+    BBsViewController *bbsVC = self.viewcontrollers[2];
+    TPViewController *tpVC = self.viewcontrollers[4];
+    if (self.oneBtn == nil) {
+        UIButton *Btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        Btn.frame = CGRectMake(0, 0, 30, 30);
+        [Btn setImage: [UIImage imageNamed:@"btn_plate"] forState:UIControlStateNormal];
+        self.oneBtn = Btn;
+    }
+    bbsVC.rightBtn1 = self.oneBtn;
+    if (self.rightBtn == nil) {
+        UIButton *rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        rightBtn.frame = CGRectMake(0, 0, 30, 30);
+        self.rightBtn = rightBtn;
+    }
+    if (viewController == self.viewcontrollers[2]) {
+        bbsVC.rightBtn2 = self.rightBtn;
+    } else {
+        tpVC.rightBtn = self.rightBtn;
+    }
+    if (isTwo) {
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:self.oneBtn];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
+        self.navigationItem.rightBarButtonItems = @[rightItem,item];
+    } else {
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
+        self.navigationItem.rightBarButtonItem = rightItem;
+    }
+  
+    
+}
+
+- (void)removeRightItem {
+    self.navigationItem.rightBarButtonItem = nil;
+    self.navigationItem.rightBarButtonItems = nil;
 }
 
 - (void)setViewcontrollers:(NSArray *)viewcontrollers itemImages:(NSArray *)itemImages itemselectedImages:(NSArray *)itemselectedImages titles:(NSArray *)titles
@@ -88,8 +145,28 @@
     for (int i=0; i<self.viewcontrollers.count; i++) {
         if (viewController == self.viewcontrollers[i]) {
             self.title = self.itemTitles[i];
+            if (i == 2) {
+                self.title = @"话题广场";
+            }
         }
     }
+    
+    if (viewController == self.viewcontrollers[3]) {
+        [self addCenterSeg];
+        [self removeRightItem];
+    } else if (viewController == self.viewcontrollers[2]) {
+        [self removeRightItem];
+        [self addrightItemsWithIsTwo:YES andViewcontroller:viewController];
+        [self removeCenterSeg];
+    } else if (viewController == self.viewcontrollers[4]) {
+        [self removeRightItem];
+        [self addrightItemsWithIsTwo:NO andViewcontroller:viewController];
+        [self removeCenterSeg];
+    } else {
+        [self removeRightItem];
+        [self removeCenterSeg];
+    }
+    
     return YES;
 }
 

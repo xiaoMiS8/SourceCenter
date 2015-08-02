@@ -97,7 +97,7 @@
 
 - (void)setNoticeInfo:(NoticeInfo *)noticeInfo {
     _noticeInfo = noticeInfo;
-    [self.picImg sd_setImageWithURL:[NSURL URLWithString:@"https://drscdn.500px.org/photo/110153683/w%3D140_h%3D140/fcd565c07a9039590ceb79855050dba3?v=2"]];
+    [self.picImg sd_setImageWithURL:[NSURL URLWithString:noticeInfo.UserImg] placeholderImage:[UIImage imageNamed:@"me"]];
     CGSize nameSize = [self getSizeWithString:noticeInfo.UserName font:self.nameLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
     CGRect nameRect = (CGRect){{CGRectGetMaxX(self.picImg.frame) + margin, CGRectGetMinY(self.picImg.frame) + 4}, nameSize};
     self.nameLabel.frame = nameRect;
