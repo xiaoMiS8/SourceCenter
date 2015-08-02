@@ -27,8 +27,8 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1KW-l1-bFn">
-                    <rect key="frame" x="10" y="58" width="300" height="40"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入注册码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1KW-l1-bFn">
+                    <rect key="frame" x="10" y="60" width="300" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="HUO-4p-0LT"/>
                     </constraints>

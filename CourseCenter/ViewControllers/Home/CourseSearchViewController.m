@@ -47,7 +47,6 @@
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                //self.dataArray=self.reob.resultArray;
                 [self dataHandleWithArray:self.reob.resultArray];
                 [_tableView reloadData];
                 return ;

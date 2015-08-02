@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface DetailData : BaseViewController
-
+@property (nonatomic, assign) long OCID;
 @end

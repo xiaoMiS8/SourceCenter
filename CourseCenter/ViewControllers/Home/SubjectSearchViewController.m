@@ -118,8 +118,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger number=tableView==_tableView?indexPath.row:[self.searchByName[indexPath.row] integerValue];
     HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
-    homeDetailVc.OCID=1;//((OCourse *)[self.dataArray objectAtIndex:number]).OCID;
+    homeDetailVc.OCID=((OCourseInfo *)[self.dataArray objectAtIndex:number]).OCID;
     homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:number]).TeacherImgUrl;
+    homeDetailVc.topImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).CourseImgUrl;
+    homeDetailVc.RegStatus=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).RegStatus;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText

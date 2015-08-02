@@ -10,7 +10,9 @@
 
 @interface SendMesage ()
 @property(nonatomic,strong)NSMutableArray *tags;
+@property (weak, nonatomic) IBOutlet UITextField *textF;
 @property(nonatomic, strong)CCHttpManager *httpManager;
+@property (weak, nonatomic) IBOutlet UITextView *textV;
 @property (strong,nonatomic)ResponseObject *reob;
 @end
 
@@ -25,6 +27,7 @@
     _tags=[[NSMutableArray alloc]init];
     [self loadData];
     _editingTagControl.tags = [_tags mutableCopy];
+    _editingTagControl.data=[self returnSelectArray];
     _editingTagControl.tagPlaceholder=@"";
     [_editingTagControl reloadTagSubviews];
 }
@@ -49,10 +52,18 @@
     }
     return mArray;
 }
+-(NSMutableArray *)getArrayId
+{
+    NSMutableArray *arrayId=[[NSMutableArray alloc]init];
+    for (int i=0; i<_editingTagControl.data.count; i++) {
+        [arrayId addObject:[[_editingTagControl.data[i] objectForKey:@"UserID"]stringValue]];
+    }
+    return arrayId;
+}
 -(void)sureMessage
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager addAppMessageWithTitle:@"没电了" Conten:@"还是每天这样的啊" ReceiveUserIDs:@[@183] finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager addAppMessageWithTitle:_textF.text Conten:_textV.text ReceiveUserIDs:[self getArrayId] finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;

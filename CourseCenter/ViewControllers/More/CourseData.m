@@ -31,7 +31,7 @@
 -(void)mLoadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppFileCountWithOCID:161 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppFileCountWithOCID:_OCID finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
@@ -85,6 +85,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     DetailData *detailData= [[DetailData alloc] init];
+    detailData.OCID=self.OCID;
     switch (indexPath.row) {
         case 0:
             detailData.title=@"全部资料";

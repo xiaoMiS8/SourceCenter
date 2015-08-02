@@ -104,13 +104,14 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [((AppDelegate *)app).nav pushViewController:[self setTabbar] animated:YES];
+    [((AppDelegate *)app).nav pushViewController:[self setTabbarWithindexPath:indexPath] animated:YES];
     
 }
 
-- (CourseTabbarViewController *)setTabbar {
+- (CourseTabbarViewController *)setTabbarWithindexPath:(NSIndexPath *)index {
     CourseTabbarViewController *tabbar = [[CourseTabbarViewController alloc] init];
     TutorialViewController *tutoriaVC = [[TutorialViewController alloc] init];
+    tutoriaVC.OCID=((OCourseInfo *)self.OCList[index.row]).OCID;
     tutoriaVC.PushBlock = ^(UIViewController *viewController) {
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };

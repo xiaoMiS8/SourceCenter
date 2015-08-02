@@ -68,7 +68,7 @@
 
 - (void)commonInit {
     _tags = [NSMutableArray array];
-    
+    _data=[[NSMutableArray alloc]init];
     self.layer.cornerRadius = 5;
     
     tagSubviews_ = [NSMutableArray array];
@@ -288,7 +288,9 @@
     [view removeFromSuperview];
     
     NSInteger index = [tagSubviews_ indexOfObject:view];
+    
     [_tags removeObjectAtIndex:index];
+    [_data removeObjectAtIndex:index];
     [self reloadTagSubviews];
 }
 

@@ -19,5 +19,7 @@
 #define LOGINMESSAGE @"账户或密码不能为空"
 #define LOGINMESSAGE_F @"服务器连接失败,请稍后再试!"
 #define LOGINMESSAGE_B @"账号或密码错误!"
-
+#define REGISTSUCCESS @"注册成功"
+#define REGISTERROR1  @"请选择班级"
+#define REGISTERROR2  @"请填写注册码"
 #endif

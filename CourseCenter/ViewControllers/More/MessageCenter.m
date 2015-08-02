@@ -29,6 +29,10 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MessageCenterCell" bundle:nil] forCellReuseIdentifier:@"MessageCenterCell"];
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
+    
+}
+-(void)viewWillAppear:(BOOL)animated
+{
     [self loadMyInfo];
 }
 -(void)loadMyInfo
@@ -70,6 +74,8 @@
     //点击松开后,颜色恢复
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     ChatViewController *chat=[[ChatViewController alloc]init];
+    chat.userID=((MsgInfo *)[_dataArray objectAtIndex:indexPath.row]).UserID;
+    chat.title=((MsgInfo *)[_dataArray objectAtIndex:indexPath.row]).UserName;
     [((AppDelegate *)app).nav pushViewController:chat animated:YES];
 }
 -(void)addMessage

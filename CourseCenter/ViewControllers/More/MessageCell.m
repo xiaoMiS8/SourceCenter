@@ -60,8 +60,8 @@
 //    _iconView.image = [UIImage imageNamed:iconStr];
     [ _iconView sd_setImageWithURL:[NSURL URLWithString:((MsgInfo *)_dic).UserImgUrl] placeholderImage:[UIImage imageNamed:@"other"]];
     _textView.frame = cellFrame.textFrame;
-    NSString *textBg = message.type ? @"chat_recive_nor" : @"chat_send_nor";
-    UIColor *textColor = message.type ? [UIColor blackColor] : [UIColor whiteColor];
+    NSString *textBg = message.type==kMessageModelTypeOther ? @"chat_recive_nor" : @"chat_send_nor";
+    UIColor *textColor = message.type==kMessageModelTypeOther ? [UIColor blackColor] : [UIColor whiteColor];
     [_textView setTitleColor:textColor forState:UIControlStateNormal];
     [_textView setBackgroundImage:[UIImage resizeImage:textBg] forState:UIControlStateNormal];
     [_textView setTitle:message.text forState:UIControlStateNormal];

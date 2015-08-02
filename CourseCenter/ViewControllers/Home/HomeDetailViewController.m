@@ -85,8 +85,10 @@ static NSInteger tag;
                 _arrayData=self.reob.resultArray;
                 [self showCourseData];
                 [self loadOCMoocFile];
+                return ;
             }
         }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
 -(void)showteacherInfo:(TeacherInfo *)info
@@ -241,16 +243,15 @@ static NSInteger tag;
         [dicto setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
     }
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
-//    NSLog(@"%d",but.tag-100);
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
-    if (offsetY - _startY > 10) {
+    if (offsetY - _startY > 140) {
         [UIView animateWithDuration:1 animations:^{
             self.topConstraint.constant=-140;
         }];
     }
-    else if (offsetY - _startY < -10)
+    else if (offsetY - _startY < -140)
     {
         [UIView animateWithDuration:1 animations:^{
             self.topConstraint.constant=0;

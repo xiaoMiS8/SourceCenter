@@ -17,6 +17,9 @@
 }
 -(void)setIndexPath:(NSIndexPath *)indexPath
 {
+    if (_indexPath!=indexPath) {
+        _indexPath=indexPath;
+    }
     NSMutableArray *array=[_dic objectForKey:[NSString stringWithFormat:@"%d",indexPath.section]];
     if ([array[indexPath.row] isEqualToString:@"SEL"]) {
         _imgBtn.selected=YES;
@@ -24,10 +27,11 @@
     {
         _imgBtn.selected=NO;
     }
+    
 }
 -(void)setInfo:(NSMutableDictionary *)info
 {
-    if (_info==nil) {
+    if (_info!=info) {
         _info=info;
         _cell_name.text=[info objectForKey:@"UserName"];
         if ([[info objectForKey:@"Role"] integerValue] ==1) {
@@ -43,10 +47,11 @@
 - (IBAction)left_btn:(UIButton *)sender {
     sender.selected=!sender.selected;
     if (sender.selected==YES) {
-        [((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",_indexPath.section]][_indexPath.row]=@"ONSEL";
+      [((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",_indexPath.section]][_indexPath.row]=@"SEL";
     }else
     {
-        [((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",_indexPath.section]][_indexPath.row]=@"SEL";
+      [((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",_indexPath.section]][_indexPath.row]=@"NOSEL";
+
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

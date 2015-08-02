@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
+@property (strong,nonatomic)UserInfo *userInfo;
 @end
 
 @implementation LoginViewController
@@ -46,6 +47,8 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"isLogin"];
+                UserInfo *info=(UserInfo *)self.reob.resultObject;
+                [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",info.userType] forKey:@"role"];
                 [[NSUserDefaults standardUserDefaults]setObject:username forKey:@"username"];
                 [[NSUserDefaults standardUserDefaults]setObject:password forKey:@"password"];
                 [[NSUserDefaults standardUserDefaults]synchronize];

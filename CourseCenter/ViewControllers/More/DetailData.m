@@ -29,12 +29,13 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"DetailDataCell" bundle:nil] forCellReuseIdentifier:@"DetailDataCell"];
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray = [[NSMutableArray alloc]init];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     [self kLoadData];
 }
 -(void)kLoadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppFileSearchwithSearchkey:nil OCID:161 FileType:1 PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppFileSearchwithSearchkey:nil OCID:_OCID FileType:1 PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
@@ -53,7 +54,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return _dataArray.count;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
