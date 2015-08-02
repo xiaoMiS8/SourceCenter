@@ -42,6 +42,7 @@
 //课程资料
 -(void)kLoadData
 {
+    NSInteger role=[[[NSUserDefaults standardUserDefaults]objectForKey:@"role"]integerValue];
     [MBProgressHUD showMessage:nil];
     [self.httpManager getAppOCNameListWithrole:1 IsHistroy:NO finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
@@ -137,6 +138,7 @@
     if (seg.selectedSegmentIndex==0) {
         CourseData *courseData=[[CourseData alloc]init];
         courseData.title=((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Name;
+        courseData.OCID=((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).OCID;
         [self.navigationController pushViewController:courseData animated:YES];
     }else
     {

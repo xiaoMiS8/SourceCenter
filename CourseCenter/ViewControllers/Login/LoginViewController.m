@@ -46,8 +46,9 @@
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                [self getUserInfo];
                 [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"isLogin"];
+                UserInfo *info=(UserInfo *)self.reob.resultObject;
+                [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",info.userType] forKey:@"role"];
                 [[NSUserDefaults standardUserDefaults]setObject:username forKey:@"username"];
                 [[NSUserDefaults standardUserDefaults]setObject:password forKey:@"password"];
                 [[NSUserDefaults standardUserDefaults]synchronize];
@@ -64,20 +65,6 @@
         
     }];
     
-}
--(void)getUserInfo
-{
-    [self.httpManager getUserInfoWithfinished:^(EnumServerStatus status, NSObject *object) {
-        if (status==0) {
-            self.reob=(ResponseObject *)object;
-            if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                self.userInfo=self.reob.resultObject;
-               [[NSUserDefaults standardUserDefaults]setObject:_userInfo.Role forKey:@"role"];
-                return ;
-            }
-        }
-        [MBProgressHUD showError:LOGINMESSAGE_F];
-    }];
 }
 - (IBAction)forgetPassword:(UIButton *)sender {
     FindPasswordViewController *findPassword = [FindPasswordViewController new];

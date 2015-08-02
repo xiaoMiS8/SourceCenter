@@ -9,5 +9,5 @@
 #import "BaseViewController.h"
 
 @interface CourseData : BaseViewController
-
+@property (nonatomic, assign) long OCID;
 @end
