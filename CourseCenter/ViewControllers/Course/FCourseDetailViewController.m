@@ -20,7 +20,6 @@
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property(nonatomic, strong) NSMutableArray *list;
-
 @end
 
 @implementation FCourseDetailViewController
@@ -43,8 +42,7 @@
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
-            if ([self.reob.errrorCode isEqualToString:@"0"])
-            {
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
             _info =self.reob.resultObject;
             [self showCourseData];
             return ;
