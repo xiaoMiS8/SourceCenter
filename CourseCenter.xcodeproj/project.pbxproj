@@ -99,8 +99,6 @@
 		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
 		CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */; };
 		CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7228BD1B57F4F8006F719A /* NewMessage.xib */; };
-		CA9A64771B6FAE7C00A6B325 /* FCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA9A64751B6FAE7C00A6B325 /* FCourseDetailViewController.m */; };
-		CA9A64781B6FAE7C00A6B325 /* FCourseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA9A64761B6FAE7C00A6B325 /* FCourseDetailViewController.xib */; };
 		CACBFC831B53FE7400FAD388 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC811B53FE7400FAD388 /* MessageCenter.m */; };
 		CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC821B53FE7400FAD388 /* MessageCenter.xib */; };
 		CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC861B54021F00FAD388 /* MessageCenterCell.m */; };
@@ -249,6 +247,8 @@
 		D4BA5E681B56C3B500580C19 /* MsgInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BA5E671B56C3B500580C19 /* MsgInfo.m */; };
 		D4C1BB8D1B6A6C2200048D91 /* OCClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C1BB8C1B6A6C2200048D91 /* OCClassInfo.m */; };
 		D4CE16661B3418C500DBBDE7 /* SpecialtyTypeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4CE16651B3418C500DBBDE7 /* SpecialtyTypeInfo.m */; };
+		D4D797AD1B6FC42300B78055 /* FCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D797AB1B6FC42300B78055 /* FCourseDetailViewController.m */; };
+		D4D797AE1B6FC42300B78055 /* FCourseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D797AC1B6FC42300B78055 /* FCourseDetailViewController.xib */; };
 		D4DEA5B21B2FB05F005C96D5 /* NewNotiTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEA5B01B2FB05F005C96D5 /* NewNotiTextViewCell.m */; };
 		D4DEA5B31B2FB05F005C96D5 /* NewNotiTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEA5B11B2FB05F005C96D5 /* NewNotiTextViewCell.xib */; };
 		D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEA5BA1B3002DD005C96D5 /* NewNotiSelectCell.m */; };
@@ -451,9 +451,6 @@
 		CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchCell.m; sourceTree = "<group>"; };
 		CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchCell.xib; sourceTree = "<group>"; };
 		CA7228BD1B57F4F8006F719A /* NewMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessage.xib; sourceTree = "<group>"; };
-		CA9A64741B6FAE7C00A6B325 /* FCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseDetailViewController.h; sourceTree = "<group>"; };
-		CA9A64751B6FAE7C00A6B325 /* FCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseDetailViewController.m; sourceTree = "<group>"; };
-		CA9A64761B6FAE7C00A6B325 /* FCourseDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCourseDetailViewController.xib; sourceTree = "<group>"; };
 		CACBFC801B53FE7400FAD388 /* MessageCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenter.h; sourceTree = "<group>"; };
 		CACBFC811B53FE7400FAD388 /* MessageCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenter.m; sourceTree = "<group>"; };
 		CACBFC821B53FE7400FAD388 /* MessageCenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCenter.xib; sourceTree = "<group>"; };
@@ -723,6 +720,9 @@
 		D4C1BB8C1B6A6C2200048D91 /* OCClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCClassInfo.m; sourceTree = "<group>"; };
 		D4CE16641B3418C500DBBDE7 /* SpecialtyTypeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialtyTypeInfo.h; sourceTree = "<group>"; };
 		D4CE16651B3418C500DBBDE7 /* SpecialtyTypeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialtyTypeInfo.m; sourceTree = "<group>"; };
+		D4D797AA1B6FC42300B78055 /* FCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseDetailViewController.h; sourceTree = "<group>"; };
+		D4D797AB1B6FC42300B78055 /* FCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseDetailViewController.m; sourceTree = "<group>"; };
+		D4D797AC1B6FC42300B78055 /* FCourseDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCourseDetailViewController.xib; sourceTree = "<group>"; };
 		D4DEA5AF1B2FB05F005C96D5 /* NewNotiTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotiTextViewCell.h; sourceTree = "<group>"; };
 		D4DEA5B01B2FB05F005C96D5 /* NewNotiTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotiTextViewCell.m; sourceTree = "<group>"; };
 		D4DEA5B11B2FB05F005C96D5 /* NewNotiTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotiTextViewCell.xib; sourceTree = "<group>"; };
@@ -1291,9 +1291,9 @@
 				D4459B781B63D5F400DEB780 /* FCourseViewController.h */,
 				D4459B791B63D5F400DEB780 /* FCourseViewController.m */,
 				D4459B7A1B63D5F400DEB780 /* FCourseViewController.xib */,
-				52A3159B1B6F2F0E0073DBE3 /* FCourseDetailViewController.h */,
-				52A3159C1B6F2F0E0073DBE3 /* FCourseDetailViewController.m */,
-				52A3159D1B6F2F0E0073DBE3 /* FCourseDetailViewController.xib */,
+				D4D797AA1B6FC42300B78055 /* FCourseDetailViewController.h */,
+				D4D797AB1B6FC42300B78055 /* FCourseDetailViewController.m */,
+				D4D797AC1B6FC42300B78055 /* FCourseDetailViewController.xib */,
 				D4459B821B63D63B00DEB780 /* HWorkViewController.h */,
 				D4459B831B63D63B00DEB780 /* HWorkViewController.m */,
 				D4459B841B63D63B00DEB780 /* HWorkViewController.xib */,
@@ -1670,6 +1670,7 @@
 				52C8EED81B4E9F3A00BDBE76 /* multipy_unicode.dat in Resources */,
 				59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */,
 				5963C36B1B2024A700A09D30 /* TestViewController.xib in Resources */,
+				D4D797AE1B6FC42300B78055 /* FCourseDetailViewController.xib in Resources */,
 				CA20AA2E1B59F11800598370 /* NewMessageCell.xib in Resources */,
 				06E1B5101B69D6D70052FF42 /* DetailData.xib in Resources */,
 				CAE5D4621B6E721A004F5D5B /* BBSListCell.xib in Resources */,
@@ -1692,7 +1693,6 @@
 				D4B2F3DF1B034265007B017E /* MJRefresh.bundle in Resources */,
 				D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */,
 				D44B7E2F1B6FA5E50036B3D5 /* BBsDetailViewController.xib in Resources */,
-				52A3159F1B6F2F0E0073DBE3 /* FCourseDetailViewController.xib in Resources */,
 				D4459B861B63D63B00DEB780 /* HWorkViewController.xib in Resources */,
 				594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */,
 				042E75C61B160C9100396AAF /* LoginViewController.xib in Resources */,
@@ -1829,7 +1829,6 @@
 				D4B2F3971B033E51007B017E /* AFSecurityPolicy.m in Sources */,
 				D4B2F3A01B033E51007B017E /* UIImageView+AFNetworking.m in Sources */,
 				D4B2F3F21B034265007B017E /* SDWebImageManager.m in Sources */,
-				CA9A64771B6FAE7C00A6B325 /* FCourseDetailViewController.m in Sources */,
 				D4B2F3EF1B034265007B017E /* SDWebImageDecoder.m in Sources */,
 				06B2149F1B6723DF00CE9A19 /* RankInfo.m in Sources */,
 				52C8EED91B4E9F3A00BDBE76 /* SearchCore.mm in Sources */,
@@ -1899,6 +1898,7 @@
 				D4B2F39A1B033E51007B017E /* AFURLResponseSerialization.m in Sources */,
 				CA20AA2D1B59F11800598370 /* NewMessageCell.m in Sources */,
 				CACBFC8D1B540B5600FAD388 /* ChatViewController.m in Sources */,
+				D4D797AD1B6FC42300B78055 /* FCourseDetailViewController.m in Sources */,
 				042E75E51B16148A00396AAF /* UIView+Hierarchy.m in Sources */,
 				06B214B71B6778FC00CE9A19 /* LiveForumInfo.m in Sources */,
 				042E75E31B16148A00396AAF /* IQToolbar.m in Sources */,
