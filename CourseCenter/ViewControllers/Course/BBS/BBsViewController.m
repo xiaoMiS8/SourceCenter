@@ -9,6 +9,7 @@
 #import "BBsViewController.h"
 #import "BBSListCell.h"
 #import "MJRefresh.h"
+#import "BBsDetailViewController.h"
 @interface BBsViewController ()
 
 @property(nonatomic, strong) CCHttpManager *manager;
@@ -116,6 +117,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    BBsDetailViewController *bbsDetailVC = [[BBsDetailViewController alloc] init];
+    bbsDetailVC.topic = self.topics[indexPath.row];
+    [self pushViewController:bbsDetailVC];
+}
 
 - (IBAction)topBtnAction:(id)sender {
     UIButton *btn = (UIButton *)sender;

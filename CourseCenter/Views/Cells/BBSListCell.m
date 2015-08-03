@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIView *bomView2;
 @property (weak, nonatomic) IBOutlet UIView *bomView3;
 @property (weak, nonatomic) IBOutlet UIView *imgView;
+@property (weak, nonatomic) IBOutlet UIImageView *agreeImg;
 
 @end
 
@@ -154,6 +155,11 @@
     self.eye.text = [NSString stringWithFormat:@"%ld",topic.Clicks];
     self.discuss.text = [NSString stringWithFormat:@"%ld",topic.Responses];
     self.agree.text = [NSString stringWithFormat:@"%ld",topic.Goods];
+    if (topic.IsGood) {
+        self.agreeImg.image = [UIImage imageNamed:@"icon_agree_push"];
+    } else {
+        self.agreeImg.image = [UIImage imageNamed:@"icon_agree"];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
