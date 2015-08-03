@@ -45,6 +45,8 @@
 		06E1B5101B69D6D70052FF42 /* DetailData.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06E1B50E1B69D6D70052FF42 /* DetailData.xib */; };
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
+		52A3159E1B6F2F0E0073DBE3 /* FCourseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A3159C1B6F2F0E0073DBE3 /* FCourseDetailViewController.m */; };
+		52A3159F1B6F2F0E0073DBE3 /* FCourseDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52A3159D1B6F2F0E0073DBE3 /* FCourseDetailViewController.xib */; };
 		52C8EED71B4E9F3A00BDBE76 /* Array.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED11B4E9F3A00BDBE76 /* Array.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		52C8EED81B4E9F3A00BDBE76 /* multipy_unicode.dat in Resources */ = {isa = PBXBuildFile; fileRef = 52C8EED21B4E9F3A00BDBE76 /* multipy_unicode.dat */; };
 		52C8EED91B4E9F3A00BDBE76 /* SearchCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED41B4E9F3A00BDBE76 /* SearchCore.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -356,6 +358,9 @@
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
 		374BA7371B048C5100DBA477 /* UIView+HandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HandleView.m"; sourceTree = "<group>"; };
+		52A3159B1B6F2F0E0073DBE3 /* FCourseDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseDetailViewController.h; sourceTree = "<group>"; };
+		52A3159C1B6F2F0E0073DBE3 /* FCourseDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseDetailViewController.m; sourceTree = "<group>"; };
+		52A3159D1B6F2F0E0073DBE3 /* FCourseDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCourseDetailViewController.xib; sourceTree = "<group>"; };
 		52C8EED01B4E9F3A00BDBE76 /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array.h; sourceTree = "<group>"; };
 		52C8EED11B4E9F3A00BDBE76 /* Array.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Array.mm; sourceTree = "<group>"; };
 		52C8EED21B4E9F3A00BDBE76 /* multipy_unicode.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multipy_unicode.dat; sourceTree = "<group>"; };
@@ -1252,6 +1257,9 @@
 				D4459B781B63D5F400DEB780 /* FCourseViewController.h */,
 				D4459B791B63D5F400DEB780 /* FCourseViewController.m */,
 				D4459B7A1B63D5F400DEB780 /* FCourseViewController.xib */,
+				52A3159B1B6F2F0E0073DBE3 /* FCourseDetailViewController.h */,
+				52A3159C1B6F2F0E0073DBE3 /* FCourseDetailViewController.m */,
+				52A3159D1B6F2F0E0073DBE3 /* FCourseDetailViewController.xib */,
 				D4459B7D1B63D60E00DEB780 /* BBsViewController.h */,
 				D4459B7E1B63D60E00DEB780 /* BBsViewController.m */,
 				D4459B7F1B63D60E00DEB780 /* BBsViewController.xib */,
@@ -1649,6 +1657,7 @@
 				CA20AA401B5AAF5300598370 /* CourseData.xib in Resources */,
 				D4B2F3DF1B034265007B017E /* MJRefresh.bundle in Resources */,
 				D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */,
+				52A3159F1B6F2F0E0073DBE3 /* FCourseDetailViewController.xib in Resources */,
 				D4459B861B63D63B00DEB780 /* HWorkViewController.xib in Resources */,
 				594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */,
 				042E75C61B160C9100396AAF /* LoginViewController.xib in Resources */,
@@ -1783,6 +1792,7 @@
 				D4B2F3971B033E51007B017E /* AFSecurityPolicy.m in Sources */,
 				D4B2F3A01B033E51007B017E /* UIImageView+AFNetworking.m in Sources */,
 				D4B2F3F21B034265007B017E /* SDWebImageManager.m in Sources */,
+				52A3159E1B6F2F0E0073DBE3 /* FCourseDetailViewController.m in Sources */,
 				D4B2F3EF1B034265007B017E /* SDWebImageDecoder.m in Sources */,
 				06B2149F1B6723DF00CE9A19 /* RankInfo.m in Sources */,
 				52C8EED91B4E9F3A00BDBE76 /* SearchCore.mm in Sources */,

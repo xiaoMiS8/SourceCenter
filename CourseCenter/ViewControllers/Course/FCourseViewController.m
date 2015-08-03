@@ -9,6 +9,7 @@
 #import "FCourseViewController.h"
 #import "FCourseCell.h"
 #import "FCourseInfo.h"
+#import "FCourseDetailViewController.h"
 @interface FCourseViewController ()
 {
     FCourseInfo *info;
@@ -20,13 +21,15 @@
 @end
 
 @implementation FCourseViewController
-
+{
+    FCourseDetailViewController *fCourseDetailVC;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = YES;
     [self.tableView registerNib:[UINib nibWithNibName:@"FCourseCell" bundle:nil] forCellReuseIdentifier:@"FCourseCell"];
     self.httpManager=[[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
+    fCourseDetailVC=[[FCourseDetailViewController alloc]init];
     [self loadData];
 }
 -(void)loadData
@@ -69,6 +72,7 @@
 {
     //点击松开后,颜色恢复
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self pushViewController:fCourseDetailVC];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
