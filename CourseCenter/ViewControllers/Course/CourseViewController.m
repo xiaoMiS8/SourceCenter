@@ -70,11 +70,13 @@
 }
 
 - (void)loadData {
+    [MBProgressHUD showMessage:nil];
     [self.manager getAppOCListWithIsHistroy:-1 finished:^(EnumServerStatus status, NSObject *object) {
         ResponseObject *retunObject = (ResponseObject *)object;
         self.OCList = retunObject.resultArray;
         [self.tableView reloadData];
     }];
+    [MBProgressHUD hideHUD];
 }
 
 - (void)setCell {

@@ -22,6 +22,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-gS-B3f">
                                 <rect key="frame" x="0.0" y="0.0" width="284" height="160"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="0.84850822770000001" blue="0.17418073940000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="MO0-Py-Eg5"/>
                                 </constraints>
