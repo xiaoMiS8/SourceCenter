@@ -27,7 +27,6 @@ static NSInteger tag;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = YES;
     self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager = [[CCHttpManager alloc]init];
     _array=[NSMutableArray arrayWithCapacity:0];

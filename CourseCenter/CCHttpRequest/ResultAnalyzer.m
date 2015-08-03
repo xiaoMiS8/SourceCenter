@@ -266,7 +266,7 @@
     } else if ([flag isEqualToString:kOCFC_LearnNavInfo_Get])
     {
         if (![resultObject[Kresult] isKindOfClass:[NSNull class]]) {
-            OCFCLearnNavInfo *learnNav = [[OCFCLearnNavInfo alloc] initWithDict:resultObject[Kresult]];
+            OCFCLearnNavInfo *learnNav =(OCFCLearnNavInfo *) [[OCFCLearnNavInfo alloc] initWithDict:resultObject[Kresult]];
             responseObject.resultObject = learnNav;
         }
     } else if ([flag isEqualToString:kApp_OCFC_Get]) {
