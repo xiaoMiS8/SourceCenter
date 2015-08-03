@@ -72,6 +72,7 @@
 {
     //点击松开后,颜色恢复
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    fCourseDetailVC.title=((FCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Title;
     [self pushViewController:fCourseDetailVC];
 }
 - (void)didReceiveMemoryWarning {

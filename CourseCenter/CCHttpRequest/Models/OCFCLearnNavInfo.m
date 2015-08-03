@@ -2,7 +2,7 @@
 //  OCFCLearnNavInfo.m
 //  CourseCenter
 //
-//  Created by 永利宝 on 15/7/28.
+//  Created by muzhenhua on 15/8/3.
 //  Copyright (c) 2015年 line0.com. All rights reserved.
 //
 
