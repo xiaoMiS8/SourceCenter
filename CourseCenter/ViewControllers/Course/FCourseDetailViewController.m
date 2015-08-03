@@ -9,6 +9,8 @@
 #import "FCourseDetailViewController.h"
 #import "OCFCLearnNavInfo.h"
 #define SECTION_STATE @"SECTION_STATE"
+static NSInteger  number=0;
+static NSInteger  total=0;
 @interface FCourseDetailViewController ()
 {
     NSMutableArray *_array;
@@ -19,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
-@property(nonatomic, strong) NSMutableArray *list;
+@property(nonatomic, strong) NSArray *titles;
 @end
 
 @implementation FCourseDetailViewController
@@ -28,18 +30,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setupCustomRightWithImage:[UIImage imageNamed:@"btn_class"] target:self action:@selector(pushMemberViewController)];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager = [[CCHttpManager alloc]init];
-    self.list=[[NSMutableArray alloc]init];
     _dict=[[NSMutableDictionary alloc]init];
     _array=[[NSMutableArray alloc]init];
+    self.titles = @[@"小组信息",@"学习资料",@"作业测试",@"论题互动",@"线下课堂",@"互相评价",@"我的得分"];
+    number=0;
+    [MBProgressHUD showMessage:nil];
     [self loadData];
+    [self loadScore];
 }
+
 -(void)loadData
 {
-    [MBProgressHUD showMessage:nil];
     [self.httpManager getOCFCLearnNavInfowithOCID:570
      FCID:175 finished:^(EnumServerStatus status, NSObject *object) {
-        [MBProgressHUD hideHUD];
+         total+=1;
+         if (total==2) {
+             [MBProgressHUD hideHUD];
+         }
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -53,12 +62,30 @@
 }
 -(void)showCourseData
 {
-    for (int i=0; i<_list.count; i++) {
+       number=7;
+    for (int i=0; i<number; i++) {
         _dict=[NSMutableDictionary dictionaryWithCapacity:0];
         [_dict setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
         [_array addObject:_dict];
     }
     [_tableView reloadData];
+}
+-(void)loadScore
+{
+    [self.httpManager getAppOCFCScoreRankWithFCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+         total+=1;
+         if (total==2) {
+             [MBProgressHUD hideHUD];
+         }
+     if (status==0) {
+     self.reob=(ResponseObject *)object;
+      if ([self.reob.errrorCode isEqualToString:@"0"]) {
+        
+          return ;
+        }
+     }
+         [MBProgressHUD showError:LOGINMESSAGE_F];
+   }];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -66,7 +93,7 @@
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return _list.count;
+    return number;
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -76,19 +103,45 @@
         return 0;
     }else
     {
-        return 5;
+        switch (section)
+        {
+            case 0:
+                return 1;
+            case 1:
+                return _info.OCFCFileList.count;
+            case 2:
+                return _info.OCFCTestList.count;
+            case 3:
+                return _info.OCFCForumTopicList.count;
+            case 4:
+                return _info.FCOfflineList.count;
+            case 5:
+                return _info.OCFCSurveyList.count;
+            case 6:
+                return 1;
+            default:
+                return 0;
+        }
     }
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *view=[[UIView alloc]init];
-    view.frame=CGRectMake(0, 0,self.view.frame.size.width , 50);
-    view.backgroundColor=[UIColor orangeColor];
-    UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(30, 0, 320, 50)];
-    lable.text=@"ASDFGH";
+    view.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
+    view.backgroundColor=[UIColor whiteColor];
+    view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
+    view.layer.borderWidth=0.5;
+    UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 100, 50)];
+    lable.font=Font_14;
+    lable.text=_titles[section];
     [view addSubview:lable];
+    UILabel *lable2=[[UILabel alloc]initWithFrame:CGRectMake(_tableView.frame.size.width-120, 0, 100, 50)];
+    lable2.font=Font_14;
+    lable2.textAlignment=NSTextAlignmentRight;
+    lable2.text=_titles[section];
+    [view addSubview:lable2];
     UIButton *button=[[UIButton alloc]init];
-    button.frame=CGRectMake(0, 0,self.view.frame.size.width , 50);
+    button.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
     button.backgroundColor=[UIColor clearColor];
     button.tag=section+100;
     [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
@@ -102,7 +155,6 @@
     UITableViewCell *cell=[_tableView dequeueReusableCellWithIdentifier:CellId];
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellId];
-        
     }
     return cell;
 }

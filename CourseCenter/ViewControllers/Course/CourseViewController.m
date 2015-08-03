@@ -17,7 +17,7 @@
 #import "HWorkViewController.h"
 #import "TPViewController.h"
 #import "LineNavigationController.h"
-
+static NSInteger number=0;
 @interface CourseViewController ()
 {
     NSString *loginState;
@@ -70,13 +70,16 @@
 }
 
 - (void)loadData {
-    [MBProgressHUD showMessage:nil];
+    if (number==1) {
+        [MBProgressHUD showMessage:nil];
+    }
     [self.manager getAppOCListWithIsHistroy:-1 finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         ResponseObject *retunObject = (ResponseObject *)object;
         self.OCList = retunObject.resultArray;
         [self.tableView reloadData];
     }];
-    [MBProgressHUD hideHUD];
+    number=1;
 }
 
 - (void)setCell {
