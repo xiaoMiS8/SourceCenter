@@ -277,6 +277,7 @@
 		D759DA9D1B6B251400E58EF2 /* ExerciseChoicesInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D759DA9C1B6B251400E58EF2 /* ExerciseChoicesInfo.m */; };
 		D759DAA01B6B256E00E58EF2 /* AttachmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D759DA9F1B6B256E00E58EF2 /* AttachmentInfo.m */; };
 		D77E0EC61B6A23300057FFF9 /* ForumTypeInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D77E0EC51B6A23300057FFF9 /* ForumTypeInfo.m */; };
+		D7EE43CC1B709F75004FB295 /* TopicSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EE43CB1B709F75004FB295 /* TopicSetView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -775,6 +776,8 @@
 		D759DA9F1B6B256E00E58EF2 /* AttachmentInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttachmentInfo.m; sourceTree = "<group>"; };
 		D77E0EC41B6A23300057FFF9 /* ForumTypeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForumTypeInfo.h; sourceTree = "<group>"; };
 		D77E0EC51B6A23300057FFF9 /* ForumTypeInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForumTypeInfo.m; sourceTree = "<group>"; };
+		D7EE43CA1B709F75004FB295 /* TopicSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicSetView.h; sourceTree = "<group>"; };
+		D7EE43CB1B709F75004FB295 /* TopicSetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicSetView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1057,6 +1060,8 @@
 				D483411A1B2EC30600373043 /* MyTextView.m */,
 				D45526B51B6279F7004FEBBB /* ProgressView.h */,
 				D45526B61B6279F7004FEBBB /* ProgressView.m */,
+				D7EE43CA1B709F75004FB295 /* TopicSetView.h */,
+				D7EE43CB1B709F75004FB295 /* TopicSetView.m */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -1786,6 +1791,7 @@
 				D412969C1B50059E003FC6DB /* MoreListCell.m in Sources */,
 				D4B2F3311B02FD8D007B017E /* BaseViewController.m in Sources */,
 				59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */,
+				D7EE43CC1B709F75004FB295 /* TopicSetView.m in Sources */,
 				CACBFC931B540BF900FAD388 /* MessageModel.m in Sources */,
 				5963C36A1B2024A700A09D30 /* TestViewController.m in Sources */,
 				D4B2F3991B033E51007B017E /* AFURLRequestSerialization.m in Sources */,
