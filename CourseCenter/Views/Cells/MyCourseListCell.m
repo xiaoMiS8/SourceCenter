@@ -58,7 +58,7 @@
     self.LastStudyChapter.text = oCourse.LastStudyChapter;
     self.StudentCount.text = [NSString stringWithFormat:@"%d",oCourse.StudentCount];
     [self.ocoureImg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl]];
-    if (!oCourse.IsShowMooc) {
+    if (!oCourse.IsShowMooc && !oCourse.IsShowFC) {
         for (NSLayoutConstraint *constraint in self.bomView.constraints) {
             if (constraint.firstAttribute == NSLayoutAttributeHeight) {
                 constraint.constant = 0;
@@ -75,7 +75,7 @@
         self.fgroupProgress.text = @"";
         self.fnormProgress.text = @"";
         self.fOcName.text = @"";
-    } else if (!oCourse.IsShowFC) {
+    } else if (!oCourse.IsShowFC && oCourse.IsShowMooc) {
         for (NSLayoutConstraint *constraint in self.bomView.constraints) {
             if (constraint.firstAttribute == NSLayoutAttributeHeight) {
                 constraint.constant = 90;
@@ -85,17 +85,35 @@
         self.progressView1.hidden = NO;
         self.progressView2.hidden = YES;
         self.mooc.text = @"MOOC";
-        self.myPrgoress.text = @"我的进度25.1%";
+        self.myPrgoress.text = [NSString stringWithFormat:@"我的进度%.1f%%",[oCourse.MyMoocRate floatValue]];
         self.groupProgress.text = @"";
-        self.normProgress.text = @"标准进度45.1%";
-        self.progressView1.myProgress = [oCourse.MyMoocRate floatValue];
-        self.progressView1.normProgress = [oCourse.PlanMoocRate floatValue];
+        self.normProgress.text = [NSString stringWithFormat:@"标准进度%.1f%%",[oCourse.PlanMoocRate floatValue]];
+        self.progressView1.myProgress = [oCourse.MyMoocRate floatValue]/100;
+        self.progressView1.normProgress = [oCourse.PlanMoocRate floatValue]/100;
         self.progressView1.groupProgress = 0;
         self.fmyProgress.text = @"";
         self.fgroupProgress.text = @"";
         self.fnormProgress.text = @"";
         self.fOcName.text = @"";
-    } else {
+    } else if (oCourse.IsShowFC && !oCourse.IsShowMooc) {
+        for (NSLayoutConstraint *constraint in self.bomView.constraints) {
+            if (constraint.firstAttribute == NSLayoutAttributeHeight) {
+                constraint.constant = 90;
+            }
+        }
+        self.line.hidden = NO;
+        self.progressView1.hidden = YES;
+        self.progressView2.hidden = NO;
+        self.mooc.text = @"";
+        self.progressView2.myProgress = [oCourse.MyFCRate floatValue]/100;
+        self.progressView2.normProgress = [oCourse.PlanFCRate floatValue]/100;
+        self.progressView2.groupProgress = [oCourse.MyGroupFCRate floatValue]/100;
+        self.fmyProgress.text = [NSString stringWithFormat:@"我的进度%.1f",[oCourse.MyFCRate floatValue]];
+        self.fgroupProgress.text = [NSString stringWithFormat:@"我的小组进度%.1f",[oCourse.MyGroupFCRate floatValue]];
+        self.fnormProgress.text = [NSString stringWithFormat:@"标准进度%.1f",[oCourse.PlanFCRate floatValue]];
+        self.fOcName.text = @"翻转课堂";
+        
+    }else {
         for (NSLayoutConstraint *constraint in self.bomView.constraints) {
             if (constraint.firstAttribute == NSLayoutAttributeHeight) {
                 constraint.constant = 180;
@@ -108,12 +126,12 @@
         self.myPrgoress.text = [NSString stringWithFormat:@"我的进度%.1f",[oCourse.MyMoocRate floatValue]];
         self.groupProgress.text = @"";
         self.normProgress.text = [NSString stringWithFormat:@"标准进度%.1f",[oCourse.PlanMoocRate floatValue]];
-        self.progressView1.myProgress = [oCourse.MyMoocRate floatValue];
-        self.progressView1.normProgress = [oCourse.PlanMoocRate floatValue];
+        self.progressView1.myProgress = [oCourse.MyMoocRate floatValue]/100;
+        self.progressView1.normProgress = [oCourse.PlanMoocRate floatValue]/100;
         self.progressView1.groupProgress = 0;
-        self.progressView2.myProgress = [oCourse.MyFCRate floatValue];
-        self.progressView2.normProgress = [oCourse.PlanFCRate floatValue];
-        self.progressView2.groupProgress = [oCourse.MyGroupFCRate floatValue];
+        self.progressView2.myProgress = [oCourse.MyFCRate floatValue]/100;
+        self.progressView2.normProgress = [oCourse.PlanFCRate floatValue]/100;
+        self.progressView2.groupProgress = [oCourse.MyGroupFCRate floatValue]/100;
         self.fmyProgress.text = [NSString stringWithFormat:@"我的进度%.1f",[oCourse.MyFCRate floatValue]];
         self.fgroupProgress.text = [NSString stringWithFormat:@"我的小组进度%.1f",[oCourse.MyGroupFCRate floatValue]];
         self.fnormProgress.text = [NSString stringWithFormat:@"标准进度%.1f",[oCourse.PlanFCRate floatValue]];
