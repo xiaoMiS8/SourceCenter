@@ -14,6 +14,7 @@
 #import "OCFCFileInfo.h"
 #import "SourceInfo.h"
 #import "FCourseDetailLast.h"
+#import "GroupInfoViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 static NSInteger  number=0;
 static NSInteger  total=0;
@@ -324,7 +325,8 @@ static NSInteger  total=0;
 }
 -(void)pushMemberViewController
 {
-    
+    GroupInfoViewController *groupInfo=[[GroupInfoViewController alloc]init];
+    [self.navigationController pushViewController:groupInfo animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

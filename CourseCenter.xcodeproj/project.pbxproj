@@ -102,6 +102,10 @@
 		CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */; };
 		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
 		CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */; };
+		CA6B42DF1B70F7EF0055CC64 /* GroupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B42DD1B70F7EF0055CC64 /* GroupInfoViewController.m */; };
+		CA6B42E01B70F7EF0055CC64 /* GroupInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6B42DE1B70F7EF0055CC64 /* GroupInfoViewController.xib */; };
+		CA6B42E41B7102020055CC64 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B42E21B7102020055CC64 /* CollectionViewCell.m */; };
+		CA6B42E51B7102020055CC64 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */; };
 		CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7228BD1B57F4F8006F719A /* NewMessage.xib */; };
 		CACBFC831B53FE7400FAD388 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC811B53FE7400FAD388 /* MessageCenter.m */; };
 		CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC821B53FE7400FAD388 /* MessageCenter.xib */; };
@@ -461,6 +465,12 @@
 		CA62FA0D1B42DFDE00F80DE3 /* SubjectSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchCell.h; sourceTree = "<group>"; };
 		CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchCell.m; sourceTree = "<group>"; };
 		CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchCell.xib; sourceTree = "<group>"; };
+		CA6B42DC1B70F7EF0055CC64 /* GroupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInfoViewController.h; sourceTree = "<group>"; };
+		CA6B42DD1B70F7EF0055CC64 /* GroupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupInfoViewController.m; sourceTree = "<group>"; };
+		CA6B42DE1B70F7EF0055CC64 /* GroupInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupInfoViewController.xib; sourceTree = "<group>"; };
+		CA6B42E11B7102020055CC64 /* CollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		CA6B42E21B7102020055CC64 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CA7228BD1B57F4F8006F719A /* NewMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessage.xib; sourceTree = "<group>"; };
 		CACBFC801B53FE7400FAD388 /* MessageCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenter.h; sourceTree = "<group>"; };
 		CACBFC811B53FE7400FAD388 /* MessageCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenter.m; sourceTree = "<group>"; };
@@ -1287,6 +1297,9 @@
 				52DC03DD1B70A45B00BB3CB7 /* FCourseDetailLast.h */,
 				52DC03DE1B70A45B00BB3CB7 /* FCourseDetailLast.m */,
 				52DC03DF1B70A45B00BB3CB7 /* FCourseDetailLast.xib */,
+				CA6B42E11B7102020055CC64 /* CollectionViewCell.h */,
+				CA6B42E21B7102020055CC64 /* CollectionViewCell.m */,
+				CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1315,6 +1328,9 @@
 				D4D797AA1B6FC42300B78055 /* FCourseDetailViewController.h */,
 				D4D797AB1B6FC42300B78055 /* FCourseDetailViewController.m */,
 				D4D797AC1B6FC42300B78055 /* FCourseDetailViewController.xib */,
+				CA6B42DC1B70F7EF0055CC64 /* GroupInfoViewController.h */,
+				CA6B42DD1B70F7EF0055CC64 /* GroupInfoViewController.m */,
+				CA6B42DE1B70F7EF0055CC64 /* GroupInfoViewController.xib */,
 				D4459B821B63D63B00DEB780 /* HWorkViewController.h */,
 				D4459B831B63D63B00DEB780 /* HWorkViewController.m */,
 				D4459B841B63D63B00DEB780 /* HWorkViewController.xib */,
@@ -1657,6 +1673,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA6B42E01B70F7EF0055CC64 /* GroupInfoViewController.xib in Resources */,
 				D4DEA5BD1B3002DD005C96D5 /* NewNotiSelectCell.xib in Resources */,
 				CADD22441B52C72000A4F3D2 /* IdeaWithVersion.xib in Resources */,
 				CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */,
@@ -1724,6 +1741,7 @@
 				D4DF08991B5B970500B816DD /* NewNotimgCell.xib in Resources */,
 				D4B2F3451B02FEC0007B017E /* NotificationViewController.xib in Resources */,
 				CA20AA3B1B5A979500598370 /* MyData.xib in Resources */,
+				CA6B42E51B7102020055CC64 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1787,6 +1805,7 @@
 				9F49B0C31B400AC700996CA8 /* PlayViewController.m in Sources */,
 				D4B2F3491B02FEDA007B017E /* CourseViewController.m in Sources */,
 				D4DF088D1B5B94CA00B816DD /* QBAssetsCollectionOverlayView.m in Sources */,
+				CA6B42E41B7102020055CC64 /* CollectionViewCell.m in Sources */,
 				CAE2F3B91B6D0DE300BF4132 /* ApplyViewController.m in Sources */,
 				5963C36E1B202C8200A09D30 /* UserInfo.m in Sources */,
 				5963C35C1B200E0600A09D30 /* UserActions.m in Sources */,
@@ -1801,6 +1820,7 @@
 				D4DF088E1B5B94CA00B816DD /* QBAssetsCollectionViewCell.m in Sources */,
 				D447331D1B4CE5B200F749D1 /* NoticeInfo.m in Sources */,
 				D4B2F3EA1B034265007B017E /* UIView+MJExtension.m in Sources */,
+				CA6B42DF1B70F7EF0055CC64 /* GroupInfoViewController.m in Sources */,
 				D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */,
 				066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */,
 				D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */,
