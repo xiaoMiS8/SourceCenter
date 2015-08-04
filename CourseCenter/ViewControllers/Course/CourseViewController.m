@@ -57,7 +57,7 @@ static NSInteger number=0;
         _loginBtn.hidden=YES;
         _loginPrompt.hidden=YES;
         _topLabel.hidden=NO;
-      //  [self loadData];
+        [self loadData];
     }
 }
 - (void)setCenterImg:(UIImageView *)centerImg {
@@ -69,18 +69,18 @@ static NSInteger number=0;
     self.manager = [CCHttpManager new];
 }
 
-//- (void)loadData {
-//    if (number==1) {
-//        [MBProgressHUD showMessage:nil];
-//    }
-//    [self.manager getAppOCListWithIsHistroy:-1 finished:^(EnumServerStatus status, NSObject *object) {
-//        [MBProgressHUD hideHUD];
-//        ResponseObject *retunObject = (ResponseObject *)object;
-//        self.OCList = retunObject.resultArray;
-//        [self.tableView reloadData];
-//    }];
-//    number=1;
-//}
+- (void)loadData {
+    if (number==1) {
+        [MBProgressHUD showMessage:nil];
+    }
+    [self.manager getAppOCListWithIsHistroy:0 finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        ResponseObject *retunObject = (ResponseObject *)object;
+        self.OCList = retunObject.resultArray;
+        [self.tableView reloadData];
+    }];
+    number=1;
+}
 
 - (void)setCell {
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -90,23 +90,23 @@ static NSInteger number=0;
 #pragma mark- UITableViewDataSource & UITableDelegate
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;//[self.OCList count];
+    return [self.OCList count];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    MyCourseListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCourseListCell"];
-//    cell.oCourse = self.OCList[indexPath.row];
-//    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-//    return size.height + 1;
-//    
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MyCourseListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCourseListCell"];
+    cell.oCourse = self.OCList[indexPath.row];
+    CGSize size = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height + 1;
+    
+}
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    MyCourseListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCourseListCell"];
-//    cell.oCourse = self.OCList[indexPath.row];
-//    return cell;
-//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MyCourseListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MyCourseListCell"];
+    cell.oCourse = self.OCList[indexPath.row];
+    return cell;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [((AppDelegate *)app).nav pushViewController:[self setTabbarWithindexPath:indexPath] animated:YES];
