@@ -38,7 +38,7 @@
     rect.size.width = Width *myProgress;
     self.progressView.frame = rect;
     CGRect lineRect = self.line.frame;
-    lineRect.origin.x = Width *myProgress -2;
+    lineRect.origin.x = Width *myProgress -1;
     self.line.frame = lineRect;
     self.coreView.center = CGPointMake(self.line.frame.origin.x + 1, self.line.frame.origin.y);
     
@@ -69,7 +69,7 @@
 - (void)setNormProgress:(float)normProgress {
     _normProgress = normProgress;
     CGRect rect = self.normLine.frame;
-    rect.origin.x = normProgress * Width;
+    rect.origin.x = normProgress * Width - 1;
     self.normLine.frame = rect;
     CGPoint point = CGPointMake(self.normLine.frame.origin.x + 1, CGRectGetMaxY(self.normLine.frame));
     self.normCore.center = point;
