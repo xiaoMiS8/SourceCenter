@@ -41,11 +41,13 @@
 }
 
 - (void)addCenterSeg {
+     HWorkViewController *hwVC = self.viewcontrollers[3];
     if (self.seg == nil) {
         NSArray *array = @[@"未上交",@"已上交"];
         UISegmentedControl *seg = [[UISegmentedControl alloc] initWithItems:array];
         seg.selectedSegmentIndex = 0;
         seg.bounds = CGRectMake(0, 0, 160, 30);
+        hwVC.seg = seg;
         self.seg = seg;
     }
    self.navigationItem.titleView = self.seg;

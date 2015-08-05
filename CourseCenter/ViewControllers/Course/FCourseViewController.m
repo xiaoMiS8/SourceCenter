@@ -27,6 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"FCourseCell" bundle:nil] forCellReuseIdentifier:@"FCourseCell"];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     fCourseDetailVC=[[FCourseDetailViewController alloc]init];

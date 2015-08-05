@@ -9,5 +9,5 @@
 #import "CourseBaseViewController.h"
 
 @interface HWorkViewController : CourseBaseViewController
-
+@property(nonatomic, strong) UISegmentedControl *seg;
 @end
