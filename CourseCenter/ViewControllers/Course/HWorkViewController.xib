@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rdP-hU-IKI">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="tnW-yJ-ZQV"/>
@@ -29,7 +29,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="rdP-hU-IKI" secondAttribute="trailing" id="Cpu-4g-f4n"/>
                 <constraint firstItem="rdP-hU-IKI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LVN-jF-CCV"/>
-                <constraint firstAttribute="bottom" secondItem="rdP-hU-IKI" secondAttribute="bottom" id="LXZ-vm-p5I"/>
+                <constraint firstAttribute="bottom" secondItem="rdP-hU-IKI" secondAttribute="bottom" constant="49" id="LXZ-vm-p5I"/>
                 <constraint firstItem="rdP-hU-IKI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NpK-O5-55C"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

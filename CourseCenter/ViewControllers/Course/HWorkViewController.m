@@ -9,6 +9,7 @@
 #import "HWorkViewController.h"
 #import "HWorkCell.h"
 #import "TestInfo.h"
+#import "HWorkDetailViewController.h"
 @interface HWorkViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic)CCHttpManager *httpManager;
@@ -100,6 +101,14 @@
     }
     else {
             [self yLoadData];
+    }
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(_seg.selectedSegmentIndex==0)
+    {
+        HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+        [self pushViewController:hwdVC];
     }
 }
 - (void)didReceiveMemoryWarning {

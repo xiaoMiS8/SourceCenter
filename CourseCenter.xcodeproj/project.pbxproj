@@ -57,6 +57,12 @@
 		52E7DFE11B71A30400BB46DE /* HWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E7DFDF1B71A30400BB46DE /* HWorkCell.xib */; };
 		52E7DFE51B71CDC800BB46DE /* HWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E7DFE31B71CDC800BB46DE /* HWorkDetailViewController.m */; };
 		52E7DFE61B71CDC800BB46DE /* HWorkDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E7DFE41B71CDC800BB46DE /* HWorkDetailViewController.xib */; };
+		52E7DFEA1B71E44200BB46DE /* TPViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E7DFE81B71E44200BB46DE /* TPViewCell.m */; };
+		52E7DFEB1B71E44200BB46DE /* TPViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E7DFE91B71E44200BB46DE /* TPViewCell.xib */; };
+		52E7DFEF1B723A6200BB46DE /* TpHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E7DFED1B723A6200BB46DE /* TpHistoryViewController.m */; };
+		52E7DFF01B723A6200BB46DE /* TpHistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E7DFEE1B723A6200BB46DE /* TpHistoryViewController.xib */; };
+		52E7DFF41B723B8B00BB46DE /* TpHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E7DFF21B723B8B00BB46DE /* TpHistoryCell.m */; };
+		52E7DFF51B723B8B00BB46DE /* TpHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E7DFF31B723B8B00BB46DE /* TpHistoryCell.xib */; };
 		594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98F91B142DF500A4C3F6 /* ViewController.m */; };
 		594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 594C98FC1B1442AE00A4C3F6 /* CourseSearchViewController.m */; };
 		594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 594C98FD1B1442AE00A4C3F6 /* CourseSearchViewController.xib */; };
@@ -396,6 +402,15 @@
 		52E7DFE21B71CDC800BB46DE /* HWorkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWorkDetailViewController.h; sourceTree = "<group>"; };
 		52E7DFE31B71CDC800BB46DE /* HWorkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWorkDetailViewController.m; sourceTree = "<group>"; };
 		52E7DFE41B71CDC800BB46DE /* HWorkDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWorkDetailViewController.xib; sourceTree = "<group>"; };
+		52E7DFE71B71E44200BB46DE /* TPViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPViewCell.h; sourceTree = "<group>"; };
+		52E7DFE81B71E44200BB46DE /* TPViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPViewCell.m; sourceTree = "<group>"; };
+		52E7DFE91B71E44200BB46DE /* TPViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPViewCell.xib; sourceTree = "<group>"; };
+		52E7DFEC1B723A6200BB46DE /* TpHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TpHistoryViewController.h; sourceTree = "<group>"; };
+		52E7DFED1B723A6200BB46DE /* TpHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpHistoryViewController.m; sourceTree = "<group>"; };
+		52E7DFEE1B723A6200BB46DE /* TpHistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TpHistoryViewController.xib; sourceTree = "<group>"; };
+		52E7DFF11B723B8B00BB46DE /* TpHistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TpHistoryCell.h; sourceTree = "<group>"; };
+		52E7DFF21B723B8B00BB46DE /* TpHistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TpHistoryCell.m; sourceTree = "<group>"; };
+		52E7DFF31B723B8B00BB46DE /* TpHistoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TpHistoryCell.xib; sourceTree = "<group>"; };
 		594C98F81B142DF500A4C3F6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		594C98F91B142DF500A4C3F6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		594C98FB1B1442AE00A4C3F6 /* CourseSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseSearchViewController.h; sourceTree = "<group>"; };
@@ -1313,6 +1328,12 @@
 				52E7DFDD1B71A30400BB46DE /* HWorkCell.h */,
 				52E7DFDE1B71A30400BB46DE /* HWorkCell.m */,
 				52E7DFDF1B71A30400BB46DE /* HWorkCell.xib */,
+				52E7DFE71B71E44200BB46DE /* TPViewCell.h */,
+				52E7DFE81B71E44200BB46DE /* TPViewCell.m */,
+				52E7DFE91B71E44200BB46DE /* TPViewCell.xib */,
+				52E7DFF11B723B8B00BB46DE /* TpHistoryCell.h */,
+				52E7DFF21B723B8B00BB46DE /* TpHistoryCell.m */,
+				52E7DFF31B723B8B00BB46DE /* TpHistoryCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1353,6 +1374,9 @@
 				D4459B871B63D68000DEB780 /* TPViewController.h */,
 				D4459B881B63D68000DEB780 /* TPViewController.m */,
 				D4459B891B63D68000DEB780 /* TPViewController.xib */,
+				52E7DFEC1B723A6200BB46DE /* TpHistoryViewController.h */,
+				52E7DFED1B723A6200BB46DE /* TpHistoryViewController.m */,
+				52E7DFEE1B723A6200BB46DE /* TpHistoryViewController.xib */,
 				D44B7E251B6FA5AD0036B3D5 /* BBS */,
 			);
 			path = Course;
@@ -1705,6 +1729,7 @@
 				D44B7E341B6FA7080036B3D5 /* BBsDetailCell.xib in Resources */,
 				CACBFC891B54021F00FAD388 /* MessageCenterCell.xib in Resources */,
 				D4459B9A1B63E09B00DEB780 /* CourseBaseViewController.xib in Resources */,
+				52E7DFF51B723B8B00BB46DE /* TpHistoryCell.xib in Resources */,
 				CADD22211B52488700A4F3D2 /* MyInfoCell.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
@@ -1743,6 +1768,7 @@
 				D4459B7C1B63D5F400DEB780 /* FCourseViewController.xib in Resources */,
 				D4B2F3081B02FA00007B017E /* LaunchScreen.xib in Resources */,
 				52E7DFE61B71CDC800BB46DE /* HWorkDetailViewController.xib in Resources */,
+				52E7DFF01B723A6200BB46DE /* TpHistoryViewController.xib in Resources */,
 				D4B2F3321B02FD8D007B017E /* BaseViewController.xib in Resources */,
 				D4B2F3051B02FA00007B017E /* Images.xcassets in Resources */,
 				D4B2F3401B02FE75007B017E /* HomeViewController.xib in Resources */,
@@ -1751,6 +1777,7 @@
 				D4B2F3DF1B034265007B017E /* MJRefresh.bundle in Resources */,
 				D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */,
 				D44B7E2F1B6FA5E50036B3D5 /* BBsDetailViewController.xib in Resources */,
+				52E7DFEB1B71E44200BB46DE /* TPViewCell.xib in Resources */,
 				D4459B861B63D63B00DEB780 /* HWorkViewController.xib in Resources */,
 				594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */,
 				042E75C61B160C9100396AAF /* LoginViewController.xib in Resources */,
@@ -1845,6 +1872,7 @@
 				D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */,
 				D40691B61B6CE8100044CAE5 /* QuestionItemInfo.m in Sources */,
 				042E75E41B16148A00396AAF /* NSArray+Sort.m in Sources */,
+				52E7DFF41B723B8B00BB46DE /* TpHistoryCell.m in Sources */,
 				D412969C1B50059E003FC6DB /* MoreListCell.m in Sources */,
 				D4B2F3311B02FD8D007B017E /* BaseViewController.m in Sources */,
 				59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */,
@@ -1895,6 +1923,7 @@
 				D4B2F3F21B034265007B017E /* SDWebImageManager.m in Sources */,
 				D4B2F3EF1B034265007B017E /* SDWebImageDecoder.m in Sources */,
 				06B2149F1B6723DF00CE9A19 /* RankInfo.m in Sources */,
+				52E7DFEA1B71E44200BB46DE /* TPViewCell.m in Sources */,
 				52C8EED91B4E9F3A00BDBE76 /* SearchCore.mm in Sources */,
 				D4B2F3961B033E51007B017E /* AFNetworkReachabilityManager.m in Sources */,
 				CA20AA4E1B5AB39300598370 /* DetailDataCell.m in Sources */,
@@ -1965,6 +1994,7 @@
 				CA20AA2D1B59F11800598370 /* NewMessageCell.m in Sources */,
 				CACBFC8D1B540B5600FAD388 /* ChatViewController.m in Sources */,
 				D4D797AD1B6FC42300B78055 /* FCourseDetailViewController.m in Sources */,
+				52E7DFEF1B723A6200BB46DE /* TpHistoryViewController.m in Sources */,
 				042E75E51B16148A00396AAF /* UIView+Hierarchy.m in Sources */,
 				06B214B71B6778FC00CE9A19 /* LiveForumInfo.m in Sources */,
 				042E75E31B16148A00396AAF /* IQToolbar.m in Sources */,

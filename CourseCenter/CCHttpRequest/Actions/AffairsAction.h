@@ -27,7 +27,7 @@
  */
 + (void)getAffairsListWithType:(int)Type
                          OCID:(long)OCID
-                     IsHistory:(BOOL)IsHistory
+                     IsHistory:(int)IsHistory
                      PageIndex:(int)PageIndex
                       PageSize:(int)PageSize
                       finished:(FinishedBlock)finished;

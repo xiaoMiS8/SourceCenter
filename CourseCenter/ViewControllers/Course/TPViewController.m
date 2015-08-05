@@ -7,13 +7,65 @@
 //
 
 #import "TPViewController.h"
-
+#import "TPViewCell.h"
+#import "AffairInfo.h"
+#import "TpHistoryViewController.h"
 @interface TPViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong,nonatomic)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
+@property (nonatomic,strong)NSMutableArray *dataArray;
 
 @end
 
 @implementation TPViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title=@"事务处理";
+    [self.tableView registerNib:[UINib nibWithNibName:@"TPViewCell" bundle:nil] forCellReuseIdentifier:@"TPViewCell"];
+    self.tableView.tableFooterView=[[UIView alloc]init];
+    self.httpManager = [[CCHttpManager alloc]init];
+    self.dataArray=[[NSMutableArray array]init];
+    [self LoadData];
+}
+
+-(void)LoadData
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getAffairsListWithType:1 OCID:161 IsHistory:-1 PageIndex:1 PageSize:INT_MAX
+        finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.dataArray=self.reob.resultArray;
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _dataArray.count;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TPViewCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"TPViewCell"];
+    cell.info=[_dataArray objectAtIndex:indexPath.row];
+    return cell;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 175;
+}
 - (void)setRightBtn:(UIButton *)rightBtn {
     _rightBtn = rightBtn;
     [rightBtn setImage:[UIImage imageNamed:@"btn_history"] forState:UIControlStateNormal];
@@ -23,11 +75,8 @@
 }
 
 - (void)rightBtnAction:(id)sender {
-    
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
+    TpHistoryViewController *tpVC=[[TpHistoryViewController alloc]init];
+    [self pushViewController:tpVC];
 }
 
 - (void)didReceiveMemoryWarning {
