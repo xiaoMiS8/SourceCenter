@@ -21,4 +21,5 @@
 @property (strong,nonatomic)NSIndexPath *indexPath;
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
+@property (strong,nonatomic)UITableView *tableView;
 @end

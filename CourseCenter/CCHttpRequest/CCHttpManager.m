@@ -724,7 +724,7 @@
     [AffairsAction updateOCAffairsStatusWithAffairID:AffairID
                                               Status:Status
                                             finished:^(EnumServerStatus status, NSObject *object) {
-        finished(Status, object);
+        finished(status, object);
     }];
 }
 

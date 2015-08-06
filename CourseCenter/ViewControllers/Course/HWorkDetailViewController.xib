@@ -7,15 +7,131 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HWorkDetailViewController">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="scrollerView" destination="HBN-Qb-sof" id="hfV-N1-rQF"/>
+                <outlet property="view" destination="eTU-yJ-b4e" id="VWM-0e-bcb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view contentMode="scaleToFill" id="eTU-yJ-b4e">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2d7-Dn-dh4">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wX5-0c-wp2">
+                            <rect key="frame" x="10" y="0.0" width="42" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eht-gR-ggp">
+                            <rect key="frame" x="267.5" y="0.0" width="42" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="wX5-0c-wp2" firstAttribute="top" secondItem="2d7-Dn-dh4" secondAttribute="top" id="BZ9-Lt-LVr"/>
+                        <constraint firstItem="Eht-gR-ggp" firstAttribute="top" secondItem="2d7-Dn-dh4" secondAttribute="top" id="Jxb-o0-qds"/>
+                        <constraint firstAttribute="height" constant="50" id="ScR-dN-chc"/>
+                        <constraint firstAttribute="trailing" secondItem="Eht-gR-ggp" secondAttribute="trailing" constant="10" id="jwD-8r-6Us"/>
+                        <constraint firstAttribute="bottom" secondItem="wX5-0c-wp2" secondAttribute="bottom" id="kN0-Iz-jPN"/>
+                        <constraint firstAttribute="bottom" secondItem="Eht-gR-ggp" secondAttribute="bottom" id="yAF-I4-yI3"/>
+                        <constraint firstItem="wX5-0c-wp2" firstAttribute="leading" secondItem="2d7-Dn-dh4" secondAttribute="leading" constant="10" id="zAK-oI-fNd"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBN-Qb-sof">
+                    <rect key="frame" x="0.0" y="50" width="320" height="468"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBH-hV-wAn">
+                            <rect key="frame" x="0.0" y="0.0" width="3200" height="468"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="3200" id="QG4-u8-Vmz"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="iBH-hV-wAn" secondAttribute="trailing" id="2Sg-Ln-NDI"/>
+                        <constraint firstAttribute="bottom" secondItem="iBH-hV-wAn" secondAttribute="bottom" id="NCK-Ur-J3r"/>
+                        <constraint firstItem="iBH-hV-wAn" firstAttribute="leading" secondItem="HBN-Qb-sof" secondAttribute="leading" id="Vt0-ra-CaP"/>
+                        <constraint firstItem="iBH-hV-wAn" firstAttribute="top" secondItem="HBN-Qb-sof" secondAttribute="top" id="jk8-jn-oP2"/>
+                        <constraint firstAttribute="centerY" secondItem="iBH-hV-wAn" secondAttribute="centerY" id="s1r-cc-v9G"/>
+                    </constraints>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4d-Iu-got">
+                    <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frw-lU-Y4g">
+                            <rect key="frame" x="270" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="ShW-0c-cNn"/>
+                            </constraints>
+                            <state key="normal" title="一二三">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="next:" destination="-1" eventType="touchUpInside" id="hTF-q2-l15"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDG-td-tmb">
+                            <rect key="frame" x="210" y="0.0" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="0GZ-cb-5DW"/>
+                            </constraints>
+                            <state key="normal" title="四五六">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="last:" destination="-1" eventType="touchUpInside" id="8VN-m0-Rfh"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWD-RD-4bk">
+                            <rect key="frame" x="0.0" y="0.0" width="42" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="EDG-td-tmb" secondAttribute="bottom" id="5Ry-kG-kfb"/>
+                        <constraint firstItem="frw-lU-Y4g" firstAttribute="leading" secondItem="EDG-td-tmb" secondAttribute="trailing" constant="10" id="CS0-gE-OSF"/>
+                        <constraint firstAttribute="bottom" secondItem="sWD-RD-4bk" secondAttribute="bottom" id="DWZ-NI-KVw"/>
+                        <constraint firstItem="sWD-RD-4bk" firstAttribute="top" secondItem="q4d-Iu-got" secondAttribute="top" id="Lug-ZG-VrB"/>
+                        <constraint firstAttribute="height" constant="50" id="YE8-We-VIN"/>
+                        <constraint firstAttribute="trailing" secondItem="frw-lU-Y4g" secondAttribute="trailing" id="Ymn-gj-2Vs"/>
+                        <constraint firstItem="EDG-td-tmb" firstAttribute="top" secondItem="q4d-Iu-got" secondAttribute="top" id="Z1p-Uu-0E2"/>
+                        <constraint firstItem="frw-lU-Y4g" firstAttribute="top" secondItem="q4d-Iu-got" secondAttribute="top" id="jff-uc-tw7"/>
+                        <constraint firstAttribute="bottom" secondItem="frw-lU-Y4g" secondAttribute="bottom" id="scj-00-Hen"/>
+                        <constraint firstItem="sWD-RD-4bk" firstAttribute="leading" secondItem="q4d-Iu-got" secondAttribute="leading" id="xf7-wy-4RX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="HBN-Qb-sof" firstAttribute="leading" secondItem="eTU-yJ-b4e" secondAttribute="leading" id="24Q-aq-5zD"/>
+                <constraint firstItem="q4d-Iu-got" firstAttribute="top" secondItem="HBN-Qb-sof" secondAttribute="bottom" id="AkS-KB-75T"/>
+                <constraint firstAttribute="trailing" secondItem="q4d-Iu-got" secondAttribute="trailing" id="JWe-i3-MVB"/>
+                <constraint firstItem="q4d-Iu-got" firstAttribute="leading" secondItem="eTU-yJ-b4e" secondAttribute="leading" id="NVZ-OE-W5U"/>
+                <constraint firstAttribute="trailing" secondItem="2d7-Dn-dh4" secondAttribute="trailing" id="R6T-IK-hzu"/>
+                <constraint firstAttribute="bottom" secondItem="q4d-Iu-got" secondAttribute="bottom" id="Sbb-hT-AnT"/>
+                <constraint firstItem="HBN-Qb-sof" firstAttribute="top" secondItem="2d7-Dn-dh4" secondAttribute="bottom" id="TLs-a4-ddP"/>
+                <constraint firstItem="2d7-Dn-dh4" firstAttribute="leading" secondItem="eTU-yJ-b4e" secondAttribute="leading" id="cJd-10-laa"/>
+                <constraint firstAttribute="trailing" secondItem="HBN-Qb-sof" secondAttribute="trailing" id="e3P-bi-tMc"/>
+                <constraint firstItem="2d7-Dn-dh4" firstAttribute="top" secondItem="eTU-yJ-b4e" secondAttribute="top" id="heU-rY-3Du"/>
+                <constraint firstAttribute="bottom" secondItem="HBN-Qb-sof" secondAttribute="bottom" id="iOW-lz-4mR"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="iOW-lz-4mR"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="271" y="248"/>
         </view>
     </objects>
 </document>

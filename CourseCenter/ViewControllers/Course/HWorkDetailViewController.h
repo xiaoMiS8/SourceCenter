@@ -9,5 +9,5 @@
 #import "CourseBaseViewController.h"
 
 @interface HWorkDetailViewController : CourseBaseViewController
-
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollerView;
 @end

@@ -44,6 +44,20 @@
 		06E1B5101B69D6D70052FF42 /* DetailData.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06E1B50E1B69D6D70052FF42 /* DetailData.xib */; };
 		374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7351B048C5100DBA477 /* NSString+HandleString.m */; };
 		374BA7391B048C5100DBA477 /* UIView+HandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 374BA7371B048C5100DBA477 /* UIView+HandleView.m */; };
+		524E88741B7367CF004A11A2 /* QRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E885F1B7367CF004A11A2 /* QRadioButton.m */; };
+		524E88751B7367CF004A11A2 /* QCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E88611B7367CF004A11A2 /* QCheckBox.m */; };
+		524E88761B7367CF004A11A2 /* UIView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E88631B7367CF004A11A2 /* UIView1.m */; };
+		524E88771B7367CF004A11A2 /* UIView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E88641B7367CF004A11A2 /* UIView1.xib */; };
+		524E88781B7367CF004A11A2 /* UIView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E88661B7367CF004A11A2 /* UIView2.m */; };
+		524E88791B7367CF004A11A2 /* UIView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E88671B7367CF004A11A2 /* UIView2.xib */; };
+		524E887A1B7367CF004A11A2 /* UIView3.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E88691B7367CF004A11A2 /* UIView3.m */; };
+		524E887B1B7367CF004A11A2 /* UIView3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E886A1B7367CF004A11A2 /* UIView3.xib */; };
+		524E887C1B7367CF004A11A2 /* UIView4.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E886C1B7367CF004A11A2 /* UIView4.m */; };
+		524E887D1B7367CF004A11A2 /* UIView4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E886D1B7367CF004A11A2 /* UIView4.xib */; };
+		524E887E1B7367CF004A11A2 /* UIView5.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E886F1B7367CF004A11A2 /* UIView5.m */; };
+		524E887F1B7367CF004A11A2 /* UIView5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E88701B7367CF004A11A2 /* UIView5.xib */; };
+		524E88801B7367CF004A11A2 /* UIView6.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E88721B7367CF004A11A2 /* UIView6.m */; };
+		524E88811B7367CF004A11A2 /* UIView6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E88731B7367CF004A11A2 /* UIView6.xib */; };
 		52C8EED71B4E9F3A00BDBE76 /* Array.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED11B4E9F3A00BDBE76 /* Array.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		52C8EED81B4E9F3A00BDBE76 /* multipy_unicode.dat in Resources */ = {isa = PBXBuildFile; fileRef = 52C8EED21B4E9F3A00BDBE76 /* multipy_unicode.dat */; };
 		52C8EED91B4E9F3A00BDBE76 /* SearchCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED41B4E9F3A00BDBE76 /* SearchCore.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -381,6 +395,28 @@
 		374BA7351B048C5100DBA477 /* NSString+HandleString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HandleString.m"; sourceTree = "<group>"; };
 		374BA7361B048C5100DBA477 /* UIView+HandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HandleView.h"; sourceTree = "<group>"; };
 		374BA7371B048C5100DBA477 /* UIView+HandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HandleView.m"; sourceTree = "<group>"; };
+		524E885E1B7367CF004A11A2 /* QRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRadioButton.h; sourceTree = "<group>"; };
+		524E885F1B7367CF004A11A2 /* QRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRadioButton.m; sourceTree = "<group>"; };
+		524E88601B7367CF004A11A2 /* QCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QCheckBox.h; sourceTree = "<group>"; };
+		524E88611B7367CF004A11A2 /* QCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QCheckBox.m; sourceTree = "<group>"; };
+		524E88621B7367CF004A11A2 /* UIView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView1.h; sourceTree = "<group>"; };
+		524E88631B7367CF004A11A2 /* UIView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView1.m; sourceTree = "<group>"; };
+		524E88641B7367CF004A11A2 /* UIView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIView1.xib; sourceTree = "<group>"; };
+		524E88651B7367CF004A11A2 /* UIView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView2.h; sourceTree = "<group>"; };
+		524E88661B7367CF004A11A2 /* UIView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView2.m; sourceTree = "<group>"; };
+		524E88671B7367CF004A11A2 /* UIView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIView2.xib; sourceTree = "<group>"; };
+		524E88681B7367CF004A11A2 /* UIView3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView3.h; sourceTree = "<group>"; };
+		524E88691B7367CF004A11A2 /* UIView3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView3.m; sourceTree = "<group>"; };
+		524E886A1B7367CF004A11A2 /* UIView3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIView3.xib; sourceTree = "<group>"; };
+		524E886B1B7367CF004A11A2 /* UIView4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView4.h; sourceTree = "<group>"; };
+		524E886C1B7367CF004A11A2 /* UIView4.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView4.m; sourceTree = "<group>"; };
+		524E886D1B7367CF004A11A2 /* UIView4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIView4.xib; sourceTree = "<group>"; };
+		524E886E1B7367CF004A11A2 /* UIView5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView5.h; sourceTree = "<group>"; };
+		524E886F1B7367CF004A11A2 /* UIView5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView5.m; sourceTree = "<group>"; };
+		524E88701B7367CF004A11A2 /* UIView5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIView5.xib; sourceTree = "<group>"; };
+		524E88711B7367CF004A11A2 /* UIView6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView6.h; sourceTree = "<group>"; };
+		524E88721B7367CF004A11A2 /* UIView6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView6.m; sourceTree = "<group>"; };
+		524E88731B7367CF004A11A2 /* UIView6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIView6.xib; sourceTree = "<group>"; };
 		52C8EED01B4E9F3A00BDBE76 /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array.h; sourceTree = "<group>"; };
 		52C8EED11B4E9F3A00BDBE76 /* Array.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Array.mm; sourceTree = "<group>"; };
 		52C8EED21B4E9F3A00BDBE76 /* multipy_unicode.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multipy_unicode.dat; sourceTree = "<group>"; };
@@ -901,6 +937,35 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		524E885D1B736752004A11A2 /* HWorkViews */ = {
+			isa = PBXGroup;
+			children = (
+				524E885E1B7367CF004A11A2 /* QRadioButton.h */,
+				524E885F1B7367CF004A11A2 /* QRadioButton.m */,
+				524E88601B7367CF004A11A2 /* QCheckBox.h */,
+				524E88611B7367CF004A11A2 /* QCheckBox.m */,
+				524E88621B7367CF004A11A2 /* UIView1.h */,
+				524E88631B7367CF004A11A2 /* UIView1.m */,
+				524E88641B7367CF004A11A2 /* UIView1.xib */,
+				524E88651B7367CF004A11A2 /* UIView2.h */,
+				524E88661B7367CF004A11A2 /* UIView2.m */,
+				524E88671B7367CF004A11A2 /* UIView2.xib */,
+				524E88681B7367CF004A11A2 /* UIView3.h */,
+				524E88691B7367CF004A11A2 /* UIView3.m */,
+				524E886A1B7367CF004A11A2 /* UIView3.xib */,
+				524E886B1B7367CF004A11A2 /* UIView4.h */,
+				524E886C1B7367CF004A11A2 /* UIView4.m */,
+				524E886D1B7367CF004A11A2 /* UIView4.xib */,
+				524E886E1B7367CF004A11A2 /* UIView5.h */,
+				524E886F1B7367CF004A11A2 /* UIView5.m */,
+				524E88701B7367CF004A11A2 /* UIView5.xib */,
+				524E88711B7367CF004A11A2 /* UIView6.h */,
+				524E88721B7367CF004A11A2 /* UIView6.m */,
+				524E88731B7367CF004A11A2 /* UIView6.xib */,
+			);
+			name = HWorkViews;
+			sourceTree = "<group>";
+		};
 		52C8EECF1B4E9F3A00BDBE76 /* FuzzySearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1377,6 +1442,7 @@
 				52E7DFEC1B723A6200BB46DE /* TpHistoryViewController.h */,
 				52E7DFED1B723A6200BB46DE /* TpHistoryViewController.m */,
 				52E7DFEE1B723A6200BB46DE /* TpHistoryViewController.xib */,
+				524E885D1B736752004A11A2 /* HWorkViews */,
 				D44B7E251B6FA5AD0036B3D5 /* BBS */,
 			);
 			path = Course;
@@ -1714,6 +1780,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA6B42E01B70F7EF0055CC64 /* GroupInfoViewController.xib in Resources */,
+				524E88771B7367CF004A11A2 /* UIView1.xib in Resources */,
 				D4DEA5BD1B3002DD005C96D5 /* NewNotiSelectCell.xib in Resources */,
 				CADD22441B52C72000A4F3D2 /* IdeaWithVersion.xib in Resources */,
 				CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */,
@@ -1723,6 +1790,7 @@
 				599A5B7E1B16C09A005597AE /* NotificationListCell.xib in Resources */,
 				CADD222B1B52862E00A4F3D2 /* SetPassword.xib in Resources */,
 				9F49B0C41B400AC700996CA8 /* PlayViewController.xib in Resources */,
+				524E88811B7367CF004A11A2 /* UIView6.xib in Resources */,
 				D4459B8B1B63D68000DEB780 /* TPViewController.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
 				CAE5D4601B6E6EB2004F5D5B /* FCourseCell.xib in Resources */,
@@ -1755,6 +1823,7 @@
 				CA20AA2E1B59F11800598370 /* NewMessageCell.xib in Resources */,
 				06E1B5101B69D6D70052FF42 /* DetailData.xib in Resources */,
 				CAE5D4621B6E721A004F5D5B /* BBSListCell.xib in Resources */,
+				524E887D1B7367CF004A11A2 /* UIView4.xib in Resources */,
 				042E75DE1B16148A00396AAF /* IQKeyboardManager.bundle in Resources */,
 				D44B7E391B6FAD2B0036B3D5 /* BBSResponeCell.xib in Resources */,
 				D4DEA5B31B2FB05F005C96D5 /* NewNotiTextViewCell.xib in Resources */,
@@ -1771,6 +1840,8 @@
 				52E7DFF01B723A6200BB46DE /* TpHistoryViewController.xib in Resources */,
 				D4B2F3321B02FD8D007B017E /* BaseViewController.xib in Resources */,
 				D4B2F3051B02FA00007B017E /* Images.xcassets in Resources */,
+				524E88791B7367CF004A11A2 /* UIView2.xib in Resources */,
+				524E887F1B7367CF004A11A2 /* UIView5.xib in Resources */,
 				D4B2F3401B02FE75007B017E /* HomeViewController.xib in Resources */,
 				59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */,
 				CA20AA401B5AAF5300598370 /* CourseData.xib in Resources */,
@@ -1784,6 +1855,7 @@
 				5963C3661B201E8300A09D30 /* HttpTestResultViewController.xib in Resources */,
 				D4459B771B63D5C900DEB780 /* TutorialViewController.xib in Resources */,
 				D4DF08991B5B970500B816DD /* NewNotimgCell.xib in Resources */,
+				524E887B1B7367CF004A11A2 /* UIView3.xib in Resources */,
 				D4B2F3451B02FEC0007B017E /* NotificationViewController.xib in Resources */,
 				CA20AA3B1B5A979500598370 /* MyData.xib in Resources */,
 				CA6B42E51B7102020055CC64 /* CollectionViewCell.xib in Resources */,
@@ -1849,6 +1921,7 @@
 				D4B2F3EC1B034265007B017E /* NSData+ImageContentType.m in Sources */,
 				9F49B0C31B400AC700996CA8 /* PlayViewController.m in Sources */,
 				D4B2F3491B02FEDA007B017E /* CourseViewController.m in Sources */,
+				524E88781B7367CF004A11A2 /* UIView2.m in Sources */,
 				D4DF088D1B5B94CA00B816DD /* QBAssetsCollectionOverlayView.m in Sources */,
 				CA6B42E41B7102020055CC64 /* CollectionViewCell.m in Sources */,
 				CAE2F3B91B6D0DE300BF4132 /* ApplyViewController.m in Sources */,
@@ -1861,12 +1934,14 @@
 				D40691BF1B6CF6590044CAE5 /* SurveyAnswerInfo.m in Sources */,
 				CADD22431B52C72000A4F3D2 /* IdeaWithVersion.m in Sources */,
 				D4B2F3EB1B034265007B017E /* MKAnnotationView+WebCache.m in Sources */,
+				524E887A1B7367CF004A11A2 /* UIView3.m in Sources */,
 				52E7DFE51B71CDC800BB46DE /* HWorkDetailViewController.m in Sources */,
 				D4B2F39D1B033E51007B017E /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				D4DF088E1B5B94CA00B816DD /* QBAssetsCollectionViewCell.m in Sources */,
 				D447331D1B4CE5B200F749D1 /* NoticeInfo.m in Sources */,
 				D4B2F3EA1B034265007B017E /* UIView+MJExtension.m in Sources */,
 				CA6B42DF1B70F7EF0055CC64 /* GroupInfoViewController.m in Sources */,
+				524E887C1B7367CF004A11A2 /* UIView4.m in Sources */,
 				D4DEA5BC1B3002DD005C96D5 /* NewNotiSelectCell.m in Sources */,
 				066A4DD31B54B333003D29AA /* MBProgressHUD+R.m in Sources */,
 				D4B2F3F91B034265007B017E /* UIImageView+WebCache.m in Sources */,
@@ -1882,12 +1957,14 @@
 				D4B2F3991B033E51007B017E /* AFURLRequestSerialization.m in Sources */,
 				D49C64ED1B3941BC006B6D37 /* ChapterInfo.m in Sources */,
 				065C03981B68B16D0090EA46 /* TopicInfo.m in Sources */,
+				524E88801B7367CF004A11A2 /* UIView6.m in Sources */,
 				CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
 				D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */,
 				D49C64EA1B393D4E006B6D37 /* TeacherInfo.m in Sources */,
 				594C98FA1B142DF500A4C3F6 /* ViewController.m in Sources */,
 				52DC03DB1B70889200BB3CB7 /* FCourseDetailOne.m in Sources */,
+				524E887E1B7367CF004A11A2 /* UIView5.m in Sources */,
 				D4B2F35B1B032C36007B017E /* LineNavigationController.m in Sources */,
 				D483411B1B2EC30600373043 /* MyTextView.m in Sources */,
 				D4B2F3E61B034265007B017E /* MJRefreshLegendFooter.m in Sources */,
@@ -1899,6 +1976,7 @@
 				042E75E11B16148A00396AAF /* IQTextView.m in Sources */,
 				374BA7381B048C5100DBA477 /* NSString+HandleString.m in Sources */,
 				D4B2F3F51B034265007B017E /* UIImage+GIF.m in Sources */,
+				524E88761B7367CF004A11A2 /* UIView1.m in Sources */,
 				D4DF08901B5B94CA00B816DD /* QBAssetsCollectionViewLayout.m in Sources */,
 				06B214A51B67563500CE9A19 /* OCFCFileInfo.m in Sources */,
 				CA4E79AA1B64E3220079A05B /* NewMessage.m in Sources */,
@@ -1935,8 +2013,10 @@
 				CADD222A1B52862E00A4F3D2 /* SetPassword.m in Sources */,
 				5963C3531B20009400A09D30 /* CSNetAccessor.m in Sources */,
 				D4B2F2FA1B02FA00007B017E /* AppDelegate.m in Sources */,
+				524E88741B7367CF004A11A2 /* QRadioButton.m in Sources */,
 				D4B2F3E21B034265007B017E /* MJRefreshFooter.m in Sources */,
 				D4B2F3E81B034265007B017E /* UIScrollView+MJExtension.m in Sources */,
+				524E88751B7367CF004A11A2 /* QCheckBox.m in Sources */,
 				D44B7E2E1B6FA5E50036B3D5 /* BBsDetailViewController.m in Sources */,
 				06D1FAD91B57A6E300C18980 /* FileAction.m in Sources */,
 				D4459B7B1B63D5F400DEB780 /* FCourseViewController.m in Sources */,

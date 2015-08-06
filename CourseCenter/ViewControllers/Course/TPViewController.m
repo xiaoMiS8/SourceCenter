@@ -59,6 +59,7 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TPViewCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"TPViewCell"];
+    cell.tableView=tableView;
     cell.info=[_dataArray objectAtIndex:indexPath.row];
     return cell;
 }
