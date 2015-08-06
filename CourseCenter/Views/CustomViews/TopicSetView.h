@@ -10,7 +10,12 @@
 
 @interface TopicSetView : UIView
 
+@property(nonatomic, strong) UIView *bgview;
+@property(nonatomic, copy) void (^ClickBlock)(NSInteger index);
+
 - (void)show;
 - (void)hide;
+
+
 
 @end

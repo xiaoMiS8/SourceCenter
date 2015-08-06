@@ -10,6 +10,8 @@
 #import "BBSListCell.h"
 #import "MJRefresh.h"
 #import "BBsDetailViewController.h"
+#import "NewTopicViewController.h"
+#import "LineNavigationController.h"
 @interface BBsViewController ()
 
 @property(nonatomic, strong) CCHttpManager *manager;
@@ -39,7 +41,9 @@
 }
 
 - (void)rightBtn2Action:(id)sender {
-    
+    NewTopicViewController *newtopicVC = [NewTopicViewController new];
+    LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newtopicVC];
+    [self presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)viewDidLoad {
