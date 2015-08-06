@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UIView1">
+            <connections>
+                <outlet property="label1" destination="C3I-vb-1Bz" id="9WM-YF-6d9"/>
+                <outlet property="label2" destination="wHA-vg-jcj" id="zjA-mD-cgh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 单选题  (2分)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3I-vb-1Bz">
+                    <rect key="frame" x="10" y="10" width="300" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="va3-jW-5nA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="POKMLOIJNBHUYGVCFTRDXDDDDDDDDDEEEE" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHA-vg-jcj">
+                    <rect key="frame" x="10" y="40" width="300" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="Bfo-xs-4QJ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wHA-vg-jcj" firstAttribute="top" secondItem="C3I-vb-1Bz" secondAttribute="bottom" constant="10" id="65P-zU-Zad"/>
+                <constraint firstItem="C3I-vb-1Bz" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="C9X-Zh-gEi"/>
+                <constraint firstAttribute="trailing" secondItem="C3I-vb-1Bz" secondAttribute="trailing" constant="10" id="CNt-wp-KnP"/>
+                <constraint firstItem="wHA-vg-jcj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="V61-BU-ODF"/>
+                <constraint firstItem="C3I-vb-1Bz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="hQb-qd-dDx"/>
+                <constraint firstAttribute="trailing" secondItem="wHA-vg-jcj" secondAttribute="trailing" constant="10" id="sWK-7M-sBK"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="247" y="117"/>
+        </view>
+    </objects>
+</document>

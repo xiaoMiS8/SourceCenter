@@ -33,11 +33,11 @@
 + (void)updateOCAffairsStatusWithAffairID:(long)AffairID Status:(int)Status finished:(FinishedBlock)finished {
     NSDictionary *p = @{kAffairID: @(AffairID),
                         kStatus: @(Status)};
-    [CSNetAccessor sendPostAsyncObjectFormUrl:@"Affairs/OCAffairs_Status_Upd"
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Affairs/OCAffairs_Status_Upd"
                                    parameters:p
                                  connectClass:Nil
                                      finished:^(EnumServerStatus status, NSObject *object) {
-        finished(Status, object);
+        finished(status, object);
     }];
 }
 
