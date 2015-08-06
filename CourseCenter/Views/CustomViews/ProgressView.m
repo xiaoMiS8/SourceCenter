@@ -22,6 +22,8 @@
 @property(nonatomic, strong) UIView *normLine;
 @property(nonatomic, strong) UIView *normCore;
 
+@property(nonatomic, strong) UIView *bgView;
+
 @end
 
 @implementation ProgressView
@@ -68,8 +70,11 @@
 
 - (void)setNormProgress:(float)normProgress {
     _normProgress = normProgress;
+    if (normProgress >= 1) {
+        normProgress = 1;
+    }
     CGRect rect = self.normLine.frame;
-    rect.origin.x = normProgress * Width - 1;
+    rect.origin.x = normProgress * self.bgView.frame.size.width - 1;
     self.normLine.frame = rect;
     CGPoint point = CGPointMake(self.normLine.frame.origin.x + 1, CGRectGetMaxY(self.normLine.frame));
     self.normCore.center = point;
@@ -81,6 +86,7 @@
     bigview.layer.borderWidth = 0.5;
     bigview.layer.cornerRadius = 2;
     [self addSubview:bigview];
+    self.bgView = bigview;
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, Height -10)];
     view.backgroundColor = [Tool colorWithHexString:@"#15b591"];
