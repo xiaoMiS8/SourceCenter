@@ -1,0 +1,15 @@
+//
+//  NTCell2.h
+//  CourseCenter
+//
+//  Created by 任晓健 on 15/8/7.
+//  Copyright (c) 2015年 line0.com. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "HPGrowingTextView.h"
+@interface NTCell2 : UITableViewCell<HPGrowingTextViewDelegate>
+@property (weak, nonatomic) IBOutlet HPGrowingTextView *textView;
+@property(nonatomic, copy) void (^textViewDidChangeBlock)(CGFloat height);
+
+@end

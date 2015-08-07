@@ -8,9 +8,11 @@
 
 #import "NewTopicViewController.h"
 #import "NTCell1.h"
-#import "NTTextViewCell.h"
-#import "NTTextViewCell2.h"
+#import "NTCell2.h"
 @interface NewTopicViewController ()
+
+@property(nonatomic, strong) NSArray *datas;
+@property(nonatomic, assign) CGFloat textViewHeight;
 
 @end
 
@@ -19,10 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"新建话题";
+    self.tableView.estimatedRowHeight = 60;
+    self.datas = @[@"请输入标题，50字以内！",@"请输入话题内容"];
     [self setCell];
     [self addNavItem];
-    self.tableView.estimatedRowHeight = 100;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
 }
 
@@ -53,8 +55,7 @@
 
 - (void)setCell {
     [self.tableView registerNib:[UINib nibWithNibName:@"NTCell1" bundle:nil] forCellReuseIdentifier:@"NTCell1"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"NTTextViewCell" bundle:nil] forCellReuseIdentifier:@"NTTextViewCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"NTTextViewCell2" bundle:nil] forCellReuseIdentifier:@"NTTextViewCell2"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"NTCell2" bundle:nil] forCellReuseIdentifier:@"NTCell2"];
 }
 
 - (void)cancel {
@@ -70,7 +71,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 2;
 }
 
 
@@ -78,14 +79,16 @@
     if (indexPath.row == 0) {
        NTCell1 *cell = [tableView dequeueReusableCellWithIdentifier:@"NTCell1"];
         return cell;
-    } else if (indexPath.row == 1) {
-        NTTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NTTextViewCell"];
-        return cell;
-    } else if(indexPath.row == 2) {
-        NTTextViewCell2*cell = [tableView dequeueReusableCellWithIdentifier:@"NTTextViewCell2"];
+    } else  {
+        NTCell2 *cell = [tableView dequeueReusableCellWithIdentifier:@"NTCell2"];
+        cell.textViewDidChangeBlock = ^ (CGFloat height){
+            self.textViewHeight = height;
+            [self.tableView reloadData];
+        };
+
         return cell;
     }
-    return nil;
+   
     
 }
 
