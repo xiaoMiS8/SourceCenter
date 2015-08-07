@@ -35,7 +35,7 @@
 -(void)wloadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getSurveyMyJoinListWithKey:@"1" OCID:0 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getSurveyMyJoinListWithKey:@"" OCID:0 finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
@@ -57,7 +57,7 @@
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                self.dataArray=nil;//self.reob.resultArray;
+                self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
                 return ;
             }
@@ -90,7 +90,8 @@
         [self wloadData];
     }else
     {
-        [self jloadData];
+        [Tool showAlertView:@"提示" withMessage:@"施工中..." withTarget:self withCancel:@"确定" other:nil];
+        seg.selectedSegmentIndex=0;
     }
 }
 - (void)didReceiveMemoryWarning {

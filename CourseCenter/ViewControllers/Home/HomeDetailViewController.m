@@ -16,7 +16,6 @@
 #import "ApplyViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 #define ICONIMG @"iconpro"
-#define BAGNIMG @"nav_bg"
 static NSInteger tag;
 @interface HomeDetailViewController ()
 {
@@ -94,7 +93,7 @@ static NSInteger tag;
 }
 -(void)showteacherInfo:(TeacherInfo *)info
 {
-    [self.topImageView sd_setImageWithURL:[NSURL URLWithString:_topImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
+    [self.topImageView sd_setImageWithURL:[NSURL URLWithString:_topImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
     [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
     [self.StartDate setText:info.StartDate];
     [self.TeacherName setText:info.TeacherName];
