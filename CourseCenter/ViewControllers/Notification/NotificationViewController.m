@@ -19,6 +19,7 @@
 @interface NotificationViewController ()
 {
     NSString *loginState;
+    NSString *userId;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) CCHttpManager *httpManager;
@@ -50,6 +51,13 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]) {
+        [self isLogin];
+        userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
+    }
+}
 -(void)isLogin
 {
     

@@ -21,6 +21,7 @@ static NSInteger number=0;
 @interface CourseViewController ()
 {
     NSString *loginState;
+    NSString *userId;
 }
 @property (weak, nonatomic) IBOutlet UILabel *topLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -42,6 +43,13 @@ static NSInteger number=0;
     [self isLoginOrCourse];
     
   
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]) {
+        [self isLoginOrCourse];
+        userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
+    }
 }
 -(void)isLoginOrCourse
 {
