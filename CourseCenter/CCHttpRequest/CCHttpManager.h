@@ -87,6 +87,7 @@
  *  @param finished finished description
  */
 - (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+                                SearchKey:(NSString *)searchKey
                                 finished:(FinishedBlock)finished;
 /**
  *  Mooc基本信息

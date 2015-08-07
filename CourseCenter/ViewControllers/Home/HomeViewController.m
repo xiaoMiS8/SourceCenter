@@ -136,8 +136,14 @@
 
 - (void)search
 {
-    CourseSearchViewController *courseSearchVC = [CourseSearchViewController new];
-    [((AppDelegate *)app).nav pushViewController:courseSearchVC animated:YES];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        [Tool showAlertView:@"提示" withMessage:@"请先登录!" withTarget:self withCancel:@"确定" other:nil];
+    }else
+    {
+        CourseSearchViewController *courseSearchVC = [CourseSearchViewController new];
+        [((AppDelegate *)app).nav pushViewController:courseSearchVC animated:YES];
+    }
+    
 }
 
 - (void)segValueChange:(UISegmentedControl *)seg {

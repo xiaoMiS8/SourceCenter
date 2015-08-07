@@ -22,4 +22,8 @@
 #define REGISTSUCCESS @"注册成功"
 #define REGISTERROR1  @"请选择班级"
 #define REGISTERROR2  @"请填写注册码"
+
+#define NOPIC @"nopic"
+
+
 #endif

@@ -11,7 +11,6 @@
 #import "HomeDetailViewController.h"
 #import "ApplyViewController.h"
 #define ICONIMG @"iconpro"
-#define BAGNIMG @"nav_bg"
 #define STUDY   @"study"
 #define SINGUP  @"SINGUP"
 @interface HomeListCell ()
@@ -45,7 +44,7 @@
     if (_oCourse==nil) {
         _oCourse=oCourse;
     }
-    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
+    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
     [self.nameLabel setText:oCourse.TeacherName];
     [self.collegeLabel setText:oCourse.OrganizationName];

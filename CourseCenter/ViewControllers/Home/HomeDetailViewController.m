@@ -13,6 +13,7 @@
 #import "ChapterInfo.h"
 #import "PlayViewController.h"
 #import "UIImageView+WebCache.h"
+#import "ApplyViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 #define ICONIMG @"iconpro"
 #define BAGNIMG @"nav_bg"
@@ -54,7 +55,6 @@ static NSInteger tag;
     self.twoV.layer.borderWidth=1;
     self.threeV.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
     self.threeV.layer.borderWidth=1;
-    [self addTableViewheader];
     [self addTableViewFoot];
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailCell"];
     self.httpManager = [[CCHttpManager alloc]init];
@@ -83,6 +83,7 @@ static NSInteger tag;
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 _arrayData=self.reob.resultArray;
+                [self addTableViewheader];
                 [self showCourseData];
                 [self loadOCMoocFile];
                 return ;
@@ -131,19 +132,27 @@ static NSInteger tag;
 }
 - (void)addTableViewheader
 {
-    UIView *view = [UIView new];
-    view.bounds = CGRectMake(0, 0, 0, 30);
-    view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
-    view.layer.borderWidth=1;
-    view.backgroundColor = [UIColor whiteColor];
-    UIImageView *image=[[UIImageView alloc]initWithFrame:CGRectMake(35, 2.5, 25, 25)];
-    image.image=[UIImage imageNamed:@"icon_catalog"];
-    [view addSubview:image];
-    UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(image.frame.origin.x+image.frame.size.width+30, 0, 100, 30)];
-    lable.text=@"课程章节";
-    lable.font=Font_14;
-    [view addSubview:lable];
-    self.tableView.tableHeaderView = view;
+
+        UIView *view = [UIView new];
+        view.bounds = CGRectMake(0, 0, 0, 30);
+        view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
+        view.layer.borderWidth=1;
+        view.backgroundColor = [UIColor whiteColor];
+        UIImageView *image=[[UIImageView alloc]initWithFrame:CGRectMake(35, 2.5, 25, 25)];
+        image.image=[UIImage imageNamed:@"icon_catalog"];
+        [view addSubview:image];
+        UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(image.frame.origin.x+image.frame.size.width+30, 0, 100, 30)];
+        lable.font=Font_14;
+        [view addSubview:lable];
+        self.tableView.tableHeaderView = view;
+    if(_arrayData.count!=0)
+    {
+        lable.text=@"课程章节";
+    }else
+    {
+        lable.text=@"该课程暂无章节";
+    }
+    
 }
 -(void)addTableViewFoot
 {
@@ -157,6 +166,7 @@ static NSInteger tag;
          btn.hidden=NO;
     }else if (_RegStatus==2||_RegStatus==4) {
         [btn setTitle:@"报名" forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(sign) forControlEvents:UIControlEventTouchUpInside];
          btn.tag=2;
          btn.hidden=NO;
     }else
@@ -216,7 +226,6 @@ static NSInteger tag;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
      CourseDetailCell *cell = [_tableView dequeueReusableCellWithIdentifier:@"CourseDetailCell"];
-    
     cell.mooFileInfo=[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
     return cell;
 }
@@ -261,7 +270,12 @@ static NSInteger tag;
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.startY = scrollView.contentOffset.y;
 }
-
+-(void)sign
+{
+    ApplyViewController *applyVc = [[ApplyViewController alloc]init];
+    applyVc.OCID=_OCID;
+    [((AppDelegate *)app).nav pushViewController:applyVc animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
    

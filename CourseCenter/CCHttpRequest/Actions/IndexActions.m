@@ -46,8 +46,9 @@
 }
 
 + (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+                                SearchKey:(NSString *)searchKey
                                 finished:(FinishedBlock)finished {
-    NSDictionary *parameters = @{kParentID: [NSNumber numberWithLong:ParentID]};
+    NSDictionary *parameters = @{kParentID: [NSNumber numberWithLong:ParentID],kSearchKey:searchKey};
     [CSNetAccessor sendGetAsyncObjectFormUrl:@"/Index/SpecialtyType_Tree"
                                   parameters:parameters
                                  connectFlag:kSpecialtyType_Tree
