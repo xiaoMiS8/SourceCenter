@@ -17,7 +17,9 @@ static NSInteger tag;
     NSMutableDictionary *_dict;
     NSMutableArray *_arrayData;
     NSMutableArray *_moocFileArray;
+    NSString *role;
 }
+@property (weak, nonatomic) IBOutlet UILabel *tishi;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
@@ -32,7 +34,20 @@ static NSInteger tag;
     _array=[NSMutableArray arrayWithCapacity:0];
     _moocFileArray=[NSMutableArray arrayWithCapacity:0];
     tag=0;
-    [self loadData];
+    [self isTeacherOrStudent];
+}
+-(void)isTeacherOrStudent
+{
+    role=[[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if (![role isEqualToString:@"4"]) {
+        self.tableView.hidden=YES;
+        _tishi.hidden=NO;
+    }else
+    {
+        self.tableView.hidden=NO;
+        _tishi.hidden=YES;
+        [self loadData];
+    }
 }
 -(void)loadData
 {

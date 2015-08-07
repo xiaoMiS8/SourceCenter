@@ -13,7 +13,10 @@
 @interface FCourseViewController ()
 {
     FCourseInfo *info;
+    NSString *role;
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *tishi;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
@@ -31,7 +34,21 @@
     self.httpManager=[[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     fCourseDetailVC=[[FCourseDetailViewController alloc]init];
-    [self loadData];
+    [self isTeacherOrStudent];
+}
+
+-(void)isTeacherOrStudent
+{
+    role=[[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if (![role isEqualToString:@"4"]) {
+        self.tableView.hidden=YES;
+        _tishi.hidden=NO;
+    }else
+    {
+        self.tableView.hidden=NO;
+        _tishi.hidden=YES;
+        [self loadData];
+    }
 }
 -(void)loadData
 {

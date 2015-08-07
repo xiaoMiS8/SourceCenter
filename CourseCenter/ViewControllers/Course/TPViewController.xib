@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPViewController">
             <connections>
                 <outlet property="tableView" destination="Xxk-tu-Lvv" id="NcX-0W-jyI"/>
+                <outlet property="tishi" destination="ZbQ-4M-8pe" id="lC3-cz-Ibp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,12 +25,22 @@
                         <outlet property="delegate" destination="-1" id="0C3-Yh-Iz2"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此功能暂未对学生开放,敬请期待!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbQ-4M-8pe">
+                    <rect key="frame" x="10" y="156.5" width="300" height="55"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Xxk-tu-Lvv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GwE-6T-kGl"/>
                 <constraint firstAttribute="bottom" secondItem="Xxk-tu-Lvv" secondAttribute="bottom" constant="49" id="SkT-km-uQl"/>
+                <constraint firstAttribute="centerY" secondItem="ZbQ-4M-8pe" secondAttribute="centerY" constant="100" id="VaV-dw-7b7"/>
                 <constraint firstItem="Xxk-tu-Lvv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aEV-gl-4ba"/>
+                <constraint firstAttribute="trailing" secondItem="ZbQ-4M-8pe" secondAttribute="trailing" constant="10" id="hgp-iC-fws"/>
+                <constraint firstAttribute="centerX" secondItem="ZbQ-4M-8pe" secondAttribute="centerX" id="p87-yU-xsl"/>
+                <constraint firstItem="ZbQ-4M-8pe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="xw8-7c-STo"/>
                 <constraint firstAttribute="trailing" secondItem="Xxk-tu-Lvv" secondAttribute="trailing" id="ztK-vE-eNS"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
