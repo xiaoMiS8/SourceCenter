@@ -11,6 +11,11 @@
 #import "AffairInfo.h"
 #import "TpHistoryViewController.h"
 @interface TPViewController ()
+{
+    NSString *role;
+}
+
+@property (weak, nonatomic) IBOutlet UILabel *tishi;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
@@ -27,9 +32,22 @@
     self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
-    [self LoadData];
+    [self isTeacherOrStudent];
 }
 
+-(void)isTeacherOrStudent
+{
+    role=[[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if ([role isEqualToString:@"4"]) {
+        self.tableView.hidden=YES;
+        _tishi.hidden=NO;
+    }else
+    {
+        self.tableView.hidden=NO;
+        _tishi.hidden=YES;
+        [self LoadData];
+    }
+}
 -(void)LoadData
 {
     [MBProgressHUD showMessage:nil];
@@ -76,8 +94,14 @@
 }
 
 - (void)rightBtnAction:(id)sender {
-    TpHistoryViewController *tpVC=[[TpHistoryViewController alloc]init];
-    [self pushViewController:tpVC];
+    if ([role isEqualToString:@"4"]) {
+        [Tool showAlertView:@"提示" withMessage:@"此功能暂未对学生开放,敬请期待!" withTarget:self withCancel:@"确定" other:nil];
+    }else
+    {
+        TpHistoryViewController *tpVC=[[TpHistoryViewController alloc]init];
+        [self pushViewController:tpVC];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

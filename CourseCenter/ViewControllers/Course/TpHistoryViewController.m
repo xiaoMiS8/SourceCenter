@@ -28,6 +28,7 @@
     self.dataArray=[[NSMutableArray array]init];
     [self LoadData];
 }
+
 -(void)LoadData
 {
     [MBProgressHUD showMessage:nil];

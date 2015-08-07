@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TutorialViewController">
             <connections>
                 <outlet property="tableView" destination="u29-UN-162" id="rCE-gB-edH"/>
+                <outlet property="tishi" destination="kpY-rp-0GT" id="ACZ-9f-C1W"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -25,13 +26,23 @@
                         <outlet property="delegate" destination="-1" id="JSU-cu-AHo"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此功能暂未对教师开放,敬请期待!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpY-rp-0GT">
+                    <rect key="frame" x="10" y="156.5" width="300" height="55"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="u29-UN-162" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="EBZ-ua-lxu"/>
                 <constraint firstAttribute="trailing" secondItem="u29-UN-162" secondAttribute="trailing" id="SY5-hx-vIg"/>
+                <constraint firstAttribute="trailing" secondItem="kpY-rp-0GT" secondAttribute="trailing" constant="10" id="c2p-x4-KkT"/>
+                <constraint firstAttribute="centerY" secondItem="kpY-rp-0GT" secondAttribute="centerY" constant="100" id="fw2-13-MOM"/>
+                <constraint firstAttribute="centerX" secondItem="kpY-rp-0GT" secondAttribute="centerX" id="h4o-Tm-50U"/>
                 <constraint firstAttribute="bottom" secondItem="u29-UN-162" secondAttribute="bottom" constant="49" id="kh9-ou-hjl"/>
+                <constraint firstItem="kpY-rp-0GT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="wmi-ga-iGa"/>
                 <constraint firstItem="u29-UN-162" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x7P-9Z-Z4Y"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

@@ -62,9 +62,10 @@
     }];
 }
 
-- (void)getSpecialtyTypeTreeWithParentID:(long)ParentID finished:(FinishedBlock)finished {
+- (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+    SearchKey:(NSString *)searchKey finished:(FinishedBlock)finished {
     [IndexActions getSpecialtyTypeTreeWithParentID:ParentID
-                                          finished:^(EnumServerStatus status, NSObject *object) {
+                                        SearchKey:searchKey finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }

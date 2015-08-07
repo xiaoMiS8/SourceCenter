@@ -27,7 +27,7 @@
                         <outlet property="delegate" destination="-1" id="V6O-uY-7Y9"/>
                     </connections>
                 </tableView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="你还没有登录哦!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLj-Pv-nDC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="你还没有登录哦!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLj-Pv-nDC">
                     <rect key="frame" x="246" y="291" width="110" height="18"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>

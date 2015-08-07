@@ -19,6 +19,7 @@
 @interface NotificationViewController ()
 {
     NSString *loginState;
+    NSString *userId;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) CCHttpManager *httpManager;
@@ -50,6 +51,13 @@
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]) {
+        [self isLogin];
+        userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
+    }
+}
 -(void)isLogin
 {
     
@@ -122,16 +130,21 @@
 
     //添加通知
 - (void)addBtnAction:(id)sender {
-    NewNotificationViewController *newNotificationVC = [NewNotificationViewController new];
-    newNotificationVC.DoBlock = ^{
-        DLog(@"点击确定了");
-    };
-    LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newNotificationVC];
-    UIViewController *tabbar = ((AppDelegate *)app).nav.viewControllers.firstObject;
-    [tabbar presentViewController:nav animated:YES completion:^{
-        
-          }];
-
+    
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        [Tool showAlertView:@"提示" withMessage:@"请先登录!" withTarget:self withCancel:@"确定" other:nil];
+    }else
+    {
+        NewNotificationViewController *newNotificationVC = [NewNotificationViewController new];
+        newNotificationVC.DoBlock = ^{
+            DLog(@"点击确定了");
+        };
+        LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newNotificationVC];
+        UIViewController *tabbar = ((AppDelegate *)app).nav.viewControllers.firstObject;
+        [tabbar presentViewController:nav animated:YES completion:^{
+            
+        }];
+    }
     
 }
 

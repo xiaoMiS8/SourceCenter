@@ -15,6 +15,7 @@
 #import "UserInfo.h"
 #import "LoginViewController.h"
 #import "MsgInfo.h"
+#import "QuestionSurvey.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
@@ -22,6 +23,7 @@
     SetViewController *set;
     MessageCenter *messageCenter;
     MyData *myData;
+    QuestionSurvey *questionSurvey;
     NSString *loginState;
     __block  BOOL isBlock;
 }
@@ -54,6 +56,7 @@
     set=[[SetViewController alloc]init];
     messageCenter=[[MessageCenter alloc]init];
     myData=[[MyData alloc]init];
+    questionSurvey=[[QuestionSurvey alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
     [self isLoginOrCourse];
 }
@@ -174,6 +177,7 @@
 {
     switch (index.row) {
         case 0:
+            [((AppDelegate *)app).nav pushViewController:questionSurvey animated:YES];
             break;
         case 1:
             [((AppDelegate *)app).nav pushViewController:myData animated:YES];

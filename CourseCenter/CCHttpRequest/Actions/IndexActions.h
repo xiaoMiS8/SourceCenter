@@ -17,6 +17,7 @@
 #define kOCID                       @"OCID"
 #define kChapterID                  @"ChapterID"
 #define kFileType                   @"FileType"
+#define kSearchKey                  @"SearchKey"
 
 @interface IndexActions : NSObject
 
@@ -47,6 +48,7 @@
  *  @param finished finished description
  */
 + (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+                               SearchKey:(NSString *)searchKey
                                 finished:(FinishedBlock)finished;
 /**
  *  Mooc基本信息

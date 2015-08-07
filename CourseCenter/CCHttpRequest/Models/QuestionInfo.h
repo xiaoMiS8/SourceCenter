@@ -17,7 +17,7 @@
 #define kMinSel                     @"MinSel"
 #define kMaxSel                     @"MaxSel"
 #define kParentID                   @"ParentID"
-
+ 
 @interface QuestionInfo : NSObject
 
     ///题目ID

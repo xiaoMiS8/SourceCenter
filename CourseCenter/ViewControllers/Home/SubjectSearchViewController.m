@@ -17,6 +17,7 @@
     OCourseInfo *oCource;
     UISearchBar *mySearchBar;
     UISearchDisplayController *searchDC;
+    NSString *searchString;
 }
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
@@ -40,6 +41,7 @@
     self.contactDic = [[NSMutableDictionary alloc] init];
     self.searchByName = [[NSMutableArray alloc] init];
     self.searchByPhone = [[NSMutableArray alloc] init];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     [self loadData];
 }
 -(void)loadData
@@ -50,8 +52,25 @@
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
-               // self.dataArray=self.reob.resultArray;
-                [self dataHandleWithArray:self.reob.resultArray];
+                self.dataArray=self.reob.resultArray;
+//                [self dataHandleWithArray:self.reob.resultArray];
+                [_tableView reloadData];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+-(void)searchLoadData:(NSString *)searchText
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getOCAllListWithSpecialtyTypeID:self.SpecialtyTypeID key:searchText PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                self.dataArray=self.reob.resultArray;
+                //                [self dataHandleWithArray:self.reob.resultArray];
                 [_tableView reloadData];
                 return ;
             }
@@ -74,41 +93,44 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (mySearchBar.text.length <= 0) {
-        return self.dataArray.count;
-    } else {
-        return self.searchByName.count + self.searchByPhone.count;
-    }
+    return self.dataArray.count;
+//    if (mySearchBar.text.length <= 0) {
+//        return self.dataArray.count;
+//    } else {
+//        return self.searchByName.count + self.searchByPhone.count;
+//    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SubjectSearchCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"SubjectSearchCell"];
-    if (mySearchBar.text.length <= 0) {
-        cell.oCourse=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]);
-        return cell;
-    }
-    NSNumber *localID = nil;
-    NSMutableString *matchString = [NSMutableString string];
-    NSMutableArray *matchPos = [NSMutableArray array];
-    if (indexPath.row < [_searchByName count]) {
-        localID = [self.searchByName objectAtIndex:indexPath.row];
-        
-        //姓名匹配 获取对应匹配的拼音串 及高亮位置
-        if (mySearchBar.text.length) {
-            [[SearchCoreManager share] GetPinYin:localID pinYin:matchString matchPos:matchPos];
-        }
-    }else {
-        localID = [self.searchByPhone objectAtIndex:indexPath.row-[_searchByName count]];
-        NSMutableArray *matchPhones = [NSMutableArray array];
-        
-        //号码匹配 获取对应匹配的号码串 及高亮位置
-        if ([mySearchBar.text length]) {
-            [[SearchCoreManager share] GetPhoneNum:localID phone:matchPhones matchPos:matchPos];
-            [matchString appendString:[matchPhones objectAtIndex:0]];
-        }
-    }
-    OCourseInfo *oCourse = [self.contactDic objectForKey:localID];
-    cell.oCourse=oCourse;
+//    if (mySearchBar.text.length <= 0) {
+//        cell.oCourse=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]);
+//        return cell;
+//    }
+//    NSNumber *localID = nil;
+//    NSMutableString *matchString = [NSMutableString string];
+//    NSMutableArray *matchPos = [NSMutableArray array];
+//    if (indexPath.row < [_searchByName count]) {
+//        localID = [self.searchByName objectAtIndex:indexPath.row];
+//        
+//        //姓名匹配 获取对应匹配的拼音串 及高亮位置
+//        if (mySearchBar.text.length) {
+//            [[SearchCoreManager share] GetPinYin:localID pinYin:matchString matchPos:matchPos];
+//        }
+//    }else {
+//        localID = [self.searchByPhone objectAtIndex:indexPath.row-[_searchByName count]];
+//        NSMutableArray *matchPhones = [NSMutableArray array];
+//        
+//        //号码匹配 获取对应匹配的号码串 及高亮位置
+//        if ([mySearchBar.text length]) {
+//            [[SearchCoreManager share] GetPhoneNum:localID phone:matchPhones matchPos:matchPos];
+//            [matchString appendString:[matchPhones objectAtIndex:0]];
+//        }
+//    }
+//    OCourseInfo *oCourse = [self.contactDic objectForKey:localID];
+//    cell.oCourse=oCourse;
+//    return cell;
+    cell.oCourse=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]);
     return cell;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -116,7 +138,8 @@
     return 110;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSInteger number=tableView==_tableView?indexPath.row:[self.searchByName[indexPath.row] integerValue];
+//    NSInteger number=tableView==_tableView?indexPath.row:[self.searchByName[indexPath.row] integerValue];
+    NSInteger number=indexPath.row;
     HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
     homeDetailVc.OCID=((OCourseInfo *)[self.dataArray objectAtIndex:number]).OCID;
     homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:number]).TeacherImgUrl;
@@ -126,21 +149,31 @@
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
+    _dataArray=nil;
     searchBar.showsCancelButton=YES;
-    [[SearchCoreManager share] Search:searchText searchArray:nil nameMatch:_searchByName phoneMatch:nil];
-    [self.tableView reloadData];
+    searchString=searchText;
+//    [[SearchCoreManager share] Search:searchText searchArray:nil nameMatch:_searchByName phoneMatch:nil];
+//    [self.tableView reloadData];
 }
--(void)dataHandleWithArray:(NSMutableArray *)array
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    for (int i=0; i<array.count; i++) {
-        ((OCourseInfo *)array[i]).SearchID=[NSNumber numberWithInt:i];
-        [self.dataArray addObject:((OCourseInfo *)array[i])];
-    }
-    for (int j = 0; j < self.dataArray.count; j ++) {
-        [[SearchCoreManager share] AddContact:((OCourseInfo *)array[j]).SearchID name:((OCourseInfo *)array[j]).OrganizationName phone:nil];
-        [self.contactDic setObject:((OCourseInfo *)array[j]) forKey:((OCourseInfo *)array[j]).SearchID];
-    }
+    [self searchLoadData:searchString];
 }
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [self loadData];
+}
+//-(void)dataHandleWithArray:(NSMutableArray *)array
+//{
+//    for (int i=0; i<array.count; i++) {
+//        ((OCourseInfo *)array[i]).SearchID=[NSNumber numberWithInt:i];
+//        [self.dataArray addObject:((OCourseInfo *)array[i])];
+//    }
+//    for (int j = 0; j < self.dataArray.count; j ++) {
+//        [[SearchCoreManager share] AddContact:((OCourseInfo *)array[j]).SearchID name:((OCourseInfo *)array[j]).OrganizationName phone:nil];
+//        [self.contactDic setObject:((OCourseInfo *)array[j]) forKey:((OCourseInfo *)array[j]).SearchID];
+//    }
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

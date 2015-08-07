@@ -49,8 +49,8 @@
                 [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"isLogin"];
                 UserInfo *info=(UserInfo *)self.reob.resultObject;
                 [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",info.userType] forKey:@"role"];
-                [[NSUserDefaults standardUserDefaults]setObject:username forKey:@"username"];
-                [[NSUserDefaults standardUserDefaults]setObject:password forKey:@"password"];
+                [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%ld",info.userID]forKey:@"userID"];
+//                [[NSUserDefaults standardUserDefaults]setObject:password forKey:@"password"];
                 [[NSUserDefaults standardUserDefaults]synchronize];
                 if (self.block) {
                     self.block();

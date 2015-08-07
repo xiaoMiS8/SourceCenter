@@ -9,7 +9,6 @@
 #import "SubjectSearchCell.h"
 #import "UIImageView+WebCache.h"
 #define ICONIMG @"iconpro"
-#define BAGNIMG @"nav_bg"
 #define STUDY   @"study"
 #define SINGUP  @"SINGUP"
 @interface SubjectSearchCell()
@@ -26,7 +25,7 @@
 }
 -(void)setOCourse:(OCourseInfo *)oCourse
 {
-    [self.subjectImg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
+    [self.subjectImg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
     [self.nameLabel setText:oCourse.TeacherName];
     [self.subjectLabel setText:oCourse.OrganizationName];
     [self.studentCountLabel setText:[NSString stringWithFormat:@"%d个同学",oCourse.StudentCount]];
