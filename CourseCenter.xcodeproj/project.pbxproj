@@ -96,6 +96,14 @@
 		59C478651B14044D008A49BF /* HomeListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C478631B14044D008A49BF /* HomeListCell.xib */; };
 		59C478691B142AF3008A49BF /* HomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C478671B142AF3008A49BF /* HomeDetailViewController.m */; };
 		59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59C478681B142AF3008A49BF /* HomeDetailViewController.xib */; };
+		59E2478E1B73AC39009E4268 /* NewTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E2478C1B73AC39009E4268 /* NewTopicViewController.m */; };
+		59E2478F1B73AC39009E4268 /* NewTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E2478D1B73AC39009E4268 /* NewTopicViewController.xib */; };
+		59E247931B73B11C009E4268 /* NTCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E247911B73B11C009E4268 /* NTCell1.m */; };
+		59E247941B73B11C009E4268 /* NTCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E247921B73B11C009E4268 /* NTCell1.xib */; };
+		59E247981B73B1CB009E4268 /* NTTextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E247961B73B1CB009E4268 /* NTTextViewCell.m */; };
+		59E247991B73B1CB009E4268 /* NTTextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E247971B73B1CB009E4268 /* NTTextViewCell.xib */; };
+		59E2479D1B73BC6D009E4268 /* NTTextViewCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E2479B1B73BC6D009E4268 /* NTTextViewCell2.m */; };
+		59E2479E1B73BC6D009E4268 /* NTTextViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E2479C1B73BC6D009E4268 /* NTTextViewCell2.xib */; };
 		59EC888F1B184249009495A6 /* NotiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC888D1B184249009495A6 /* NotiDetailViewController.m */; };
 		59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC888E1B184249009495A6 /* NotiDetailViewController.xib */; };
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
@@ -482,6 +490,18 @@
 		59C478661B142AF3008A49BF /* HomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailViewController.h; sourceTree = "<group>"; };
 		59C478671B142AF3008A49BF /* HomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailViewController.m; sourceTree = "<group>"; };
 		59C478681B142AF3008A49BF /* HomeDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeDetailViewController.xib; sourceTree = "<group>"; };
+		59E2478B1B73AC39009E4268 /* NewTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTopicViewController.h; sourceTree = "<group>"; };
+		59E2478C1B73AC39009E4268 /* NewTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTopicViewController.m; sourceTree = "<group>"; };
+		59E2478D1B73AC39009E4268 /* NewTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTopicViewController.xib; sourceTree = "<group>"; };
+		59E247901B73B11C009E4268 /* NTCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTCell1.h; sourceTree = "<group>"; };
+		59E247911B73B11C009E4268 /* NTCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTCell1.m; sourceTree = "<group>"; };
+		59E247921B73B11C009E4268 /* NTCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTCell1.xib; sourceTree = "<group>"; };
+		59E247951B73B1CB009E4268 /* NTTextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTTextViewCell.h; sourceTree = "<group>"; };
+		59E247961B73B1CB009E4268 /* NTTextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTTextViewCell.m; sourceTree = "<group>"; };
+		59E247971B73B1CB009E4268 /* NTTextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTTextViewCell.xib; sourceTree = "<group>"; };
+		59E2479A1B73BC6D009E4268 /* NTTextViewCell2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTTextViewCell2.h; sourceTree = "<group>"; };
+		59E2479B1B73BC6D009E4268 /* NTTextViewCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTTextViewCell2.m; sourceTree = "<group>"; };
+		59E2479C1B73BC6D009E4268 /* NTTextViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NTTextViewCell2.xib; sourceTree = "<group>"; };
 		59EC888C1B184249009495A6 /* NotiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiDetailViewController.h; sourceTree = "<group>"; };
 		59EC888D1B184249009495A6 /* NotiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiDetailViewController.m; sourceTree = "<group>"; };
 		59EC888E1B184249009495A6 /* NotiDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailViewController.xib; sourceTree = "<group>"; };
@@ -1159,6 +1179,9 @@
 				D44B7E2B1B6FA5E50036B3D5 /* BBsDetailViewController.h */,
 				D44B7E2C1B6FA5E50036B3D5 /* BBsDetailViewController.m */,
 				D44B7E2D1B6FA5E50036B3D5 /* BBsDetailViewController.xib */,
+				59E2478B1B73AC39009E4268 /* NewTopicViewController.h */,
+				59E2478C1B73AC39009E4268 /* NewTopicViewController.m */,
+				59E2478D1B73AC39009E4268 /* NewTopicViewController.xib */,
 			);
 			path = BBS;
 			sourceTree = "<group>";
@@ -1399,6 +1422,15 @@
 				52E7DFF11B723B8B00BB46DE /* TpHistoryCell.h */,
 				52E7DFF21B723B8B00BB46DE /* TpHistoryCell.m */,
 				52E7DFF31B723B8B00BB46DE /* TpHistoryCell.xib */,
+				59E247901B73B11C009E4268 /* NTCell1.h */,
+				59E247911B73B11C009E4268 /* NTCell1.m */,
+				59E247921B73B11C009E4268 /* NTCell1.xib */,
+				59E247951B73B1CB009E4268 /* NTTextViewCell.h */,
+				59E247961B73B1CB009E4268 /* NTTextViewCell.m */,
+				59E247971B73B1CB009E4268 /* NTTextViewCell.xib */,
+				59E2479A1B73BC6D009E4268 /* NTTextViewCell2.h */,
+				59E2479B1B73BC6D009E4268 /* NTTextViewCell2.m */,
+				59E2479C1B73BC6D009E4268 /* NTTextViewCell2.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1800,6 +1832,7 @@
 				52E7DFF51B723B8B00BB46DE /* TpHistoryCell.xib in Resources */,
 				CADD22211B52488700A4F3D2 /* MyInfoCell.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
+				59E247941B73B11C009E4268 /* NTCell1.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
 				59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */,
 				D4B2F34A1B02FEDA007B017E /* CourseViewController.xib in Resources */,
@@ -1813,8 +1846,10 @@
 				CACBFC981B540C3500FAD388 /* messages.plist in Resources */,
 				CADD221C1B52418400A4F3D2 /* MyInfo.xib in Resources */,
 				CADD22261B526BA300A4F3D2 /* SetViewController.xib in Resources */,
+				59E2478F1B73AC39009E4268 /* NewTopicViewController.xib in Resources */,
 				52DC03DC1B70889200BB3CB7 /* FCourseDetailOne.xib in Resources */,
 				D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */,
+				59E2479E1B73BC6D009E4268 /* NTTextViewCell2.xib in Resources */,
 				D4B2F3031B02FA00007B017E /* Main.storyboard in Resources */,
 				52C8EED81B4E9F3A00BDBE76 /* multipy_unicode.dat in Resources */,
 				59C4786A1B142AF3008A49BF /* HomeDetailViewController.xib in Resources */,
@@ -1844,6 +1879,7 @@
 				524E887F1B7367CF004A11A2 /* UIView5.xib in Resources */,
 				D4B2F3401B02FE75007B017E /* HomeViewController.xib in Resources */,
 				59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */,
+				59E247991B73B1CB009E4268 /* NTTextViewCell.xib in Resources */,
 				CA20AA401B5AAF5300598370 /* CourseData.xib in Resources */,
 				D4B2F3DF1B034265007B017E /* MJRefresh.bundle in Resources */,
 				D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */,
@@ -1980,6 +2016,7 @@
 				D4DF08901B5B94CA00B816DD /* QBAssetsCollectionViewLayout.m in Sources */,
 				06B214A51B67563500CE9A19 /* OCFCFileInfo.m in Sources */,
 				CA4E79AA1B64E3220079A05B /* NewMessage.m in Sources */,
+				59E247981B73B1CB009E4268 /* NTTextViewCell.m in Sources */,
 				5963C3591B20017C00A09D30 /* ResponseObject.m in Sources */,
 				042E75C51B160C9100396AAF /* LoginViewController.m in Sources */,
 				D40691B91B6CECCB0044CAE5 /* surveyDetailInfo.m in Sources */,
@@ -1987,6 +2024,7 @@
 				D464D1A81B6685B0009A5ADB /* CGroupInfo.m in Sources */,
 				D4F607BD1B33FBC700888FC4 /* IndexActions.m in Sources */,
 				D759DA941B6B246B00E58EF2 /* PaperInfo.m in Sources */,
+				59E2479D1B73BC6D009E4268 /* NTTextViewCell2.m in Sources */,
 				CAE5D45F1B6E6EB2004F5D5B /* FCourseCell.m in Sources */,
 				CA20AA361B5A663C00598370 /* TLTagsControl.m in Sources */,
 				D4B2F3F81B034265007B017E /* UIImageView+HighlightedWebCache.m in Sources */,
@@ -2027,7 +2065,9 @@
 				D759DA9A1B6B24EF00E58EF2 /* ExerciseInfo.m in Sources */,
 				065C03951B68AF630090EA46 /* BbsAction.m in Sources */,
 				042E75E21B16148A00396AAF /* IQTitleBarButtonItem.m in Sources */,
+				59E247931B73B11C009E4268 /* NTCell1.m in Sources */,
 				D40691B01B6CE5C10044CAE5 /* ObjectInfo.m in Sources */,
+				59E2478E1B73AC39009E4268 /* NewTopicViewController.m in Sources */,
 				9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */,
 				D759DAA01B6B256E00E58EF2 /* AttachmentInfo.m in Sources */,
 				CACBFC9E1B540C6D00FAD388 /* UIImage+ResizeImage.m in Sources */,

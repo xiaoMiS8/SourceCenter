@@ -276,7 +276,7 @@
 + (void)addAppForumTopicTypeWithTopicID:(long)TopicID
                                finished:(FinishedBlock)finished {
     NSDictionary *p = @{kTopicID: @(TopicID)};
-    [CSNetAccessor sendPostAsyncObjectFormUrl:@"Forum/App_ForumTopicType_Add"
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/App_ForumTopicType_Add"
                                    parameters:p
                                  connectClass:Nil
                                      finished:^(EnumServerStatus status, NSObject *object) {
