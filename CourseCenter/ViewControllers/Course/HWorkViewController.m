@@ -33,7 +33,7 @@
 -(void)wLoadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppTestNotSumbitListWithOCID:161
+    [self.httpManager getAppTestNotSumbitListWithOCID:self.OCID
      finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
@@ -51,7 +51,7 @@
 -(void)yLoadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppTestInfoSumbitListWithOCID:161
+    [self.httpManager getAppTestInfoSumbitListWithOCID:self.OCID
       finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {

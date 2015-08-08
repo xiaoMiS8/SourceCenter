@@ -90,7 +90,7 @@ static CGFloat yy=0;
     
 }
 -(void)save{
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 -(void)submit
 {

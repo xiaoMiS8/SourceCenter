@@ -53,7 +53,7 @@
 -(void)loadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppOCFCListWithOCID:570
+    [self.httpManager getAppOCFCListWithOCID:self.ocourse.OCID
     finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
@@ -91,6 +91,8 @@
     //点击松开后,颜色恢复
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     fCourseDetailVC.title=((FCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Title;
+    fCourseDetailVC.OCID=self.ocourse.OCID;
+    fCourseDetailVC.FCID=((FCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).FCID;
     [self pushViewController:fCourseDetailVC];
 }
 - (void)didReceiveMemoryWarning {

@@ -55,8 +55,8 @@ static NSInteger  total=0;
 
 -(void)loadData
 {
-    [self.httpManager getOCFCLearnNavInfowithOCID:570
-     FCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getOCFCLearnNavInfowithOCID:self.OCID
+     FCID:self.FCID finished:^(EnumServerStatus status, NSObject *object) {
          total+=1;
          if (total==3) {
              [MBProgressHUD hideHUD];
@@ -84,7 +84,7 @@ static NSInteger  total=0;
 }
 -(void)loadScore
 {
-    [self.httpManager getAppOCFCScoreRankWithFCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppOCFCScoreRankWithFCID:self.FCID finished:^(EnumServerStatus status, NSObject *object) {
          total+=1;
          if (total==3) {
              [MBProgressHUD hideHUD];
@@ -102,8 +102,8 @@ static NSInteger  total=0;
 }
 -(void)loadGroupInfo
 {
-    [self.httpManager getAppFCGroupWithOCID:570
-     FCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppFCGroupWithOCID:self.OCID
+     FCID:self.FCID finished:^(EnumServerStatus status, NSObject *object) {
         total+=1;
         if (total==3) {
             [MBProgressHUD hideHUD];
@@ -326,6 +326,8 @@ static NSInteger  total=0;
 -(void)pushMemberViewController
 {
     GroupInfoViewController *groupInfo=[[GroupInfoViewController alloc]init];
+    groupInfo.OCID=self.OCID;
+    groupInfo.FCID=self.FCID;
     [self.navigationController pushViewController:groupInfo animated:YES];
 }
 - (void)didReceiveMemoryWarning {

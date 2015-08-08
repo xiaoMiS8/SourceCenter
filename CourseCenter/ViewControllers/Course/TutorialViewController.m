@@ -52,7 +52,7 @@ static NSInteger tag;
 -(void)loadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getChapterStudyListwithOCID:1 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getChapterStudyListwithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -81,8 +81,8 @@ static NSInteger tag;
         return ;
     }
     long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:tag]).ChapterID;
-    int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
-    [self.httpManager getOCMoocFileStudyListwithOCID:1 ChapterID:3 FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
+//    int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
+    [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {

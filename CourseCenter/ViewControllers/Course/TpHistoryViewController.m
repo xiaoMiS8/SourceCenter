@@ -32,7 +32,7 @@
 -(void)LoadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAffairsListWithType:1 OCID:161 IsHistory:1 PageIndex:1 PageSize:INT_MAX
+    [self.httpManager getAffairsListWithType:1 OCID:self.OCID IsHistory:1 PageIndex:1 PageSize:INT_MAX
     finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
     if (status==0) {

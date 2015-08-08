@@ -37,6 +37,7 @@
     [self addTableviewHeader];
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
+    self.dataResult=[[NSMutableArray alloc]init];
     self.KeywordArray=[[NSMutableArray array]init];
     self.contactDic = [[NSMutableDictionary alloc] init];
     self.searchByName = [[NSMutableArray alloc] init];
@@ -69,9 +70,9 @@
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                self.dataArray=self.reob.resultArray;
+                self.dataResult=self.reob.resultArray;
                 //                [self dataHandleWithArray:self.reob.resultArray];
-                [_tableView reloadData];
+                [searchDC.searchResultsTableView reloadData];
                 return ;
             }
         }
@@ -93,12 +94,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
-//    if (mySearchBar.text.length <= 0) {
-//        return self.dataArray.count;
-//    } else {
-//        return self.searchByName.count + self.searchByPhone.count;
-//    }
+    if (tableView==self.tableView) {
+        return self.dataArray.count;
+    } else {
+        return self.dataResult.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -130,8 +130,13 @@
 //    OCourseInfo *oCourse = [self.contactDic objectForKey:localID];
 //    cell.oCourse=oCourse;
 //    return cell;
-    cell.oCourse=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]);
-    return cell;
+    if (tableView==self.tableView) {
+        cell.oCourse=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]);
+        return cell;
+    } else {
+        cell.oCourse=((OCourseInfo *)[self.dataResult objectAtIndex:indexPath.row]);
+        return cell;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

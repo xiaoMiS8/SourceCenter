@@ -66,7 +66,7 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [self dataHandleWithArray:self.reob.resultArray];
-                [_tableView reloadData];
+                [searchDC.searchResultsTableView reloadData];
                 return ;
             }
         }

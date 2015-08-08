@@ -15,6 +15,7 @@
     if (self) {
         self.MoocFileID = [[dict objectForKey:kMoocFileID] longValue];
         self.OCID = [[dict objectForKey:kOCID] longValue];
+        self.ParentID=[[dict objectForKey:kParentID]longValue];
         self.ChapterID = [[dict objectForKey:kChapterID] longValue];
         self.FileID = [[dict objectForKey:kFileID] longValue];
         self.Timelimit = [[dict objectForKey:kTimelimit] longValue];

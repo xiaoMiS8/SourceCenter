@@ -29,8 +29,8 @@
 -(void)loadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppFCGroupUserListWithOCID:570
-         FCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppFCGroupUserListWithOCID:self.OCID
+         FCID:self.FCID finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;

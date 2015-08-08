@@ -55,8 +55,14 @@
     self.orgName.text = oCourse.OrganizationName;
     self.ocName.text = oCourse.Name;
     self.TeachingClassName.text = oCourse.TeachingClassName;
-    self.LastStudyChapter.text = oCourse.LastStudyChapter;
+    if (!oCourse.LastStudyChapter || [oCourse.LastStudyChapter isEqualToString:@""]) {
+        self.chapView.hidden = YES;
+    } else {
+        self.chapView.hidden = NO;
+        self.LastStudyChapter.text = oCourse.LastStudyChapter;
+    }
     self.StudentCount.text = [NSString stringWithFormat:@"%d",oCourse.StudentCount];
+//    self.usertypeDes.text = oCourse.Ranks;
     [self.ocoureImg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl]];
     if (!oCourse.IsShowMooc && !oCourse.IsShowFC) {
         for (NSLayoutConstraint *constraint in self.bomView.constraints) {

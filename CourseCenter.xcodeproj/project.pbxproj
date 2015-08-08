@@ -134,6 +134,8 @@
 		CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */; };
 		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
 		CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */; };
+		CA64DE2E1B75A2B400585C02 /* QuestionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA64DE2C1B75A2B400585C02 /* QuestionSurveyCell.m */; };
+		CA64DE2F1B75A2B400585C02 /* QuestionSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA64DE2D1B75A2B400585C02 /* QuestionSurveyCell.xib */; };
 		CA6B42DF1B70F7EF0055CC64 /* GroupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B42DD1B70F7EF0055CC64 /* GroupInfoViewController.m */; };
 		CA6B42E01B70F7EF0055CC64 /* GroupInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6B42DE1B70F7EF0055CC64 /* GroupInfoViewController.xib */; };
 		CA6B42E41B7102020055CC64 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B42E21B7102020055CC64 /* CollectionViewCell.m */; };
@@ -164,8 +166,6 @@
 		CAE2F3BA1B6D0DE300BF4132 /* ApplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE2F3B81B6D0DE300BF4132 /* ApplyViewController.xib */; };
 		CAE508321B74446500F908E8 /* QuestionSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE508301B74446500F908E8 /* QuestionSurvey.m */; };
 		CAE508331B74446500F908E8 /* QuestionSurvey.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE508311B74446500F908E8 /* QuestionSurvey.xib */; };
-		CAE508371B744C5300F908E8 /* QuestionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE508351B744C5300F908E8 /* QuestionSurveyCell.m */; };
-		CAE508381B744C5300F908E8 /* QuestionSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE508361B744C5300F908E8 /* QuestionSurveyCell.xib */; };
 		CAE5D45F1B6E6EB2004F5D5B /* FCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE5D45D1B6E6EB2004F5D5B /* FCourseCell.m */; };
 		CAE5D4601B6E6EB2004F5D5B /* FCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE5D45E1B6E6EB2004F5D5B /* FCourseCell.xib */; };
 		CAE5D4621B6E721A004F5D5B /* BBSListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE5D4611B6E721A004F5D5B /* BBSListCell.xib */; };
@@ -551,6 +551,9 @@
 		CA62FA0D1B42DFDE00F80DE3 /* SubjectSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchCell.h; sourceTree = "<group>"; };
 		CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchCell.m; sourceTree = "<group>"; };
 		CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchCell.xib; sourceTree = "<group>"; };
+		CA64DE2B1B75A2B400585C02 /* QuestionSurveyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSurveyCell.h; sourceTree = "<group>"; };
+		CA64DE2C1B75A2B400585C02 /* QuestionSurveyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSurveyCell.m; sourceTree = "<group>"; };
+		CA64DE2D1B75A2B400585C02 /* QuestionSurveyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionSurveyCell.xib; sourceTree = "<group>"; };
 		CA6B42DC1B70F7EF0055CC64 /* GroupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInfoViewController.h; sourceTree = "<group>"; };
 		CA6B42DD1B70F7EF0055CC64 /* GroupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupInfoViewController.m; sourceTree = "<group>"; };
 		CA6B42DE1B70F7EF0055CC64 /* GroupInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupInfoViewController.xib; sourceTree = "<group>"; };
@@ -598,9 +601,6 @@
 		CAE5082F1B74446500F908E8 /* QuestionSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSurvey.h; sourceTree = "<group>"; };
 		CAE508301B74446500F908E8 /* QuestionSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSurvey.m; sourceTree = "<group>"; };
 		CAE508311B74446500F908E8 /* QuestionSurvey.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionSurvey.xib; sourceTree = "<group>"; };
-		CAE508341B744C5300F908E8 /* QuestionSurveyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSurveyCell.h; sourceTree = "<group>"; };
-		CAE508351B744C5300F908E8 /* QuestionSurveyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSurveyCell.m; sourceTree = "<group>"; };
-		CAE508361B744C5300F908E8 /* QuestionSurveyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionSurveyCell.xib; sourceTree = "<group>"; };
 		CAE5D45C1B6E6EB2004F5D5B /* FCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseCell.h; sourceTree = "<group>"; };
 		CAE5D45D1B6E6EB2004F5D5B /* FCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseCell.m; sourceTree = "<group>"; };
 		CAE5D45E1B6E6EB2004F5D5B /* FCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCourseCell.xib; sourceTree = "<group>"; };
@@ -1445,6 +1445,9 @@
 				52E7DFF11B723B8B00BB46DE /* TpHistoryCell.h */,
 				52E7DFF21B723B8B00BB46DE /* TpHistoryCell.m */,
 				52E7DFF31B723B8B00BB46DE /* TpHistoryCell.xib */,
+				CA64DE2B1B75A2B400585C02 /* QuestionSurveyCell.h */,
+				CA64DE2C1B75A2B400585C02 /* QuestionSurveyCell.m */,
+				CA64DE2D1B75A2B400585C02 /* QuestionSurveyCell.xib */,
 				59E247901B73B11C009E4268 /* NTCell1.h */,
 				59E247911B73B11C009E4268 /* NTCell1.m */,
 				59E247921B73B11C009E4268 /* NTCell1.xib */,
@@ -1849,7 +1852,7 @@
 				D4459B8B1B63D68000DEB780 /* TPViewController.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
 				CAE5D4601B6E6EB2004F5D5B /* FCourseCell.xib in Resources */,
-				CAE508381B744C5300F908E8 /* QuestionSurveyCell.xib in Resources */,
+				CA64DE2F1B75A2B400585C02 /* QuestionSurveyCell.xib in Resources */,
 				D44B7E341B6FA7080036B3D5 /* BBsDetailCell.xib in Resources */,
 				CACBFC891B54021F00FAD388 /* MessageCenterCell.xib in Resources */,
 				D4459B9A1B63E09B00DEB780 /* CourseBaseViewController.xib in Resources */,
@@ -1891,8 +1894,8 @@
 				CA20AA331B5A19A100598370 /* SendMesage.xib in Resources */,
 				52E7DFE11B71A30400BB46DE /* HWorkCell.xib in Resources */,
 				CA20AA4F1B5AB39300598370 /* DetailDataCell.xib in Resources */,
-				CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */,
 				D4459B901B63D75A00DEB780 /* CourseTabbarViewController.xib in Resources */,
+				CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */,
 				D4459B7C1B63D5F400DEB780 /* FCourseViewController.xib in Resources */,
 				D4B2F3081B02FA00007B017E /* LaunchScreen.xib in Resources */,
 				52E7DFE61B71CDC800BB46DE /* HWorkDetailViewController.xib in Resources */,
@@ -2115,6 +2118,7 @@
 				D4B2F3F31B034265007B017E /* SDWebImagePrefetcher.m in Sources */,
 				CADD22251B526BA300A4F3D2 /* SetViewController.m in Sources */,
 				CA20AA321B5A19A100598370 /* SendMesage.m in Sources */,
+				CA64DE2E1B75A2B400585C02 /* QuestionSurveyCell.m in Sources */,
 				CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */,
 				D759DA971B6B24AD00E58EF2 /* PaperGroupInfo.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
@@ -2149,7 +2153,6 @@
 				59C478641B14044D008A49BF /* HomeListCell.m in Sources */,
 				D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */,
 				CAE508321B74446500F908E8 /* QuestionSurvey.m in Sources */,
-				CAE508371B744C5300F908E8 /* QuestionSurveyCell.m in Sources */,
 				D4DF088B1B5B94CA00B816DD /* QBAssetsCollectionCheckmarkView.m in Sources */,
 				D4B2F3E01B034265007B017E /* MJRefreshComponent.m in Sources */,
 				D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */,
