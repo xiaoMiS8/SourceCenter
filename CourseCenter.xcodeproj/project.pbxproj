@@ -108,6 +108,8 @@
 		59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC888E1B184249009495A6 /* NotiDetailViewController.xib */; };
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
+		59EEEE8A1B7521DD00159956 /* QuestionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EEEE881B7521DD00159956 /* QuestionSurveyCell.m */; };
+		59EEEE8B1B7521DD00159956 /* QuestionSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EEEE891B7521DD00159956 /* QuestionSurveyCell.xib */; };
 		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
 		9F49B0B81B40072600996CA8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F49B0B71B40072600996CA8 /* CoreGraphics.framework */; };
 		9F49B0BA1B40073600996CA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F49B0B91B40073600996CA8 /* UIKit.framework */; };
@@ -164,8 +166,6 @@
 		CAE2F3BA1B6D0DE300BF4132 /* ApplyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE2F3B81B6D0DE300BF4132 /* ApplyViewController.xib */; };
 		CAE508321B74446500F908E8 /* QuestionSurvey.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE508301B74446500F908E8 /* QuestionSurvey.m */; };
 		CAE508331B74446500F908E8 /* QuestionSurvey.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE508311B74446500F908E8 /* QuestionSurvey.xib */; };
-		CAE508371B744C5300F908E8 /* QuestionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE508351B744C5300F908E8 /* QuestionSurveyCell.m */; };
-		CAE508381B744C5300F908E8 /* QuestionSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE508361B744C5300F908E8 /* QuestionSurveyCell.xib */; };
 		CAE5D45F1B6E6EB2004F5D5B /* FCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE5D45D1B6E6EB2004F5D5B /* FCourseCell.m */; };
 		CAE5D4601B6E6EB2004F5D5B /* FCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE5D45E1B6E6EB2004F5D5B /* FCourseCell.xib */; };
 		CAE5D4621B6E721A004F5D5B /* BBSListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE5D4611B6E721A004F5D5B /* BBSListCell.xib */; };
@@ -513,6 +513,9 @@
 		59EC88911B18464F009495A6 /* NotiDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiDetailCell.h; sourceTree = "<group>"; };
 		59EC88921B18464F009495A6 /* NotiDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiDetailCell.m; sourceTree = "<group>"; };
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
+		59EEEE871B7521DD00159956 /* QuestionSurveyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSurveyCell.h; sourceTree = "<group>"; };
+		59EEEE881B7521DD00159956 /* QuestionSurveyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSurveyCell.m; sourceTree = "<group>"; };
+		59EEEE891B7521DD00159956 /* QuestionSurveyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionSurveyCell.xib; sourceTree = "<group>"; };
 		59F43FF61B1FFB2F007A01A6 /* CCHttpManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCHttpManager.h; sourceTree = "<group>"; };
 		59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCHttpManager.m; sourceTree = "<group>"; };
 		9F49B0B71B40072600996CA8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -598,9 +601,6 @@
 		CAE5082F1B74446500F908E8 /* QuestionSurvey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSurvey.h; sourceTree = "<group>"; };
 		CAE508301B74446500F908E8 /* QuestionSurvey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSurvey.m; sourceTree = "<group>"; };
 		CAE508311B74446500F908E8 /* QuestionSurvey.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionSurvey.xib; sourceTree = "<group>"; };
-		CAE508341B744C5300F908E8 /* QuestionSurveyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSurveyCell.h; sourceTree = "<group>"; };
-		CAE508351B744C5300F908E8 /* QuestionSurveyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSurveyCell.m; sourceTree = "<group>"; };
-		CAE508361B744C5300F908E8 /* QuestionSurveyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionSurveyCell.xib; sourceTree = "<group>"; };
 		CAE5D45C1B6E6EB2004F5D5B /* FCourseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseCell.h; sourceTree = "<group>"; };
 		CAE5D45D1B6E6EB2004F5D5B /* FCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseCell.m; sourceTree = "<group>"; };
 		CAE5D45E1B6E6EB2004F5D5B /* FCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCourseCell.xib; sourceTree = "<group>"; };
@@ -1371,6 +1371,9 @@
 		D4B2F3231B02FB2E007B017E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				59EEEE871B7521DD00159956 /* QuestionSurveyCell.h */,
+				59EEEE881B7521DD00159956 /* QuestionSurveyCell.m */,
+				59EEEE891B7521DD00159956 /* QuestionSurveyCell.xib */,
 				59C478611B14044D008A49BF /* HomeListCell.h */,
 				59C478621B14044D008A49BF /* HomeListCell.m */,
 				59C478631B14044D008A49BF /* HomeListCell.xib */,
@@ -1849,7 +1852,7 @@
 				D4459B8B1B63D68000DEB780 /* TPViewController.xib in Resources */,
 				D4B2F32D1B02FC03007B017E /* TabBarViewController.xib in Resources */,
 				CAE5D4601B6E6EB2004F5D5B /* FCourseCell.xib in Resources */,
-				CAE508381B744C5300F908E8 /* QuestionSurveyCell.xib in Resources */,
+				59EEEE8B1B7521DD00159956 /* QuestionSurveyCell.xib in Resources */,
 				D44B7E341B6FA7080036B3D5 /* BBsDetailCell.xib in Resources */,
 				CACBFC891B54021F00FAD388 /* MessageCenterCell.xib in Resources */,
 				D4459B9A1B63E09B00DEB780 /* CourseBaseViewController.xib in Resources */,
@@ -2115,6 +2118,7 @@
 				D4B2F3F31B034265007B017E /* SDWebImagePrefetcher.m in Sources */,
 				CADD22251B526BA300A4F3D2 /* SetViewController.m in Sources */,
 				CA20AA321B5A19A100598370 /* SendMesage.m in Sources */,
+				59EEEE8A1B7521DD00159956 /* QuestionSurveyCell.m in Sources */,
 				CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */,
 				D759DA971B6B24AD00E58EF2 /* PaperGroupInfo.m in Sources */,
 				D4B2F2FD1B02FA00007B017E /* CourseCenter.xcdatamodeld in Sources */,
@@ -2149,7 +2153,6 @@
 				59C478641B14044D008A49BF /* HomeListCell.m in Sources */,
 				D4B2F35E1B0339AC007B017E /* UIColor+ColorExtension.m in Sources */,
 				CAE508321B74446500F908E8 /* QuestionSurvey.m in Sources */,
-				CAE508371B744C5300F908E8 /* QuestionSurveyCell.m in Sources */,
 				D4DF088B1B5B94CA00B816DD /* QBAssetsCollectionCheckmarkView.m in Sources */,
 				D4B2F3E01B034265007B017E /* MJRefreshComponent.m in Sources */,
 				D430BD931B3A4B060013BAE7 /* NoticeActions.m in Sources */,
