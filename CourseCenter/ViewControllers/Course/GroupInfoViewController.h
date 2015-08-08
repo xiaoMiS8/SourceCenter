@@ -9,5 +9,6 @@
 #import "CourseBaseViewController.h"
 
 @interface GroupInfoViewController : CourseBaseViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
-
+@property (nonatomic,assign)long OCID;
+@property (nonatomic,assign)long FCID;
 @end

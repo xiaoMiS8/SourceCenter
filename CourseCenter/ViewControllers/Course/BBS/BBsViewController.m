@@ -76,7 +76,7 @@
 
 - (void)loadData {
     self.index = 1;
-    [self.manager getAppForumTopicListWithOCID:161 ForumTypeID:1 IsEssence:NO IsMyStart:NO IsMyJoin:NO SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:0 IsEssence:NO IsMyStart:NO IsMyJoin:NO SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         self.topics = [[NSMutableArray alloc] initWithArray:((ResponseObject *)object).resultArray];
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
@@ -88,7 +88,7 @@
 
 - (void)loadMore {
     self.index ++;
-    [self.manager getAppForumTopicListWithOCID:161 ForumTypeID:1 IsEssence:NO IsMyStart:NO IsMyJoin:NO SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:1 IsEssence:NO IsMyStart:NO IsMyJoin:NO SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         [self.topics addObjectsFromArray:((ResponseObject *)object).resultArray];
         [self.tableView reloadData];
         [self.tableView.footer endRefreshing];

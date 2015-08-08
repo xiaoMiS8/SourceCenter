@@ -340,6 +340,7 @@
                 <outlet property="TeachingClassName" destination="SOw-wE-tlW" id="Eq2-3b-t4M"/>
                 <outlet property="bgView" destination="UA2-5w-EsZ" id="hnT-CH-zwE"/>
                 <outlet property="bomView" destination="Uz5-lW-d8h" id="X35-Fl-sd8"/>
+                <outlet property="chapView" destination="zTL-Vn-T9B" id="Rbc-Hs-5kR"/>
                 <outlet property="fOcName" destination="osm-Ep-TBQ" id="WgT-F8-Vyv"/>
                 <outlet property="fgroupProgress" destination="fqD-al-TuU" id="wzG-zI-e6G"/>
                 <outlet property="fmyProgress" destination="UU0-3e-1aW" id="sCj-3L-Tbj"/>

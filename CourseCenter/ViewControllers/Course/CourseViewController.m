@@ -97,6 +97,10 @@ static NSInteger number=0;
 
 #pragma mark- UITableViewDataSource & UITableDelegate
 
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.OCList count];
 }
@@ -129,18 +133,22 @@ static NSInteger number=0;
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };
     FCourseViewController *fCourseVC = [[FCourseViewController alloc] init];
+    fCourseVC.ocourse = self.OCList[index.row];
     fCourseVC.PushBlock = ^(UIViewController *viewController) {
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };
     BBsViewController *bbsVC = [[BBsViewController alloc] init];
+    bbsVC.OCID = ((OCourseInfo *)(self.OCList[index.row])).OCID;
     bbsVC.PushBlock = ^(UIViewController *viewController) {
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };
     HWorkViewController *hworkVC = [[HWorkViewController alloc] init];
+    hworkVC.OCID=((OCourseInfo *)(self.OCList[index.row])).OCID;
     hworkVC.PushBlock = ^(UIViewController *viewController) {
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };
     TPViewController *tpVC = [[TPViewController alloc] init];
+    tpVC.OCID=((OCourseInfo *)(self.OCList[index.row])).OCID;
     tpVC.PushBlock = ^(UIViewController *viewController) {
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };

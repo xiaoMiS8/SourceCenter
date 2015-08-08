@@ -10,4 +10,5 @@
 
 @interface HWorkViewController : CourseBaseViewController
 @property(nonatomic, strong) UISegmentedControl *seg;
+@property(nonatomic,assign)long OCID;
 @end

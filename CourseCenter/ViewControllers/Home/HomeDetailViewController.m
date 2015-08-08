@@ -117,8 +117,8 @@ static NSInteger tag;
         return ;
         }
         long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:tag]).ChapterID;
-        int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
-        [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:buildMode finished:^(EnumServerStatus status, NSObject *object) {
+//        int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
+        [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
             if (status==0) {
                 self.reob=(ResponseObject *)object;
                 if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -200,10 +200,17 @@ static NSInteger tag;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-   NSString *title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
+    NSString *title=nil;
     UIView *view=[[UIView alloc]init];
     view.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
-    view.backgroundColor=[UIColor whiteColor];
+    if (((ChapterInfo *)[_arrayData objectAtIndex:section]).ParentID==0) {
+      view.backgroundColor=[UIColor lightGrayColor];
+        title=[NSString stringWithFormat:@"%@(章)",((ChapterInfo *)[_arrayData objectAtIndex:section]).Title];
+    }else
+    {
+     view.backgroundColor=[UIColor whiteColor];
+        title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
+    }
     view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
     view.layer.borderWidth=0.5;
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, _tableView.frame.size.width-20, 50)];

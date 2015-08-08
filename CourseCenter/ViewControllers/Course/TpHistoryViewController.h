@@ -9,5 +9,5 @@
 #import "CourseBaseViewController.h"
 
 @interface TpHistoryViewController : CourseBaseViewController
-
+@property(nonatomic,assign)long OCID;
 @end

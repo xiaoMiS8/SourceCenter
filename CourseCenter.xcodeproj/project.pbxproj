@@ -136,6 +136,8 @@
 		CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */; };
 		CA62FA101B42DFDE00F80DE3 /* SubjectSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */; };
 		CA62FA111B42DFDE00F80DE3 /* SubjectSearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */; };
+		CA64DE2E1B75A2B400585C02 /* QuestionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA64DE2C1B75A2B400585C02 /* QuestionSurveyCell.m */; };
+		CA64DE2F1B75A2B400585C02 /* QuestionSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA64DE2D1B75A2B400585C02 /* QuestionSurveyCell.xib */; };
 		CA6B42DF1B70F7EF0055CC64 /* GroupInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B42DD1B70F7EF0055CC64 /* GroupInfoViewController.m */; };
 		CA6B42E01B70F7EF0055CC64 /* GroupInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6B42DE1B70F7EF0055CC64 /* GroupInfoViewController.xib */; };
 		CA6B42E41B7102020055CC64 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B42E21B7102020055CC64 /* CollectionViewCell.m */; };
@@ -554,6 +556,9 @@
 		CA62FA0D1B42DFDE00F80DE3 /* SubjectSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchCell.h; sourceTree = "<group>"; };
 		CA62FA0E1B42DFDE00F80DE3 /* SubjectSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectSearchCell.m; sourceTree = "<group>"; };
 		CA62FA0F1B42DFDE00F80DE3 /* SubjectSearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectSearchCell.xib; sourceTree = "<group>"; };
+		CA64DE2B1B75A2B400585C02 /* QuestionSurveyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSurveyCell.h; sourceTree = "<group>"; };
+		CA64DE2C1B75A2B400585C02 /* QuestionSurveyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSurveyCell.m; sourceTree = "<group>"; };
+		CA64DE2D1B75A2B400585C02 /* QuestionSurveyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionSurveyCell.xib; sourceTree = "<group>"; };
 		CA6B42DC1B70F7EF0055CC64 /* GroupInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupInfoViewController.h; sourceTree = "<group>"; };
 		CA6B42DD1B70F7EF0055CC64 /* GroupInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupInfoViewController.m; sourceTree = "<group>"; };
 		CA6B42DE1B70F7EF0055CC64 /* GroupInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupInfoViewController.xib; sourceTree = "<group>"; };
@@ -1448,6 +1453,9 @@
 				52E7DFF11B723B8B00BB46DE /* TpHistoryCell.h */,
 				52E7DFF21B723B8B00BB46DE /* TpHistoryCell.m */,
 				52E7DFF31B723B8B00BB46DE /* TpHistoryCell.xib */,
+				CA64DE2B1B75A2B400585C02 /* QuestionSurveyCell.h */,
+				CA64DE2C1B75A2B400585C02 /* QuestionSurveyCell.m */,
+				CA64DE2D1B75A2B400585C02 /* QuestionSurveyCell.xib */,
 				59E247901B73B11C009E4268 /* NTCell1.h */,
 				59E247911B73B11C009E4268 /* NTCell1.m */,
 				59E247921B73B11C009E4268 /* NTCell1.xib */,
@@ -1894,8 +1902,8 @@
 				CA20AA331B5A19A100598370 /* SendMesage.xib in Resources */,
 				52E7DFE11B71A30400BB46DE /* HWorkCell.xib in Resources */,
 				CA20AA4F1B5AB39300598370 /* DetailDataCell.xib in Resources */,
-				CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */,
 				D4459B901B63D75A00DEB780 /* CourseTabbarViewController.xib in Resources */,
+				CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */,
 				D4459B7C1B63D5F400DEB780 /* FCourseViewController.xib in Resources */,
 				D4B2F3081B02FA00007B017E /* LaunchScreen.xib in Resources */,
 				52E7DFE61B71CDC800BB46DE /* HWorkDetailViewController.xib in Resources */,

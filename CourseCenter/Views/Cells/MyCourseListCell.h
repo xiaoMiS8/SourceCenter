@@ -11,5 +11,6 @@
 @interface MyCourseListCell : UITableViewCell
 
 @property(nonatomic, strong) OCourseInfo *oCourse;
+@property (weak, nonatomic) IBOutlet UIView *chapView;
 
 @end

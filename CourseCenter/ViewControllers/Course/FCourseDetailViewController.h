@@ -9,5 +9,7 @@
 #import "CourseBaseViewController.h"
 
 @interface FCourseDetailViewController : CourseBaseViewController
+@property (nonatomic,assign)long OCID;
+@property (nonatomic,assign)long FCID;
 
 @end
