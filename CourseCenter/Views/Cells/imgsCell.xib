@@ -8,32 +8,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NTCell2" rowHeight="75" id="KGk-i7-Jjw" customClass="NTCell2">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="imgsCell" rowHeight="197" id="KGk-i7-Jjw" customClass="imgsCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="197"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4aA-es-Nxd" customClass="HPGrowingTextView">
-                        <rect key="frame" x="18" y="8" width="294" height="58.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfZ-40-sjj">
+                        <rect key="frame" x="8" y="38" width="304" height="80"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="1xH-3M-vkg"/>
+                            <constraint firstAttribute="height" constant="80" id="E8H-72-34v"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4aA-es-Nxd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="6KQ-YA-Rsp"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="4aA-es-Nxd" secondAttribute="bottom" id="Ibb-2l-9fi"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="4aA-es-Nxd" secondAttribute="trailing" id="cVl-1U-VuJ"/>
-                    <constraint firstItem="4aA-es-Nxd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="udP-Eg-euN"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="LfZ-40-sjj" secondAttribute="bottom" id="2bt-Es-DhR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LfZ-40-sjj" secondAttribute="trailing" id="c71-Fq-voS"/>
+                    <constraint firstItem="LfZ-40-sjj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cQv-0i-smK"/>
+                    <constraint firstItem="LfZ-40-sjj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="30" id="egc-AP-N0p"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="textView" destination="4aA-es-Nxd" id="GGl-8X-2it"/>
+                <outlet property="imgsView" destination="LfZ-40-sjj" id="hBp-Jo-Z0x"/>
             </connections>
-            <point key="canvasLocation" x="245" y="291.5"/>
+            <point key="canvasLocation" x="248" y="283.5"/>
         </tableViewCell>
     </objects>
 </document>

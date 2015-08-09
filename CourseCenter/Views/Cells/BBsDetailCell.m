@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *discuss;
 @property (weak, nonatomic) IBOutlet UILabel *agree;
 @property (weak, nonatomic) IBOutlet UIImageView *dicussImg;
-@property (weak, nonatomic) IBOutlet UIImageView *agreeImg;
+@property (weak, nonatomic) IBOutlet UIButton *agreeBtn;
 
 @end
 
@@ -39,6 +39,10 @@
     self.bomView3.layer.borderWidth = 0.5f;
     self.content.preferredMaxLayoutWidth = Swidth - 10 - 10;
     self.title.preferredMaxLayoutWidth = Swidth - 10 -10;
+}
+
+- (void)tapAction:(UITapGestureRecognizer *)tap {
+    self.agreeBlock();
 }
 
 - (void)setTopic:(TopicInfo *)topic {
@@ -75,11 +79,14 @@
     self.discuss.text = [NSString stringWithFormat:@"%ld",topic.Responses];
     self.agree.text = [NSString stringWithFormat:@"%ld",topic.Goods];
     if (topic.IsGood) {
-        self.agreeImg.image = [UIImage imageNamed:@"icon_agree_push"];
+        [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree_push"] forState:UIControlStateNormal];
     } else {
-        self.agreeImg.image = [UIImage imageNamed:@"icon_agree"];
+        [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree"] forState:UIControlStateNormal];
     }
 
+}
+- (IBAction)agreeAction:(id)sender {
+    self.agreeBlock();
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

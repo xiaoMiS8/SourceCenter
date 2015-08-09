@@ -10,4 +10,5 @@
 
 @interface NTCell1 : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *desLabel;
 @end
