@@ -14,7 +14,6 @@
 #import "TestViewController.h"
 #import "ResponseObject.h"
 #import "NSString+HandleString.h"
-#import "ApplyViewController.h"
 @interface HomeViewController ()
 {
     NSString *loginState;
@@ -45,7 +44,9 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     if ([_isFanhui isEqualToString:@"YES"]) {
-        [self isLoginOrCourse];
+        _seg.selectedSegmentIndex = 0;
+        [self segValueChange:0];
+        _isFanhui=nil;
     }
 }
 -(void)isLoginOrCourse
@@ -185,7 +186,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell" forIndexPath:indexPath];
+    HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell"];
     cell.hVC=self;
     cell.oCourse=[self.dataArray objectAtIndex:indexPath.row];
     return cell;
@@ -233,7 +234,6 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.startY = scrollView.contentOffset.y;
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

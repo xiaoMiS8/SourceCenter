@@ -12,7 +12,7 @@
 #import "ApplyViewController.h"
 #define ICONIMG @"iconpro"
 #define STUDY   @"study"
-#define SINGUP  @"signUp"
+#define SINGUP  @"SINGUP"
 @interface HomeListCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *bgimg;
@@ -41,20 +41,21 @@
 }
 -(void)setOCourse:(OCourseInfo *)oCourse
 {
-    if (_oCourse!=oCourse) {
+    if (_oCourse==nil) {
         _oCourse=oCourse;
     }
     [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
     [self.nameLabel setText:oCourse.TeacherName];
     [self.collegeLabel setText:oCourse.OrganizationName];
-//    if (oCourse.RegStatus==1) {
-//        [self.gotoBtn setBackgroundImage:[UIImage imageNamed:STUDY] forState:UIControlStateNormal];
-//    }else{
-//        [self.gotoBtn setBackgroundImage:[UIImage imageNamed:SINGUP] forState:UIControlStateNormal];
-//    }
+    if (oCourse.RegStatus==1) {
+      [self.gotoBtn setBackgroundImage:[UIImage imageNamed:STUDY] forState:UIControlStateNormal];
+    }else{
+      [self.gotoBtn setBackgroundImage:[UIImage imageNamed:SINGUP] forState:UIControlStateNormal];
+    }
     [self.courseDetailLabel setText:oCourse.Name];
     [self.studentCountLabel setText:[NSString stringWithFormat:@"%d",oCourse.StudentCount]];
+    self.gotoBtn.tag=oCourse.OCID;
     if (oCourse.RegStatus==1) {
         self.gotoBtn.userInteractionEnabled=YES;
         [self.gotoBtn setBackgroundImage:[UIImage imageNamed:@"study"] forState:UIControlStateNormal];
@@ -76,12 +77,12 @@
         {
             _hVC.isFanhui=@"YES";
         };
-        applyVc.OCID=_oCourse.OCID;
+        applyVc.OCID=btn.tag;
         [((AppDelegate *)app).nav pushViewController:applyVc animated:YES];
         return;
     }
     HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
-    homeDetailVc.OCID=_oCourse.OCID;
+    homeDetailVc.OCID=btn.tag;
     homeDetailVc.teacherImgUrl=_oCourse.TeacherImgUrl;
     homeDetailVc.topImgUrl=_oCourse.CourseImgUrl;
     homeDetailVc.RegStatus=_oCourse.RegStatus;
