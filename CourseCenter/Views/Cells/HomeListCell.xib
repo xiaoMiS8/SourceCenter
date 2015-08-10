@@ -120,7 +120,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="isStudyOrSign:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rbX-on-rzw"/>
+                                            <action selector="isStudyOrSign:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PcK-P6-hHI"/>
                                         </connections>
                                     </button>
                                 </subviews>

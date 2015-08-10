@@ -12,7 +12,7 @@
 
 @property(nonatomic, strong) UISegmentedControl *seg;
 @property(nonatomic, strong) UIButton *searchBtn;
-
+@property(nonatomic, strong) NSString *isFanhui;
 -(void)isLoginOrCourse;
 
 @end

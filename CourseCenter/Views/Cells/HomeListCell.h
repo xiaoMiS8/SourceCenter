@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OCourseInfo.h"
-
 @interface HomeListCell : UITableViewCell
 @property(nonatomic,strong)OCourseInfo *oCourse;
+@property(nonatomic,strong)HomeViewController *hVC;
 @end

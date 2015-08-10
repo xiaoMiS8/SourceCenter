@@ -14,6 +14,7 @@
 #import "TestViewController.h"
 #import "ResponseObject.h"
 #import "NSString+HandleString.h"
+#import "ApplyViewController.h"
 @interface HomeViewController ()
 {
     NSString *loginState;
@@ -40,6 +41,12 @@
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     [self isLoginOrCourse];
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    if ([_isFanhui isEqualToString:@"YES"]) {
+        [self isLoginOrCourse];
+    }
 }
 -(void)isLoginOrCourse
 {
@@ -178,7 +185,8 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell"];
+    HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell" forIndexPath:indexPath];
+    cell.hVC=self;
     cell.oCourse=[self.dataArray objectAtIndex:indexPath.row];
     return cell;
 }
@@ -225,6 +233,7 @@
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     self.startY = scrollView.contentOffset.y;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -7,10 +7,11 @@
 //
 
 #import "BaseViewController.h"
-
+typedef void (^returnHomeBlock)(void);
 @interface ApplyViewController : BaseViewController
 @property (weak, nonatomic) IBOutlet UILabel *titleL;
 @property (weak, nonatomic) IBOutlet UITextField *textF;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, assign) long       OCID;
+@property(nonatomic,strong)returnHomeBlock block;
 @end

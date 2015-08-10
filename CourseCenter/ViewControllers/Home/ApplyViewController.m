@@ -141,6 +141,10 @@
                     self.reob=(ResponseObject *)object;
                     if ([self.reob.errrorCode isEqualToString:@"0"]) {
                         [MBProgressHUD showSuccess:REGISTSUCCESS];
+                        if (self.block) {
+                            self.block();
+                        }
+                        [self.navigationController popViewControllerAnimated:YES];
                         return ;
                     }else{
                         [MBProgressHUD showError:self.reob.errorMessage];
@@ -165,7 +169,10 @@
                     self.reob=(ResponseObject *)object;
                     if ([self.reob.errrorCode isEqualToString:@"0"]) {
                         [MBProgressHUD showSuccess:REGISTSUCCESS];
-                        [self.navigationController popoverPresentationController];
+                        if (self.block) {
+                            self.block();
+                        }
+                        [self.navigationController popViewControllerAnimated:YES];
                         return ;
                     }else{
                         [MBProgressHUD showError:self.reob.errorMessage];
