@@ -13,6 +13,8 @@
 @property(nonatomic, strong) UIView *bgview;
 @property(nonatomic, copy) void (^ClickBlock)(NSInteger index);
 
+
+- (id)initWithFrame:(CGRect)frame andCount:(int)count;
 - (void)show;
 - (void)hide;
 

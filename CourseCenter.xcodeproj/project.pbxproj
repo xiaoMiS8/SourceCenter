@@ -114,6 +114,10 @@
 		59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC888E1B184249009495A6 /* NotiDetailViewController.xib */; };
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
 		59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC88931B18464F009495A6 /* NotiDetailCell.xib */; };
+		59EDB6431B78F8FD00CBFBB3 /* ReadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EDB6411B78F8FD00CBFBB3 /* ReadViewController.m */; };
+		59EDB6441B78F8FD00CBFBB3 /* ReadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EDB6421B78F8FD00CBFBB3 /* ReadViewController.xib */; };
+		59EDB6481B78FE0700CBFBB3 /* ReadListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EDB6461B78FE0700CBFBB3 /* ReadListCell.m */; };
+		59EDB6491B78FE0700CBFBB3 /* ReadListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EDB6471B78FE0700CBFBB3 /* ReadListCell.xib */; };
 		59EEEE8A1B7521DD00159956 /* QuestionSurveyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EEEE881B7521DD00159956 /* QuestionSurveyCell.m */; };
 		59EEEE8B1B7521DD00159956 /* QuestionSurveyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EEEE891B7521DD00159956 /* QuestionSurveyCell.xib */; };
 		59F43FF81B1FFB2F007A01A6 /* CCHttpManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F43FF71B1FFB2F007A01A6 /* CCHttpManager.m */; };
@@ -528,6 +532,12 @@
 		59EC88911B18464F009495A6 /* NotiDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiDetailCell.h; sourceTree = "<group>"; };
 		59EC88921B18464F009495A6 /* NotiDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiDetailCell.m; sourceTree = "<group>"; };
 		59EC88931B18464F009495A6 /* NotiDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailCell.xib; sourceTree = "<group>"; };
+		59EDB6401B78F8FD00CBFBB3 /* ReadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadViewController.h; sourceTree = "<group>"; };
+		59EDB6411B78F8FD00CBFBB3 /* ReadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadViewController.m; sourceTree = "<group>"; };
+		59EDB6421B78F8FD00CBFBB3 /* ReadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadViewController.xib; sourceTree = "<group>"; };
+		59EDB6451B78FE0700CBFBB3 /* ReadListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadListCell.h; sourceTree = "<group>"; };
+		59EDB6461B78FE0700CBFBB3 /* ReadListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadListCell.m; sourceTree = "<group>"; };
+		59EDB6471B78FE0700CBFBB3 /* ReadListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadListCell.xib; sourceTree = "<group>"; };
 		59EEEE871B7521DD00159956 /* QuestionSurveyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSurveyCell.h; sourceTree = "<group>"; };
 		59EEEE881B7521DD00159956 /* QuestionSurveyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSurveyCell.m; sourceTree = "<group>"; };
 		59EEEE891B7521DD00159956 /* QuestionSurveyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionSurveyCell.xib; sourceTree = "<group>"; };
@@ -1041,6 +1051,16 @@
 			path = HPGrowingTextView;
 			sourceTree = "<group>";
 		};
+		59EDB63F1B78F84B00CBFBB3 /* ReadWork */ = {
+			isa = PBXGroup;
+			children = (
+				59EDB6401B78F8FD00CBFBB3 /* ReadViewController.h */,
+				59EDB6411B78F8FD00CBFBB3 /* ReadViewController.m */,
+				59EDB6421B78F8FD00CBFBB3 /* ReadViewController.xib */,
+			);
+			path = ReadWork;
+			sourceTree = "<group>";
+		};
 		59F43FF31B1FFAA0007A01A6 /* CCHttpRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -1484,6 +1504,9 @@
 				59B72C6F1B76EFE500C895FE /* imgsCell.h */,
 				59B72C701B76EFE500C895FE /* imgsCell.m */,
 				59B72C711B76EFE500C895FE /* imgsCell.xib */,
+				59EDB6451B78FE0700CBFBB3 /* ReadListCell.h */,
+				59EDB6461B78FE0700CBFBB3 /* ReadListCell.m */,
+				59EDB6471B78FE0700CBFBB3 /* ReadListCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1528,6 +1551,7 @@
 				52E7DFED1B723A6200BB46DE /* TpHistoryViewController.m */,
 				52E7DFEE1B723A6200BB46DE /* TpHistoryViewController.xib */,
 				524E885D1B736752004A11A2 /* HWorkViews */,
+				59EDB63F1B78F84B00CBFBB3 /* ReadWork */,
 				D44B7E251B6FA5AD0036B3D5 /* BBS */,
 			);
 			path = Course;
@@ -1890,6 +1914,7 @@
 				52E7DFF51B723B8B00BB46DE /* TpHistoryCell.xib in Resources */,
 				CADD22211B52488700A4F3D2 /* MyInfoCell.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
+				59EDB6491B78FE0700CBFBB3 /* ReadListCell.xib in Resources */,
 				59E247941B73B11C009E4268 /* NTCell1.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
 				59EC88951B18464F009495A6 /* NotiDetailCell.xib in Resources */,
@@ -1905,6 +1930,7 @@
 				CACBFC981B540C3500FAD388 /* messages.plist in Resources */,
 				CADD221C1B52418400A4F3D2 /* MyInfo.xib in Resources */,
 				CADD22261B526BA300A4F3D2 /* SetViewController.xib in Resources */,
+				59EDB6441B78F8FD00CBFBB3 /* ReadViewController.xib in Resources */,
 				52DC03DC1B70889200BB3CB7 /* FCourseDetailOne.xib in Resources */,
 				D48341201B2EC7ED00373043 /* NewNotificationViewController.xib in Resources */,
 				59B72C781B77850200C895FE /* SelectSViewController.xib in Resources */,
@@ -2131,6 +2157,7 @@
 				065C03951B68AF630090EA46 /* BbsAction.m in Sources */,
 				042E75E21B16148A00396AAF /* IQTitleBarButtonItem.m in Sources */,
 				59E247931B73B11C009E4268 /* NTCell1.m in Sources */,
+				59EDB6431B78F8FD00CBFBB3 /* ReadViewController.m in Sources */,
 				D40691B01B6CE5C10044CAE5 /* ObjectInfo.m in Sources */,
 				9FC5FC301B3C3D4A005026E2 /* CourseDetailCell.m in Sources */,
 				D759DAA01B6B256E00E58EF2 /* AttachmentInfo.m in Sources */,
@@ -2176,6 +2203,7 @@
 				D4B2F3E51B034265007B017E /* MJRefreshHeader.m in Sources */,
 				5963C3651B201E8300A09D30 /* HttpTestResultViewController.m in Sources */,
 				D4B2F39A1B033E51007B017E /* AFURLResponseSerialization.m in Sources */,
+				59EDB6481B78FE0700CBFBB3 /* ReadListCell.m in Sources */,
 				CA20AA2D1B59F11800598370 /* NewMessageCell.m in Sources */,
 				CACBFC8D1B540B5600FAD388 /* ChatViewController.m in Sources */,
 				D4D797AD1B6FC42300B78055 /* FCourseDetailViewController.m in Sources */,

@@ -58,7 +58,7 @@
 
 - (void)topicSet {
     if (!self.topSetView) {
-        TopicSetView *topicSetView = [[TopicSetView alloc] initWithFrame:self.view.frame];
+        TopicSetView *topicSetView = [[TopicSetView alloc] initWithFrame:self.view.frame andCount:4];
         topicSetView.bgview = self.view;
         __weak typeof(topicSetView) wtop = topicSetView;
         topicSetView.ClickBlock = ^(NSInteger index) {

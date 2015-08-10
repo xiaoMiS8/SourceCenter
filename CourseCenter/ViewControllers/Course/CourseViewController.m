@@ -17,6 +17,7 @@
 #import "HWorkViewController.h"
 #import "TPViewController.h"
 #import "LineNavigationController.h"
+#import "ReadViewController.h"
 static NSInteger number=0;
 @interface CourseViewController ()
 {
@@ -147,15 +148,35 @@ static NSInteger number=0;
     hworkVC.PushBlock = ^(UIViewController *viewController) {
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };
+    ReadViewController *readVC = [ReadViewController new];
+    readVC.OCID = ((OCourseInfo *)(self.OCList[index.row])).OCID;
+    
+    
     TPViewController *tpVC = [[TPViewController alloc] init];
     tpVC.OCID=((OCourseInfo *)(self.OCList[index.row])).OCID;
     tpVC.PushBlock = ^(UIViewController *viewController) {
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };
-    NSArray *viewControllers = @[tutoriaVC, fCourseVC,bbsVC, hworkVC, tpVC];
-    NSArray *titles = @[@"教程",@"翻转课堂",@"论坛",@"作业",@"事务处理"];
-    NSArray *itemImages = @[@"cTabbar1_n",@"cTabbar2_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
-    NSArray *itemSelectedImages = @[@"cTabbar1_s",@"cTabbar2_s",@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
+    
+    NSArray *viewControllers = nil;
+    NSArray *titles = nil;
+    NSArray *itemImages = nil;
+    NSArray *itemSelectedImages = nil;
+    
+    NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if (![role isEqualToString:@"4"]) {
+        viewControllers = @[tutoriaVC, fCourseVC,bbsVC, hworkVC, tpVC];
+        titles = @[@"教程",@"翻转课堂",@"论坛",@"作业",@"事务处理"];
+        itemImages = @[@"cTabbar1_n",@"cTabbar2_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
+        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar2_s",@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
+     
+    } else {
+        viewControllers = @[tutoriaVC, fCourseVC,bbsVC, readVC, tpVC];
+        titles = @[@"教程",@"翻转课堂",@"论坛",@"批阅",@"事务处理"];
+        itemImages = @[@"cTabbar1_n",@"cTabbar2_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
+        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar2_s",@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
+    }
+    
     [tabbar setViewcontrollers:viewControllers itemImages:itemImages itemselectedImages:itemSelectedImages titles:titles];
     return tabbar;
     

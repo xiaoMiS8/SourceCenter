@@ -12,16 +12,18 @@
 
 @property(nonatomic, strong) UIImageView *bgView;
 @property(nonatomic, strong) UIView *topview;
+@property(nonatomic, assign) int count;
 
 @end
 
 @implementation TopicSetView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame andCount:(int)count
 {
     self = [super initWithFrame:frame];
     if (self) {
         self.frame = frame;
+        self.count = count;
         self.backgroundColor = [UIColor whiteColor];
         [self initview];
     }
