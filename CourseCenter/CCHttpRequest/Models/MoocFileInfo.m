@@ -32,7 +32,7 @@
         self.FinishRate = [[dict objectForKey:kFinishRate] floatValue];
         self.IsReadFinish = [[dict objectForKey:kIsReadFinish] boolValue];
         self.VideoNeedRate = [[dict objectForKey:kVideoNeedRate] floatValue];
-        self.IsAllowStudy = [[dict objectForKey:kIsAllowStudy] boolValue];
+        self.IsAllowStudy = [[dict objectForKey:kIsAllowStudy] integerValue];
         self.Seconds = [[dict objectForKey:kSeconds] intValue];
     }
     return self;

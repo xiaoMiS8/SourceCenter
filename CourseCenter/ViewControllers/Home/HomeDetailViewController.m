@@ -247,13 +247,44 @@ static NSInteger tag;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileType==1) {
-        PlayViewController *playVC=[[PlayViewController alloc]init];
-        playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
-        [self presentViewController:playVC animated:YES completion:nil];
+        NSInteger num=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).IsAllowStudy;
+        switch (num) {
+            case 0:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 1:{
+                PlayViewController *playVC=[[PlayViewController alloc]init];
+                playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
+                [self presentViewController:playVC animated:YES completion:nil];
+                break;
+            }
+            case 2:{
+                [Tool showAlertView:@"提示" withMessage:@"还未到开始学习时间" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 3:{
+                 [Tool showAlertView:@"提示" withMessage:@"请先学习完前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 4:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成上一章的测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 5:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习完该章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 6:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成所有章节及测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            default:
+                break;
+        }
     }else
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请使用第三方软件打开该类型资源" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+        [Tool showAlertView:@"提示" withMessage:@"请使用第三方软件打开该类型资源" withTarget:self withCancel:@"确定" other:nil];
     }
 }
 -(void)press:(UIButton *)but

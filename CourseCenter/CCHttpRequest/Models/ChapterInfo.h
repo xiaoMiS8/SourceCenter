@@ -51,7 +51,7 @@
     //是否完成
 @property(nonatomic, assign) BOOL       IsFinish;
     // 是否允许学习该节
-@property(nonatomic, assign) BOOL       IsAllowStudy;
+@property(nonatomic, assign) int       IsAllowStudy;
     //是否为测试
 @property(nonatomic, assign) BOOL       IsTest;
     //0
