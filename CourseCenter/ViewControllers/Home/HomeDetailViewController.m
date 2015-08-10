@@ -14,6 +14,9 @@
 #import "PlayViewController.h"
 #import "UIImageView+WebCache.h"
 #import "ApplyViewController.h"
+#import "NSString+HandleString.h"
+#import "HWorkDetailViewController.h"
+#import "TutorialViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 #define ICONIMG @"iconpro"
 static NSInteger tag;
@@ -95,7 +98,7 @@ static NSInteger tag;
 {
     [self.topImageView sd_setImageWithURL:[NSURL URLWithString:_topImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
     [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
-    [self.StartDate setText:info.StartDate];
+    [self.StartDate setText:[info.StartDate carveNSStringWithStr:@" "][0]];
     [self.TeacherName setText:info.TeacherName];
     [self.OrganizationName setText:info.OrganizationName];
     [self.Ranks setText:info.Ranks];
@@ -161,6 +164,7 @@ static NSInteger tag;
     UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake((Swidth-100)/2, 10, 100, 30)];
     if (_RegStatus==1) {
         [btn setTitle:@"去学习" forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(gotoTutorial) forControlEvents:UIControlEventTouchUpInside];
          btn.tag=1;
          btn.hidden=NO;
     }else if (_RegStatus==2||_RegStatus==4) {
@@ -221,7 +225,12 @@ static NSInteger tag;
     button.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
     button.backgroundColor=[UIColor clearColor];
     button.tag=section+100;
-    [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
+    if (((ChapterInfo *)[_arrayData objectAtIndex:section]).TestID>0) {
+      [button addTarget:self action:@selector(gotohwVC:) forControlEvents:UIControlEventTouchUpInside];
+    }else
+    {
+      [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
+    }
     [view addSubview:button];
     return view;
 }
@@ -259,6 +268,11 @@ static NSInteger tag;
     }
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
 }
+-(void)gotohwVC:(UIButton *)but
+{
+    HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+    [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
     if (offsetY - _startY > 140) {
@@ -281,6 +295,13 @@ static NSInteger tag;
     ApplyViewController *applyVc = [[ApplyViewController alloc]init];
     applyVc.OCID=_OCID;
     [((AppDelegate *)app).nav pushViewController:applyVc animated:YES];
+}
+-(void)gotoTutorial
+{
+    TutorialViewController *tutoriaVC = [[TutorialViewController alloc] init];
+    tutoriaVC.title=@"教程";
+    tutoriaVC.OCID=_OCID;
+    [((AppDelegate *)app).nav pushViewController:tutoriaVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

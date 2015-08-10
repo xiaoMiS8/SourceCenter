@@ -42,14 +42,14 @@
     self.dataArray=[[NSMutableArray array]init];
     [self isLoginOrCourse];
 }
--(void)viewDidAppear:(BOOL)animated
+-(void)viewWillAppear:(BOOL)animated
 {
     if ([_isFanhui isEqualToString:@"YES"]) {
         _seg.selectedSegmentIndex = 0;
         [self segValueChange:0];
         _isFanhui=nil;
     }
-    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]) {
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]&&[[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"]isEqualToString:@"1"]) {
         [self isLoginOrCourse];
         userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
     }
@@ -112,7 +112,7 @@
     loginSearchVC.block=^()
     {
         ((AppDelegate *)app).tabar.OneLoginState=@"1";
-        [self isLoginOrCourse];
+        //[self isLoginOrCourse];
     };
     [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
 }
