@@ -17,6 +17,7 @@
 @interface HomeViewController ()
 {
     NSString *loginState;
+    NSString *userId;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
@@ -47,6 +48,10 @@
         _seg.selectedSegmentIndex = 0;
         [self segValueChange:0];
         _isFanhui=nil;
+    }
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]) {
+        [self isLoginOrCourse];
+        userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
     }
 }
 -(void)isLoginOrCourse
