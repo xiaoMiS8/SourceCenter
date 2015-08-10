@@ -10,7 +10,7 @@
 #import "BBSListCell.h"
 #import "MJRefresh.h"
 #import "BBsDetailViewController.h"
-#import "NewTopicViewController.h"
+#import "NTViewController.h"
 #import "LineNavigationController.h"
 @interface BBsViewController ()
 
@@ -18,6 +18,9 @@
 @property(nonatomic, strong) NSMutableArray *topics;
 @property (weak, nonatomic) IBOutlet UILabel *blueLabel;
 @property (weak, nonatomic) IBOutlet UIView *topView;
+
+@property(nonatomic, assign) BOOL IsMyStart;
+@property(nonatomic, assign) BOOL IsMyJoin;
 
 @property(nonatomic, assign) int index;
 
@@ -41,7 +44,11 @@
 }
 
 - (void)rightBtn2Action:(id)sender {
-    NewTopicViewController *newtopicVC = [NewTopicViewController new];
+    NTViewController *newtopicVC = [NTViewController new];
+    newtopicVC.doBlock = ^{
+        [self.tableView.header beginRefreshing];
+    };
+    newtopicVC.OCID = self.OCID;
     LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newtopicVC];
     [self presentViewController:nav animated:YES completion:nil];
 }
@@ -76,7 +83,7 @@
 
 - (void)loadData {
     self.index = 1;
-    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:0 IsEssence:NO IsMyStart:NO IsMyJoin:NO SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:0 IsEssence:0 IsMyStart:self.IsMyStart IsMyJoin:self.IsMyJoin SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         self.topics = [[NSMutableArray alloc] initWithArray:((ResponseObject *)object).resultArray];
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
@@ -88,7 +95,7 @@
 
 - (void)loadMore {
     self.index ++;
-    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:1 IsEssence:NO IsMyStart:NO IsMyJoin:NO SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:0 IsEssence:0 IsMyStart:self.IsMyStart IsMyJoin:self.IsMyJoin SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         [self.topics addObjectsFromArray:((ResponseObject *)object).resultArray];
         [self.tableView reloadData];
         [self.tableView.footer endRefreshing];
@@ -124,6 +131,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     BBsDetailViewController *bbsDetailVC = [[BBsDetailViewController alloc] init];
     bbsDetailVC.topic = self.topics[indexPath.row];
+    bbsDetailVC.OCID = self.OCID;
+    bbsDetailVC.topicSetBlcok = ^{
+        [self.tableView.header beginRefreshing];
+    };
     [self pushViewController:bbsDetailVC];
 }
 
@@ -138,6 +149,33 @@
         [self.topView layoutIfNeeded];
         [self.topView updateConstraintsIfNeeded];
     }];
+    
+    switch (btn.tag) {
+        case 1:
+        {
+            self.IsMyJoin =  NO;
+            self.IsMyStart = NO;
+        
+        }
+            break;
+        case 2:
+        {
+            self.IsMyJoin =  NO;
+            self.IsMyStart = YES;
+            [self.tableView.header beginRefreshing];
+        }
+            break;
+        case 3:
+        {
+            self.IsMyJoin =  YES;
+            self.IsMyStart = NO;
+        }
+            break;
+            
+        default:
+            break;
+    }
+    [self.tableView.header beginRefreshing];
 }
 
 - (void)didReceiveMemoryWarning {

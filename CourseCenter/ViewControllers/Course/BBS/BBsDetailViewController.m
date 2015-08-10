@@ -10,6 +10,7 @@
 #import "BBsDetailCell.h"
 #import "BBSResponeCell.h"
 #import "TopicSetView.h"
+#import "ShareToViewController.h"
 @interface BBsDetailViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bomView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
@@ -100,36 +101,54 @@
 
     //置顶
 - (void)topicSetIsTop {
+    __weak typeof(self) wself = self;
     [self.manager setAppForumTopicIsTopWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
+            wself.topicSetBlcok();
+            [wself.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
     //加精
 - (void)topicSetIsEssence {
+    __weak typeof(self) wself = self;
     [self.manager setAppForumTopicIsEssenceWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
+            wself.topicSetBlcok();
+            [wself.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
 
     //删除该帖子
 - (void)topicDelete {
+    __weak typeof(self) wself = self;
     [self.manager deleteForumTopicwithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
+            wself.topicSetBlcok();
+            [wself.navigationController popViewControllerAnimated:YES];
         }
     }];
 }
 
 - (void)topicTopicType {
-    [self.manager addAppForumTopicTypeWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
-        if (status == Enum_SUCCESS) {
-            [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
-        }
-    }];
+     __weak typeof(self) wself = self;
+    ShareToViewController *shareToVC = [ShareToViewController new];
+    shareToVC.doneBlock = ^(NSArray *forums) {
+        [self.manager addAppForumTopicTypeWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
+            if (status == Enum_SUCCESS) {
+                [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
+                wself.topicSetBlcok();
+                [wself.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    };
+    shareToVC.OCID = self.OCID;
+    [self.navigationController pushViewController:shareToVC animated:YES];
+    
 }
 
 - (void)initManager {
@@ -184,11 +203,24 @@
     if (indexPath.row == 0) {
         BBsDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BBsDetailCell"];
         cell.topic = self.topic;
+        cell.agreeBlock = ^ {
+            [self.manager updateForumMyIsGoodWithTopicID:self.OCID ResponseID:0 finished:^(EnumServerStatus status, NSObject *object) {
+                 [self reloadData];
+                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
+            }];
+           
+        };
         return cell;
     }
     else {
         BBSResponeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BBSResponeCell"];
         cell.response = self.respones[indexPath.row - 1];
+        cell.agreeBlcok = ^{
+            [self.manager updateForumMyIsGoodWithTopicID:self.OCID ResponseID:((TopicResponseInfo *)self.respones[indexPath.row - 1]).ResponseID finished:^(EnumServerStatus status, NSObject *object) {
+                [self reloadData];
+                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
+            }];
+        };
         return cell;
     }
 }

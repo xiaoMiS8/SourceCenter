@@ -38,6 +38,9 @@
         [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree"] forState:UIControlStateNormal];
     }
 }
+- (IBAction)agreeAction:(id)sender {
+    self.agreeBlcok();
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

@@ -13,5 +13,6 @@
 @interface BBsDetailCell : UITableViewCell
 
 @property(nonatomic, strong) TopicInfo *topic;
+@property(nonatomic, copy) void (^agreeBlock)(void);
 
 @end

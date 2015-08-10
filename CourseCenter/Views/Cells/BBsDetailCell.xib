@@ -25,7 +25,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Piq-mk-3fQ">
-                        <rect key="frame" x="239" y="20" width="63" height="14"/>
+                        <rect key="frame" x="239" y="20" width="63" height="13.5"/>
                         <animations/>
                         <string key="text">01-30/09:00
 </string>
@@ -46,7 +46,7 @@
                         <string key="text">大熊猫（学名：Ailuropoda melanoleuca 英文名称：Giant panda），属于食肉目、熊科、大熊猫属的一种哺乳动物，体色为黑白两色，它有着圆圆的脸颊，大大的黑眼圈，胖嘟嘟的身体，标志性的内八字的行走方式，也有解剖刀般锋利的爪子。是世界上最可爱的动物之一。
 </string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3EX-zH-e7q">
@@ -98,16 +98,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_agree" translatesAutoresizingMaskIntoConstraints="NO" id="NWz-dT-HI2">
-                                <rect key="frame" x="249" y="12" width="26" height="26"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="26" id="AHm-ZP-iVZ"/>
-                                    <constraint firstAttribute="width" constant="26" id="jHJ-zM-VC2"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="111" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYS-Lr-BAt">
-                                <rect key="frame" x="277" y="16" width="24" height="17"/>
+                                <rect key="frame" x="276" y="16" width="24" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,7 +107,25 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dGa-9v-oml">
                                 <rect key="frame" x="224" y="0.0" width="112" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQl-cj-WOw">
+                                        <rect key="frame" x="25" y="12" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="25" id="42P-ac-kaR"/>
+                                            <constraint firstAttribute="height" constant="25" id="y2z-1z-d5l"/>
+                                        </constraints>
+                                        <state key="normal" image="icon_agree">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="agreeAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SWw-eh-BUg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstItem="fQl-cj-WOw" firstAttribute="leading" secondItem="dGa-9v-oml" secondAttribute="leading" constant="25" id="tHT-WG-PCv"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <animations/>
@@ -124,10 +134,10 @@
                             <constraint firstItem="XVm-oS-aX0" firstAttribute="leading" secondItem="aS1-rU-L5B" secondAttribute="leading" constant="25" id="6FU-bC-U3F"/>
                             <constraint firstItem="Fxl-I3-2R0" firstAttribute="leading" secondItem="XVm-oS-aX0" secondAttribute="trailing" constant="2" id="7AC-eM-nDt"/>
                             <constraint firstItem="i3k-iA-iPw" firstAttribute="top" secondItem="aS1-rU-L5B" secondAttribute="top" id="BuQ-xB-w5w"/>
-                            <constraint firstItem="NWz-dT-HI2" firstAttribute="leading" secondItem="qUf-K1-Lji" secondAttribute="trailing" constant="25" id="ChC-Z4-rVN"/>
+                            <constraint firstItem="mYS-Lr-BAt" firstAttribute="leading" secondItem="fQl-cj-WOw" secondAttribute="trailing" constant="2" id="CiW-7f-saT"/>
                             <constraint firstItem="e6u-AJ-eIA" firstAttribute="centerY" secondItem="XVm-oS-aX0" secondAttribute="centerY" id="CuX-u1-m1F"/>
-                            <constraint firstItem="NWz-dT-HI2" firstAttribute="centerY" secondItem="e6u-AJ-eIA" secondAttribute="centerY" id="CvM-Qo-3ME"/>
                             <constraint firstItem="qUf-K1-Lji" firstAttribute="leading" secondItem="i3k-iA-iPw" secondAttribute="trailing" id="JiM-1f-4iF"/>
+                            <constraint firstItem="fQl-cj-WOw" firstAttribute="centerY" secondItem="mYS-Lr-BAt" secondAttribute="centerY" id="MXv-SL-kO8"/>
                             <constraint firstItem="dGa-9v-oml" firstAttribute="leading" secondItem="qUf-K1-Lji" secondAttribute="trailing" id="Qpo-8E-TAf"/>
                             <constraint firstItem="qUf-K1-Lji" firstAttribute="width" secondItem="i3k-iA-iPw" secondAttribute="width" id="Rkz-OB-MTt"/>
                             <constraint firstItem="e6u-AJ-eIA" firstAttribute="leading" secondItem="i3k-iA-iPw" secondAttribute="trailing" constant="25" id="S92-we-Y16"/>
@@ -138,11 +148,10 @@
                             <constraint firstItem="dGa-9v-oml" firstAttribute="centerY" secondItem="qUf-K1-Lji" secondAttribute="centerY" id="d7m-Rc-dIZ"/>
                             <constraint firstAttribute="trailing" secondItem="dGa-9v-oml" secondAttribute="trailing" id="dH9-Lj-R2N"/>
                             <constraint firstItem="qUf-K1-Lji" firstAttribute="centerY" secondItem="i3k-iA-iPw" secondAttribute="centerY" id="dZS-XH-IOO"/>
-                            <constraint firstItem="mYS-Lr-BAt" firstAttribute="leading" secondItem="NWz-dT-HI2" secondAttribute="trailing" constant="2" id="igu-xs-lPo"/>
                             <constraint firstAttribute="bottom" secondItem="i3k-iA-iPw" secondAttribute="bottom" id="jGp-ge-GqN"/>
                             <constraint firstAttribute="height" constant="50" id="jR7-Ez-FoA"/>
                             <constraint firstItem="MBC-l1-myH" firstAttribute="centerY" secondItem="e6u-AJ-eIA" secondAttribute="centerY" id="nUA-hK-7Gm"/>
-                            <constraint firstItem="mYS-Lr-BAt" firstAttribute="centerY" secondItem="NWz-dT-HI2" secondAttribute="centerY" id="pme-Jt-GCu"/>
+                            <constraint firstItem="fQl-cj-WOw" firstAttribute="centerY" secondItem="e6u-AJ-eIA" secondAttribute="centerY" constant="-0.5" id="sFi-RA-GPa"/>
                             <constraint firstItem="Fxl-I3-2R0" firstAttribute="centerY" secondItem="XVm-oS-aX0" secondAttribute="centerY" id="sfZ-6P-5vb"/>
                             <constraint firstItem="dGa-9v-oml" firstAttribute="height" secondItem="qUf-K1-Lji" secondAttribute="height" id="uTs-tC-Xwp"/>
                             <constraint firstItem="dGa-9v-oml" firstAttribute="width" secondItem="qUf-K1-Lji" secondAttribute="width" id="wOt-wI-O0l"/>
@@ -202,7 +211,6 @@
             <animations/>
             <connections>
                 <outlet property="agree" destination="mYS-Lr-BAt" id="8DM-jr-lob"/>
-                <outlet property="agreeImg" destination="NWz-dT-HI2" id="P8Y-Zd-QH2"/>
                 <outlet property="bomView1" destination="i3k-iA-iPw" id="Xdo-Ku-xet"/>
                 <outlet property="bomView2" destination="qUf-K1-Lji" id="UGl-eF-Esy"/>
                 <outlet property="bomView3" destination="dGa-9v-oml" id="N7l-e4-ms2"/>

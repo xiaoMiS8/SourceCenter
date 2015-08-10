@@ -12,5 +12,6 @@
 @interface BBSResponeCell : UITableViewCell
 
 @property(nonatomic, strong) TopicResponseInfo *response;
+@property(nonatomic, copy) void(^agreeBlcok)(void);
 
 @end
