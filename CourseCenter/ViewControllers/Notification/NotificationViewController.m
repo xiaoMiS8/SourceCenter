@@ -53,7 +53,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]) {
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]&&[[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"]isEqualToString:@"1"]) {
         [self isLogin];
         userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
     }
@@ -153,7 +153,7 @@
     loginSearchVC.block=^()
     {
         ((AppDelegate *)app).tabar.TowLoginState=@"1";
-        [self isLogin];
+        //[self isLogin];
     };
     [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
 }

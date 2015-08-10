@@ -70,7 +70,7 @@
     //学习百分比多少才算完成
 @property(nonatomic, assign) float      VideoNeedRate;
     //是否允许学习
-@property(nonatomic, assign) BOOL       IsAllowStudy;
+@property(nonatomic, assign) int       IsAllowStudy;
     // 0
 @property(nonatomic, assign) int        Seconds;
 

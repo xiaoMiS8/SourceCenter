@@ -47,7 +47,7 @@ static NSInteger number=0;
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]) {
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]&&[[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"]isEqualToString:@"1"]) {
         [self isLoginOrCourse];
         userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
     }
@@ -186,7 +186,7 @@ static NSInteger number=0;
     loginSearchVC.block=^()
     {
         ((AppDelegate *)app).tabar.ThreeLoginState=@"1";
-        [self isLoginOrCourse];
+       // [self isLoginOrCourse];
     };
     [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
 }

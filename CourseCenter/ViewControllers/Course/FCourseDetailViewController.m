@@ -15,6 +15,8 @@
 #import "SourceInfo.h"
 #import "FCourseDetailLast.h"
 #import "GroupInfoViewController.h"
+#import "HWorkDetailViewController.h"
+#import "BBsDetailViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 static NSInteger  number=0;
 static NSInteger  total=0;
@@ -47,6 +49,7 @@ static NSInteger  total=0;
     _array=[[NSMutableArray alloc]init];
     self.titles = @[@"小组信息",@"学习资料",@"作业测试",@"论题互动",@"线下课堂",@"互相评价",@"我的得分"];
     number=0;
+    total=0;
     [MBProgressHUD showMessage:nil];
     [self loadData];
     [self loadScore];
@@ -321,6 +324,17 @@ static NSInteger  total=0;
     }else
     {
         return 44;
+    }
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==2) {
+        HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+        [self.navigationController pushViewController:hwdVC animated:YES];
+    }else if(indexPath.section==3)
+    {
+        BBsDetailViewController *bbsDetailVC = [[BBsDetailViewController alloc] init];
+        [self.navigationController pushViewController:bbsDetailVC animated:YES];
     }
 }
 -(void)pushMemberViewController

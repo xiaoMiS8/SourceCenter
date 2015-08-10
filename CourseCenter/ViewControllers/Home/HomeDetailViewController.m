@@ -14,6 +14,9 @@
 #import "PlayViewController.h"
 #import "UIImageView+WebCache.h"
 #import "ApplyViewController.h"
+#import "NSString+HandleString.h"
+#import "HWorkDetailViewController.h"
+#import "TutorialViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 #define ICONIMG @"iconpro"
 static NSInteger tag;
@@ -95,7 +98,7 @@ static NSInteger tag;
 {
     [self.topImageView sd_setImageWithURL:[NSURL URLWithString:_topImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
     [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
-    [self.StartDate setText:info.StartDate];
+    [self.StartDate setText:[info.StartDate carveNSStringWithStr:@" "][0]];
     [self.TeacherName setText:info.TeacherName];
     [self.OrganizationName setText:info.OrganizationName];
     [self.Ranks setText:info.Ranks];
@@ -161,6 +164,7 @@ static NSInteger tag;
     UIButton *btn=[[UIButton alloc]initWithFrame:CGRectMake((Swidth-100)/2, 10, 100, 30)];
     if (_RegStatus==1) {
         [btn setTitle:@"去学习" forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(gotoTutorial) forControlEvents:UIControlEventTouchUpInside];
          btn.tag=1;
          btn.hidden=NO;
     }else if (_RegStatus==2||_RegStatus==4) {
@@ -221,7 +225,12 @@ static NSInteger tag;
     button.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
     button.backgroundColor=[UIColor clearColor];
     button.tag=section+100;
-    [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
+    if (((ChapterInfo *)[_arrayData objectAtIndex:section]).TestID>0) {
+      [button addTarget:self action:@selector(gotohwVC:) forControlEvents:UIControlEventTouchUpInside];
+    }else
+    {
+      [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
+    }
     [view addSubview:button];
     return view;
 }
@@ -238,13 +247,44 @@ static NSInteger tag;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileType==1) {
-        PlayViewController *playVC=[[PlayViewController alloc]init];
-        playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
-        [self presentViewController:playVC animated:YES completion:nil];
+        NSInteger num=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).IsAllowStudy;
+        switch (num) {
+            case 0:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 1:{
+                PlayViewController *playVC=[[PlayViewController alloc]init];
+                playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
+                [self presentViewController:playVC animated:YES completion:nil];
+                break;
+            }
+            case 2:{
+                [Tool showAlertView:@"提示" withMessage:@"还未到开始学习时间" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 3:{
+                 [Tool showAlertView:@"提示" withMessage:@"请先学习完前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 4:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成上一章的测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 5:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习完该章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 6:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成所有章节及测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            default:
+                break;
+        }
     }else
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"请使用第三方软件打开该类型资源" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+        [Tool showAlertView:@"提示" withMessage:@"请使用第三方软件打开该类型资源" withTarget:self withCancel:@"确定" other:nil];
     }
 }
 -(void)press:(UIButton *)but
@@ -258,6 +298,11 @@ static NSInteger tag;
         [dicto setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
     }
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
+}
+-(void)gotohwVC:(UIButton *)but
+{
+    HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+    [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
@@ -281,6 +326,13 @@ static NSInteger tag;
     ApplyViewController *applyVc = [[ApplyViewController alloc]init];
     applyVc.OCID=_OCID;
     [((AppDelegate *)app).nav pushViewController:applyVc animated:YES];
+}
+-(void)gotoTutorial
+{
+    TutorialViewController *tutoriaVC = [[TutorialViewController alloc] init];
+    tutoriaVC.title=@"教程";
+    tutoriaVC.OCID=_OCID;
+    [((AppDelegate *)app).nav pushViewController:tutoriaVC animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
