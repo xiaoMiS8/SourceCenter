@@ -25,5 +25,7 @@
 
 #define NOPIC @"nopic"
 
+#define BASEPATH @"DownLoads"
+#define TARGER @"QQ"
 
 #endif
