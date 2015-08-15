@@ -41,7 +41,7 @@
     //后缀名
 @property(nonatomic, strong) NSString *Ext;
     //文件类型
-@property(nonatomic, assign) int FileType;
+@property(nonatomic, assign) NSInteger FileType;
     //文件大小字节
 @property(nonatomic, assign) long FileSize;
     //上传时间

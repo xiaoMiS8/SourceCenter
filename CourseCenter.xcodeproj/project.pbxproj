@@ -86,8 +86,6 @@
 		52DEE0611B7D78F600DD4486 /* file_pause_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DEE0551B7D78F600DD4486 /* file_pause_normal.png */; };
 		52DEE0621B7D78F600DD4486 /* FileDownLoadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DEE0571B7D78F600DD4486 /* FileDownLoadManager.m */; };
 		52DEE0631B7D78F600DD4486 /* FileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DEE0591B7D78F600DD4486 /* FileModel.m */; };
-		52DEE0641B7D78F600DD4486 /* MyViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DEE05B1B7D78F600DD4486 /* MyViewCell.m */; };
-		52DEE0651B7D78F600DD4486 /* MyViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52DEE05C1B7D78F600DD4486 /* MyViewCell.xib */; };
 		52E7DFE01B71A30400BB46DE /* HWorkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E7DFDE1B71A30400BB46DE /* HWorkCell.m */; };
 		52E7DFE11B71A30400BB46DE /* HWorkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52E7DFDF1B71A30400BB46DE /* HWorkCell.xib */; };
 		52E7DFE51B71CDC800BB46DE /* HWorkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52E7DFE31B71CDC800BB46DE /* HWorkDetailViewController.m */; };
@@ -511,10 +509,6 @@
 		52DEE0571B7D78F600DD4486 /* FileDownLoadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownLoadManager.m; sourceTree = "<group>"; };
 		52DEE0581B7D78F600DD4486 /* FileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileModel.h; sourceTree = "<group>"; };
 		52DEE0591B7D78F600DD4486 /* FileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileModel.m; sourceTree = "<group>"; };
-		52DEE05A1B7D78F600DD4486 /* MyViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewCell.h; sourceTree = "<group>"; };
-		52DEE05B1B7D78F600DD4486 /* MyViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewCell.m; sourceTree = "<group>"; };
-		52DEE05C1B7D78F600DD4486 /* MyViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyViewCell.xib; sourceTree = "<group>"; };
-		52DEE05D1B7D78F600DD4486 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		52E7DFDD1B71A30400BB46DE /* HWorkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HWorkCell.h; sourceTree = "<group>"; };
 		52E7DFDE1B71A30400BB46DE /* HWorkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HWorkCell.m; sourceTree = "<group>"; };
 		52E7DFDF1B71A30400BB46DE /* HWorkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HWorkCell.xib; sourceTree = "<group>"; };
@@ -1147,10 +1141,6 @@
 				52DEE0571B7D78F600DD4486 /* FileDownLoadManager.m */,
 				52DEE0581B7D78F600DD4486 /* FileModel.h */,
 				52DEE0591B7D78F600DD4486 /* FileModel.m */,
-				52DEE05A1B7D78F600DD4486 /* MyViewCell.h */,
-				52DEE05B1B7D78F600DD4486 /* MyViewCell.m */,
-				52DEE05C1B7D78F600DD4486 /* MyViewCell.xib */,
-				52DEE05D1B7D78F600DD4486 /* ViewController.h */,
 			);
 			name = Resume;
 			sourceTree = "<group>";
@@ -2087,7 +2077,6 @@
 				524E887F1B7367CF004A11A2 /* UIView5.xib in Resources */,
 				D4B2F3401B02FE75007B017E /* HomeViewController.xib in Resources */,
 				59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */,
-				52DEE0651B7D78F600DD4486 /* MyViewCell.xib in Resources */,
 				CA20AA401B5AAF5300598370 /* CourseData.xib in Resources */,
 				D4B2F3DF1B034265007B017E /* MJRefresh.bundle in Resources */,
 				D4B2F34F1B02FEEB007B017E /* MoreViewController.xib in Resources */,
@@ -2134,7 +2123,6 @@
 				D4459B941B63DEB100DEB780 /* TuorialDetailViewController.m in Sources */,
 				06B214AB1B675D4D00CE9A19 /* FCOfflineInfo.m in Sources */,
 				D4459B761B63D5C900DEB780 /* TutorialViewController.m in Sources */,
-				52DEE0641B7D78F600DD4486 /* MyViewCell.m in Sources */,
 				D4E1FF151B613A5C00D5773D /* MyCourseListCell.m in Sources */,
 				D4DF088F1B5B94CA00B816DD /* QBAssetsCollectionViewController.m in Sources */,
 				06B214A81B675B7700CE9A19 /* SourceInfo.m in Sources */,
