@@ -13,7 +13,6 @@
 @property(nonatomic,strong)NSString *fileID;
 @property(nonatomic,strong)NSString *fileName;
 @property(nonatomic,strong)NSString *fileSize;
-// 0:@"Video" ;1:@"Audio";2:@"Image";3:@"File"4:Record
 @property(nonatomic,strong)NSString *fileType;
 //是否是第一次接受数据，如果是则不累加第一次返回的数据长度，之后变累加
 @property(nonatomic)BOOL isFirstReceived;

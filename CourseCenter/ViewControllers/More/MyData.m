@@ -11,6 +11,7 @@
 #import "DetailData.h"
 #import "OCourseInfo.h"
 #import "FileInfo.h"
+#import "DetailDataCell.h"
 @interface MyData ()
 {
     UISegmentedControl *seg;
@@ -35,6 +36,7 @@
     [seg addTarget:self action:@selector(segValueChange:) forControlEvents:UIControlEventValueChanged];
     self.navigationItem.titleView = seg;
     self.tableView.tableFooterView=[[UIView alloc]init];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailDataCell" bundle:nil] forCellReuseIdentifier:@"DetailDataCell"];
     self.httpManager = [[CCHttpManager alloc]init];
      self.dataArray=[[NSMutableArray array]init];
     [self kLoadData];
@@ -42,11 +44,19 @@
 //课程资料
 -(void)kLoadData
 {
-    NSInteger role=[[[NSUserDefaults standardUserDefaults]objectForKey:@"role"]integerValue];
+    int role=[[[NSUserDefaults standardUserDefaults]objectForKey:@"role"]intValue];
+    if(role==4)
+    {
+        role=2;
+    }else
+    {
+        role=1;
+    }
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppOCNameListWithrole:1 IsHistroy:NO finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppOCNameListWithrole:role IsHistroy:-1 finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
+            self.dataArray=nil;
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
@@ -61,12 +71,13 @@
 -(void)mLoadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppFileCountWithOCID:161 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppFileSearchwithSearchkey:nil OCID:0 FileType:1 PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
+            self.dataArray=nil;
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                 fileInfo=self.reob.resultObject;
+                self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
                 return ;
             }
@@ -77,11 +88,9 @@
 - (void)segValueChange:(UISegmentedControl *)myseg {
     if (myseg.selectedSegmentIndex == 0) {
         [self kLoadData];
-        [_tableView reloadData];
     }
     else {
         [self mLoadData];
-        [_tableView reloadData];
     }
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -90,48 +99,26 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    switch (seg.selectedSegmentIndex) {
-        case 0:
-            return _dataArray.count;
-        case 1:
-            return 4;
-        default:
-            return 0;
-    }
+    return _dataArray.count;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIndentifier1 = @"cell1";
-    static NSString *cellIndentifier2 = @"cell2";
-    UITableViewCell *cell =seg.selectedSegmentIndex==0? [tableView dequeueReusableCellWithIdentifier:cellIndentifier1]:[tableView dequeueReusableCellWithIdentifier:cellIndentifier2];
-    if (!cell) {
-        cell =seg.selectedSegmentIndex==0?[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier1]:[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier2];
-    }
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text =((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Name;
-    if (seg.selectedSegmentIndex==1) {
-        switch (indexPath.row) {
-            case 0:
-                cell.imageView.image=[UIImage imageNamed:@"icon_datum1"];
-                cell.textLabel.text =[NSString stringWithFormat:@"全部资料 (%d)",fileInfo.AllCount];
-                break;
-            case 1:
-                cell.imageView.image=[UIImage imageNamed:@"icon_document"];
-                cell.textLabel.text =[NSString stringWithFormat:@"文稿资料 (%d)",fileInfo.ElseCount];
-                break;
-            case 2:
-                cell.imageView.image=[UIImage imageNamed:@"icon_photo1"];
-                cell.textLabel.text =[NSString stringWithFormat:@"图片资料 (%d)",fileInfo.PicCount];
-                break;
-            case 3:
-                cell.imageView.image=[UIImage imageNamed:@"icon_video1"];
-                cell.textLabel.text =[NSString stringWithFormat:@"视频资料 (%d)",fileInfo.VideoCount];
-                break;
-            default:
-                break;
+    if (seg.selectedSegmentIndex==0) {
+        static NSString *cellIndentifier1 = @"cell1";
+        UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:cellIndentifier1];
+        if (!cell) {
+            cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier1];
         }
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        cell.textLabel.text =((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Name;
+        return cell;
+    }else
+    {
+        DetailDataCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"DetailDataCell"];
+        cell.fileInfo=[_dataArray objectAtIndex:indexPath.row];
+        return cell;
     }
-    return cell;
+    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -142,24 +129,16 @@
         [self.navigationController pushViewController:courseData animated:YES];
     }else
     {
-        DetailData *detailData=[[DetailData alloc]init];
-        switch (indexPath.row) {
-            case 0:
-                detailData.title=@"全部资料";
-                break;
-            case 1:
-                detailData.title=@"文稿资料";
-                break;
-            case 2:
-                detailData.title=@"图片资料";
-                break;
-            case 3:
-                detailData.title=@"视频资料";
-                break;
-            default:
-                break;
-        }
-        [((AppDelegate *)app).nav pushViewController:detailData animated:YES];
+        
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (seg.selectedSegmentIndex==0) {
+        return 44;
+    }else
+    {
+        return 50;
     }
 }
 - (void)didReceiveMemoryWarning {

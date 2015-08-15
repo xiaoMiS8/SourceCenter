@@ -92,7 +92,7 @@ static dispatch_once_t onceToken;
             FileModel *file = [[FileModel alloc]init];
             file.fileID=[dic objectForKey:@"fileid"];
             file.fileName = [dic objectForKey:@"filename"];
-            file.fileType = [file.fileName pathExtension ];
+            file.fileType = [dic objectForKey:@"filetype"];
             file.fileSize = [dic objectForKey:@"filesize"];
             file.targetPath = [dic objectForKey:@"filepath"];
             file.time = [dic objectForKey:@"time"];
@@ -130,7 +130,7 @@ static dispatch_once_t onceToken;
  *	@param 	name 	文件名
  *	@param 	targetPath 	目标路径
  */
--(void)downFileUrl:(NSString*) urlStr filename:(NSString*)name filetarget:(NSString*)targetPath fileid:(NSString *)fileid;
+-(void)downFileUrl:(NSString*) urlStr filename:(NSString*)name filetarget:(NSString*)targetPath fileid:(NSString *)fileid fileType:(NSString *)type;
 {
     self.TargetSubPath=targetPath;
     _fileInfo=[[FileModel alloc]init];
@@ -138,7 +138,7 @@ static dispatch_once_t onceToken;
     _fileInfo.fileName=name;
     _fileInfo.fileURL=urlStr;
     _fileInfo.time=[CommonHelper dateToString:[NSDate date]];
-    _fileInfo.fileType=[name pathExtension];
+    _fileInfo.fileType=type;
     //本地若无相应文件夹 创建文件夹
     targetPath=[CommonHelper getTargetPathWithBasepath:_basePath subpath:targetPath];
     //本地储存路径
@@ -286,7 +286,7 @@ static dispatch_once_t onceToken;
     FileModel *file=[[FileModel alloc]init];
     file.fileID=[dic objectForKey:@"fileid"];
     file.fileName = [dic objectForKey:@"filename"];
-    file.fileType = [file.fileName pathExtension ];
+    file.fileType = [dic objectForKey:@"filetype"];
     file.fileURL = [dic objectForKey:@"fileurl"];
     file.fileSize = [dic objectForKey:@"filesize"];
     file.fileReceivedSize= [dic objectForKey:@"filerecievesize"];
@@ -312,7 +312,7 @@ static dispatch_once_t onceToken;
  */
 -(void)saveDownloadFile:(FileModel*)fileinfo
 {
-    NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileID,@"fileid",fileinfo.fileName,@"filename",fileinfo.fileURL,@"fileurl",fileinfo.time,@"time",_basePath,@"basepath",_TargetSubPath,@"tarpath" ,fileinfo.fileSize,@"filesize",fileinfo.fileReceivedSize,@"filerecievesize",nil,@"fileimage",nil];
+    NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileID,@"fileid",fileinfo.fileName,@"filename",fileinfo.fileType,@"filetype",fileinfo.fileURL,@"fileurl",fileinfo.time,@"time",_basePath,@"basepath",_TargetSubPath,@"tarpath" ,fileinfo.fileSize,@"filesize",fileinfo.fileReceivedSize,@"filerecievesize", nil];
     NSString *plistPath = [fileinfo.tempPath stringByAppendingPathExtension:@"plist"];
     if (![filedic writeToFile:plistPath atomically:YES]) {
         NSLog(@"write plist fail");
@@ -408,7 +408,7 @@ static dispatch_once_t onceToken;
     NSMutableArray *finishedinfo = [[NSMutableArray alloc]init];
     for (FileModel *fileinfo in self.finishedlist) {
         
-        NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileID,@"fileid",fileinfo.fileName,@"filename",fileinfo.time,@"time",fileinfo.fileSize,@"filesize",fileinfo.targetPath,@"filepath",nil,@"fileimage", nil];
+        NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileID,@"fileid",fileinfo.fileType,@"filetype",fileinfo.fileName,@"filename",fileinfo.time,@"time",fileinfo.fileSize,@"filesize",fileinfo.targetPath,@"filepath", nil];
         [finishedinfo addObject:filedic];
     }
     NSString *document = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];

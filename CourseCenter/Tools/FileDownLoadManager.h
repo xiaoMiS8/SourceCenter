@@ -34,7 +34,7 @@
 
 +(FileDownLoadManager *) sharedFilesDownManage;
 +(FileDownLoadManager *) sharedFilesDownManageWithBasepath:(NSString *)basepath TargetPathArr:(NSArray *)targetpaths;
--(void)downFileUrl:(NSString*) urlStr filename:(NSString*)name filetarget:(NSString*)targetPath fileid:(NSString *)fileid;
+-(void)downFileUrl:(NSString*) urlStr filename:(NSString*)name filetarget:(NSString*)targetPath fileid:(NSString *)fileid fileType:(NSString *)type;
 -(NSMutableArray *)getTempFiles;
 - (void)keepOnNewASINetworkQueueWithGuid:(FileModel*)fileInfo;
 -(void)saveFinishedFile;
