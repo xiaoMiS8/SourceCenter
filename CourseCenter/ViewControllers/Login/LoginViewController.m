@@ -50,6 +50,7 @@
                 UserInfo *info=(UserInfo *)self.reob.resultObject;
                 [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",info.userType] forKey:@"role"];
                 [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%ld",info.userID]forKey:@"userID"];
+                [[NSUserDefaults standardUserDefaults] setObject:info.userImg forKey:@"userImg"];
 //                [[NSUserDefaults standardUserDefaults]setObject:password forKey:@"password"];
                 [[NSUserDefaults standardUserDefaults]synchronize];
                 if (self.block) {

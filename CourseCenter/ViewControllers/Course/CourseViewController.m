@@ -18,6 +18,7 @@
 #import "TPViewController.h"
 #import "LineNavigationController.h"
 #import "ReadViewController.h"
+#import "UIImageView+WebCache.h"
 static NSInteger number=0;
 @interface CourseViewController ()
 {
@@ -71,7 +72,8 @@ static NSInteger number=0;
 }
 - (void)setCenterImg:(UIImageView *)centerImg {
     _centerImg = centerImg;
-     centerImg.image = [UIImage imageNamed:@"iconpro"];
+    NSString *userImg = [[NSUserDefaults standardUserDefaults] objectForKey:@"userImg"];
+    [centerImg sd_setImageWithURL:[NSURL URLWithString:userImg] placeholderImage:[UIImage imageNamed:@"iconpro"]];
 }
 
 - (void)initmanager {
