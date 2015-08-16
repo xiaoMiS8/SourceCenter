@@ -16,7 +16,7 @@
     ///服务器IP
 #define kServerIP           @"http://203.156.198.20"
     ///服务器端口号
-#define kServerPort         @":8080"
+#define kServerPort         @"/AppServer"
 
 ////***********正式环境************/
 //    ///服务器IP

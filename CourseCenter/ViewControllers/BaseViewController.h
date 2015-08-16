@@ -13,4 +13,5 @@
 - (void)setupCustomBackWithImage:(NSString *)imagename title:(NSString *)title;
 - (void)setupCustomRightWithtitle:(NSString *)title target:(id)tar action:(SEL)act;
 - (void)setupCustomRightWithImage:(UIImage *)image target:(id)tar action:(SEL)act;
+- (void)setupCustomLeftWithtitle:(NSString *)title target:(id)tar action:(SEL)act;
 @end

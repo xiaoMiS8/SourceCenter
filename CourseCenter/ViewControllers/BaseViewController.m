@@ -31,6 +31,19 @@
     self.navigationItem.backBarButtonItem = backItem;
 }
 /**
+ *	@brief	设置视图控制器的leftBarButtonItemWithTitle
+ *
+ *	@param 	title   标题
+ *	@param 	tar     事件响应对象
+ *	@param 	act     sel事件
+ */
+- (void)setupCustomLeftWithtitle:(NSString *)title target:(id)tar action:(SEL)act
+{
+    UIBarButtonItem *leftItem=[[UIBarButtonItem alloc]initWithTitle:title style:UIBarButtonItemStylePlain target:tar action:act];
+    //导航栏左右侧按钮赋值
+    self.navigationItem.leftBarButtonItem=leftItem;
+}
+/**
  *	@brief	设置视图控制器的rightBarButtonItemWithTitle
  *
  *	@param 	title   标题

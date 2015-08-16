@@ -8,30 +8,42 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FCourseViewController">
             <connections>
                 <outlet property="tableView" destination="VfS-Ln-Dtn" id="5A8-pz-T5W"/>
+                <outlet property="tishi" destination="63s-FN-nGk" id="EiP-SU-h5L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VfS-Ln-Dtn">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="fe2-N0-UPB"/>
                         <outlet property="delegate" destination="-1" id="9FN-Ic-a2T"/>
                     </connections>
                 </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此功能暂未对教师开放,敬请期待!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63s-FN-nGk">
+                    <rect key="frame" x="10" y="156.5" width="300" height="55"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="VfS-Ln-Dtn" secondAttribute="trailing" id="3yE-Bb-Jcq"/>
                 <constraint firstItem="VfS-Ln-Dtn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BYU-mi-bTa"/>
+                <constraint firstAttribute="trailing" secondItem="63s-FN-nGk" secondAttribute="trailing" constant="10" id="ZHF-7g-4af"/>
+                <constraint firstAttribute="centerX" secondItem="63s-FN-nGk" secondAttribute="centerX" id="asK-0Y-Z0t"/>
+                <constraint firstAttribute="centerY" secondItem="63s-FN-nGk" secondAttribute="centerY" constant="100" id="dbk-G2-LGZ"/>
                 <constraint firstItem="VfS-Ln-Dtn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="evW-nZ-4hb"/>
+                <constraint firstItem="63s-FN-nGk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="pDH-TO-bjN"/>
                 <constraint firstAttribute="bottom" secondItem="VfS-Ln-Dtn" secondAttribute="bottom" constant="49" id="vDg-60-T3m"/>
             </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
 </document>

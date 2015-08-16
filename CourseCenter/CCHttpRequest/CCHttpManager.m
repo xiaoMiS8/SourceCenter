@@ -62,9 +62,10 @@
     }];
 }
 
-- (void)getSpecialtyTypeTreeWithParentID:(long)ParentID finished:(FinishedBlock)finished {
+- (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+    SearchKey:(NSString *)searchKey finished:(FinishedBlock)finished {
     [IndexActions getSpecialtyTypeTreeWithParentID:ParentID
-                                          finished:^(EnumServerStatus status, NSObject *object) {
+                                        SearchKey:searchKey finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
@@ -380,7 +381,7 @@
 
 - (void)getAppForumTopicListWithOCID:(long)OCID
                          ForumTypeID:(long)ForumTypeID
-                           IsEssence:(BOOL)IsEssence
+                           IsEssence:(int)IsEssence
                            IsMyStart:(BOOL)IsMyStart
                             IsMyJoin:(BOOL)IsMyJoin
                            SearchKey:(NSString *)SearchKey
@@ -705,7 +706,7 @@
 
 - (void)getAffairsListWithType:(int)Type
                           OCID:(long)OCID
-                     IsHistory:(BOOL)IsHistory
+                     IsHistory:(int)IsHistory
                      PageIndex:(int)PageIndex
                       PageSize:(int)PageSize
                       finished:(FinishedBlock)finished {
@@ -724,7 +725,7 @@
     [AffairsAction updateOCAffairsStatusWithAffairID:AffairID
                                               Status:Status
                                             finished:^(EnumServerStatus status, NSObject *object) {
-        finished(Status, object);
+        finished(status, object);
     }];
 }
 

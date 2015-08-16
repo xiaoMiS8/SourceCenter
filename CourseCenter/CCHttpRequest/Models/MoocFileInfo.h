@@ -35,6 +35,8 @@
 @property(nonatomic, assign) long       MoocFileID;
     //在线课程ID
 @property(nonatomic, assign) long       OCID;
+    //父章节ID
+@property (nonatomic,assign) long        ParentID;
     //章节ID
 @property(nonatomic, assign) long       ChapterID;
     //文件ID
@@ -68,7 +70,7 @@
     //学习百分比多少才算完成
 @property(nonatomic, assign) float      VideoNeedRate;
     //是否允许学习
-@property(nonatomic, assign) BOOL       IsAllowStudy;
+@property(nonatomic, assign) int       IsAllowStudy;
     // 0
 @property(nonatomic, assign) int        Seconds;
 

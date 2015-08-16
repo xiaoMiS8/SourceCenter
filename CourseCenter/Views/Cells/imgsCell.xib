@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="imgsCell" rowHeight="197" id="KGk-i7-Jjw" customClass="imgsCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="197"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LfZ-40-sjj">
+                        <rect key="frame" x="8" y="38" width="304" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="E8H-72-34v"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="LfZ-40-sjj" secondAttribute="bottom" id="2bt-Es-DhR"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LfZ-40-sjj" secondAttribute="trailing" id="c71-Fq-voS"/>
+                    <constraint firstItem="LfZ-40-sjj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="cQv-0i-smK"/>
+                    <constraint firstItem="LfZ-40-sjj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="30" id="egc-AP-N0p"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imgsView" destination="LfZ-40-sjj" id="hBp-Jo-Z0x"/>
+            </connections>
+            <point key="canvasLocation" x="248" y="283.5"/>
+        </tableViewCell>
+    </objects>
+</document>

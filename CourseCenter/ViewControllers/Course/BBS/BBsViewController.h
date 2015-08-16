@@ -13,6 +13,8 @@
 @property(nonatomic, strong) UIButton *rightBtn1;
 @property(nonatomic, strong) UIButton *rightBtn2;
 
+@property(nonatomic, assign) long OCID;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

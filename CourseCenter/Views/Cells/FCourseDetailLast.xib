@@ -425,7 +425,7 @@
                 <outlet property="totalG" destination="Jjk-hz-lUQ" id="3lb-4h-gxP"/>
                 <outlet property="totalP" destination="wsF-Td-JaM" id="EEw-4c-bmM"/>
             </connections>
-            <point key="canvasLocation" x="303" y="159"/>
+            <point key="canvasLocation" x="261" y="155"/>
         </tableViewCell>
     </objects>
 </document>

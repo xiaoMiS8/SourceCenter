@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BBsViewController.h"
 #import "TPViewController.h"
-
+#import "HWorkViewController.h"
 
 @interface CourseTabbarViewController :BaseViewController
 

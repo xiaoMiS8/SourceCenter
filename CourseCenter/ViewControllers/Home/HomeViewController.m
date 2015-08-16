@@ -17,6 +17,7 @@
 @interface HomeViewController ()
 {
     NSString *loginState;
+    NSString *userId;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
@@ -40,6 +41,18 @@
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     [self isLoginOrCourse];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    if ([_isFanhui isEqualToString:@"YES"]) {
+        _seg.selectedSegmentIndex = 0;
+        [self segValueChange:0];
+        _isFanhui=nil;
+    }
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]&&[[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"]isEqualToString:@"1"]) {
+        [self isLoginOrCourse];
+        userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
+    }
 }
 -(void)isLoginOrCourse
 {
@@ -99,7 +112,7 @@
     loginSearchVC.block=^()
     {
         ((AppDelegate *)app).tabar.OneLoginState=@"1";
-        [self isLoginOrCourse];
+        //[self isLoginOrCourse];
     };
     [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
 }
@@ -136,8 +149,14 @@
 
 - (void)search
 {
-    CourseSearchViewController *courseSearchVC = [CourseSearchViewController new];
-    [((AppDelegate *)app).nav pushViewController:courseSearchVC animated:YES];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        [Tool showAlertView:@"提示" withMessage:@"请先登录!" withTarget:self withCancel:@"确定" other:nil];
+    }else
+    {
+        CourseSearchViewController *courseSearchVC = [CourseSearchViewController new];
+        [((AppDelegate *)app).nav pushViewController:courseSearchVC animated:YES];
+    }
+    
 }
 
 - (void)segValueChange:(UISegmentedControl *)seg {
@@ -173,6 +192,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell"];
+    cell.hVC=self;
     cell.oCourse=[self.dataArray objectAtIndex:indexPath.row];
     return cell;
 }

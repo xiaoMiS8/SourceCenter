@@ -52,6 +52,7 @@
     {
         _image.image=[UIImage imageNamed:@"other"];
     }
+    
 
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

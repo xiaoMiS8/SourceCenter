@@ -14,6 +14,9 @@
 #import "OCFCFileInfo.h"
 #import "SourceInfo.h"
 #import "FCourseDetailLast.h"
+#import "GroupInfoViewController.h"
+#import "HWorkDetailViewController.h"
+#import "BBsDetailViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 static NSInteger  number=0;
 static NSInteger  total=0;
@@ -46,6 +49,7 @@ static NSInteger  total=0;
     _array=[[NSMutableArray alloc]init];
     self.titles = @[@"小组信息",@"学习资料",@"作业测试",@"论题互动",@"线下课堂",@"互相评价",@"我的得分"];
     number=0;
+    total=0;
     [MBProgressHUD showMessage:nil];
     [self loadData];
     [self loadScore];
@@ -54,8 +58,8 @@ static NSInteger  total=0;
 
 -(void)loadData
 {
-    [self.httpManager getOCFCLearnNavInfowithOCID:570
-     FCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getOCFCLearnNavInfowithOCID:self.OCID
+     FCID:self.FCID finished:^(EnumServerStatus status, NSObject *object) {
          total+=1;
          if (total==3) {
              [MBProgressHUD hideHUD];
@@ -83,7 +87,7 @@ static NSInteger  total=0;
 }
 -(void)loadScore
 {
-    [self.httpManager getAppOCFCScoreRankWithFCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppOCFCScoreRankWithFCID:self.FCID finished:^(EnumServerStatus status, NSObject *object) {
          total+=1;
          if (total==3) {
              [MBProgressHUD hideHUD];
@@ -101,8 +105,8 @@ static NSInteger  total=0;
 }
 -(void)loadGroupInfo
 {
-    [self.httpManager getAppFCGroupWithOCID:570
-     FCID:175 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppFCGroupWithOCID:self.OCID
+     FCID:self.FCID finished:^(EnumServerStatus status, NSObject *object) {
         total+=1;
         if (total==3) {
             [MBProgressHUD hideHUD];
@@ -322,9 +326,23 @@ static NSInteger  total=0;
         return 44;
     }
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==2) {
+        HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+        [self.navigationController pushViewController:hwdVC animated:YES];
+    }else if(indexPath.section==3)
+    {
+        BBsDetailViewController *bbsDetailVC = [[BBsDetailViewController alloc] init];
+        [self.navigationController pushViewController:bbsDetailVC animated:YES];
+    }
+}
 -(void)pushMemberViewController
 {
-    
+    GroupInfoViewController *groupInfo=[[GroupInfoViewController alloc]init];
+    groupInfo.OCID=self.OCID;
+    groupInfo.FCID=self.FCID;
+    [self.navigationController pushViewController:groupInfo animated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

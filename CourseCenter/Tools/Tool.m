@@ -291,6 +291,11 @@
     dispatch_resume(_timer);
     
 }
++(void)showAlertView:(NSString *)title withMessage:(NSString *)message withTarget:(id)target  withCancel:(NSString *)btn1 other:(NSString *)btn2
+{
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:title message:message delegate:target cancelButtonTitle:btn1 otherButtonTitles:btn2, nil];
+    [alert show];
+}
 //+ (void)saveCookies{
 //    NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

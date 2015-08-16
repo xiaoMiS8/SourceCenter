@@ -43,7 +43,7 @@
     ///试卷类型
 @property(nonatomic, assign) int BuildMode;
     ///快速设分
-@property(nonatomic, assign) int FastScore;
+@property(nonatomic, strong) NSString * FastScore;
     ///未交数
 @property(nonatomic, assign) int UncommittedCount;
     ///待批数

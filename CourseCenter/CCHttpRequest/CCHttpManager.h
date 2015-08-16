@@ -87,6 +87,7 @@
  *  @param finished finished description
  */
 - (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+                                SearchKey:(NSString *)searchKey
                                 finished:(FinishedBlock)finished;
 /**
  *  Mooc基本信息
@@ -433,7 +434,7 @@
  */
 - (void)getAppForumTopicListWithOCID:(long)OCID
                          ForumTypeID:(long)ForumTypeID
-                           IsEssence:(BOOL)IsEssence
+                           IsEssence:(int)IsEssence
                            IsMyStart:(BOOL)IsMyStart
                             IsMyJoin:(BOOL)IsMyJoin
                            SearchKey:(NSString *)SearchKey
@@ -755,7 +756,7 @@
  */
 - (void)getAffairsListWithType:(int)Type
                           OCID:(long)OCID
-                     IsHistory:(BOOL)IsHistory
+                     IsHistory:(int)IsHistory
                      PageIndex:(int)PageIndex
                       PageSize:(int)PageSize
                       finished:(FinishedBlock)finished;

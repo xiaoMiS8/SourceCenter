@@ -10,8 +10,8 @@
 #import "UIImageView+WebCache.h"
 #import "HomeDetailViewController.h"
 #import "ApplyViewController.h"
+#import "TutorialViewController.h"
 #define ICONIMG @"iconpro"
-#define BAGNIMG @"nav_bg"
 #define STUDY   @"study"
 #define SINGUP  @"SINGUP"
 @interface HomeListCell ()
@@ -45,7 +45,7 @@
     if (_oCourse==nil) {
         _oCourse=oCourse;
     }
-    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
+    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
     [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
     [self.nameLabel setText:oCourse.TeacherName];
     [self.collegeLabel setText:oCourse.OrganizationName];
@@ -74,16 +74,24 @@
     UIButton *btn=sender;
     if (![btn.titleLabel.text isEqualToString:@" "]) {
         ApplyViewController *applyVc = [[ApplyViewController alloc]init];
+        applyVc.block=^()
+        {
+            _hVC.isFanhui=@"YES";
+        };
         applyVc.OCID=btn.tag;
         [((AppDelegate *)app).nav pushViewController:applyVc animated:YES];
         return;
     }
-    HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
-    homeDetailVc.OCID=btn.tag;
-    homeDetailVc.teacherImgUrl=_oCourse.TeacherImgUrl;
-    homeDetailVc.topImgUrl=_oCourse.CourseImgUrl;
-    homeDetailVc.RegStatus=_oCourse.RegStatus;
-    [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
+    TutorialViewController *tutoriaVC = [[TutorialViewController alloc] init];
+    tutoriaVC.title=@"教程";
+    tutoriaVC.OCID=btn.tag;
+    
+//    HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
+//    homeDetailVc.OCID=btn.tag;
+//    homeDetailVc.teacherImgUrl=_oCourse.TeacherImgUrl;
+//    homeDetailVc.topImgUrl=_oCourse.CourseImgUrl;
+//    homeDetailVc.RegStatus=_oCourse.RegStatus;
+    [((AppDelegate *)app).nav pushViewController:tutoriaVC animated:YES];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

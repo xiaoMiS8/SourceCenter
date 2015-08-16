@@ -13,7 +13,10 @@
 @interface FCourseViewController ()
 {
     FCourseInfo *info;
+    NSString *role;
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *tishi;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
@@ -27,15 +30,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"FCourseCell" bundle:nil] forCellReuseIdentifier:@"FCourseCell"];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     fCourseDetailVC=[[FCourseDetailViewController alloc]init];
-    [self loadData];
+    [self isTeacherOrStudent];
+}
+
+-(void)isTeacherOrStudent
+{
+    role=[[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if (![role isEqualToString:@"4"]) {
+        self.tableView.hidden=YES;
+        _tishi.hidden=NO;
+    }else
+    {
+        self.tableView.hidden=NO;
+        _tishi.hidden=YES;
+        [self loadData];
+    }
 }
 -(void)loadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppOCFCListWithOCID:570
+    [self.httpManager getAppOCFCListWithOCID:self.ocourse.OCID
     finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
@@ -73,6 +91,8 @@
     //点击松开后,颜色恢复
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     fCourseDetailVC.title=((FCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Title;
+    fCourseDetailVC.OCID=self.ocourse.OCID;
+    fCourseDetailVC.FCID=((FCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).FCID;
     [self pushViewController:fCourseDetailVC];
 }
 - (void)didReceiveMemoryWarning {

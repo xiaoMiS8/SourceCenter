@@ -11,6 +11,7 @@
 @interface ApplyViewController ()
 {
     UISegmentedControl *myseg;
+    UILabel *label;
 }
 @property(nonatomic,assign) NSInteger myrow;
 @property(nonatomic, strong)CCHttpManager *httpManager;
@@ -35,15 +36,15 @@
     self.navigationItem.titleView =myseg;
     [myseg addTarget:self action:@selector(segValueChange:) forControlEvents:UIControlEventValueChanged];
     UIView *view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, Swidth, 40)];
-    UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(-1, -1, Swidth+2, 40)];
-    lable.layer.borderColor=[UIColor grayColor].CGColor;
-    lable.layer.borderWidth=1;
-    lable.font=[UIFont systemFontOfSize:14];
-    lable.numberOfLines=0;
-    lable.textAlignment=NSTextAlignmentCenter;
-    lable.text=@"请选择网络招生班级,点击下方注册按钮报名:";
-    [view addSubview:lable];
+    label=[[UILabel alloc]initWithFrame:CGRectMake(-1, -1, Swidth+2, 40)];
+    label.layer.borderColor=[UIColor grayColor].CGColor;
+    label.layer.borderWidth=1;
+    label.font=[UIFont systemFontOfSize:14];
+    label.numberOfLines=0;
+    label.textAlignment=NSTextAlignmentCenter;
+    [view addSubview:label];
     _tableView.tableHeaderView=view;
+    _tableView.tableFooterView=[[UIView alloc]init];
     [self segValueChange:0];
 }
 -(void)LoadData
@@ -55,6 +56,12 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
+                if (_dataArray.count==0) {
+                   label.text=@"暂无网络招生班级";
+                }else
+                {
+                  label.text=@"请选择网络招生班级,点击下方注册按钮报名:";
+                }
                 [_tableView reloadData];
                 return ;
             }
@@ -134,6 +141,10 @@
                     self.reob=(ResponseObject *)object;
                     if ([self.reob.errrorCode isEqualToString:@"0"]) {
                         [MBProgressHUD showSuccess:REGISTSUCCESS];
+                        if (self.block) {
+                            self.block();
+                        }
+                        [self.navigationController popViewControllerAnimated:YES];
                         return ;
                     }else{
                         [MBProgressHUD showError:self.reob.errorMessage];
@@ -147,6 +158,10 @@
     }else
     {
         if (_myrow==100000) {
+            if (self.block) {
+                self.block();
+            }
+            [self.navigationController popViewControllerAnimated:YES];
           [MBProgressHUD showError:REGISTERROR1];
         }else
         {
@@ -158,7 +173,10 @@
                     self.reob=(ResponseObject *)object;
                     if ([self.reob.errrorCode isEqualToString:@"0"]) {
                         [MBProgressHUD showSuccess:REGISTSUCCESS];
-                        [self.navigationController popoverPresentationController];
+                        if (self.block) {
+                            self.block();
+                        }
+                        [self.navigationController popViewControllerAnimated:YES];
                         return ;
                     }else{
                         [MBProgressHUD showError:self.reob.errorMessage];

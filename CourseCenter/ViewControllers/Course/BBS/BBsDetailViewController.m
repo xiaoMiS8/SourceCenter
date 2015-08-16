@@ -1,18 +1,21 @@
-//
-//  BBsDetailViewController.m
-//  CourseCenter
-//
-//  Created by jian on 15/8/3.
-//  Copyright © 2015年 line0.com. All rights reserved.
-//
+    //
+    //  BBsDetailViewController.m
+    //  CourseCenter
+    //
+    //  Created by jian on 15/8/3.
+    //  Copyright © 2015年 line0.com. All rights reserved.
+    //
 
 #import "BBsDetailViewController.h"
 #import "BBsDetailCell.h"
 #import "BBSResponeCell.h"
 #import "TopicSetView.h"
+#import "ShareToViewController.h"
 @interface BBsDetailViewController ()<UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bomView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+
+@property(nonatomic, strong) TopicSetView *topSetView;
 
 @property(nonatomic, assign) long parentID;
 
@@ -37,6 +40,10 @@
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [self.topSetView hide];
+}
+
 - (void)setBomView {
     self.textView.layer.cornerRadius = 3;
     self.textView.layer.masksToBounds = YES;
@@ -50,8 +57,98 @@
 }
 
 - (void)topicSet {
-    TopicSetView *topicSetView = [[TopicSetView alloc] initWithFrame:self.view.frame];
-    [topicSetView show];
+    if (!self.topSetView) {
+        TopicSetView *topicSetView = [[TopicSetView alloc] initWithFrame:self.view.frame andCount:4];
+        topicSetView.bgview = self.view;
+        __weak typeof(topicSetView) wtop = topicSetView;
+        topicSetView.ClickBlock = ^(NSInteger index) {
+            switch (index) {
+                case 1:
+                {
+                    [self topicSetIsTop];
+                
+                
+                }
+                    break;
+                case 2:
+                {
+                    [self topicSetIsEssence];
+                
+                }
+                    break;
+                case 3:
+                {
+                    [self topicTopicType];
+                
+                }
+                    break;
+                case 4:
+                {
+                    [self topicDelete];
+                
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            [wtop hide];
+        };
+        self.topSetView = topicSetView;
+    }
+    [self.topSetView show];
+}
+
+    //置顶
+- (void)topicSetIsTop {
+    __weak typeof(self) wself = self;
+    [self.manager setAppForumTopicIsTopWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
+        if (status == Enum_SUCCESS) {
+            [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
+            wself.topicSetBlcok();
+            [wself.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+    //加精
+- (void)topicSetIsEssence {
+    __weak typeof(self) wself = self;
+    [self.manager setAppForumTopicIsEssenceWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
+        if (status == Enum_SUCCESS) {
+            [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
+            wself.topicSetBlcok();
+            [wself.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+    //删除该帖子
+- (void)topicDelete {
+    __weak typeof(self) wself = self;
+    [self.manager deleteForumTopicwithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
+        if (status == Enum_SUCCESS) {
+            [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
+            wself.topicSetBlcok();
+            [wself.navigationController popViewControllerAnimated:YES];
+        }
+    }];
+}
+
+- (void)topicTopicType {
+     __weak typeof(self) wself = self;
+    ShareToViewController *shareToVC = [ShareToViewController new];
+    shareToVC.doneBlock = ^(NSArray *forums) {
+        [self.manager addAppForumTopicTypeWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
+            if (status == Enum_SUCCESS) {
+                [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
+                wself.topicSetBlcok();
+                [wself.navigationController popViewControllerAnimated:YES];
+            }
+        }];
+    };
+    shareToVC.OCID = self.OCID;
+    [self.navigationController pushViewController:shareToVC animated:YES];
+    
 }
 
 - (void)initManager {
@@ -106,11 +203,24 @@
     if (indexPath.row == 0) {
         BBsDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BBsDetailCell"];
         cell.topic = self.topic;
+        cell.agreeBlock = ^ {
+            [self.manager updateForumMyIsGoodWithTopicID:self.OCID ResponseID:0 finished:^(EnumServerStatus status, NSObject *object) {
+                 [self reloadData];
+                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
+            }];
+           
+        };
         return cell;
     }
     else {
         BBSResponeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BBSResponeCell"];
         cell.response = self.respones[indexPath.row - 1];
+        cell.agreeBlcok = ^{
+            [self.manager updateForumMyIsGoodWithTopicID:self.OCID ResponseID:((TopicResponseInfo *)self.respones[indexPath.row - 1]).ResponseID finished:^(EnumServerStatus status, NSObject *object) {
+                [self reloadData];
+                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
+            }];
+        };
         return cell;
     }
 }
@@ -141,7 +251,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-   
+    
 }
 
 

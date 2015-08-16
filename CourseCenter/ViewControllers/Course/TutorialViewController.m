@@ -9,6 +9,8 @@
 #import "TutorialViewController.h"
 #import "TuorialDetailViewController.h"
 #import "MoocFileInfo.h"
+#import "HWorkDetailViewController.h"
+#import "PlayViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 static NSInteger tag;
 @interface TutorialViewController ()
@@ -17,7 +19,9 @@ static NSInteger tag;
     NSMutableDictionary *_dict;
     NSMutableArray *_arrayData;
     NSMutableArray *_moocFileArray;
+    NSString *role;
 }
+@property (weak, nonatomic) IBOutlet UILabel *tishi;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
@@ -32,12 +36,25 @@ static NSInteger tag;
     _array=[NSMutableArray arrayWithCapacity:0];
     _moocFileArray=[NSMutableArray arrayWithCapacity:0];
     tag=0;
-    [self loadData];
+    [self isTeacherOrStudent];
+}
+-(void)isTeacherOrStudent
+{
+    role=[[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if (![role isEqualToString:@"4"]) {
+        self.tableView.hidden=YES;
+        _tishi.hidden=NO;
+    }else
+    {
+        self.tableView.hidden=NO;
+        _tishi.hidden=YES;
+        [self loadData];
+    }
 }
 -(void)loadData
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getChapterStudyListwithOCID:1 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getChapterStudyListwithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -66,8 +83,8 @@ static NSInteger tag;
         return ;
     }
     long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:tag]).ChapterID;
-    int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
-    [self.httpManager getOCMoocFileStudyListwithOCID:1 ChapterID:3 FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
+//    int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
+    [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -100,10 +117,17 @@ static NSInteger tag;
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSString *title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
+    NSString *title=nil;
     UIView *view=[[UIView alloc]init];
     view.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
-    view.backgroundColor=[UIColor whiteColor];
+    if (((ChapterInfo *)[_arrayData objectAtIndex:section]).ParentID==0) {
+        view.backgroundColor=[UIColor lightGrayColor];
+        title=[NSString stringWithFormat:@"%@(章)",((ChapterInfo *)[_arrayData objectAtIndex:section]).Title];
+    }else
+    {
+        view.backgroundColor=[UIColor whiteColor];
+        title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
+    }
     view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
     view.layer.borderWidth=0.5;
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, _tableView.frame.size.width-20, 50)];
@@ -114,7 +138,12 @@ static NSInteger tag;
     button.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
     button.backgroundColor=[UIColor clearColor];
     button.tag=section+100;
-    [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
+    if (((ChapterInfo *)[_arrayData objectAtIndex:section]).TestID>0) {
+        [button addTarget:self action:@selector(gotohwVC:) forControlEvents:UIControlEventTouchUpInside];
+    }else
+    {
+        [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
+    }
     [view addSubview:button];
     return view;
 }
@@ -180,9 +209,54 @@ static NSInteger tag;
     }
     [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    TuorialDetailViewController *detailVC = [[TuorialDetailViewController alloc] init];
-    [self pushViewController:detailVC];
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileType==1) {
+        NSInteger num=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).IsAllowStudy;
+        switch (num) {
+            case 0:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 1:{
+                PlayViewController *playVC=[[PlayViewController alloc]init];
+                playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
+                [self presentViewController:playVC animated:YES completion:nil];
+                break;
+            }
+            case 2:{
+                [Tool showAlertView:@"提示" withMessage:@"还未到开始学习时间" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 3:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习完前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 4:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成上一章的测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 5:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习完该章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 6:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成所有章节及测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            default:
+                break;
+        }
+    }else
+    {
+        [Tool showAlertView:@"提示" withMessage:@"请使用第三方软件打开该类型资源" withTarget:self withCancel:@"确定" other:nil];
+    }
+}
+
+-(void)gotohwVC:(UIButton *)but
+{
+    HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+    [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

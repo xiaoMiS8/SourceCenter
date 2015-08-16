@@ -12,7 +12,7 @@
 
 + (void)getAppForumTopicListWithOCID:(long)OCID
                          ForumTypeID:(long)ForumTypeID
-                           IsEssence:(BOOL)IsEssence
+                           IsEssence:(int)IsEssence
                            IsMyStart:(BOOL)IsMyStart
                             IsMyJoin:(BOOL)IsMyJoin
                            SearchKey:(NSString *)SearchKey
@@ -159,18 +159,34 @@
                        Source:(NSString *)Source
                      SourceID:(long)SourceID
                      finished:(FinishedBlock)finished {
-    NSDictionary *parameters = @{kOCID: @(OCID),
-                                 kCourseID: @(CourseID),
-                                 kForumTypeID: @(ForumTypeID),
-                                 kGroupTaskID: @(GroupTaskID),
-                                 kTitle: Title,
-                                 kConten: Conten,
-                                 kTopicType: @(TopicType),
-                                 kTags: Tags,
-                                 kChapterID: @(ChapterID),
-                                 kSource: Source,
-                                 kSourceID: @(SourceID)
-                                 };
+    NSDictionary *parameters = nil;
+    if (Tags) {
+         parameters = @{kOCID: @(OCID),
+                                     kCourseID: @(CourseID),
+                                     kForumTypeID: @(ForumTypeID),
+                                     kGroupTaskID: @(GroupTaskID),
+                                     kTitle: Title,
+                                     kConten: Conten,
+                                     kTopicType: @(TopicType),
+                                     kTags: Tags,
+                                     kChapterID: @(ChapterID),
+                                     kSource: Source,
+                                     kSourceID: @(SourceID)
+                                     };
+    } else {
+        parameters = @{kOCID: @(OCID),
+                       kCourseID: @(CourseID),
+                       kForumTypeID: @(ForumTypeID),
+                       kGroupTaskID: @(GroupTaskID),
+                       kTitle: Title,
+                       kConten: Conten,
+                       kTopicType: @(TopicType),
+                       kChapterID: @(ChapterID),
+                       kSource: Source,
+                       kSourceID: @(SourceID)
+                       };
+    }
+
     [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/ForumTopic_Add"
                                    parameters:parameters
                                  connectClass:Nil
@@ -276,7 +292,7 @@
 + (void)addAppForumTopicTypeWithTopicID:(long)TopicID
                                finished:(FinishedBlock)finished {
     NSDictionary *p = @{kTopicID: @(TopicID)};
-    [CSNetAccessor sendPostAsyncObjectFormUrl:@"Forum/App_ForumTopicType_Add"
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/App_ForumTopicType_Add"
                                    parameters:p
                                  connectClass:Nil
                                      finished:^(EnumServerStatus status, NSObject *object) {
