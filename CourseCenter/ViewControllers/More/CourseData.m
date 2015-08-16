@@ -12,6 +12,7 @@
 @interface CourseData ()
 {
     FileInfo *fileInfo;
+    DetailData *detailData;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic)CCHttpManager *httpManager;
@@ -25,6 +26,8 @@
     // Do any additional setup after loading the view from its nib.
     self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager = [[CCHttpManager alloc]init];
+    detailData= [[DetailData alloc] init];
+    detailData.OCID=self.OCID;
     [self mLoadData];
     
 }
@@ -84,8 +87,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+<<<<<<< HEAD
     DetailData *detailData= [[DetailData alloc]init];
     detailData.OCID=self.OCID;
+=======
+>>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
     switch (indexPath.row) {
         case 0:
             detailData.FileType=-1;

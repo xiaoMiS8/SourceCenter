@@ -231,7 +231,7 @@
 {
     if (self.centerImg == nil) {
         UIImageView *img = [[UIImageView alloc] init];
-        img.bounds = CGRectMake(0, 0, 40, 40);
+        img.frame = CGRectMake(0, 0, 40, 40);
         img.backgroundColor = [UIColor purpleColor];
         img.layer.cornerRadius = 20;
         CourseViewController *courseVC = self.viewcontrollers[2];

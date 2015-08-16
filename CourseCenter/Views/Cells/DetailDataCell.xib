@@ -15,7 +15,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+<<<<<<< HEAD
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="st4-GY-IqQ">
+=======
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="st4-GY-IqQ">
+>>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
                         <rect key="frame" x="18" y="8" width="245" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="GsB-kK-o0n"/>
@@ -31,6 +35,10 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMp-Mw-H63">
+<<<<<<< HEAD
+=======
+                        <rect key="frame" x="46" y="27" width="0.0" height="20"/>
+>>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="HiC-Dq-IY4"/>
                         </constraints>
@@ -38,8 +46,13 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+<<<<<<< HEAD
                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-75-u4A" customClass="CircularProgressButton">
                         <rect key="frame" x="273" y="8" width="39" height="39"/>
+=======
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-75-u4A" customClass="CircularProgressButton">
+                        <rect key="frame" x="273" y="8" width="38.5" height="38.5"/>
+>>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Iw4-75-u4A" secondAttribute="height" multiplier="1:1" id="ifi-PO-dBa"/>
                         </constraints>
