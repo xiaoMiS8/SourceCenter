@@ -12,10 +12,7 @@
 #import "OCourseInfo.h"
 #import "FileInfo.h"
 #import "DetailDataCell.h"
-<<<<<<< HEAD
 #import "PlayViewController.h"
-=======
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
 @interface MyData ()
 {
     UISegmentedControl *seg;
@@ -105,10 +102,7 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
-<<<<<<< HEAD
                 [self dataConvert];
-=======
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
                 [_tableView reloadData];
                 return ;
             }
@@ -257,17 +251,12 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-<<<<<<< HEAD
     if (seg.selectedSegmentIndex==0) {
         return _dataArray.count;
     }else
     {
         return _fileArray.count;
     }
-    
-=======
-    return _dataArray.count;
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -276,7 +265,6 @@
         UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:cellIndentifier1];
         if (!cell) {
             cell =[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier1];
-<<<<<<< HEAD
         }
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text =((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Name;
@@ -326,19 +314,8 @@
         cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
         cell.size.text=@"未下载";
         cell.isFirst=YES;
-=======
-        }
-        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.text =((OCourseInfo *)[_dataArray objectAtIndex:indexPath.row]).Name;
-        return cell;
-    }else
-    {
-        DetailDataCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"DetailDataCell"];
-        cell.fileInfo=[_dataArray objectAtIndex:indexPath.row];
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
         return cell;
     }
-    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -349,22 +326,9 @@
         [self.navigationController pushViewController:courseData animated:YES];
     }else
     {
-<<<<<<< HEAD
         PlayViewController *playVC=[[PlayViewController alloc]init];
         playVC.playUrl=((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileURL;
         [self presentViewController:playVC animated:YES completion:nil];
-=======
-        
-    }
-}
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (seg.selectedSegmentIndex==0) {
-        return 44;
-    }else
-    {
-        return 50;
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

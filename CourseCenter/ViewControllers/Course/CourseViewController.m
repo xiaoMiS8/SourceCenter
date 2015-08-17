@@ -18,10 +18,7 @@
 #import "TPViewController.h"
 #import "LineNavigationController.h"
 #import "ReadViewController.h"
-<<<<<<< HEAD
-=======
 #import "UIImageView+WebCache.h"
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
 static NSInteger number=0;
 @interface CourseViewController ()
 {

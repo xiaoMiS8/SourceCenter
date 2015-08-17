@@ -226,19 +226,21 @@
  *	@brief	设置课程navigationItem
  */
 - (void)addcenterImg
-
-
 {
+    UIView *imgView=[[UIView alloc]init];
+    imgView.frame=CGRectMake(0, 0, 0, 40);
     if (self.centerImg == nil) {
         UIImageView *img = [[UIImageView alloc] init];
-        img.frame = CGRectMake(0, 0, 40, 40);
+        img.frame = CGRectMake((self.navigationItem.titleView.frame.size.height-40)/2,0,40, 40);
         img.backgroundColor = [UIColor purpleColor];
         img.layer.cornerRadius = 20;
+        img.layer.masksToBounds=YES;
         CourseViewController *courseVC = self.viewcontrollers[2];
         courseVC.centerImg = img;
         self.centerImg = img;
+        [imgView addSubview:img];
     }
-    self.navigationItem.titleView = self.centerImg;
+    self.navigationItem.titleView = imgView;
  
 }
 

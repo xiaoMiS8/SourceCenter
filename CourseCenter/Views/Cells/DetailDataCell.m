@@ -36,7 +36,6 @@
         [self stopDownloadFile];
     }
     _btn.selected=!_btn.selected;
-<<<<<<< HEAD
 }
 - (void)downloadFileName
 {
@@ -59,30 +58,6 @@
     {
         _size.text=[NSString stringWithFormat:@"%@/%@",[CommonHelper getFileSizeString:_fileModel.fileReceivedSize],[CommonHelper getFileSizeString:_fileModel.fileSize]];
     }
-=======
-}
-- (void)downloadFileName
-{
-    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != kNotReachable)
-    {
-        [[FileDownLoadManager sharedFilesDownManage] downFileUrl:_fileModel.fileURL filename:_fileModel.fileName filetarget:TARGER fileid:_fileModel.fileID fileType:_fileModel.fileType];
-        [self.parentVC changeFileState];
-    }else{
-        [Tool showAlertView:@"提示" withMessage:@"网络不通,请检查网路" withTarget:nil withCancel:@"确定" other:nil];
-    }
-}
--(void)setFileModel:(FileModel *)fileModel
-{
-    if (_fileModel!=fileModel) {
-        _fileModel=fileModel;
-    }
-    if ([_isFinish isEqualToString:@"YES"]) {
-        _size.text=@"已下载本地";
-    }else
-    {
-        _size.text=[NSString stringWithFormat:@"%@/%@",[CommonHelper getFileSizeString:_fileModel.fileReceivedSize],[CommonHelper getFileSizeString:_fileModel.fileSize]];
-    }
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
     _title.text=_fileModel.fileName;
     if ([_fileModel.fileType integerValue]==1) {
         _image.image=[UIImage imageNamed:@"icon_video2"];
@@ -111,48 +86,6 @@
     {
         _image.image=[UIImage imageNamed:@"other"];
     }
-<<<<<<< HEAD
-}
-- (void)downloadFile
-{
-    if(_fileModel==nil)
-        return;
-    [[FileDownLoadManager sharedFilesDownManage]keepOnNewASINetworkQueueWithGuid:_fileModel];
-    [self.parentVC changeFileState];
-}
-- (void)stopDownloadFile
-{
-    [_request cancel];
-    [(DetailData*)self.parentVC removeASIRequst:_request];
-}
-
-- (void)setRequest:(ASIHTTPRequest *)request
-{
-    if (request == nil) {
-        _request = nil;
-        _btn.selected = YES;
-        _btn.progress = 0;
-        return;
-    }else{
-        _request = nil;
-        _btn.progress = 0;
-        _request = request;
-        [_request setDownloadProgressDelegate:_btn];
-        [_request setShowAccurateProgress:YES];
-        _btn.selected = NO;
-    }
-}
--(void)setPercent
-{
-    [_btn setProgress:[_fileModel.fileReceivedSize floatValue]/[_fileModel.fileSize floatValue]];
-    
-}
-- (void)updateProgressViewWithProgress:(float)progress
-{
-    float cur= [_fileModel.fileSize floatValue]*progress;
-    _size.text=[NSString stringWithFormat:@"%@/%@",[CommonHelper getFileSizeString:[NSString stringWithFormat:@"%f",cur]],[CommonHelper getFileSizeString:_fileModel.fileSize]];
-=======
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
 }
 - (void)downloadFile
 {
@@ -193,7 +126,6 @@
     float cur= [_fileModel.fileSize floatValue]*progress;
     _size.text=[NSString stringWithFormat:@"%@/%@",[CommonHelper getFileSizeString:[NSString stringWithFormat:@"%f",cur]],[CommonHelper getFileSizeString:_fileModel.fileSize]];
 }
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

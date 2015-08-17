@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		042E75C51B160C9100396AAF /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75C31B160C9100396AAF /* LoginViewController.m */; };
-		042E75C61B160C9100396AAF /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 042E75C41B160C9100396AAF /* LoginViewController.xib */; };
 		042E75DE1B16148A00396AAF /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 042E75C81B16148A00396AAF /* IQKeyboardManager.bundle */; };
 		042E75DF1B16148A00396AAF /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75CA1B16148A00396AAF /* IQKeyboardManager.m */; };
 		042E75E01B16148A00396AAF /* IQSegmentedNextPrevious.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E75CE1B16148A00396AAF /* IQSegmentedNextPrevious.m */; };
@@ -159,7 +158,6 @@
 		CA20AA3F1B5AAF5300598370 /* CourseData.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA3D1B5AAF5300598370 /* CourseData.m */; };
 		CA20AA401B5AAF5300598370 /* CourseData.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20AA3E1B5AAF5300598370 /* CourseData.xib */; };
 		CA20AA4E1B5AB39300598370 /* DetailDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA20AA4C1B5AB39300598370 /* DetailDataCell.m */; };
-		CA20AA4F1B5AB39300598370 /* DetailDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA20AA4D1B5AB39300598370 /* DetailDataCell.xib */; };
 		CA4E79AA1B64E3220079A05B /* NewMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4E79A91B64E3220079A05B /* NewMessage.m */; };
 		CA62FA0B1B42DCF700F80DE3 /* SubjectSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA62FA091B42DCF700F80DE3 /* SubjectSearchViewController.m */; };
 		CA62FA0C1B42DCF700F80DE3 /* SubjectSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA62FA0A1B42DCF700F80DE3 /* SubjectSearchViewController.xib */; };
@@ -181,6 +179,8 @@
 		CACBFC981B540C3500FAD388 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC971B540C3500FAD388 /* messages.plist */; };
 		CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC9A1B540C5100FAD388 /* MessageCell.m */; };
 		CACBFC9E1B540C6D00FAD388 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC9D1B540C6D00FAD388 /* UIImage+ResizeImage.m */; };
+		CACD8D4E1B81696E00335952 /* DetailDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACD8D4D1B81696E00335952 /* DetailDataCell.xib */; };
+		CACD8D501B8169C400335952 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACD8D4F1B8169C400335952 /* LoginViewController.xib */; };
 		CADD221B1B52418400A4F3D2 /* MyInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD22191B52418400A4F3D2 /* MyInfo.m */; };
 		CADD221C1B52418400A4F3D2 /* MyInfo.xib in Resources */ = {isa = PBXBuildFile; fileRef = CADD221A1B52418400A4F3D2 /* MyInfo.xib */; };
 		CADD22201B52488700A4F3D2 /* MyInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CADD221E1B52488700A4F3D2 /* MyInfoCell.m */; };
@@ -366,7 +366,6 @@
 /* Begin PBXFileReference section */
 		042E75C21B160C9100396AAF /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		042E75C31B160C9100396AAF /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		042E75C41B160C9100396AAF /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		042E75C81B16148A00396AAF /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
 		042E75C91B16148A00396AAF /* IQKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManager.h; sourceTree = "<group>"; };
 		042E75CA1B16148A00396AAF /* IQKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardManager.m; sourceTree = "<group>"; };
@@ -625,7 +624,6 @@
 		CA20AA3E1B5AAF5300598370 /* CourseData.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseData.xib; sourceTree = "<group>"; };
 		CA20AA4B1B5AB39300598370 /* DetailDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailDataCell.h; sourceTree = "<group>"; };
 		CA20AA4C1B5AB39300598370 /* DetailDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailDataCell.m; sourceTree = "<group>"; };
-		CA20AA4D1B5AB39300598370 /* DetailDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDataCell.xib; sourceTree = "<group>"; };
 		CA4E79A81B64E3220079A05B /* NewMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMessage.h; sourceTree = "<group>"; };
 		CA4E79A91B64E3220079A05B /* NewMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMessage.m; sourceTree = "<group>"; };
 		CA62FA081B42DCF700F80DE3 /* SubjectSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectSearchViewController.h; sourceTree = "<group>"; };
@@ -663,6 +661,8 @@
 		CACBFC9A1B540C5100FAD388 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		CACBFC9C1B540C6D00FAD388 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
 		CACBFC9D1B540C6D00FAD388 /* UIImage+ResizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ResizeImage.m"; sourceTree = "<group>"; };
+		CACD8D4D1B81696E00335952 /* DetailDataCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailDataCell.xib; sourceTree = "<group>"; };
+		CACD8D4F1B8169C400335952 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		CADD22181B52418400A4F3D2 /* MyInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyInfo.h; sourceTree = "<group>"; };
 		CADD22191B52418400A4F3D2 /* MyInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyInfo.m; sourceTree = "<group>"; };
 		CADD221A1B52418400A4F3D2 /* MyInfo.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyInfo.xib; sourceTree = "<group>"; };
@@ -1006,7 +1006,7 @@
 			children = (
 				042E75C21B160C9100396AAF /* LoginViewController.h */,
 				042E75C31B160C9100396AAF /* LoginViewController.m */,
-				042E75C41B160C9100396AAF /* LoginViewController.xib */,
+				CACD8D4F1B8169C400335952 /* LoginViewController.xib */,
 				042E75E81B16176100396AAF /* FindPasswordViewController.h */,
 				042E75E91B16176100396AAF /* FindPasswordViewController.m */,
 				042E75EA1B16176100396AAF /* FindPasswordViewController.xib */,
@@ -1569,7 +1569,7 @@
 				CA20AA2C1B59F11800598370 /* NewMessageCell.xib */,
 				CA20AA4B1B5AB39300598370 /* DetailDataCell.h */,
 				CA20AA4C1B5AB39300598370 /* DetailDataCell.m */,
-				CA20AA4D1B5AB39300598370 /* DetailDataCell.xib */,
+				CACD8D4D1B81696E00335952 /* DetailDataCell.xib */,
 				D4E1FF121B613A5C00D5773D /* MyCourseListCell.h */,
 				D4E1FF131B613A5C00D5773D /* MyCourseListCell.m */,
 				D4E1FF141B613A5C00D5773D /* MyCourseListCell.xib */,
@@ -2062,7 +2062,6 @@
 				CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */,
 				CA20AA331B5A19A100598370 /* SendMesage.xib in Resources */,
 				52E7DFE11B71A30400BB46DE /* HWorkCell.xib in Resources */,
-				CA20AA4F1B5AB39300598370 /* DetailDataCell.xib in Resources */,
 				52DEE0611B7D78F600DD4486 /* file_pause_normal.png in Resources */,
 				D4459B901B63D75A00DEB780 /* CourseTabbarViewController.xib in Resources */,
 				CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */,
@@ -2075,6 +2074,7 @@
 				52DEE0601B7D78F600DD4486 /* file_download_normal.png in Resources */,
 				524E88791B7367CF004A11A2 /* UIView2.xib in Resources */,
 				524E887F1B7367CF004A11A2 /* UIView5.xib in Resources */,
+				CACD8D4E1B81696E00335952 /* DetailDataCell.xib in Resources */,
 				D4B2F3401B02FE75007B017E /* HomeViewController.xib in Resources */,
 				59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */,
 				CA20AA401B5AAF5300598370 /* CourseData.xib in Resources */,
@@ -2085,8 +2085,8 @@
 				D4459B861B63D63B00DEB780 /* HWorkViewController.xib in Resources */,
 				CAE508331B74446500F908E8 /* QuestionSurvey.xib in Resources */,
 				594C98FF1B1442AE00A4C3F6 /* CourseSearchViewController.xib in Resources */,
-				042E75C61B160C9100396AAF /* LoginViewController.xib in Resources */,
 				5963C3661B201E8300A09D30 /* HttpTestResultViewController.xib in Resources */,
+				CACD8D501B8169C400335952 /* LoginViewController.xib in Resources */,
 				D4459B771B63D5C900DEB780 /* TutorialViewController.xib in Resources */,
 				D4DF08991B5B970500B816DD /* NewNotimgCell.xib in Resources */,
 				524E887B1B7367CF004A11A2 /* UIView3.xib in Resources */,

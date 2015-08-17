@@ -88,13 +88,10 @@
 -(void)viewWillDisappear:(BOOL)animated{
     FileDownLoadManager *filedownmanage=[FileDownLoadManager sharedFilesDownManage];
     [filedownmanage saveFinishedFile];
-<<<<<<< HEAD
     for (int i=0;i<_downlingList.count;i++) {
         [(ASIHTTPRequest *)_downlingList[i] cancel];
     }
     [_downlingList removeAllObjects];
-=======
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
 }
 
 -(void)removeASIRequst:( ASIHTTPRequest*)request
@@ -259,7 +256,6 @@
     cell.isFirst=YES;
     return cell;
 }
-<<<<<<< HEAD
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileType isEqualToString:@"1"]) {
@@ -272,8 +268,6 @@
     }
     
 }
-=======
->>>>>>> 7988db939b9c6c3b33f3106d26acf496b1afb779
 -(void)startDownload:(ASIHTTPRequest *)request
 {
     
