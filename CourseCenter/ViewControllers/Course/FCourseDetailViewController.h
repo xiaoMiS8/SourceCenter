@@ -7,9 +7,10 @@
 //
 
 #import "CourseBaseViewController.h"
-
-@interface FCourseDetailViewController : CourseBaseViewController
+#import "FileDownLoadManager.h"
+@interface FCourseDetailViewController : CourseBaseViewController<DownloadDelegate>
 @property (nonatomic,assign)long OCID;
 @property (nonatomic,assign)long FCID;
-
+-(void)changeFileState;
+-(void)removeASIRequst:( ASIHTTPRequest*)request;
 @end

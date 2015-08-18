@@ -31,7 +31,6 @@
 //用userinfo存fileModel，不知道为啥 有时候文件大小会丢失，这里新加一个字典，保存文件大小
 @property(nonatomic,retain) NSMutableDictionary *fileNameDic;
 
-
 +(FileDownLoadManager *) sharedFilesDownManage;
 +(FileDownLoadManager *) sharedFilesDownManageWithBasepath:(NSString *)basepath TargetPathArr:(NSArray *)targetpaths;
 -(void)downFileUrl:(NSString*) urlStr filename:(NSString*)name filetarget:(NSString*)targetPath fileid:(NSString *)fileid fileType:(NSString *)type;

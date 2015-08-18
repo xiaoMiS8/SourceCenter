@@ -120,7 +120,6 @@ static NSInteger tag;
         return ;
         }
         long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:tag]).ChapterID;
-//        int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
         [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
             if (status==0) {
                 self.reob=(ResponseObject *)object;

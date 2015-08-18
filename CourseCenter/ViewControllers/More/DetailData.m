@@ -10,9 +10,9 @@
 #import "DetailDataCell.h"
 #import "FileInfo.h"
 #import "PlayViewController.h"
+#import "SectionAndRow.h"
 @interface DetailData ()
 {
-    //FileInfo *fileInfo;
     //正在下载的文件 位置 列表
     NSMutableArray *downIngRow;
     //已经完成的文件 位置 列表
@@ -157,11 +157,14 @@
     downIngRow=[[NSMutableArray alloc]init];
     for (int i=0; i<_fileArray.count; i++) {
         for (int j=0; j<_downlingList.count; j++) {
-            NSString *ii=((FileModel *)_fileArray[i]).fileID;
+            NSString *ii=((FileModel *)_fileArray[i]).fileName;
             ASIHTTPRequest *requst=_downlingList[j];
-            NSString *jj=((FileModel *)[requst.userInfo objectForKey:@"File"]).fileID;
+            NSString *jj=((FileModel *)[requst.userInfo objectForKey:@"File"]).fileName;
             if ([ii isEqualToString:jj]) {
-                [downIngRow addObject:[NSNumber numberWithInt:i]];
+                SectionAndRow *sdr=[[SectionAndRow alloc]init];
+                sdr.row=i;
+                sdr.num=j;
+                [downIngRow addObject:sdr];
             }
         }
     }
@@ -172,11 +175,14 @@
     finishRow=[[NSMutableArray alloc]init];
     for (int i=0; i<_fileArray.count; i++) {
         for (int j=0; j<_finishedList.count; j++) {
-            NSString *ii=((FileModel *)_fileArray[i]).fileID;
-            NSString *jj=((FileModel *)_finishedList[j]).fileID;
+            NSString *ii=((FileModel *)_fileArray[i]).fileName;
+            NSString *jj=((FileModel *)_finishedList[j]).fileName;
             if ([ii isEqualToString:jj]) {
+                SectionAndRow *sdr=[[SectionAndRow alloc]init];
+                sdr.row=i;
+                [finishRow addObject:sdr];
                 _fileArray[i]=_finishedList[j];
-                [finishRow addObject:[NSNumber numberWithInt:i]];
+                
             }
         }
     }
@@ -187,11 +193,13 @@
     pauseRow=[[NSMutableArray alloc]init];
     for (int i=0; i<_fileArray.count; i++) {
         for (int j=0; j<_tempFileListLeave.count; j++) {
-            NSString *ii=((FileModel *)_fileArray[i]).fileID;
-            NSString *jj=((FileModel *)_tempFileListLeave[j]).fileID;
+            NSString *ii=((FileModel *)_fileArray[i]).fileName;
+            NSString *jj=((FileModel *)_tempFileListLeave[j]).fileName;
             if ([ii isEqualToString:jj]) {
+                SectionAndRow *sdr=[[SectionAndRow alloc]init];
+                sdr.row=i;
+                [pauseRow addObject:sdr];
                 _fileArray[i]=_tempFileListLeave[j];
-                [pauseRow addObject:[NSNumber numberWithInt:i]];
             }
         }
     }
@@ -216,8 +224,9 @@
     //正在下载的
     for(int i=0;i<downIngRow.count;i++)
     {
-        if ([downIngRow[i] integerValue]==indexPath.row) {
-            ASIHTTPRequest *theRequest=_downlingList[i];
+        if (((SectionAndRow *)downIngRow[i]).row==indexPath.row) {
+            int num=((SectionAndRow *)downIngRow[i]).num;
+            ASIHTTPRequest *theRequest=_downlingList[num];
             if (theRequest==nil) {
                 return cell=Nil;
             }
@@ -229,8 +238,8 @@
         }
     }
     //已经完成的
-    for (NSNumber *row in finishRow) {
-        if ([row integerValue]==indexPath.row) {
+    for (SectionAndRow *sar in finishRow) {
+        if (sar.row==indexPath.row) {
             cell.isFinish=@"YES";
             cell.btn.hidden=YES;
             cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
@@ -239,8 +248,8 @@
         }
     }
     //暂停的
-    for (NSNumber *row in pauseRow) {
-        if ([row integerValue]==indexPath.row) {
+    for (SectionAndRow *sar in pauseRow) {
+        if (sar.row==indexPath.row) {
             cell.request = nil;
             cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
             //手动设置百分比，显示弧度
@@ -277,7 +286,6 @@
 }
 -(void)finishedDownload:(ASIHTTPRequest *)request
 {
-    [self initDownFinishPause];
     [self changeFileState];
 }
 

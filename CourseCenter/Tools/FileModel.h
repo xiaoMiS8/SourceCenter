@@ -34,5 +34,6 @@
 @property(nonatomic,strong)NSString *usrname;
 @property(nonatomic,strong)NSString *MD5;
 @property(nonatomic,strong)UIImage *fileimage;
-
+@property(nonatomic,assign)CGFloat section;
+@property(nonatomic,assign)CGFloat row;
 @end

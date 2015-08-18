@@ -61,6 +61,7 @@
 		52C8EED81B4E9F3A00BDBE76 /* multipy_unicode.dat in Resources */ = {isa = PBXBuildFile; fileRef = 52C8EED21B4E9F3A00BDBE76 /* multipy_unicode.dat */; };
 		52C8EED91B4E9F3A00BDBE76 /* SearchCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED41B4E9F3A00BDBE76 /* SearchCore.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		52C8EEDA1B4E9F3A00BDBE76 /* SearchCoreManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED61B4E9F3A00BDBE76 /* SearchCoreManager.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		52DB200D1B817EA900D60FB8 /* SectionAndRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB200C1B817EA900D60FB8 /* SectionAndRow.m */; };
 		52DB26061B6F742E00FB83BC /* OCFCLearnNavInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DB26051B6F742E00FB83BC /* OCFCLearnNavInfo.m */; };
 		52DC03DB1B70889200BB3CB7 /* FCourseDetailOne.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DC03D91B70889200BB3CB7 /* FCourseDetailOne.m */; };
 		52DC03DC1B70889200BB3CB7 /* FCourseDetailOne.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52DC03DA1B70889200BB3CB7 /* FCourseDetailOne.xib */; };
@@ -464,6 +465,8 @@
 		52C8EED41B4E9F3A00BDBE76 /* SearchCore.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SearchCore.mm; sourceTree = "<group>"; };
 		52C8EED51B4E9F3A00BDBE76 /* SearchCoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCoreManager.h; sourceTree = "<group>"; };
 		52C8EED61B4E9F3A00BDBE76 /* SearchCoreManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SearchCoreManager.mm; sourceTree = "<group>"; };
+		52DB200B1B817EA900D60FB8 /* SectionAndRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionAndRow.h; sourceTree = "<group>"; };
+		52DB200C1B817EA900D60FB8 /* SectionAndRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionAndRow.m; sourceTree = "<group>"; };
 		52DB26041B6F742E00FB83BC /* OCFCLearnNavInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCFCLearnNavInfo.h; sourceTree = "<group>"; };
 		52DB26051B6F742E00FB83BC /* OCFCLearnNavInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCFCLearnNavInfo.m; sourceTree = "<group>"; };
 		52DC03D81B70889200BB3CB7 /* FCourseDetailOne.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCourseDetailOne.h; sourceTree = "<group>"; };
@@ -1311,6 +1314,8 @@
 				D40691B51B6CE8100044CAE5 /* QuestionItemInfo.m */,
 				D40691BA1B6CF1CE0044CAE5 /* AnswerInfo.h */,
 				D40691BB1B6CF1CE0044CAE5 /* AnswerInfo.m */,
+				52DB200B1B817EA900D60FB8 /* SectionAndRow.h */,
+				52DB200C1B817EA900D60FB8 /* SectionAndRow.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2269,6 +2274,7 @@
 				524E88751B7367CF004A11A2 /* QCheckBox.m in Sources */,
 				D44B7E2E1B6FA5E50036B3D5 /* BBsDetailViewController.m in Sources */,
 				06D1FAD91B57A6E300C18980 /* FileAction.m in Sources */,
+				52DB200D1B817EA900D60FB8 /* SectionAndRow.m in Sources */,
 				D4459B7B1B63D5F400DEB780 /* FCourseViewController.m in Sources */,
 				D4B2F3F01B034265007B017E /* SDWebImageDownloader.m in Sources */,
 				D454C7A01B6A821C005E2C5F /* TestAtion.m in Sources */,

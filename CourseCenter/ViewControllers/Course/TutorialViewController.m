@@ -10,7 +10,10 @@
 #import "TuorialDetailViewController.h"
 #import "MoocFileInfo.h"
 #import "HWorkDetailViewController.h"
+#import "DetailDataCell.h"
+#import "FileInfo.h"
 #import "PlayViewController.h"
+#import "SectionAndRow.h"
 #define SECTION_STATE @"SECTION_STATE"
 static NSInteger tag;
 @interface TutorialViewController ()
@@ -20,22 +23,48 @@ static NSInteger tag;
     NSMutableArray *_arrayData;
     NSMutableArray *_moocFileArray;
     NSString *role;
+    //正在下载的文件 位置 列表
+    NSMutableArray *downIngRow;
+    //已经完成的文件 位置 列表
+    NSMutableArray *finishRow;
+    //未下载完成文件 位置 列表
+    NSMutableArray *pauseRow;
 }
 @property (weak, nonatomic) IBOutlet UILabel *tishi;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
+//正在下载的列表
+@property(nonatomic) NSMutableArray *downlingList;
+//已经完成的列表
+@property(nonatomic) NSMutableArray *finishedList;
+//临时文件的列表
+@property(nonatomic,strong) NSMutableArray *tempFileList;
+//未完成的列表
+@property(nonatomic,strong) NSMutableArray *tempFileListLeave;
+//文件对应大小
+@property(nonatomic) NSMutableDictionary *fileNameDic;
+//下载队列对象
+@property (nonatomic, weak) ASINetworkQueue *queue;
+//对象数组
+@property(nonatomic,strong)NSMutableArray *fileArray;
+
 @end
 
 @implementation TutorialViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DetailDataCell" bundle:nil] forCellReuseIdentifier:@"DetailDataCell"];
     self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager = [[CCHttpManager alloc]init];
     _array=[NSMutableArray arrayWithCapacity:0];
     _moocFileArray=[NSMutableArray arrayWithCapacity:0];
     tag=0;
+    self.fileArray=[[NSMutableArray alloc]init];
+    [FileDownLoadManager sharedFilesDownManageWithBasepath:BASEPATH TargetPathArr:[NSArray arrayWithObject:[NSString stringWithFormat:@"%@/%@",BASEPATH,TARGER]]];
+    [FileDownLoadManager sharedFilesDownManage].downloadDelegate=self;
+
     [self isTeacherOrStudent];
 }
 -(void)isTeacherOrStudent
@@ -80,22 +109,175 @@ static NSInteger tag;
 {
     if (tag==_arrayData.count) {
         [MBProgressHUD hideHUD];
+        [self dataConvert];
         return ;
     }
     long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:tag]).ChapterID;
-//    int  buildMode=((ChapterInfo *)[_arrayData objectAtIndex:tag]).BuildMode;
-    [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
-        if (status==0) {
-            self.reob=(ResponseObject *)object;
-            if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                [_moocFileArray addObject:self.reob.resultArray];
-                tag++;
-                [self loadOCMoocFile];
+    if (((ChapterInfo *)[_arrayData objectAtIndex:tag]).TestID<=0)
+    {
+        [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
+            if (status==0) {
+                self.reob=(ResponseObject *)object;
+                if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                    [_moocFileArray addObject:self.reob.resultArray];
+                    tag++;
+                    [self loadOCMoocFile];
+                }
             }
+        }];
+    }else
+    {
+        [_moocFileArray addObject:[NSMutableArray arrayWithArray:nil]];
+        tag++;
+        [self loadOCMoocFile];
+    }
+}
+-(void)dataConvert
+{
+    for(int j=0;j<_moocFileArray.count;j++)
+    {
+        for (int i=0; i<((NSMutableArray *)_moocFileArray[j]).count; i++) {
+            FileModel *model=[[FileModel alloc]init];
+            MoocFileInfo  *info=_moocFileArray[j][i];
+            model.fileID=[@(info.FileID) stringValue] ;
+            model.fileName=info.FileTitle;
+            model.fileURL=info.ViewUrl;
+            model.fileType=[@(info.FileType) stringValue];
+            model.section=j;
+            model.row=i;
+            model.isFirstReceived=YES;
+            [_fileArray addObject:model];
         }
-    }];
+    }
+    [self changeFileState];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    FileDownLoadManager *filedownmanage=[FileDownLoadManager sharedFilesDownManage];
+    [filedownmanage saveFinishedFile];
+    for (int i=0;i<_downlingList.count;i++) {
+        [(ASIHTTPRequest *)_downlingList[i] cancel];
+    }
+    [_downlingList removeAllObjects];
 }
 
+-(void)removeASIRequst:( ASIHTTPRequest*)request
+{
+    [_downlingList removeObject:request];
+    
+}
+-(void)changeFileState
+{
+    FileDownLoadManager *filedownmanage=[FileDownLoadManager sharedFilesDownManage];
+    _downlingList=filedownmanage.downinglist;
+    _finishedList=filedownmanage.finishedlist;
+    self.tempFileList=[filedownmanage getTempFiles];
+    self.queue=filedownmanage.queue;
+    self.tempFileListLeave=[self filterTempFile:_downlingList andTotalTempFile:_tempFileList];
+    [self initDownFinishPause];
+    [self.tableView reloadData];
+}
+-(void)initDownFinishPause
+{
+    [self getDownlingList];
+    [self getFinishedList];
+    [self getPauseList];
+}
+/**
+ *	@brief	从所有临时文件中筛选出没有进入队列的，
+ 也就是上次没下载完需要续传的
+ *
+ *	@param 	downloadArray 	正在下载的文件
+ *	@param 	totalTempArray 	所有的临时文件
+ *
+ *	@return	需要断点续传的文件
+ */
+-(NSMutableArray*)filterTempFile:(NSMutableArray *)downloadArray andTotalTempFile:(NSMutableArray *)totalTempArray
+
+{
+    NSMutableArray *downingArray=[[NSMutableArray alloc] init];
+    NSMutableArray *fileterArray=[[NSMutableArray alloc] init];
+    //获取正在下载的文件名称数组
+    for(int j=0;j<downloadArray.count;j++)
+    {
+        ASIHTTPRequest *requst=[downloadArray objectAtIndex:j];
+        FileModel *fModel=[requst.userInfo objectForKey:@"File"];
+        [downingArray addObject:fModel.fileName];
+        
+    }
+    //获取需要断线续传的文件modle数组
+    for(int i=0;i<totalTempArray.count;i++)
+    {
+        FileModel *fileModel=[totalTempArray objectAtIndex:i];
+        //地址比较
+        if(![downingArray containsObject:fileModel.fileName])
+        {
+            [fileterArray addObject:fileModel];
+        }
+        
+    }
+    return fileterArray;
+}
+//获取正在下载文件 id
+-(void)getDownlingList
+{
+    downIngRow=[[NSMutableArray alloc]init];
+    for (int i=0; i<_fileArray.count; i++) {
+        for (int j=0; j<_downlingList.count; j++) {
+            NSString *ii=((FileModel *)_fileArray[i]).fileName;
+            ASIHTTPRequest *requst=_downlingList[j];
+            NSString *jj=((FileModel *)[requst.userInfo objectForKey:@"File"]).fileName;
+            if ([ii isEqualToString:jj]) {
+                SectionAndRow *sdr=[[SectionAndRow alloc]init];
+                sdr.section=((FileModel *)_fileArray[i]).section;
+                sdr.row=((FileModel *)_fileArray[i]).row;
+                sdr.num=j;
+                [downIngRow addObject:sdr];
+            }
+        }
+    }
+}
+//获取已经完成文件 id
+-(void)getFinishedList
+{
+    finishRow=[[NSMutableArray alloc]init];
+    for (int i=0; i<_fileArray.count; i++) {
+        for (int j=0; j<_finishedList.count; j++) {
+            NSString *ii=((FileModel *)_fileArray[i]).fileName;
+            NSString *jj=((FileModel *)_finishedList[j]).fileName;
+            if ([ii isEqualToString:jj]) {
+                SectionAndRow *sdr=[[SectionAndRow alloc]init];
+                sdr.section=((FileModel *)_fileArray[i]).section;
+                sdr.row=((FileModel *)_fileArray[i]).row;
+                sdr.num=i;
+                [finishRow addObject:sdr];
+                ((FileModel *)_finishedList[j]).section=sdr.section;
+                ((FileModel *)_finishedList[j]).row=sdr.row;
+                _fileArray[i]=_finishedList[j];
+            }
+        }
+    }
+}
+//获取暂停文件 id
+-(void)getPauseList
+{
+    pauseRow=[[NSMutableArray alloc]init];
+    for (int i=0; i<_fileArray.count; i++) {
+        for (int j=0; j<_tempFileListLeave.count; j++) {
+            NSString *ii=((FileModel *)_fileArray[i]).fileName;
+            NSString *jj=((FileModel *)_tempFileListLeave[j]).fileName ;
+            if ([ii isEqualToString:jj]) {
+                SectionAndRow *sdr=[[SectionAndRow alloc]init];
+                sdr.section=((FileModel *)_fileArray[i]).section;
+                sdr.row=((FileModel *)_fileArray[i]).row;
+                sdr.num=i;
+                [pauseRow addObject:sdr];
+                ((FileModel *)_tempFileListLeave[j]).section=sdr.section;
+                ((FileModel *)_tempFileListLeave[j]).row=sdr.row;
+                _fileArray[i]=_tempFileListLeave[j];
+            }
+        }
+    }
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50;
@@ -150,51 +332,65 @@ static NSInteger tag;
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MoocFileInfo *info=(MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
-    static NSString *cellIndentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-    if (!cell) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIndentifier];
-        UIButton *btnView=[[UIButton alloc]initWithFrame:CGRectMake(0, 10,40, cell.frame.size.height-20)];
-        [btnView setBackgroundImage:[UIImage imageNamed:@"btn_download"] forState:UIControlStateNormal];
-        cell.accessoryView=btnView;
+    DetailDataCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"DetailDataCell"];
+    cell.parentVC=self;
+    //正在下载的
+    for(int i=0;i<downIngRow.count;i++)
+    {
+        if (((SectionAndRow *)downIngRow[i]).section==indexPath.section&&((SectionAndRow *)downIngRow[i]).row==indexPath.row) {
+            int num=((SectionAndRow *)downIngRow[i]).num;
+            ASIHTTPRequest *theRequest=_downlingList[num];
+            if (theRequest==nil) {
+                return cell=Nil;
+            }
+            FileModel *fileInfo=[theRequest.userInfo objectForKey:@"File"];
+            cell.request = theRequest;
+            cell.fileModel=fileInfo;
+            cell.btn.hidden=NO;
+            cell.isFirst=NO;
+            return cell;
+        }
     }
-        cell.imageView.image=[UIImage imageNamed:@"btn_confirm"];
-    [self picHandleWithCell:cell withFileType:info.FileType];
-        cell.textLabel.font=Font_14;
-        cell.textLabel.text =info.FileTitle;
-    return cell;
-
-}
--(void)picHandleWithCell:(UITableViewCell *)cell withFileType:(NSInteger )type
-{
-    if (type==1) {
-        cell.imageView.image=[UIImage imageNamed:@"icon_video2"];
-    }else if(type==2)
+        //已经完成的
+    for(int i=0;i<finishRow.count;i++)
     {
-        cell.imageView.image=[UIImage imageNamed:@"word"];
-    }else if(type==3)
-    {
-        cell.imageView.image=[UIImage imageNamed:@"excel"];
-    }else if(type==4)
-    {
-        cell.imageView.image=[UIImage imageNamed:@"ppt"];
-    }else if(type==5)
-    {
-        cell.imageView.image=[UIImage imageNamed:@"pdf"];
-    }else if(type==6)
-    {
-        cell.imageView.image=[UIImage imageNamed:@"icon_photo"];
-    }else if(type==7)
-    {
-        cell.imageView.image=[UIImage imageNamed:@"other"];
-    }else if(type==8)
-    {
-        cell.imageView.image=[UIImage imageNamed:@"icon_document1"];
-    }else if(type==9)
-    {
-        cell.imageView.image=[UIImage imageNamed:@"other"];
+        if (((SectionAndRow *)finishRow[i]).section==indexPath.section&&((SectionAndRow *)finishRow[i]).row==indexPath.row) {
+            int num=((SectionAndRow *)finishRow[i]).num;
+            cell.isFinish=@"YES";
+            cell.btn.hidden=YES;
+            cell.fileModel=_fileArray[num];
+            cell.isFirst=NO;
+            return cell;
+        }
     }
+    //暂停的
+    for(int i=0;i<pauseRow.count;i++)
+    {
+        if (((SectionAndRow *)pauseRow[i]).section==indexPath.section&&((SectionAndRow *)pauseRow[i]).row==indexPath.row) {
+            int num=((SectionAndRow *)pauseRow[i]).num;
+            cell.request = nil;
+            cell.fileModel=_fileArray[num];
+            //手动设置百分比，显示弧度
+            [cell setPercent];
+            cell.btn.hidden=NO;
+            cell.isFirst=NO;
+            return cell;
+        }
+    }
+            //未下载的
+            MoocFileInfo *info=(MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+            FileModel *model=[[FileModel alloc]init];
+            model.fileID=[@(info.FileID) stringValue] ;
+            model.fileName=info.FileTitle;
+            model.fileURL=info.ViewUrl;
+            model.fileType=[@(info.FileType) stringValue];
+            model.isFirstReceived=YES;
+            cell.request=nil;
+            cell.fileModel=model;
+            cell.size.text=@"未下载";
+            cell.btn.hidden=NO;
+            cell.isFirst=YES;
+            return cell;
 
 }
 -(void)press:(UIButton *)but
@@ -251,6 +447,17 @@ static NSInteger tag;
     {
         [Tool showAlertView:@"提示" withMessage:@"请使用第三方软件打开该类型资源" withTarget:self withCancel:@"确定" other:nil];
     }
+}
+-(void)startDownload:(ASIHTTPRequest *)request
+{
+    
+}
+-(void)updateCellProgress:(ASIHTTPRequest *)request
+{
+}
+-(void)finishedDownload:(ASIHTTPRequest *)request
+{
+    [self changeFileState];
 }
 
 -(void)gotohwVC:(UIButton *)but
