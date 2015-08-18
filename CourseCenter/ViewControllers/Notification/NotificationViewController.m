@@ -77,7 +77,7 @@
 
 - (void)addtableHeader {
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
-        [self loadData];
+    [self loadData];
     }];
     self.tableView.header.updatedTimeHidden = YES;
 }

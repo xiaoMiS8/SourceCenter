@@ -54,7 +54,7 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
-//                [self dataHandleWithArray:self.reob.resultArray];
+              //[self dataHandleWithArray:self.reob.resultArray];
                 [_tableView reloadData];
                 return ;
             }
@@ -71,7 +71,7 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataResult=self.reob.resultArray;
-                //                [self dataHandleWithArray:self.reob.resultArray];
+              //[self dataHandleWithArray:self.reob.resultArray];
                 [searchDC.searchResultsTableView reloadData];
                 return ;
             }

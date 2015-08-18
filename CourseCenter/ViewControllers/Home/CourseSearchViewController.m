@@ -11,6 +11,8 @@
 #import "SpecialtyTypeInfo.h"
 #import "SubjectSearchViewController.h"
 #import "SearchCoreManager.h"
+#import "SubjectSearchCell.h"
+#import "HomeDetailViewController.h"
 @interface CourseSearchViewController ()
 {
     SpecialtyTypeInfo *specialtyinfo;
@@ -32,8 +34,10 @@
     [super viewDidLoad];
     self.title = @"课程搜索";
     [self addTableviewHeader];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SubjectSearchCell" bundle:nil] forCellReuseIdentifier:@"SubjectSearchCell"];
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
+    self.dataResult=[[NSMutableArray alloc]init];
     self.KeywordArray=[[NSMutableArray array]init];
     self.contactDic = [[NSMutableDictionary alloc] init];
     self.searchByName = [[NSMutableArray alloc] init];
@@ -60,12 +64,13 @@
 -(void)searchLoadData:(NSString *)searchText
 {
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getSpecialtyTypeTreeWithParentID:0 SearchKey:searchText finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:searchText PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                [self dataHandleWithArray:self.reob.resultArray];
+                 self.dataResult=self.reob.resultArray;
+              //[self dataHandleWithArray:self.reob.resultArray];
                 [searchDC.searchResultsTableView reloadData];
                 return ;
             }
@@ -88,57 +93,84 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataArray.count;
-//    if (mysearchBar.text.length <= 0) {
-//        return self.dataArray.count;
-//    } else {
-//        return self.searchByName.count + self.searchByPhone.count;
-//    }
+    if (tableView==_tableView) {
+        return self.dataArray.count;
+    } else {
+        return self.dataResult.count;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIndentifier = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+    if (tableView==_tableView) {
+        static NSString *cellIndentifier = @"cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIndentifier];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
+        }
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+        //    if (mysearchBar.text.length <= 0) {
+        //        cell.textLabel.text =((SpecialtyTypeInfo *)[_dataArray objectAtIndex:indexPath.row]).SpecialtyTypeName;
+        //        return cell;
+        //    }
+        //    NSNumber *localID = nil;
+        //    NSMutableString *matchString = [NSMutableString string];
+        //    NSMutableArray *matchPos = [NSMutableArray array];
+        //    if (indexPath.row < [_searchByName count]) {
+        //        localID = [self.searchByName objectAtIndex:indexPath.row];
+        //
+        //        //姓名匹配 获取对应匹配的拼音串 及高亮位置
+        //        if (mysearchBar.text.length) {
+        //            [[SearchCoreManager share] GetPinYin:localID pinYin:matchString matchPos:matchPos];
+        //        }
+        //    }else {
+        //        localID = [self.searchByPhone objectAtIndex:indexPath.row-[_searchByName count]];
+        //        NSMutableArray *matchPhones = [NSMutableArray array];
+        //
+        //        //号码匹配 获取对应匹配的号码串 及高亮位置
+        //        if ([mysearchBar.text length]) {
+        //            [[SearchCoreManager share] GetPhoneNum:localID phone:matchPhones matchPos:matchPos];
+        //            [matchString appendString:[matchPhones objectAtIndex:0]];
+        //        }
+        //    }
+        //    SpecialtyTypeInfo  *info = [self.contactDic objectForKey:localID];
+        //    cell.textLabel.text =info.SpecialtyTypeName;
+        cell.textLabel.text =((SpecialtyTypeInfo *)[_dataArray objectAtIndex:indexPath.row]).SpecialtyTypeName;
+        return cell;
+
+    }else
+    {
+        SubjectSearchCell *cell=[_tableView dequeueReusableCellWithIdentifier:@"SubjectSearchCell"];
+        cell.oCourse=((OCourseInfo *)[self.dataResult objectAtIndex:indexPath.row]);
+        return cell;
     }
-    cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
-//    if (mysearchBar.text.length <= 0) {
-//        cell.textLabel.text =((SpecialtyTypeInfo *)[_dataArray objectAtIndex:indexPath.row]).SpecialtyTypeName;
-//        return cell;
-//    }
-//    NSNumber *localID = nil;
-//    NSMutableString *matchString = [NSMutableString string];
-//    NSMutableArray *matchPos = [NSMutableArray array];
-//    if (indexPath.row < [_searchByName count]) {
-//        localID = [self.searchByName objectAtIndex:indexPath.row];
-//        
-//        //姓名匹配 获取对应匹配的拼音串 及高亮位置
-//        if (mysearchBar.text.length) {
-//            [[SearchCoreManager share] GetPinYin:localID pinYin:matchString matchPos:matchPos];
-//        }
-//    }else {
-//        localID = [self.searchByPhone objectAtIndex:indexPath.row-[_searchByName count]];
-//        NSMutableArray *matchPhones = [NSMutableArray array];
-//        
-//        //号码匹配 获取对应匹配的号码串 及高亮位置
-//        if ([mysearchBar.text length]) {
-//            [[SearchCoreManager share] GetPhoneNum:localID phone:matchPhones matchPos:matchPos];
-//            [matchString appendString:[matchPhones objectAtIndex:0]];
-//        }
-//    }
-//    SpecialtyTypeInfo  *info = [self.contactDic objectForKey:localID];
-//    cell.textLabel.text =info.SpecialtyTypeName;
-    cell.textLabel.text =((SpecialtyTypeInfo *)[_dataArray objectAtIndex:indexPath.row]).SpecialtyTypeName;
-    return cell;
+    
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    NSInteger number=tableView==_tableView?indexPath.row:[self.searchByName[indexPath.row] integerValue];
-    NSInteger number=indexPath.row;
-    SubjectSearchViewController *subjectSearchVC = [SubjectSearchViewController new];
-    subjectSearchVC.title=((SpecialtyTypeInfo *)[_dataArray objectAtIndex:number]).SpecialtyTypeName;
-    subjectSearchVC.SpecialtyTypeID=((SpecialtyTypeInfo *)[_dataArray objectAtIndex:number]).SpecialtyTypeID;
+     NSInteger number=indexPath.row;
+    if (tableView==_tableView) {
+        SubjectSearchViewController *subjectSearchVC = [SubjectSearchViewController new];
+        subjectSearchVC.title=((SpecialtyTypeInfo *)[_dataArray objectAtIndex:number]).SpecialtyTypeName;
+        subjectSearchVC.SpecialtyTypeID=((SpecialtyTypeInfo *)[_dataArray objectAtIndex:number]).SpecialtyTypeID;
+        [((AppDelegate *)app).nav pushViewController:subjectSearchVC animated:YES];
+    }else
+    {
+        HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
+        homeDetailVc.OCID=((OCourseInfo *)[self.dataResult objectAtIndex:number]).OCID;
+        homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataResult objectAtIndex:number]).TeacherImgUrl;
+        homeDetailVc.topImgUrl=((OCourseInfo *)[self.dataResult objectAtIndex:indexPath.row]).CourseImgUrl;
+        homeDetailVc.RegStatus=((OCourseInfo *)[self.dataResult objectAtIndex:indexPath.row]).RegStatus;
+        [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
+    }
     
-    [((AppDelegate *)app).nav pushViewController:subjectSearchVC animated:YES];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView==_tableView) {
+        return 44;
+    }else
+    {
+       return 110;
+    }
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
