@@ -129,6 +129,7 @@
 		59E247941B73B11C009E4268 /* NTCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59E247921B73B11C009E4268 /* NTCell1.xib */; };
 		59E68C491B74FB0B00085540 /* HPGrowingTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E68C461B74FB0B00085540 /* HPGrowingTextView.m */; };
 		59E68C4A1B74FB0B00085540 /* HPTextViewInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E68C481B74FB0B00085540 /* HPTextViewInternal.m */; };
+		59EB28D81B836CB90031907A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 59EB28DA1B836CB90031907A /* InfoPlist.strings */; };
 		59EC888F1B184249009495A6 /* NotiDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC888D1B184249009495A6 /* NotiDetailViewController.m */; };
 		59EC88901B184249009495A6 /* NotiDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59EC888E1B184249009495A6 /* NotiDetailViewController.xib */; };
 		59EC88941B18464F009495A6 /* NotiDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EC88921B18464F009495A6 /* NotiDetailCell.m */; };
@@ -583,6 +584,14 @@
 		59E68C461B74FB0B00085540 /* HPGrowingTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPGrowingTextView.m; sourceTree = "<group>"; };
 		59E68C471B74FB0B00085540 /* HPTextViewInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HPTextViewInternal.h; sourceTree = "<group>"; };
 		59E68C481B74FB0B00085540 /* HPTextViewInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HPTextViewInternal.m; sourceTree = "<group>"; };
+		59EB28D01B836C240031907A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		59EB28D11B836C240031907A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		59EB28D21B836C240031907A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/QBImagePickerController.strings"; sourceTree = "<group>"; };
+		59EB28D31B836C3D0031907A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		59EB28D41B836C3D0031907A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		59EB28D51B836C3D0031907A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/QBImagePickerController.strings; sourceTree = "<group>"; };
+		59EB28D91B836CB90031907A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		59EB28DB1B836CBB0031907A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		59EC888C1B184249009495A6 /* NotiDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotiDetailViewController.h; sourceTree = "<group>"; };
 		59EC888D1B184249009495A6 /* NotiDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotiDetailViewController.m; sourceTree = "<group>"; };
 		59EC888E1B184249009495A6 /* NotiDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotiDetailViewController.xib; sourceTree = "<group>"; };
@@ -946,8 +955,6 @@
 		D4DF08841B5B94CA00B816DD /* QBImagePickerGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerGroupCell.m; sourceTree = "<group>"; };
 		D4DF08851B5B94CA00B816DD /* QBImagePickerThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QBImagePickerThumbnailView.h; sourceTree = "<group>"; };
 		D4DF08861B5B94CA00B816DD /* QBImagePickerThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QBImagePickerThumbnailView.m; sourceTree = "<group>"; };
-		D4DF08891B5B94CA00B816DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/QBImagePickerController.strings; sourceTree = "<group>"; };
-		D4DF088A1B5B94CA00B816DD /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/QBImagePickerController.strings; sourceTree = "<group>"; };
 		D4DF08951B5B970500B816DD /* NewNotimgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewNotimgCell.h; sourceTree = "<group>"; };
 		D4DF08961B5B970500B816DD /* NewNotimgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewNotimgCell.m; sourceTree = "<group>"; };
 		D4DF08971B5B970500B816DD /* NewNotimgCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewNotimgCell.xib; sourceTree = "<group>"; };
@@ -1426,6 +1433,7 @@
 				9F49B0B91B40073600996CA8 /* UIKit.framework */,
 				9F49B0B71B40072600996CA8 /* CoreGraphics.framework */,
 				D4B2F2F51B02FA00007B017E /* Info.plist */,
+				59EB28DA1B836CB90031907A /* InfoPlist.strings */,
 				D4B2F2F61B02FA00007B017E /* main.m */,
 				D4B2F3531B030A6A007B017E /* CoureCenterPrefixHeader.pch */,
 			);
@@ -1987,9 +1995,9 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
-				ja,
+				"zh-Hans",
+				en,
 			);
 			mainGroup = D4B2F2E81B02FA00007B017E;
 			productRefGroup = D4B2F2F21B02FA00007B017E /* Products */;
@@ -2008,6 +2016,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA6B42E01B70F7EF0055CC64 /* GroupInfoViewController.xib in Resources */,
+				59EB28D81B836CB90031907A /* InfoPlist.strings in Resources */,
 				524E88771B7367CF004A11A2 /* UIView1.xib in Resources */,
 				D4DEA5BD1B3002DD005C96D5 /* NewNotiSelectCell.xib in Resources */,
 				CADD22441B52C72000A4F3D2 /* IdeaWithVersion.xib in Resources */,
@@ -2382,10 +2391,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		59EB28DA1B836CB90031907A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				59EB28D91B836CB90031907A /* zh-Hans */,
+				59EB28DB1B836CBB0031907A /* Base */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		D4B2F3011B02FA00007B017E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D4B2F3021B02FA00007B017E /* Base */,
+				59EB28D01B836C240031907A /* zh-Hans */,
+				59EB28D31B836C3D0031907A /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -2394,6 +2414,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				D4B2F3071B02FA00007B017E /* Base */,
+				59EB28D11B836C240031907A /* zh-Hans */,
+				59EB28D41B836C3D0031907A /* en */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -2401,8 +2423,8 @@
 		D4DF08881B5B94CA00B816DD /* QBImagePickerController.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D4DF08891B5B94CA00B816DD /* en */,
-				D4DF088A1B5B94CA00B816DD /* ja */,
+				59EB28D21B836C240031907A /* zh-Hans */,
+				59EB28D51B836C3D0031907A /* en */,
 			);
 			name = QBImagePickerController.strings;
 			sourceTree = "<group>";

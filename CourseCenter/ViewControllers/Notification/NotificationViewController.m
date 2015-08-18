@@ -41,23 +41,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLogin) name:@"loginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLogin) name:@"logout" object:nil];
     self.index = 1;
     [self setupTable];
     [self addtableHeader];
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
-    [self isLogin];
-  
-    
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
     if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]&&[[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"]isEqualToString:@"1"]) {
         [self isLogin];
         userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
     }
+  
+    
 }
+
 -(void)isLogin
 {
     
@@ -71,6 +69,12 @@
         _tableView.hidden=NO;
         _loginBtn.hidden=YES;
         _Message.hidden=YES;
+     NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if (![role isEqualToString:@"4"]) {
+       self.addBtn.hidden = NO;
+    } else {
+        self.addBtn.hidden = YES;
+    }
         [self.tableView.legendHeader beginRefreshing];
     }
 }

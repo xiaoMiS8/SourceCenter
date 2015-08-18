@@ -139,6 +139,7 @@
                     _block();
                 }
                 ((AppDelegate *)app).tabar.FourLoginState=@"0";
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"logout" object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;
             }
