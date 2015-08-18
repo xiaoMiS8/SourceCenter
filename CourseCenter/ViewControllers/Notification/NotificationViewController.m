@@ -102,6 +102,7 @@
             [self.tableView addLegendFooterWithRefreshingBlock:^{
                 [self loadMore];
             }];
+            
         } else {
            
         }

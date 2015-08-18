@@ -53,12 +53,23 @@
                      IsForSMS:(BOOL)IsForSMS
                     SourceIDs:(NSArray *)SourceIDs
                      finished:(FinishedBlock)finished {
+    
+    NSString * sourceIDs = @"";
+    if (SourceIDs) {
+        for (int i=0; i<SourceIDs.count; i++) {
+            NSString *sourceID = [NSString stringWithFormat:@"%@",SourceIDs[i]];
+            sourceIDs = [NSString stringWithFormat:@"%@,%@",sourceIDs,sourceID];
+        }
+    }
+    if (![sourceIDs isEqualToString:@""]) {
+        sourceIDs = [sourceIDs substringFromIndex:1];
+    }
     NSDictionary *parameters = @{kTitle: Title,
                                  kConten: Conten,
                                  kIsTop: [NSNumber numberWithBool:IsTop],
                                  kIsForMail: [NSNumber numberWithBool:IsForMail],
                                  kIsForSMS: [NSNumber numberWithBool:IsForSMS],
-                                 kSourceIDs: SourceIDs};
+                                 kSourceIDs: sourceIDs};
     [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Notice/App_Notice_Add"
                                    parameters:parameters
                                   connectFlag:kApp_Notice_Add
