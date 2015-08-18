@@ -21,6 +21,8 @@
     [_btn addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     _btn.delegate = self;
     _btn.selected = YES;
+    _isFinishL.layer.masksToBounds=YES;
+    _isFinishL.layer.cornerRadius=5;
 }
 - (void)btnAction
 {
@@ -85,6 +87,12 @@
     }else if([_fileModel.fileType integerValue]==9)
     {
         _image.image=[UIImage imageNamed:@"other"];
+    }
+    if (_fileModel.IsReadFinish) {
+        _isFinishL.hidden=YES;
+    }else
+    {
+        _isFinishL.hidden=NO;
     }
 }
 - (void)downloadFile

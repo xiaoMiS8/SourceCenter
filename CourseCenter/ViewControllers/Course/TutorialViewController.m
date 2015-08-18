@@ -143,6 +143,7 @@ static NSInteger tag;
             model.fileName=info.FileTitle;
             model.fileURL=info.ViewUrl;
             model.fileType=[@(info.FileType) stringValue];
+            model.IsReadFinish=info.IsReadFinish;
             model.section=j;
             model.row=i;
             model.isFirstReceived=YES;
@@ -304,12 +305,11 @@ static NSInteger tag;
     view.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
     if (((ChapterInfo *)[_arrayData objectAtIndex:section]).ParentID==0) {
         view.backgroundColor=[UIColor lightGrayColor];
-        title=[NSString stringWithFormat:@"%@(章)",((ChapterInfo *)[_arrayData objectAtIndex:section]).Title];
     }else
     {
         view.backgroundColor=[UIColor whiteColor];
-        title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
     }
+    title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
     view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
     view.layer.borderWidth=0.5;
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, _tableView.frame.size.width-20, 50)];
@@ -384,6 +384,7 @@ static NSInteger tag;
             model.fileName=info.FileTitle;
             model.fileURL=info.ViewUrl;
             model.fileType=[@(info.FileType) stringValue];
+            model.IsReadFinish=info.IsReadFinish;
             model.isFirstReceived=YES;
             cell.request=nil;
             cell.fileModel=model;

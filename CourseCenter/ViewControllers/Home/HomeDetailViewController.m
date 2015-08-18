@@ -198,7 +198,13 @@ static NSInteger tag;
         return 0;
     }else
     {
-        return ((NSMutableArray *)[_moocFileArray objectAtIndex:section]).count;
+        if (section<=1) {
+            return ((NSMutableArray *)[_moocFileArray objectAtIndex:section]).count;
+        }else
+        {
+            return 0;
+        }
+        
     }
 }
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -208,12 +214,11 @@ static NSInteger tag;
     view.frame=CGRectMake(0, 0,_tableView.frame.size.width , 50);
     if (((ChapterInfo *)[_arrayData objectAtIndex:section]).ParentID==0) {
       view.backgroundColor=[UIColor lightGrayColor];
-        title=[NSString stringWithFormat:@"%@(章)",((ChapterInfo *)[_arrayData objectAtIndex:section]).Title];
     }else
     {
-     view.backgroundColor=[UIColor whiteColor];
-        title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
+      view.backgroundColor=[UIColor whiteColor];
     }
+    title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
     view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
     view.layer.borderWidth=0.5;
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, _tableView.frame.size.width-20, 50)];
@@ -288,20 +293,32 @@ static NSInteger tag;
 }
 -(void)press:(UIButton *)but
 {
-    NSMutableDictionary *dicto=[_array objectAtIndex:but.tag-100];
-    NSNumber *num=[dicto objectForKey:SECTION_STATE];
-    if ([num boolValue]) {
-        [dicto setObject:[NSNumber numberWithBool:NO] forKey:SECTION_STATE];
+    if (but.tag-100<=1) {
+        NSMutableDictionary *dicto=[_array objectAtIndex:but.tag-100];
+        NSNumber *num=[dicto objectForKey:SECTION_STATE];
+        if ([num boolValue]) {
+            [dicto setObject:[NSNumber numberWithBool:NO] forKey:SECTION_STATE];
+        }else
+        {
+            [dicto setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
+        }
+        [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
     }else
     {
-        [dicto setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
+        [Tool showAlertView:@"提示" withMessage:@"您暂时不能学习其他课程!" withTarget:self withCancel:@"确定" other:nil];
     }
-    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
+    
 }
 -(void)gotohwVC:(UIButton *)but
 {
-    HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
-    [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
+    if (but.tag-100<=1) {
+        HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+        [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
+    }else
+    {
+        [Tool showAlertView:@"提示" withMessage:@"您暂时不能学习其他课程!" withTarget:self withCancel:@"确定" other:nil];
+    }
+    
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
