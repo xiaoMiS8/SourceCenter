@@ -14,6 +14,7 @@
 #import "TestViewController.h"
 #import "ResponseObject.h"
 #import "NSString+HandleString.h"
+#import "MJRefresh.h"
 @interface HomeViewController ()
 {
     NSString *loginState;
@@ -28,6 +29,7 @@
 @property (strong,nonatomic)ResponseObject *reob;
 @property (nonatomic, assign) CGFloat startY;
 @property (nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic, assign) int index;
 @end
 
 @implementation HomeViewController
@@ -72,6 +74,7 @@
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
+                [self.tableView removeFooter];
                 return ;
             }
         }
@@ -81,14 +84,35 @@
 //全部课程
 -(void)aLoadData
 {
+    self.index = 1;
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
+                [self.tableView addLegendFooterWithRefreshingBlock:^{
+                    [self loadMore];
+                }];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+- (void)loadMore {
+    self.index ++;
+    self.httpManager = [[CCHttpManager alloc] init];
+    [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                [self.dataArray addObjectsFromArray:self.reob.resultArray];
+                [_tableView reloadData];
+                [self.tableView.legendFooter endRefreshing];
                 return ;
             }
         }
