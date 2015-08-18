@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="st4-GY-IqQ">
-                        <rect key="frame" x="18" y="8" width="245" height="20"/>
+                        <rect key="frame" x="18" y="3" width="245" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="GsB-kK-o0n"/>
                         </constraints>
@@ -26,13 +26,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p0o-Qu-1Y4">
-                        <rect key="frame" x="18" y="28" width="18.5" height="18.5"/>
+                        <rect key="frame" x="18" y="23" width="28.5" height="28.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="p0o-Qu-1Y4" secondAttribute="height" multiplier="1:1" id="iAm-ty-KhJ"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMp-Mw-H63">
-                        <rect key="frame" x="46" y="27" width="0.0" height="20"/>
+                        <rect key="frame" x="56" y="27" width="0.0" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="HiC-Dq-IY4"/>
                         </constraints>
@@ -50,6 +50,17 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zu-o3-Dfs">
+                        <rect key="frame" x="3" y="3" width="10" height="10"/>
+                        <color key="backgroundColor" red="0.1137254902" green="0.66274509800000003" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="i9u-Xi-fL9"/>
+                            <constraint firstAttribute="width" constant="10" id="lUc-jH-Qc9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="p0o-Qu-1Y4" firstAttribute="centerY" secondItem="aMp-Mw-H63" secondAttribute="centerY" id="1KW-lz-0Qn"/>
@@ -57,17 +68,20 @@
                     <constraint firstAttribute="trailingMargin" secondItem="Iw4-75-u4A" secondAttribute="trailing" id="3VD-gS-hMT"/>
                     <constraint firstItem="Iw4-75-u4A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="A9i-j9-xfO"/>
                     <constraint firstItem="p0o-Qu-1Y4" firstAttribute="top" secondItem="st4-GY-IqQ" secondAttribute="bottom" id="Cit-81-HLC"/>
+                    <constraint firstItem="5Zu-o3-Dfs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="EuO-Na-dIk"/>
+                    <constraint firstItem="5Zu-o3-Dfs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-5" id="FRw-Xd-FLB"/>
                     <constraint firstItem="p0o-Qu-1Y4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Hnc-5b-2Dm"/>
                     <constraint firstItem="aMp-Mw-H63" firstAttribute="leading" secondItem="p0o-Qu-1Y4" secondAttribute="trailing" constant="10" id="I1S-jd-Iye"/>
                     <constraint firstItem="Iw4-75-u4A" firstAttribute="leading" secondItem="st4-GY-IqQ" secondAttribute="trailing" constant="10" id="OH9-le-OPh"/>
                     <constraint firstItem="st4-GY-IqQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="jcS-Lr-dWa"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="p0o-Qu-1Y4" secondAttribute="bottom" id="sm8-6h-xns"/>
-                    <constraint firstItem="st4-GY-IqQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="y7I-ci-rqK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="p0o-Qu-1Y4" secondAttribute="bottom" constant="-5" id="sm8-6h-xns"/>
+                    <constraint firstItem="st4-GY-IqQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="y7I-ci-rqK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="btn" destination="Iw4-75-u4A" id="kid-v6-3Wd"/>
                 <outlet property="image" destination="p0o-Qu-1Y4" id="9aA-46-hjV"/>
+                <outlet property="isFinishL" destination="5Zu-o3-Dfs" id="WUK-UX-JrK"/>
                 <outlet property="size" destination="aMp-Mw-H63" id="kDL-Vf-gFq"/>
                 <outlet property="title" destination="st4-GY-IqQ" id="yAv-DU-Swt"/>
             </connections>

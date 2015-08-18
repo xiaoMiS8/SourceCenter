@@ -36,4 +36,5 @@
 @property(nonatomic,strong)UIImage *fileimage;
 @property(nonatomic,assign)CGFloat section;
 @property(nonatomic,assign)CGFloat row;
+@property(nonatomic, assign) BOOL  IsReadFinish;
 @end

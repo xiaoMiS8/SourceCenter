@@ -120,6 +120,7 @@
         model.fileName=info.FileTitle;
         model.fileURL=info.FileURL;
         model.fileType=[@(info.FileType) stringValue];
+        model.IsReadFinish=YES;
         model.isFirstReceived=YES;
         [_fileArray addObject:model];
     }

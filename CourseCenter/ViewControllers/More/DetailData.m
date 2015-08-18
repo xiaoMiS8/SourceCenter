@@ -80,6 +80,7 @@
         model.fileName=info.FileTitle;
         model.fileURL=info.FileURL;
         model.fileType=[@(info.FileType) stringValue];
+        model.IsReadFinish=YES;
         model.isFirstReceived=YES;
         [_fileArray addObject:model];
     }
@@ -232,6 +233,7 @@
             }
             FileModel *fileInfo=[theRequest.userInfo objectForKey:@"File"];
             cell.request = theRequest;
+            fileInfo.IsReadFinish=YES;
             cell.fileModel=fileInfo;
             cell.isFirst=NO;
             return cell;
@@ -242,6 +244,7 @@
         if (sar.row==indexPath.row) {
             cell.isFinish=@"YES";
             cell.btn.hidden=YES;
+            ((FileModel *)[_fileArray objectAtIndex:indexPath.row]).IsReadFinish=YES;
             cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
             cell.isFirst=NO;
             return cell;
@@ -251,6 +254,7 @@
     for (SectionAndRow *sar in pauseRow) {
         if (sar.row==indexPath.row) {
             cell.request = nil;
+            ((FileModel *)[_fileArray objectAtIndex:indexPath.row]).IsReadFinish=YES;
             cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
             //手动设置百分比，显示弧度
             [cell setPercent];
@@ -260,6 +264,7 @@
     }
     //未下载的
     cell.request=nil;
+    ((FileModel *)[_fileArray objectAtIndex:indexPath.row]).IsReadFinish=YES;
     cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
     cell.size.text=@"未下载";
     cell.isFirst=YES;

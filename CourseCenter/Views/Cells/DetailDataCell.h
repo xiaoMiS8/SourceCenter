@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *size;
 @property (weak, nonatomic) IBOutlet CircularProgressButton *btn;
+@property (weak, nonatomic) IBOutlet UILabel *isFinishL;
 @property(nonatomic,strong)FileInfo *fileInfo;
 @property (nonatomic,strong)FileModel *fileModel;
 @property (nonatomic, weak) ASIHTTPRequest *request;
