@@ -6,8 +6,8 @@
   Copyright (c) 2014年 Katsuma Tanaka. All rights reserved.
 */
 
-"title" = "アルバム";
+"title" = "Photos";
 
-"format_photos_and_videos" = "写真%ld枚、ビデオ%ld本";
-"format_photos" = "写真%ld枚";
-"format_videos" = "ビデオ%ld本";
+"format_photos_and_videos" = "%ld Photos, %ld Videos";
+"format_photos" = "%ld Photos";
+"format_videos" = "%ld Videos";

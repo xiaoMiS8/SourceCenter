@@ -131,7 +131,6 @@
     if (viewController == self.viewcontrollers[0]) {
         [self addCenterandRightItem];
         if (![_OneLoginState isEqualToString:nowLoginState]) {
-            [viewController viewDidLoad];
             _OneLoginState=nowLoginState;
         }
     }
@@ -139,7 +138,6 @@
         [self removeCenterandRightItem];
         [self addNotificationRightItem];
         if (![_TowLoginState isEqualToString:nowLoginState]) {
-            [viewController viewDidLoad];
             _TowLoginState=nowLoginState;
         }
     }
@@ -147,7 +145,6 @@
         [self removeNotificationRightItem];
         [self addcenterImg];
         if (![_ThreeLoginState isEqualToString:nowLoginState]) {
-            [viewController viewDidLoad];
             _ThreeLoginState=nowLoginState;
         }
     }
@@ -156,7 +153,6 @@
         [self removeCenterandRightItem];
         [self removeNotificationRightItem];
         if (![_FourLoginState isEqualToString:nowLoginState]) {
-            [viewController viewDidLoad];
             _FourLoginState=nowLoginState;
         }
     }

@@ -34,6 +34,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLoginOrCourse) name:@"loginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLoginOrCourse) name:@"logout" object:nil];
     [self setupTableView];
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
@@ -42,18 +45,7 @@
     self.dataArray=[[NSMutableArray array]init];
     [self isLoginOrCourse];
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    if ([_isFanhui isEqualToString:@"YES"]) {
-        _seg.selectedSegmentIndex = 0;
-        [self segValueChange:0];
-        _isFanhui=nil;
-    }
-    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]&&[[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"]isEqualToString:@"1"]) {
-        [self isLoginOrCourse];
-        userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
-    }
-}
+
 -(void)isLoginOrCourse
 {
     loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];

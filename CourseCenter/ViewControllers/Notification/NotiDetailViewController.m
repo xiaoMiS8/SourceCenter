@@ -150,7 +150,10 @@
 - (void)sendAction:(id)sender {
     
     DLog(@"text--%@",self.textView.text);
-    
+    if ([self.textView.text isEqualToString:@""] || self.textView.text == nil) {
+        [MBProgressHUD showError:@"回复内容不能为空"];
+        return;
+    }
     [self.httpManger AddNoticeResponseWithNoticeID:self.noticeInfo.NoticeID Conten:self.textView.text finished:^(EnumServerStatus status, NSObject *object) {
         [self loadData];
     }];

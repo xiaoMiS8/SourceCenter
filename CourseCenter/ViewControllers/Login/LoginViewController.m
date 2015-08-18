@@ -55,6 +55,8 @@
                 if (self.block) {
                     self.block();
                 }
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;
             }
