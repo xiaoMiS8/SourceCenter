@@ -22,7 +22,7 @@
 @implementation BBSResponeCell
 
 - (void)awakeFromNib {
-    self.content.preferredMaxLayoutWidth = Swidth - 10 - 10;
+    self.content.preferredMaxLayoutWidth = Swidth - 10 - 20;
 }
 
 - (void)setResponse:(TopicResponseInfo *)response {

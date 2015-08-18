@@ -16,7 +16,7 @@
 #define kConten                 @"Conten"
 #define kUserName               @"UserName"
 #define kIsTeacherTopic         @"IsTeacherTopic"
-#define kForumClassName         @"ForumClassName"
+#define kForumClassName         @"FromClassName"
 #define kUpdateTime             @"UpdateTime"
 #define kClicks                 @"Clicks"
 #define kResponses              @"Responses"
