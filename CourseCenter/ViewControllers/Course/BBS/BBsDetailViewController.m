@@ -52,13 +52,31 @@
 }
 
 - (void)addnavItem {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"topic_set"] style:UIBarButtonItemStylePlain target:self action:@selector(topicSet)];
-    self.navigationItem.rightBarButtonItem = item;
+    NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if (![role isEqualToString:@"4"]) {
+        if (self.topic.iscanDel) {
+            UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bbsdis_gray"] style:UIBarButtonItemStylePlain target:self action:@selector(stuDel)];
+            self.navigationItem.rightBarButtonItem = item;
+        }
+     
+    } else {
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"topic_set"] style:UIBarButtonItemStylePlain target:self action:@selector(topicSet)];
+        self.navigationItem.rightBarButtonItem = item;
+    }
+   
+}
+
+- (void)stuDel {
+     [self topicDelete];
 }
 
 - (void)topicSet {
     if (!self.topSetView) {
-        TopicSetView *topicSetView = [[TopicSetView alloc] initWithFrame:self.view.frame andCount:4];
+        int count = 4;
+        if (self.topic.iscanDel == NO) {
+            count = 3;
+        }
+        TopicSetView *topicSetView = [[TopicSetView alloc] initWithFrame:self.view.frame andCount:count];
         topicSetView.bgview = self.view;
         __weak typeof(topicSetView) wtop = topicSetView;
         topicSetView.ClickBlock = ^(NSInteger index) {
@@ -204,7 +222,7 @@
         BBsDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BBsDetailCell"];
         cell.topic = self.topic;
         cell.agreeBlock = ^ {
-            [self.manager updateForumMyIsGoodWithTopicID:self.OCID ResponseID:0 finished:^(EnumServerStatus status, NSObject *object) {
+            [self.manager updateForumMyIsGoodWithTopicID:self.topic.TopicID ResponseID:0 finished:^(EnumServerStatus status, NSObject *object) {
                  [self reloadData];
                 [MBProgressHUD showSuccess:((ResponseObject *)object).message];
             }];
@@ -216,7 +234,7 @@
         BBSResponeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BBSResponeCell"];
         cell.response = self.respones[indexPath.row - 1];
         cell.agreeBlcok = ^{
-            [self.manager updateForumMyIsGoodWithTopicID:self.OCID ResponseID:((TopicResponseInfo *)self.respones[indexPath.row - 1]).ResponseID finished:^(EnumServerStatus status, NSObject *object) {
+            [self.manager updateForumMyIsGoodWithTopicID:self.topic.TopicID ResponseID:((TopicResponseInfo *)self.respones[indexPath.row - 1]).ResponseID finished:^(EnumServerStatus status, NSObject *object) {
                 [self reloadData];
                 [MBProgressHUD showSuccess:((ResponseObject *)object).message];
             }];
@@ -241,10 +259,14 @@
 }
 - (IBAction)sendClick:(id)sender {
     __weak typeof(self) wself = self;
+    if ([self.textView.text isEqualToString:@"发表评论（限250字以内）"] || [self.textView.text isEqualToString:@""]) {
+        [MBProgressHUD showError:@"回复内容不能为空"];
+        return;
+    }
     [self.manager addForumResponseWithTopicID:self.topic.TopicID ParentID:self.parentID Conten:self.textView.text finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD showSuccess:@"回复成功"];
         [wself reloadData];
-        wself.textView.text = @"发表评论（限250字以内";
+        wself.textView.text = @"发表评论（限250字以内）";
         [wself.textView endEditing:YES];
     }];
 }

@@ -137,6 +137,9 @@ static NSInteger number=0;
     };
     BBsViewController *bbsVC = [[BBsViewController alloc] init];
     bbsVC.OCID = ((OCourseInfo *)(self.OCList[index.row])).OCID;
+    bbsVC.TitleChageBlock = ^(NSString *title) {
+        tabbar.title = title;
+    };
     bbsVC.PushBlock = ^(UIViewController *viewController) {
         [tabbar.navigationController pushViewController:viewController animated:YES];
     };

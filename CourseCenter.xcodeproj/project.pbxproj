@@ -108,6 +108,10 @@
 		5963C36A1B2024A700A09D30 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C3681B2024A700A09D30 /* TestViewController.m */; };
 		5963C36B1B2024A700A09D30 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5963C3691B2024A700A09D30 /* TestViewController.xib */; };
 		5963C36E1B202C8200A09D30 /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5963C36D1B202C8200A09D30 /* UserInfo.m */; };
+		59682AEE1B84D27800DA2778 /* NewTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59682AEC1B84D27800DA2778 /* NewTypeViewController.m */; };
+		59682AEF1B84D27800DA2778 /* NewTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59682AED1B84D27800DA2778 /* NewTypeViewController.xib */; };
+		59682AF31B84D69800DA2778 /* SelectClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59682AF11B84D69800DA2778 /* SelectClassViewController.m */; };
+		59682AF41B84D69800DA2778 /* SelectClassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59682AF21B84D69800DA2778 /* SelectClassViewController.xib */; };
 		599A5B7D1B16C09A005597AE /* NotificationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 599A5B7B1B16C09A005597AE /* NotificationListCell.m */; };
 		599A5B7E1B16C09A005597AE /* NotificationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 599A5B7C1B16C09A005597AE /* NotificationListCell.xib */; };
 		599A5B811B16FC73005597AE /* NotificationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 599A5B801B16FC73005597AE /* NotificationInfo.m */; };
@@ -550,6 +554,12 @@
 		5963C3691B2024A700A09D30 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		5963C36C1B202C8200A09D30 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		5963C36D1B202C8200A09D30 /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		59682AEB1B84D27800DA2778 /* NewTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTypeViewController.h; sourceTree = "<group>"; };
+		59682AEC1B84D27800DA2778 /* NewTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTypeViewController.m; sourceTree = "<group>"; };
+		59682AED1B84D27800DA2778 /* NewTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTypeViewController.xib; sourceTree = "<group>"; };
+		59682AF01B84D69800DA2778 /* SelectClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectClassViewController.h; sourceTree = "<group>"; };
+		59682AF11B84D69800DA2778 /* SelectClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectClassViewController.m; sourceTree = "<group>"; };
+		59682AF21B84D69800DA2778 /* SelectClassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectClassViewController.xib; sourceTree = "<group>"; };
 		599A5B7A1B16C09A005597AE /* NotificationListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationListCell.h; sourceTree = "<group>"; };
 		599A5B7B1B16C09A005597AE /* NotificationListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationListCell.m; sourceTree = "<group>"; };
 		599A5B7C1B16C09A005597AE /* NotificationListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationListCell.xib; sourceTree = "<group>"; };
@@ -1359,6 +1369,12 @@
 				59B72C651B76E1BA00C895FE /* NTViewController.h */,
 				59B72C661B76E1BA00C895FE /* NTViewController.m */,
 				59B72C671B76E1BA00C895FE /* NTViewController.xib */,
+				59682AEB1B84D27800DA2778 /* NewTypeViewController.h */,
+				59682AEC1B84D27800DA2778 /* NewTypeViewController.m */,
+				59682AED1B84D27800DA2778 /* NewTypeViewController.xib */,
+				59682AF01B84D69800DA2778 /* SelectClassViewController.h */,
+				59682AF11B84D69800DA2778 /* SelectClassViewController.m */,
+				59682AF21B84D69800DA2778 /* SelectClassViewController.xib */,
 				59B72C741B77850200C895FE /* SelectSViewController.h */,
 				59B72C751B77850200C895FE /* SelectSViewController.m */,
 				59B72C761B77850200C895FE /* SelectSViewController.xib */,
@@ -2078,6 +2094,7 @@
 				52E7DFE11B71A30400BB46DE /* HWorkCell.xib in Resources */,
 				52DEE0611B7D78F600DD4486 /* file_pause_normal.png in Resources */,
 				D4459B901B63D75A00DEB780 /* CourseTabbarViewController.xib in Resources */,
+				59682AEF1B84D27800DA2778 /* NewTypeViewController.xib in Resources */,
 				CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */,
 				D4459B7C1B63D5F400DEB780 /* FCourseViewController.xib in Resources */,
 				D4B2F3081B02FA00007B017E /* LaunchScreen.xib in Resources */,
@@ -2105,6 +2122,7 @@
 				D4DF08991B5B970500B816DD /* NewNotimgCell.xib in Resources */,
 				524E887B1B7367CF004A11A2 /* UIView3.xib in Resources */,
 				59B72C6E1B76E22500C895FE /* TextViewCell.xib in Resources */,
+				59682AF41B84D69800DA2778 /* SelectClassViewController.xib in Resources */,
 				D4B2F3451B02FEC0007B017E /* NotificationViewController.xib in Resources */,
 				CA20AA3B1B5A979500598370 /* MyData.xib in Resources */,
 				CA6B42E51B7102020055CC64 /* CollectionViewCell.xib in Resources */,
@@ -2156,6 +2174,7 @@
 				042E75E01B16148A00396AAF /* IQSegmentedNextPrevious.m in Sources */,
 				D4B2F3441B02FEC0007B017E /* NotificationViewController.m in Sources */,
 				06D1FADF1B57B54F00C18980 /* FileInfo.m in Sources */,
+				59682AF31B84D69800DA2778 /* SelectClassViewController.m in Sources */,
 				52DEE0421B7D74E000DD4486 /* ASIFormDataRequest.m in Sources */,
 				D4DEA5B21B2FB05F005C96D5 /* NewNotiTextViewCell.m in Sources */,
 				D4DF088C1B5B94CA00B816DD /* QBAssetsCollectionFooterView.m in Sources */,
@@ -2163,6 +2182,7 @@
 				D77E0EC61B6A23300057FFF9 /* ForumTypeInfo.m in Sources */,
 				52DEE03F1B7D74E000DD4486 /* ASIDataCompressor.m in Sources */,
 				D4CE16661B3418C500DBBDE7 /* SpecialtyTypeInfo.m in Sources */,
+				59682AEE1B84D27800DA2778 /* NewTypeViewController.m in Sources */,
 				D4B2F3ED1B034265007B017E /* SDImageCache.m in Sources */,
 				D4459B851B63D63B00DEB780 /* HWorkViewController.m in Sources */,
 				D4B2F3941B033E51007B017E /* AFHTTPRequestOperationManager.m in Sources */,
