@@ -40,9 +40,15 @@
     [self addSubview:self.bgView];
     
     
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 60)];
+    UIView *blurView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    blurView.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5];
+    [self.bgView addSubview:blurView];
+    
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, -60, self.frame.size.width, 60)];
     topView.backgroundColor = [UIColor whiteColor];
-    [self.bgView addSubview:topView];
+    [blurView addSubview:topView];
+    self.topview  =topView;
+    self.topview.alpha = 0;
     NSArray *imgs = @[@"bbsdis_red",@"bbsdis_blue",@"bbsdis_green",@"bbsdis_gray"];
     NSArray *titles = @[@"设为置顶",@"设为加精",@"分享",@"删除该贴"];
     
@@ -103,10 +109,21 @@
 - (void)show {
     UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
     [window addSubview:self];
+    [UIView animateWithDuration:0.25 animations:^{
+         self.topview.alpha = 1;
+        self.topview.frame = CGRectMake(0, 0, self.frame.size.width, 60);
+    }];
 }
 
 - (void)hide {
-    [self removeFromSuperview];
+    
+    [UIView animateWithDuration:0.25 animations:^{
+        self.topview.frame = CGRectMake(0, -60, self.frame.size.width, 60);
+        self.topview.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+    }];
+    
 }
 
 @end

@@ -84,7 +84,7 @@
     if (isTwo) {
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:self.oneBtn];
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
-        self.navigationItem.rightBarButtonItems = @[rightItem];
+        self.navigationItem.rightBarButtonItems = @[rightItem,item];
     } else {
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:self.rightBtn];
         self.navigationItem.rightBarButtonItem = rightItem;
