@@ -96,4 +96,21 @@
     }];
 }
 
++ (void)addOCMoocStuFilewithChapterID:(long)ChapterID
+                               FileID:(int)FileID
+                             IsFinish:(int)IsFinish
+                             finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{
+                                 kChapterID: [NSNumber numberWithLong:ChapterID],
+                                 kFileID: [NSNumber numberWithInt:FileID],
+                                 kIsFinish:[NSNumber numberWithInt:IsFinish]
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Index/App_OCMoocStuFile_Add"
+                                   parameters:parameters
+                                   connectFlag:kOCMoocStuFile_Add
+                                   finished:^(EnumServerStatus status, NSObject *object) {
+                                 finished(status, object);
+    }];
+
+}
 @end

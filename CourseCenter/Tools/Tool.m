@@ -312,4 +312,27 @@
 //        [cookieStorage setCookie: cookie];
 //    }
 //}
+
++(BOOL)isExistWithName:(NSString *)name
+{
+    NSString *document = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *plistPath = [[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:@"finishPlist.plist"];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:plistPath]) {
+        NSMutableArray *finishArr = [[NSMutableArray alloc]initWithContentsOfFile:plistPath];
+        for (NSDictionary *dic in finishArr) {
+            if([name isEqualToString:[dic objectForKey:@"filename"]])
+            {
+                return YES;
+            }
+        }
+              return NO;
+    }
+  return NO;
+}
+
++(NSString *)getPathUrlWithName:(NSString *)name
+{
+    NSString *filePath = [[[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:TARGER] stringByAppendingPathComponent:name];
+    return filePath;
+}
 @end

@@ -10,7 +10,7 @@
 #import "FileDownLoadManager.h"
 @interface TutorialViewController : CourseBaseViewController<DownloadDelegate>
 @property(nonatomic,assign)long OCID;
-@property (nonatomic, assign) int FileType;
+@property(nonatomic, assign) int FileType;
 -(void)changeFileState;
 -(void)removeASIRequst:( ASIHTTPRequest*)request;
 @end

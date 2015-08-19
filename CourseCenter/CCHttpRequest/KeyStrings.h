@@ -33,6 +33,8 @@
 #define kChapterStudy_List              @"ChapterStudy_List"
     //章节下资料列表
 #define kOCMoocFileStudy_List           @"OCMoocFileStudy_List"
+    //章节下资料学习情况
+#define kOCMoocStuFile_Add              @"OCMoocStuFile_Add"
 
 #pragma mark- Notice
 

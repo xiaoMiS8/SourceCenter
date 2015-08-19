@@ -18,7 +18,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (_isNSBundle) {
+     movie =[[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:self.playUrl]];
+    }else{
      movie =[[MPMoviePlayerController alloc]initWithContentURL:[NSURL URLWithString:self.playUrl]];
+    }
     [movie prepareToPlay];
     [movie.view setFrame:self.view.bounds];
     [movie setControlStyle:MPMovieControlStyleFullscreen];

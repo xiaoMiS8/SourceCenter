@@ -79,4 +79,17 @@
                                FileType:(int)FileType
                                finished:(FinishedBlock)finished;
 
+/**
+ *	@brief	非视频资源下载完成调用
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	IsFinish 	资源是否学习完成
+ *	@param 	finished 	finished description
+ */
++ (void)addOCMoocStuFilewithChapterID:(long)ChapterID
+                                   FileID:(int)FileID
+                                   IsFinish:(int)IsFinish
+                                  finished:(FinishedBlock)finished;
+
 @end

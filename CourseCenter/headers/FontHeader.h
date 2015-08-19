@@ -26,6 +26,6 @@
 #define NOPIC @"nopic"
 
 #define BASEPATH @"DownLoads"
-#define TARGER @"MYMORE"
+#define TARGER @"MyFile"
 
 #endif

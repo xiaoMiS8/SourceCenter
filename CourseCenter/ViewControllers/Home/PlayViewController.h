@@ -10,4 +10,5 @@
 
 @interface PlayViewController : UIViewController
 @property(nonatomic,strong)NSString *playUrl;
+@property(nonatomic,assign)BOOL isNSBundle;
 @end

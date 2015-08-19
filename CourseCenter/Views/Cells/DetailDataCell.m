@@ -43,7 +43,7 @@
 {
     if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] != kNotReachable)
     {
-        [[FileDownLoadManager sharedFilesDownManage] downFileUrl:_fileModel.fileURL filename:_fileModel.fileName filetarget:TARGER fileid:_fileModel.fileID fileType:_fileModel.fileType];
+        [[FileDownLoadManager sharedFilesDownManage] downFileUrl:_fileModel.fileURL filename:_fileModel.fileName filetarget:TARGER fileid:_fileModel.fileID chapterID:_fileModel.ChapterID fileType:_fileModel.fileType];
         [self.parentVC changeFileState];
     }else{
         [Tool showAlertView:@"提示" withMessage:@"网络不通,请检查网路" withTarget:nil withCancel:@"确定" other:nil];

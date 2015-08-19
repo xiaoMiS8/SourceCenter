@@ -98,6 +98,19 @@
     }];
 }
 
+- (void)addOCMoocStuFilewithChapterID:(long)ChapterID
+                               FileID:(int)FileID
+                             IsFinish:(int)IsFinish
+                             finished:(FinishedBlock)finished{
+    [IndexActions addOCMoocStuFilewithChapterID:ChapterID
+                                       FileID:FileID
+                                       IsFinish:IsFinish
+                                       finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status,object);
+    }];
+    
+}
+
 - (void)getNoticeInfoListWithOCID:(long)OCID
                             SysID:(long)SysID
                          ModuleID:(long)ModuleID

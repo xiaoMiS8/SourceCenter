@@ -38,6 +38,8 @@
 #define kChapterID          @"ChapterID"
 #define kSource             @"Source"
 #define kSourceID           @"SourceID"
+#define kFileID             @"FileID"
+#define kIsFinish           @"IsFinish"
 
 @interface BbsAction : NSObject
 

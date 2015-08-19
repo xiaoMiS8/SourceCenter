@@ -274,7 +274,14 @@
 {
     if ([((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileType isEqualToString:@"1"]) {
         PlayViewController *playVC=[[PlayViewController alloc]init];
-        playVC.playUrl=((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileURL;
+        FileModel *info=((FileModel *)[_fileArray objectAtIndex:indexPath.row]);
+        if ([Tool isExistWithName:info.fileName]) {
+            playVC.isNSBundle=YES;
+            playVC.playUrl=[Tool getPathUrlWithName:info.fileName];
+        }else
+        {
+            playVC.playUrl=((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileURL;
+        }
         [self presentViewController:playVC animated:YES completion:nil];
     }else
     {

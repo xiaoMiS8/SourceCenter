@@ -140,6 +140,7 @@ static NSInteger tag;
             FileModel *model=[[FileModel alloc]init];
             MoocFileInfo  *info=_moocFileArray[j][i];
             model.fileID=[@(info.FileID) stringValue] ;
+            model.ChapterID=info.ChapterID;
             model.fileName=info.FileTitle;
             model.fileURL=info.ViewUrl;
             model.fileType=[@(info.FileType) stringValue];
@@ -344,6 +345,10 @@ static NSInteger tag;
                 return cell=Nil;
             }
             FileModel *fileInfo=[theRequest.userInfo objectForKey:@"File"];
+            NSInteger jj=((SectionAndRow *)downIngRow[i]).section;
+            NSInteger ii=((SectionAndRow *)downIngRow[i]).row;
+            MoocFileInfo  *info=_moocFileArray[jj][ii];
+            fileInfo.IsReadFinish=info.IsReadFinish;
             cell.request = theRequest;
             cell.fileModel=fileInfo;
             cell.btn.hidden=NO;
@@ -356,6 +361,10 @@ static NSInteger tag;
     {
         if (((SectionAndRow *)finishRow[i]).section==indexPath.section&&((SectionAndRow *)finishRow[i]).row==indexPath.row) {
             int num=((SectionAndRow *)finishRow[i]).num;
+            NSInteger jj=((SectionAndRow *)finishRow[i]).section;
+            NSInteger ii=((SectionAndRow *)finishRow[i]).row;
+            MoocFileInfo  *info=_moocFileArray[jj][ii];
+            ((FileModel *)_fileArray[num]).IsReadFinish=info.IsReadFinish;
             cell.isFinish=@"YES";
             cell.btn.hidden=YES;
             cell.fileModel=_fileArray[num];
@@ -368,6 +377,10 @@ static NSInteger tag;
     {
         if (((SectionAndRow *)pauseRow[i]).section==indexPath.section&&((SectionAndRow *)pauseRow[i]).row==indexPath.row) {
             int num=((SectionAndRow *)pauseRow[i]).num;
+            NSInteger jj=((SectionAndRow *)pauseRow[i]).section;
+            NSInteger ii=((SectionAndRow *)pauseRow[i]).row;
+            MoocFileInfo  *info=_moocFileArray[jj][ii];
+            ((FileModel *)_fileArray[num]).IsReadFinish=info.IsReadFinish;
             cell.request = nil;
             cell.fileModel=_fileArray[num];
             //手动设置百分比，显示弧度
@@ -381,6 +394,7 @@ static NSInteger tag;
             MoocFileInfo *info=(MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
             FileModel *model=[[FileModel alloc]init];
             model.fileID=[@(info.FileID) stringValue] ;
+            model.ChapterID=info.ChapterID;
             model.fileName=info.FileTitle;
             model.fileURL=info.ViewUrl;
             model.fileType=[@(info.FileType) stringValue];
@@ -417,7 +431,14 @@ static NSInteger tag;
             }
             case 1:{
                 PlayViewController *playVC=[[PlayViewController alloc]init];
-                playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
+                MoocFileInfo *info=(MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+                if ([Tool isExistWithName:info.FileTitle]) {
+                    playVC.isNSBundle=YES;
+                    playVC.playUrl=[Tool getPathUrlWithName:info.FileTitle];
+                }else
+                {
+                 playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
+                }
                 [self presentViewController:playVC animated:YES completion:nil];
                 break;
             }
@@ -459,8 +480,23 @@ static NSInteger tag;
 -(void)finishedDownload:(ASIHTTPRequest *)request
 {
     [self changeFileState];
+    FileModel *fileInfo=[request.userInfo objectForKey:@"File"];
+    if (![fileInfo.fileType isEqualToString:@"1"]) {
+       [self addStuFileWithChapterID:fileInfo.ChapterID fileID:fileInfo.fileID];
+    }
 }
-
+-(void)addStuFileWithChapterID:(long)chapterid fileID:(NSString *)fileid
+{
+     __block typeof (self) myself =self;
+    [self.httpManager addOCMoocStuFilewithChapterID:chapterid FileID:[fileid intValue] IsFinish:1 finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            if ([myself.reob.errrorCode isEqualToString:@"0"]) {
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
 -(void)gotohwVC:(UIButton *)but
 {
     HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];

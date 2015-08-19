@@ -91,6 +91,7 @@ static dispatch_once_t onceToken;
         for (NSDictionary *dic in finishArr) {
             FileModel *file = [[FileModel alloc]init];
             file.fileID=[dic objectForKey:@"fileid"];
+            file.ChapterID=[[dic objectForKey:@"chapterid"]intValue];
             file.fileName = [dic objectForKey:@"filename"];
             file.fileType = [dic objectForKey:@"filetype"];
             file.fileSize = [dic objectForKey:@"filesize"];
@@ -130,11 +131,12 @@ static dispatch_once_t onceToken;
  *	@param 	name 	文件名
  *	@param 	targetPath 	目标路径
  */
--(void)downFileUrl:(NSString*) urlStr filename:(NSString*)name filetarget:(NSString*)targetPath fileid:(NSString *)fileid fileType:(NSString *)type;
+-(void)downFileUrl:(NSString*) urlStr filename:(NSString*)name filetarget:(NSString*)targetPath fileid:(NSString *)fileid chapterID:(long)chapterID fileType:(NSString *)type;
 {
     self.TargetSubPath=targetPath;
     _fileInfo=[[FileModel alloc]init];
     _fileInfo.fileID=fileid;
+    _fileInfo.ChapterID=chapterID;
     _fileInfo.fileName=name;
     _fileInfo.fileURL=urlStr;
     _fileInfo.time=[CommonHelper dateToString:[NSDate date]];
@@ -142,7 +144,7 @@ static dispatch_once_t onceToken;
     //本地若无相应文件夹 创建文件夹
     targetPath=[CommonHelper getTargetPathWithBasepath:_basePath subpath:targetPath];
     //本地储存路径
-    _fileInfo.targetPath=targetPath;
+    _fileInfo.targetPath=[targetPath stringByAppendingPathComponent:_fileInfo.fileName];
     _fileInfo.isDownloading=YES;
     _fileInfo.willDownloading=YES;
     _fileInfo.error=NO;
@@ -215,7 +217,7 @@ static dispatch_once_t onceToken;
     _queue.maxConcurrentOperationCount = 10;
     ASIHTTPRequest *request=[[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:fileInfo.fileURL]];
     request.delegate=self;
-    [request setDownloadDestinationPath:[fileInfo targetPath]];
+    [request setDownloadDestinationPath:fileInfo.targetPath];
     [request setTemporaryFileDownloadPath:fileInfo.tempPath];
     [request setDownloadProgressDelegate:self];
     [request setNumberOfTimesToRetryOnTimeout:2];
@@ -235,7 +237,7 @@ static dispatch_once_t onceToken;
     _queue.maxConcurrentOperationCount =10;
     ASIHTTPRequest *request=[[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:fileInfo.fileURL]];
     request.delegate=self;
-    [request setDownloadDestinationPath:[fileInfo targetPath]];
+    [request setDownloadDestinationPath:fileInfo.targetPath];
     [request setTemporaryFileDownloadPath:fileInfo.tempPath];
     [request setDownloadProgressDelegate:self];
     [request setNumberOfTimesToRetryOnTimeout:2];
@@ -285,6 +287,7 @@ static dispatch_once_t onceToken;
     NSDictionary *dic=[NSDictionary dictionaryWithContentsOfFile:path];
     FileModel *file=[[FileModel alloc]init];
     file.fileID=[dic objectForKey:@"fileid"];
+    file.ChapterID=[[dic objectForKey:@"chapterid"]intValue];
     file.fileName = [dic objectForKey:@"filename"];
     file.fileType = [dic objectForKey:@"filetype"];
     file.fileURL = [dic objectForKey:@"fileurl"];
@@ -312,7 +315,7 @@ static dispatch_once_t onceToken;
  */
 -(void)saveDownloadFile:(FileModel*)fileinfo
 {
-    NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileID,@"fileid",fileinfo.fileName,@"filename",fileinfo.fileType,@"filetype",fileinfo.fileURL,@"fileurl",fileinfo.time,@"time",_basePath,@"basepath",_TargetSubPath,@"tarpath" ,fileinfo.fileSize,@"filesize",fileinfo.fileReceivedSize,@"filerecievesize", nil];
+    NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileID,@"fileid",[NSNumber numberWithLong:fileinfo.ChapterID],@"chapterid",fileinfo.fileName,@"filename",fileinfo.fileType,@"filetype",fileinfo.fileURL,@"fileurl",fileinfo.time,@"time",_basePath,@"basepath",_TargetSubPath,@"tarpath" ,fileinfo.fileSize,@"filesize",fileinfo.fileReceivedSize,@"filerecievesize", nil];
     NSString *plistPath = [fileinfo.tempPath stringByAppendingPathExtension:@"plist"];
     if (![filedic writeToFile:plistPath atomically:YES]) {
         NSLog(@"write plist fail");
@@ -408,7 +411,7 @@ static dispatch_once_t onceToken;
     NSMutableArray *finishedinfo = [[NSMutableArray alloc]init];
     for (FileModel *fileinfo in self.finishedlist) {
         
-        NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileID,@"fileid",fileinfo.fileType,@"filetype",fileinfo.fileName,@"filename",fileinfo.time,@"time",fileinfo.fileSize,@"filesize",fileinfo.targetPath,@"filepath", nil];
+    NSDictionary *filedic = [NSDictionary dictionaryWithObjectsAndKeys:fileinfo.fileID,@"fileid",[NSNumber numberWithLong:fileinfo.ChapterID],@"chapterid",fileinfo.fileType,@"filetype",fileinfo.fileName,@"filename",fileinfo.time,@"time",fileinfo.fileSize,@"filesize",fileinfo.targetPath,@"filepath", nil];
         [finishedinfo addObject:filedic];
     }
     NSString *document = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];

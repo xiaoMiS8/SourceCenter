@@ -56,4 +56,7 @@
 #pragma mark- Cookies处理
 //+ (void)saveCookies;
 //+ (void)loadCookies;
+#pragma mark- 下载资料文件处理
++(BOOL)isExistWithName:(NSString *)name;
++(NSString *)getPathUrlWithName:(NSString *)name;
 @end
