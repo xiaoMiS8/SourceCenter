@@ -113,4 +113,55 @@
     }];
 
 }
+
++ (void)addOCMoocStuFileTimeCountwithChapterID:(long)ChapterID
+                                        FileID:(long)FileID
+                                     TimeCount:(long)TimeCount
+                                      finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{
+                                 kChapterID: [NSNumber numberWithLong:ChapterID],
+                                 kFileID: [NSNumber numberWithLong:FileID],
+                                 kTimeCount:[NSNumber numberWithLong:TimeCount]
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Index/OCMoocStuFile_Add"
+                                   parameters:parameters
+                                  connectFlag:kOCMoocStuFile_TimeCount
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+                                         finished(status, object);
+                                     }];
+}
+
++ (void)addOCMoocStuFileStudyTimeswithChapterID:(long)OCID
+                                         FileID:(long)FileID
+                                     StudyTimes:(long)StudyTimes
+                                       finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{
+                                 kOCID: [NSNumber numberWithLong:OCID],
+                                 kFileID: [NSNumber numberWithLong:FileID],
+                                 kStudyTimes:[NSNumber numberWithLong:StudyTimes]
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Index/OCMoocStuFileDesc_Add"
+                                   parameters:parameters
+                                  connectFlag:kOCMoocStuFile_StudyTimes
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+                                         finished(status, object);
+                                     }];
+}
+
++ (void)addOCMoocStuFileSecondswithChapterID:(long)ChapterID
+                                      FileID:(long)FileID
+                                     Seconds:(long)Seconds
+                                    finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{
+                                 kChapterID: [NSNumber numberWithLong:ChapterID],
+                                 kFileID: [NSNumber numberWithLong:FileID],
+                                 kSeconds:[NSNumber numberWithLong:Seconds]
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Index/OCMoocStuFile_StuVideoDesc_Add"
+                                   parameters:parameters
+                                  connectFlag:kOCMoocStuFile_Seconds
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+                                         finished(status, object);
+                                     }];
+}
 @end

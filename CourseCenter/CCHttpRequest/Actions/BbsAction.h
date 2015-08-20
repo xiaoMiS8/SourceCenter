@@ -40,6 +40,9 @@
 #define kSourceID           @"SourceID"
 #define kFileID             @"FileID"
 #define kIsFinish           @"IsFinish"
+#define kTimeCount          @"TimeCount"
+#define kStudyTimes         @"StudyTimes"
+#define kSeconds            @"Seconds"
 
 @interface BbsAction : NSObject
 

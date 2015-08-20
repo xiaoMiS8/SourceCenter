@@ -11,4 +11,7 @@
 @interface PlayViewController : UIViewController
 @property(nonatomic,strong)NSString *playUrl;
 @property(nonatomic,assign)BOOL isNSBundle;
+@property(nonatomic,assign)long ChapterID;
+@property(nonatomic,assign)long FileID;
+@property(nonatomic,assign)long OCID;
 @end
