@@ -232,7 +232,7 @@
  */
 - (void)addcenterImg
 {
-   
+    UIView *imgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     if (self.centerImg == nil) {
         UIImageView *img = [[UIImageView alloc] init];
         img.frame = CGRectMake(0,0,40, 40);
@@ -240,10 +240,11 @@
         img.layer.masksToBounds=YES;
         CourseViewController *courseVC = self.viewcontrollers[2];
         courseVC.centerImg = img;
-        self.centerImg = img;
-        [self setCenterImage];
+         self.centerImg = img;
+
     }
-    self.navigationItem.titleView = self.centerImg;
+    [imgView addSubview:self.centerImg];
+    self.navigationItem.titleView = imgView;
  
 }
 
