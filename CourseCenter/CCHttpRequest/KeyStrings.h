@@ -35,6 +35,13 @@
 #define kOCMoocFileStudy_List           @"OCMoocFileStudy_List"
     //章节下资料学习情况
 #define kOCMoocStuFile_Add              @"OCMoocStuFile_Add"
+    //章节下资料学习10秒回调
+#define kOCMoocStuFile_TimeCount        @"OCMoocStuFile_TimeCount"
+    //章节下资料学习60秒回调
+#define kOCMoocStuFile_StudyTimes       @"OCMoocStuFile_StudyTimes"
+    //章节下资料学习点回调
+#define kOCMoocStuFile_Seconds          @"OCMoocStuFile_Seconds"
+
 
 #pragma mark- Notice
 

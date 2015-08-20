@@ -11,13 +11,19 @@
 @interface PlayViewController ()
 {
     MPMoviePlayerController *movie;
+    NSTimer *timer10;
+    NSTimer *timer60;
+    NSTimer *timer;
 }
+@property(nonatomic, strong)CCHttpManager *httpManager;
+@property (strong,nonatomic)ResponseObject *reob;
 @end
 @implementation PlayViewController
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.httpManager = [[CCHttpManager alloc]init];
     if (_isNSBundle) {
      movie =[[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:self.playUrl]];
     }else{
@@ -40,12 +46,14 @@
         case MPMoviePlaybackStatePlaying:
             [MBProgressHUD hideHUD];
             NSLog(@"正在播放...");
+         timer10=[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(send10S) userInfo:nil repeats:YES];
+         timer60=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send60S) userInfo:nil repeats:YES];
             break;
         case MPMoviePlaybackStatePaused:
-            NSLog(@"暂停播放.");
+            NSLog(@"暂停播放...");
             break;
         case MPMoviePlaybackStateStopped:
-            NSLog(@"停止播放.");
+            NSLog(@"停止播放...");
             break;
         default:
             NSLog(@"播放状态:%li",(long)movie.playbackState);
@@ -54,11 +62,61 @@
 }
 -(void)myMovieFinishedCallback:(NSNotification*)notification
 {
+
+    [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(send) userInfo:nil repeats:NO];
     //销毁播放通知
     [[NSNotificationCenter defaultCenter] removeObserver:self
      name:MPMoviePlayerPlaybackDidFinishNotification
      object:movie];
+    [timer10 invalidate];
+    timer10=nil;
+    [timer60 invalidate];
+    timer60=nil;
+    [timer invalidate];
+    timer=nil;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)send10S
+{
+    __block typeof(self) myself =self;
+    [self.httpManager  addOCMoocStuFileTimeCountwithChapterID:_ChapterID FileID:_FileID TimeCount:10 finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            myself.reob=(ResponseObject *)object;
+            if ([myself.reob.errrorCode isEqualToString:@"0"]) {
+                NSLog(@"10$-------%@",[NSDate date]);
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+
+}
+-(void)send60S
+{
+    __block typeof(self) myself =self;
+    [self.httpManager  addOCMoocStuFileStudyTimeswithChapterID:_OCID FileID:_FileID StudyTimes:60 finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            myself.reob=(ResponseObject *)object;
+            if ([myself.reob.errrorCode isEqualToString:@"0"]) {
+                NSLog(@"60$-------%@",[NSDate date]);
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+-(void)send
+{
+    __block typeof(self) myself =self;
+    [self.httpManager  addOCMoocStuFileSecondswithChapterID:_ChapterID FileID:_FileID Seconds:movie.currentPlaybackTime finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            myself.reob=(ResponseObject *)object;
+            if ([myself.reob.errrorCode isEqualToString:@"0"]) {
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

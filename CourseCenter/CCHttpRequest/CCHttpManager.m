@@ -111,6 +111,41 @@
     
 }
 
+- (void)addOCMoocStuFileTimeCountwithChapterID:(long)ChapterID
+                                        FileID:(long)FileID
+                                     TimeCount:(long)TimeCount
+                                      finished:(FinishedBlock)finished{
+    [IndexActions addOCMoocStuFileTimeCountwithChapterID:ChapterID
+                                         FileID:FileID
+                                       TimeCount:TimeCount
+                                       finished:^(EnumServerStatus status, NSObject *object) {
+                                           finished(status,object);
+   }];
+}
+
+- (void)addOCMoocStuFileStudyTimeswithChapterID:(long)OCID
+                                         FileID:(long)FileID
+                                     StudyTimes:(long)StudyTimes
+                                       finished:(FinishedBlock)finished{
+    [IndexActions addOCMoocStuFileStudyTimeswithChapterID:OCID
+                                                  FileID:FileID
+                                               StudyTimes:StudyTimes
+                                                finished:^(EnumServerStatus status, NSObject *object) {
+                                                    finished(status,object);
+   }];
+}
+- (void)addOCMoocStuFileSecondswithChapterID:(long)ChapterID
+                                      FileID:(long)FileID
+                                     Seconds:(long)Seconds
+                                    finished:(FinishedBlock)finished{
+    [IndexActions addOCMoocStuFileSecondswithChapterID:ChapterID
+                                                   FileID:FileID
+                                                   Seconds:Seconds
+                                                 finished:^(EnumServerStatus status, NSObject *object) {
+                                                     finished(status,object);
+   }];
+}
+
 - (void)getNoticeInfoListWithOCID:(long)OCID
                             SysID:(long)SysID
                          ModuleID:(long)ModuleID

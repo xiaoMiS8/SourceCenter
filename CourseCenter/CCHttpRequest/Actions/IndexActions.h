@@ -92,4 +92,42 @@
                                    IsFinish:(int)IsFinish
                                   finished:(FinishedBlock)finished;
 
+/**
+ *	@brief	视频学习每10S回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	TimeCount 	学习时间
+ *	@param 	finished 	finished description
+ */
++ (void)addOCMoocStuFileTimeCountwithChapterID:(long)ChapterID
+                               FileID:(long)FileID
+                             TimeCount:(long)TimeCount
+                             finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	视频学习每60S回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	StudyTimes 	学习时间
+ *	@param 	finished 	finished description
+ */
++ (void)addOCMoocStuFileStudyTimeswithChapterID:(long)OCID
+                                        FileID:(long)FileID
+                                     StudyTimes:(long)StudyTimes
+                                      finished:(FinishedBlock)finished;
+/**
+ *	@brief	视频学习时间点回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	Seconds 	学习时间
+ *	@param 	finished 	finished description
+ */
++ (void)addOCMoocStuFileSecondswithChapterID:(long)ChapterID
+                                        FileID:(long)FileID
+                                     Seconds:(long)Seconds
+                                      finished:(FinishedBlock)finished;
+
 @end

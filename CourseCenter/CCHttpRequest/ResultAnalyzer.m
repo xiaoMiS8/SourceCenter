@@ -101,6 +101,18 @@
         if ([responseObject.errrorCode isEqualToString:KSuccess]) {
             responseObject.message = @"提交成功";
         }
+    }else if ([flag isEqualToString:kOCMoocStuFile_TimeCount]) {
+        if ([responseObject.errrorCode isEqualToString:KSuccess]) {
+            responseObject.message = @"提交成功";
+        }
+    }else if ([flag isEqualToString:kOCMoocStuFile_StudyTimes]) {
+        if ([responseObject.errrorCode isEqualToString:KSuccess]) {
+            responseObject.message = @"提交成功";
+        }
+    }else if ([flag isEqualToString:kOCMoocStuFile_Seconds]) {
+        if ([responseObject.errrorCode isEqualToString:KSuccess]) {
+            responseObject.message = @"提交成功";
+        }
     } else if ([flag isEqualToString:kNoticeInfo_List]) {
             id result = [resultObject objectForKey:Kresult];
             NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];

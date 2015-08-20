@@ -99,6 +99,7 @@
     }else
     {
         TpHistoryViewController *tpVC=[[TpHistoryViewController alloc]init];
+        tpVC.OCID=self.OCID;
         [self pushViewController:tpVC];
     }
     

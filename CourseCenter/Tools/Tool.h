@@ -59,4 +59,10 @@
 #pragma mark- 下载资料文件处理
 +(BOOL)isExistWithName:(NSString *)name;
 +(NSString *)getPathUrlWithName:(NSString *)name;
+#pragma mark- 沙河目录
++(NSString *)getHomeDirectory;
++(NSString *)getAppPath;
++(NSString *)getDocument;
++(NSString *)getLibrary;
++(NSString *)getTemp;
 @end

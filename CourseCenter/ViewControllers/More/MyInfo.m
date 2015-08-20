@@ -20,8 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"我的信息";
-    [self setupCustomRightWithtitle:@"保存" target:self action:@selector(saveInfo)];
+//    [self setupCustomRightWithtitle:@"保存" target:self action:@selector(saveInfo)];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyInfoCell" bundle:nil] forCellReuseIdentifier:@"MyInfoCell"];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
 }
 -(void)saveInfo
@@ -35,7 +36,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 3;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

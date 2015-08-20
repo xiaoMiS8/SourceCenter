@@ -28,4 +28,5 @@
 #define BASEPATH @"DownLoads"
 #define TARGER @"MyFile"
 
+#define PLISTNAME @"messages.plist"
 #endif

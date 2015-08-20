@@ -335,4 +335,24 @@
     NSString *filePath = [[[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:TARGER] stringByAppendingPathComponent:name];
     return filePath;
 }
++(NSString *)getHomeDirectory
+{
+    return NSHomeDirectory();
+}
++(NSString *)getAppPath
+{
+    return [[NSBundle mainBundle]bundlePath];
+}
++(NSString *)getDocument
+{
+  return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES)objectAtIndex:0];
+}
++(NSString *)getLibrary
+{
+    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES)objectAtIndex:0];
+}
++(NSString *)getTemp
+{
+    return NSTemporaryDirectory();
+}
 @end

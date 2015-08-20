@@ -77,7 +77,7 @@
         role=1;
     }
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppOCNameListWithrole:role IsHistroy:-1 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppOCNameListWithrole:role IsHistroy:0 finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.dataArray=nil;

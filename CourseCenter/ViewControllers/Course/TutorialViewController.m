@@ -439,6 +439,9 @@ static NSInteger tag;
                 {
                  playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
                 }
+                playVC.OCID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).OCID;
+                playVC.ChapterID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ChapterID;
+                playVC.FileID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileID;
                 [self presentViewController:playVC animated:YES completion:nil];
                 break;
             }
@@ -490,6 +493,7 @@ static NSInteger tag;
      __block typeof (self) myself =self;
     [self.httpManager addOCMoocStuFilewithChapterID:chapterid FileID:[fileid intValue] IsFinish:1 finished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {
+            myself.reob=(ResponseObject *)object;
             if ([myself.reob.errrorCode isEqualToString:@"0"]) {
                 return ;
             }
