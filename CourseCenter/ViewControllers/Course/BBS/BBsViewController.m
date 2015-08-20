@@ -12,6 +12,7 @@
 #import "BBsDetailViewController.h"
 #import "NTViewController.h"
 #import "LineNavigationController.h"
+#import "SelectSViewController.h"
 @interface BBsViewController ()
 
 @property(nonatomic, strong) CCHttpManager *manager;
@@ -22,6 +23,8 @@
 @property(nonatomic, assign) BOOL IsMyStart;
 @property(nonatomic, assign) BOOL IsMyJoin;
 
+@property(nonatomic, strong)ForumTypeInfo *forumtype;
+
 @property(nonatomic, assign) int index;
 
 @end
@@ -30,6 +33,8 @@
 
 - (void)setRightBtn1:(UIButton *)rightBtn1 {
     _rightBtn1 = rightBtn1;
+    [rightBtn1 removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+    [rightBtn1 addTarget:self action:@selector(rightBtn1Action:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setRightBtn2:(UIButton *)rightBtn2 {
@@ -40,7 +45,14 @@
 }
 
 - (void)rightBtn1Action:(UIButton *)btn {
-    
+    SelectSViewController *selectSVC = [SelectSViewController new];
+    selectSVC.OCID = self.OCID;
+    selectSVC.selectedBlcok = ^(ForumTypeInfo *forumtype) {
+        self.forumtype = forumtype;
+        self.TitleChageBlock(forumtype.Title);
+        [self.tableView.header beginRefreshing];
+    };
+    [self pushViewController:selectSVC];
 }
 
 - (void)rightBtn2Action:(id)sender {
@@ -83,7 +95,7 @@
 
 - (void)loadData {
     self.index = 1;
-    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:0 IsEssence:0 IsMyStart:self.IsMyStart IsMyJoin:self.IsMyJoin SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:self.forumtype.ForumTypeID IsEssence:0 IsMyStart:self.IsMyStart IsMyJoin:self.IsMyJoin SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         self.topics = [[NSMutableArray alloc] initWithArray:((ResponseObject *)object).resultArray];
         [self.tableView reloadData];
         [self.tableView.header endRefreshing];
@@ -95,7 +107,7 @@
 
 - (void)loadMore {
     self.index ++;
-    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:0 IsEssence:0 IsMyStart:self.IsMyStart IsMyJoin:self.IsMyJoin SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+    [self.manager getAppForumTopicListWithOCID:self.OCID ForumTypeID:self.forumtype.ForumTypeID IsEssence:0 IsMyStart:self.IsMyStart IsMyJoin:self.IsMyJoin SearchKey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         [self.topics addObjectsFromArray:((ResponseObject *)object).resultArray];
         [self.tableView reloadData];
         [self.tableView.footer endRefreshing];
