@@ -147,6 +147,9 @@
     bbsDetailVC.topicSetBlcok = ^{
         [self.tableView.header beginRefreshing];
     };
+    bbsDetailVC.AgreeBlock = ^ {
+        [self loadData];
+    };
     [self pushViewController:bbsDetailVC];
 }
 

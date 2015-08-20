@@ -7,6 +7,7 @@
 //
 
 #import "BBSResponeCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface BBSResponeCell ()
 @property (weak, nonatomic) IBOutlet UILabel *content;
@@ -27,11 +28,13 @@
 
 - (void)setResponse:(TopicResponseInfo *)response {
     _response = response;
+     [self.userImg sd_setImageWithURL:[NSURL URLWithString:response.userImg] placeholderImage:[UIImage imageNamed:@"defaultHead"]];
     self.content.text  = response.Conten;
     self.name.text = response.UserName;
     self.className.text = response.FromClassName;
     self.agressCount.text = [NSString stringWithFormat:@"%ld",response.Goods];
-    self.time.text = response.UpdateTime;
+    NSArray *timeArray = [response.UpdateTime componentsSeparatedByString:@"T"];
+    self.time.text = [NSString stringWithFormat:@"%@ %@",timeArray[0],timeArray[1]];
     if (response.IsGood) {
         [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree_push"] forState:UIControlStateNormal];
     } else {

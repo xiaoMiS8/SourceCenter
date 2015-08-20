@@ -58,6 +58,7 @@
     ///图片（接口暂时没有该字段）
 @property(nonatomic, strong) NSArray *imgs;
 @property(nonatomic, assign) BOOL iscanDel;
+@property(nonatomic, strong) NSString *userImg;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

@@ -28,24 +28,24 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7s-eE-XlE">
-                                <rect key="frame" x="10" y="10" width="144" height="60"/>
+                                <rect key="frame" x="10" y="10" width="158" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vrp-4h-IS7">
-                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <rect key="frame" x="2" y="0.0" width="60" height="60"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Vrp-4h-IS7" secondAttribute="height" multiplier="1:1" id="E8z-bW-hi2"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大圣" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaT-D3-VnS">
-                                        <rect key="frame" x="68" y="8" width="34" height="20.5"/>
+                                        <rect key="frame" x="70" y="8" width="34" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大圣来了" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-iq-pf7">
-                                        <rect key="frame" x="68" y="36" width="68" height="20.5"/>
+                                        <rect key="frame" x="70" y="36" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -56,11 +56,11 @@
                                 <constraints>
                                     <constraint firstItem="NaT-D3-VnS" firstAttribute="leading" secondItem="Vrp-4h-IS7" secondAttribute="trailing" constant="8" id="BRe-IM-cpB"/>
                                     <constraint firstItem="ddu-iq-pf7" firstAttribute="leading" secondItem="NaT-D3-VnS" secondAttribute="leading" id="Gwo-P7-7XX"/>
-                                    <constraint firstItem="Vrp-4h-IS7" firstAttribute="leading" secondItem="A7s-eE-XlE" secondAttribute="leading" id="LNg-wV-Pt2"/>
+                                    <constraint firstItem="Vrp-4h-IS7" firstAttribute="leading" secondItem="A7s-eE-XlE" secondAttribute="leading" constant="2" id="LNg-wV-Pt2"/>
                                     <constraint firstItem="ddu-iq-pf7" firstAttribute="top" secondItem="NaT-D3-VnS" secondAttribute="bottom" constant="8" id="eKX-me-5er"/>
                                     <constraint firstItem="Vrp-4h-IS7" firstAttribute="top" secondItem="A7s-eE-XlE" secondAttribute="top" id="gMb-VB-jAC"/>
                                     <constraint firstAttribute="height" constant="60" id="kRe-au-9lQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="ddu-iq-pf7" secondAttribute="trailing" constant="8" id="q4M-dG-v8L"/>
+                                    <constraint firstAttribute="trailing" secondItem="ddu-iq-pf7" secondAttribute="trailing" constant="20" id="q4M-dG-v8L"/>
                                     <constraint firstItem="NaT-D3-VnS" firstAttribute="top" secondItem="A7s-eE-XlE" secondAttribute="top" constant="8" id="zLW-En-d6I"/>
                                     <constraint firstAttribute="bottom" secondItem="Vrp-4h-IS7" secondAttribute="bottom" id="zav-EV-idM"/>
                                 </constraints>
@@ -109,10 +109,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTL-Vn-T9B">
-                                <rect key="frame" x="45" y="106" width="195" height="40"/>
+                                <rect key="frame" x="46" y="106" width="193" height="40"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_r" translatesAutoresizingMaskIntoConstraints="NO" id="EvH-Qa-GbL">
-                                        <rect key="frame" x="20" y="8" width="25" height="25"/>
+                                        <rect key="frame" x="6" y="8" width="25" height="25"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="25" id="OLE-k8-Ncx"/>
@@ -120,7 +120,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已学习至第二章第二节" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J83-x0-soo">
-                                        <rect key="frame" x="47" y="12" width="140" height="17"/>
+                                        <rect key="frame" x="33" y="12" width="140" height="17"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -131,9 +131,9 @@
                                 <color key="backgroundColor" red="0.37254901960784315" green="0.40392156862745099" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="EvH-Qa-GbL" firstAttribute="centerY" secondItem="zTL-Vn-T9B" secondAttribute="centerY" id="0aw-UI-wcW"/>
-                                    <constraint firstItem="EvH-Qa-GbL" firstAttribute="leading" secondItem="zTL-Vn-T9B" secondAttribute="leading" constant="20" id="0mJ-4A-L2P"/>
+                                    <constraint firstItem="EvH-Qa-GbL" firstAttribute="leading" secondItem="zTL-Vn-T9B" secondAttribute="leading" constant="6" id="0mJ-4A-L2P"/>
                                     <constraint firstItem="J83-x0-soo" firstAttribute="leading" secondItem="EvH-Qa-GbL" secondAttribute="trailing" constant="2" id="8lj-hN-YlH"/>
-                                    <constraint firstAttribute="trailing" secondItem="J83-x0-soo" secondAttribute="trailing" constant="8" id="A9o-A6-r7x"/>
+                                    <constraint firstAttribute="trailing" secondItem="J83-x0-soo" secondAttribute="trailing" constant="20" id="A9o-A6-r7x"/>
                                     <constraint firstItem="J83-x0-soo" firstAttribute="centerY" secondItem="EvH-Qa-GbL" secondAttribute="centerY" id="OrE-8F-1k6"/>
                                     <constraint firstAttribute="height" constant="40" id="syG-sA-HYA"/>
                                 </constraints>
@@ -357,8 +357,10 @@
                 <outlet property="progressView2" destination="nAf-c4-utk" id="1wb-O5-ek1"/>
                 <outlet property="teachImg" destination="Vrp-4h-IS7" id="xCm-fM-QM5"/>
                 <outlet property="teachName" destination="NaT-D3-VnS" id="5bY-Vn-pMc"/>
+                <outlet property="userBg" destination="A7s-eE-XlE" id="tdq-11-Kxh"/>
                 <outlet property="userType" destination="ce1-Vk-90a" id="hA3-Mb-KJm"/>
                 <outlet property="usertypeDes" destination="nUy-ZK-P4R" id="WM5-Qy-Hfi"/>
+                <outlet property="ussertypeBg" destination="JTw-SX-Cp6" id="umX-tR-M65"/>
             </connections>
             <point key="canvasLocation" x="353" y="357.5"/>
         </tableViewCell>

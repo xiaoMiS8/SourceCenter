@@ -151,7 +151,8 @@
     self.content.text = topic.Conten;
     self.name.text = topic.UserName;
     self.className.text = topic.ForumClassName;
-    self.time.text = topic.UpdateTime;
+    NSArray *timeArray = [topic.UpdateTime componentsSeparatedByString:@"T"];
+    self.time.text = [NSString stringWithFormat:@"%@ %@",timeArray[0],timeArray[1]];
     self.eye.text = [NSString stringWithFormat:@"%ld",topic.Clicks];
     self.discuss.text = [NSString stringWithFormat:@"%ld",topic.Responses];
     self.agree.text = [NSString stringWithFormat:@"%ld",topic.Goods];

@@ -23,6 +23,7 @@
 
 @property(nonatomic, strong) NSArray *respones;
 
+
 @end
 
 @implementation BBsDetailViewController
@@ -53,7 +54,7 @@
 
 - (void)addnavItem {
     NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
-    if (![role isEqualToString:@"4"]) {
+    if ([role isEqualToString:@"4"]) {
         if (self.topic.iscanDel) {
             UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bbsdis_gray"] style:UIBarButtonItemStylePlain target:self action:@selector(stuDel)];
             self.navigationItem.rightBarButtonItem = item;
@@ -223,7 +224,15 @@
         cell.topic = self.topic;
         cell.agreeBlock = ^ {
             [self.manager updateForumMyIsGoodWithTopicID:self.topic.TopicID ResponseID:0 finished:^(EnumServerStatus status, NSObject *object) {
-                 [self reloadData];
+                self.AgreeBlock();
+                if (self.topic.IsGood) {
+                    self.topic.Goods--;
+                }
+                else {
+                   self.topic.Goods++;
+                }
+                self.topic.IsGood = !self.topic.IsGood;
+                [self.tableView reloadData];
                 [MBProgressHUD showSuccess:((ResponseObject *)object).message];
             }];
            

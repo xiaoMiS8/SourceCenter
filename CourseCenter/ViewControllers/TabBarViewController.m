@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "CourseViewController.h"
 #import "NotificationViewController.h"
+#import "UIImageView+WebCache.h"
 @interface TabBarViewController ()<UITabBarControllerDelegate>
 
 @property(nonatomic, strong) NSArray *viewcontrollers;
@@ -38,6 +39,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCustomBackWithImage:@"barbuttonItem_back" title:@""];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCenterImage) name:@"loginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCenterImage) name:@"logout" object:nil];
+}
+
+
+- (void)setCenterImage {
+    NSString *userImg = [[NSUserDefaults standardUserDefaults] objectForKey:@"userImg"];
+    [self.centerImg sd_setImageWithURL:[NSURL URLWithString:userImg] placeholderImage:[UIImage imageNamed:@"iconpro"]];
 }
 
 /**
@@ -223,20 +232,18 @@
  */
 - (void)addcenterImg
 {
-    UIView *imgView=[[UIView alloc]init];
-    imgView.frame=CGRectMake(0, 0, 0, 40);
+   
     if (self.centerImg == nil) {
         UIImageView *img = [[UIImageView alloc] init];
-        img.frame = CGRectMake((self.navigationItem.titleView.frame.size.height-40)/2,0,40, 40);
-        img.backgroundColor = [UIColor purpleColor];
+        img.frame = CGRectMake(0,0,40, 40);
         img.layer.cornerRadius = 20;
         img.layer.masksToBounds=YES;
         CourseViewController *courseVC = self.viewcontrollers[2];
         courseVC.centerImg = img;
         self.centerImg = img;
-        [imgView addSubview:img];
+        [self setCenterImage];
     }
-    self.navigationItem.titleView = imgView;
+    self.navigationItem.titleView = self.centerImg;
  
 }
 

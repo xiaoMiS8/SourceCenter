@@ -38,6 +38,7 @@
 @property(nonatomic, assign) BOOL IsGood;
     ///点赞数
 @property(nonatomic, assign) long Goods;
+@property(nonatomic, strong) NSString *userImg;
 
 - (id)initWithDict:(NSDictionary *)dict;
 
