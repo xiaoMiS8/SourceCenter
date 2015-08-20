@@ -629,8 +629,10 @@
 }
 
 - (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                            ForumTypeID:(NSString *)ForumTypeID
                                finished:(FinishedBlock)finished {
     [BbsAction addAppForumTopicTypeWithTopicID:TopicID
+                                   ForumTypeID:ForumTypeID
                                       finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
