@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="st4-GY-IqQ">
-                        <rect key="frame" x="18" y="3" width="245" height="20"/>
+                        <rect key="frame" x="18" y="3" width="240.5" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="GsB-kK-o0n"/>
                         </constraints>
@@ -41,7 +41,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iw4-75-u4A" customClass="CircularProgressButton">
-                        <rect key="frame" x="273" y="8" width="38.5" height="38.5"/>
+                        <rect key="frame" x="268.5" y="3" width="48.5" height="48.5"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="Iw4-75-u4A" secondAttribute="height" multiplier="1:1" id="ifi-PO-dBa"/>
                         </constraints>
@@ -64,9 +64,9 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="p0o-Qu-1Y4" firstAttribute="centerY" secondItem="aMp-Mw-H63" secondAttribute="centerY" id="1KW-lz-0Qn"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="Iw4-75-u4A" secondAttribute="bottom" id="2Oj-lX-3ti"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="Iw4-75-u4A" secondAttribute="trailing" id="3VD-gS-hMT"/>
-                    <constraint firstItem="Iw4-75-u4A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="A9i-j9-xfO"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Iw4-75-u4A" secondAttribute="bottom" constant="-5" id="2Oj-lX-3ti"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Iw4-75-u4A" secondAttribute="trailing" constant="-5" id="3VD-gS-hMT"/>
+                    <constraint firstItem="Iw4-75-u4A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="A9i-j9-xfO"/>
                     <constraint firstItem="p0o-Qu-1Y4" firstAttribute="top" secondItem="st4-GY-IqQ" secondAttribute="bottom" id="Cit-81-HLC"/>
                     <constraint firstItem="5Zu-o3-Dfs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-5" id="EuO-Na-dIk"/>
                     <constraint firstItem="5Zu-o3-Dfs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-5" id="FRw-Xd-FLB"/>

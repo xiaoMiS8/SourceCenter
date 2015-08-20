@@ -182,7 +182,6 @@
 		CACBFC921B540BF900FAD388 /* CellFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC8F1B540BF900FAD388 /* CellFrameModel.m */; };
 		CACBFC931B540BF900FAD388 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC911B540BF900FAD388 /* MessageModel.m */; };
 		CACBFC961B540C1500FAD388 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC951B540C1500FAD388 /* NSString+Extension.m */; };
-		CACBFC981B540C3500FAD388 /* messages.plist in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC971B540C3500FAD388 /* messages.plist */; };
 		CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC9A1B540C5100FAD388 /* MessageCell.m */; };
 		CACBFC9E1B540C6D00FAD388 /* UIImage+ResizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC9D1B540C6D00FAD388 /* UIImage+ResizeImage.m */; };
 		CACD8D4E1B81696E00335952 /* DetailDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACD8D4D1B81696E00335952 /* DetailDataCell.xib */; };
@@ -678,7 +677,6 @@
 		CACBFC911B540BF900FAD388 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
 		CACBFC941B540C1500FAD388 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		CACBFC951B540C1500FAD388 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
-		CACBFC971B540C3500FAD388 /* messages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = messages.plist; sourceTree = "<group>"; };
 		CACBFC991B540C5100FAD388 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		CACBFC9A1B540C5100FAD388 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
 		CACBFC9C1B540C6D00FAD388 /* UIImage+ResizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ResizeImage.h"; sourceTree = "<group>"; };
@@ -1352,7 +1350,6 @@
 				CACBFC9D1B540C6D00FAD388 /* UIImage+ResizeImage.m */,
 				CACBFC991B540C5100FAD388 /* MessageCell.h */,
 				CACBFC9A1B540C5100FAD388 /* MessageCell.m */,
-				CACBFC971B540C3500FAD388 /* messages.plist */,
 			);
 			name = chat;
 			sourceTree = "<group>";
@@ -2068,7 +2065,6 @@
 				D412969D1B50059E003FC6DB /* MoreListCell.xib in Resources */,
 				066A4DD41B54B333003D29AA /* MBProgressHUD.bundle in Resources */,
 				52DC03E11B70A45B00BB3CB7 /* FCourseDetailLast.xib in Resources */,
-				CACBFC981B540C3500FAD388 /* messages.plist in Resources */,
 				CADD221C1B52418400A4F3D2 /* MyInfo.xib in Resources */,
 				CADD22261B526BA300A4F3D2 /* SetViewController.xib in Resources */,
 				59EDB6441B78F8FD00CBFBB3 /* ReadViewController.xib in Resources */,

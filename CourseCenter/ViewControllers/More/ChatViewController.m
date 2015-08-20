@@ -43,11 +43,24 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     self.httpManager = [[CCHttpManager alloc]init];
     self.myDataArray=[[NSMutableArray alloc]init];
+    [self getFilePath];
     [self initMsg];
     //1.tableView
     [self addChatView];
     //2.工具栏
     //[self addToolBar];
+}
+- (void)getFilePath
+{
+    
+    NSString *path = [[Tool getDocument] stringByAppendingPathComponent:PLISTNAME];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path] == NO)
+    {
+        NSFileManager* fileManager = [NSFileManager defaultManager];
+        [fileManager createFileAtPath:path contents:nil attributes:nil];
+        NSMutableArray *rootArray = [NSMutableArray array];
+        [rootArray writeToFile:path atomically:YES];
+    }
 }
 -(void)initMsg
 {
@@ -70,12 +83,19 @@
 }
 -(void)readDataForPlistWithArray:(NSMutableArray *)array
 {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"messages" ofType:@"plist"];
-    NSMutableArray *data = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
-    [data removeAllObjects];
-    [data writeToFile:plistPath atomically:YES];
+    NSString *plistPath = [[Tool getDocument]stringByAppendingPathComponent:PLISTNAME];
+    NSMutableArray *data = [[NSMutableArray alloc]init];
     for (int i=0; i<array.count;i++) {
         NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
+        if ([Tool objectIsEmpty:((MsgInfo *)array[i]).Conten]) {
+            ((MsgInfo *)array[i]).Conten=@"";
+        }
+        if ([Tool objectIsEmpty:((MsgInfo *)array[i]).CreateTime]) {
+            ((MsgInfo *)array[i]).CreateTime=@"";
+        }
+        if ([Tool objectIsEmpty:((MsgInfo *)array[i]).SendOrReceive]) {
+            ((MsgInfo *)array[i]).SendOrReceive=@"";
+        }
         [dic setObject:((MsgInfo *)array[i]).Conten forKey:@"text"];
         [dic setObject:((MsgInfo *)array[i]).CreateTime forKey:@"time"];
         [dic setObject:((MsgInfo *)array[i]).SendOrReceive forKey:@"type"];
@@ -90,8 +110,8 @@
 - (void)loadData
 {
     _cellFrameDatas =[NSMutableArray array];
-    NSURL *dataUrl = [[NSBundle mainBundle] URLForResource:@"messages.plist" withExtension:nil];
-    NSArray *dataArray = [NSArray arrayWithContentsOfURL:dataUrl];
+    NSString *plistPath = [[Tool getDocument]stringByAppendingPathComponent:PLISTNAME];
+    NSArray *dataArray = [NSArray arrayWithContentsOfFile:plistPath];
     for (NSDictionary *dict in dataArray) {
         MessageModel *message = [MessageModel messageModelWithDict:dict];
         CellFrameModel *lastFrame = [_cellFrameDatas lastObject];
