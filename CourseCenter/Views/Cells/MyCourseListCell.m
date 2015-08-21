@@ -12,6 +12,7 @@
 
 @interface MyCourseListCell ()
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIView *userBg;
 @property (weak, nonatomic) IBOutlet UIImageView *ocoureImg;
 @property (weak, nonatomic) IBOutlet UIView *bomView;
 @property (weak, nonatomic) IBOutlet ProgressView *progressView1;
@@ -34,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *StudentCount;
 @property (weak, nonatomic) IBOutlet UIImageView *userType;
 @property (weak, nonatomic) IBOutlet UILabel *usertypeDes;
+@property (weak, nonatomic) IBOutlet UIView *ussertypeBg;
 
 
 @end
@@ -45,12 +47,20 @@
     self.bgView.layer.borderWidth = 0.5f;
     self.bomView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.bomView.layer.borderWidth = 0.5f;
+    self.teachImg.layer.cornerRadius = 30;
+    self.teachImg.layer.masksToBounds = YES;
+    self.userBg.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    self.userBg.layer.cornerRadius = 30;
+    self.userBg.layer.masksToBounds = YES;
+    self.chapView.layer.cornerRadius = 20;
+    self.chapView.layer.masksToBounds = YES;
+    self.ussertypeBg.hidden = YES;
     
 }
 
 - (void)setOCourse:(OCourseInfo *)oCourse {
     _oCourse = oCourse;
-    [self.teachImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl]];
+    [self.teachImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:@"defaultHead"]];
     self.teachName.text = oCourse.TeacherName;
     self.orgName.text = oCourse.OrganizationName;
     self.ocName.text = oCourse.Name;

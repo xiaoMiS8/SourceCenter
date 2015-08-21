@@ -58,7 +58,10 @@
 
 -(void)isLogin
 {
-    
+    NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if ([role isEqualToString:@"4"]) {
+        self.addBtn.hidden = YES;
+    }
     loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
     if ([loginState isEqualToString:@"0"]||loginState==nil) {
         _tableView.hidden=YES;

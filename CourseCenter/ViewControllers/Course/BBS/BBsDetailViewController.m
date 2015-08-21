@@ -11,7 +11,7 @@
 #import "BBSResponeCell.h"
 #import "TopicSetView.h"
 #import "ShareToViewController.h"
-@interface BBsDetailViewController ()<UITextViewDelegate>
+@interface BBsDetailViewController ()<UITextViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bomView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
@@ -22,6 +22,7 @@
 @property(nonatomic, strong) CCHttpManager *manager;
 
 @property(nonatomic, strong) NSArray *respones;
+
 
 @end
 
@@ -53,7 +54,7 @@
 
 - (void)addnavItem {
     NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
-    if (![role isEqualToString:@"4"]) {
+    if ([role isEqualToString:@"4"]) {
         if (self.topic.iscanDel) {
             UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"bbsdis_gray"] style:UIBarButtonItemStylePlain target:self action:@selector(stuDel)];
             self.navigationItem.rightBarButtonItem = item;
@@ -102,8 +103,10 @@
                     break;
                 case 4:
                 {
-                    [self topicDelete];
                 
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"删除帖子后将无法恢复，请谨慎操作" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认删除", nil];
+                [alertView show];
                 }
                     break;
                     
@@ -156,7 +159,13 @@
      __weak typeof(self) wself = self;
     ShareToViewController *shareToVC = [ShareToViewController new];
     shareToVC.doneBlock = ^(NSArray *forums) {
-        [self.manager addAppForumTopicTypeWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
+        NSString *forum = @"";
+        for (int i=0; i<forums.count; i++) {
+            forum = [NSString stringWithFormat:@"%@,%ld",forum,((ForumTypeInfo *)forums[i]).ForumTypeID];
+        }
+        forum = [forum substringFromIndex:1];
+        [self.manager addAppForumTopicTypeWithTopicID:self.topic.TopicID
+                                          ForumTypeID:forum finished:^(EnumServerStatus status, NSObject *object) {
             if (status == Enum_SUCCESS) {
                 [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
                 wself.topicSetBlcok();
@@ -223,7 +232,15 @@
         cell.topic = self.topic;
         cell.agreeBlock = ^ {
             [self.manager updateForumMyIsGoodWithTopicID:self.topic.TopicID ResponseID:0 finished:^(EnumServerStatus status, NSObject *object) {
-                 [self reloadData];
+                self.AgreeBlock();
+                if (self.topic.IsGood) {
+                    self.topic.Goods--;
+                }
+                else {
+                   self.topic.Goods++;
+                }
+                self.topic.IsGood = !self.topic.IsGood;
+                [self.tableView reloadData];
                 [MBProgressHUD showSuccess:((ResponseObject *)object).message];
             }];
            
@@ -269,6 +286,13 @@
         wself.textView.text = @"发表评论（限250字以内）";
         [wself.textView endEditing:YES];
     }];
+}
+
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self topicDelete];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

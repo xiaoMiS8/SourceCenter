@@ -36,7 +36,7 @@
 
 - (void)addNavItem {
     NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
-    if (![role isEqualToString:@"4"]) {
+    if ([role isEqualToString:@"4"]) {
     } else {
         UIBarButtonItem *Item = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(itemAction)];
         self.navigationItem.rightBarButtonItem = Item;

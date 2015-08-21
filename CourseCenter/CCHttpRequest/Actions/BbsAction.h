@@ -251,6 +251,7 @@
  *  @param finished finished description
  */
 + (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                            ForumTypeID:(NSString *)ForumTypeID
                                finished:(FinishedBlock)finished;
 
 @end

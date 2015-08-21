@@ -67,8 +67,6 @@ static NSInteger number=0;
 }
 - (void)setCenterImg:(UIImageView *)centerImg {
     _centerImg = centerImg;
-    NSString *userImg = [[NSUserDefaults standardUserDefaults] objectForKey:@"userImg"];
-    [centerImg sd_setImageWithURL:[NSURL URLWithString:userImg] placeholderImage:[UIImage imageNamed:@"iconpro"]];
 }
 
 - (void)initmanager {
@@ -164,7 +162,7 @@ static NSInteger number=0;
     NSArray *itemSelectedImages = nil;
     
     NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
-    if (![role isEqualToString:@"4"]) {
+    if ([role isEqualToString:@"4"]) {
         viewControllers = @[tutoriaVC, fCourseVC,bbsVC, hworkVC, tpVC];
         titles = @[@"教程",@"翻转课堂",@"论坛",@"作业",@"事务处理"];
         itemImages = @[@"cTabbar1_n",@"cTabbar2_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];

@@ -675,7 +675,7 @@
  *  @param TopicID  论坛主题ID
  *  @param finished finished description
  */
-- (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+- (void)addAppForumTopicTypeWithTopicID:(long)TopicID ForumTypeID:(NSString *)ForumTypeID
                                finished:(FinishedBlock)finished;
 
 #pragma mark -Test

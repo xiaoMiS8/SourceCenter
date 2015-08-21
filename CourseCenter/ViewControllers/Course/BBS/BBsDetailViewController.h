@@ -17,4 +17,6 @@
 
 @property(nonatomic, copy) void(^topicSetBlcok)();
 
+@property(nonatomic, copy) void(^AgreeBlock)(void);
+
 @end

@@ -290,8 +290,10 @@
 }
 
 + (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                            ForumTypeID:(NSString *)ForumTypeID
                                finished:(FinishedBlock)finished {
-    NSDictionary *p = @{kTopicID: @(TopicID)};
+    NSDictionary *p = @{kTopicID: @(TopicID),
+                        kForumTypeID: @"1,2,3"};
     [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Forum/App_ForumTopicType_Add"
                                    parameters:p
                                  connectClass:Nil
