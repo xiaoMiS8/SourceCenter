@@ -110,6 +110,7 @@
     self.title = [self.itemTitles firstObject];
     [self setupTabbar];
     [self controllerTransform];
+    [self addrightItemsWithIsTwo:YES andViewcontroller:viewcontrollers[0]];
 }
 
 - (void)setSelectedIndex:(int)selectedIndex

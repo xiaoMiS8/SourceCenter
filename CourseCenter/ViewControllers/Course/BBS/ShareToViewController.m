@@ -91,6 +91,7 @@
         [self.selecteds removeObject:@(indexPath.row)];
     }
     [self.tableView reloadData];
+    [self done];
 }
 
 - (BOOL)isExistwithIndex:(NSInteger)index {
