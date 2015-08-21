@@ -47,7 +47,7 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [MBProgressHUD showSuccess:self.reob.errorMessage];
-                [_tableView reloadData];
+                [_tpVC LoadData];
                 return ;
             }
         }

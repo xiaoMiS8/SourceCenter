@@ -52,4 +52,16 @@
                           NPwd:(NSString *)NPwd
                       finished:(FinishedBlock)finished;
 
+/**
+ *	@brief	上传图片
+ *
+ *	@param 	SourceID 	上传ID  如 UserID  NoticeID
+ *	@param 	Source 	    上传类型 如 Source  Notice
+ *	@param 	File 	    图片data
+ *	@param 	finished 	finished description
+ */
++ (void)uploadPictureWithSourceID:(long)SourceID
+                           Source:(NSString *)Source
+                             File:(NSData *)File
+                      finished:(FinishedBlock)finished;
 @end

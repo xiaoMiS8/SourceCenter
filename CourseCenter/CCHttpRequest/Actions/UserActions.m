@@ -46,4 +46,15 @@
     }];
 }
 
++ (void)uploadPictureWithSourceID:(long)SourceID
+                           Source:(NSString *)Source
+                             File:(NSData *)File
+                         finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{kSourceID: [NSNumber numberWithLong:SourceID],
+                                   kSource:  Source,
+                                   kFile:  File};
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/User/ImgUpload" parameters:parameters connectFlag:kPic_Upload finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
 @end

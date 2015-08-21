@@ -9,6 +9,9 @@
 #import "MyInfo.h"
 #import "MyInfoCell.h"
 @interface MyInfo ()
+{
+    NSData *data;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
@@ -105,13 +108,31 @@
 {
     //得到图片
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (UIImagePNGRepresentation(image) == nil) {
+        data = UIImageJPEGRepresentation(image, 0.5);
+    } else {
+        data = UIImagePNGRepresentation(image);
+    }
+    [MBProgressHUD showMessage:@"图片上传中..."];
+    [self.httpManager uploadPictureWithSourceID:self.userInfo.userID Source:@"Notice" File:data finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                [MBProgressHUD showSuccess:@"图片上传成功"];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 

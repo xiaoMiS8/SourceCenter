@@ -10,6 +10,8 @@
 #import "BBsViewController.h"
 #import "TPViewController.h"
 #import "HWorkViewController.h"
+#import "TutorialViewController.h"
+#import "ReadViewController.h"
 
 @interface CourseTabbarViewController :BaseViewController
 

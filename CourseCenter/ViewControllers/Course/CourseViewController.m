@@ -163,16 +163,16 @@ static NSInteger number=0;
     
     NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
     if ([role isEqualToString:@"4"]) {
-        viewControllers = @[tutoriaVC, fCourseVC,bbsVC, hworkVC, tpVC];
-        titles = @[@"教程",@"翻转课堂",@"论坛",@"作业",@"事务处理"];
-        itemImages = @[@"cTabbar1_n",@"cTabbar2_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
-        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar2_s",@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
+        viewControllers = @[tutoriaVC,bbsVC, hworkVC];
+        titles = @[@"教程",@"论坛",@"作业"];
+        itemImages = @[@"cTabbar1_n",@"cTabbar3_n",@"cTabbar4_n"];
+        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar3_s",@"cTabbar4_s"];
      
     } else {
-        viewControllers = @[tutoriaVC, fCourseVC,bbsVC, readVC, tpVC];
-        titles = @[@"教程",@"翻转课堂",@"论坛",@"批阅",@"事务处理"];
-        itemImages = @[@"cTabbar1_n",@"cTabbar2_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
-        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar2_s",@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
+        viewControllers = @[bbsVC, readVC, tpVC];
+        titles = @[@"论坛",@"批阅",@"事务处理"];
+        itemImages = @[@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
+        itemSelectedImages = @[@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
     }
     
     [tabbar setViewcontrollers:viewControllers itemImages:itemImages itemselectedImages:itemSelectedImages titles:titles];

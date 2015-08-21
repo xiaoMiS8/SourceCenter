@@ -43,6 +43,7 @@
 #define kTimeCount          @"TimeCount"
 #define kStudyTimes         @"StudyTimes"
 #define kSeconds            @"Seconds"
+#define kFile               @"File"
 
 @interface BbsAction : NSObject
 

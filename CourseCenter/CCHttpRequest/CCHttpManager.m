@@ -41,6 +41,19 @@
         finished(status, object);
     }];
 }
+- (void)uploadPictureWithSourceID:(long)SourceID
+                           Source:(NSString *)Source
+                             File:(NSData *)File
+                         finished:(FinishedBlock)finished{
+    [UserActions uploadPictureWithSourceID:SourceID
+                                    Source:Source
+                                    File:File
+                                  finished:^(EnumServerStatus status, NSObject *object)
+                                      {
+        finished(status, object);
+    }];
+}
+
 
 - (void)getRecommendCourseListWithfinished:(FinishedBlock)finished {
     [IndexActions getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {

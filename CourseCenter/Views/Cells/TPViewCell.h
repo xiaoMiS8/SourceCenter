@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AffairInfo.h"
+#import "TPViewController.h"
 @interface TPViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) IBOutlet UILabel *label2;
@@ -22,4 +23,5 @@
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (strong,nonatomic)UITableView *tableView;
+@property (strong,nonatomic)TPViewController *tpVC;
 @end

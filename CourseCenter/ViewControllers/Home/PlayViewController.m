@@ -45,9 +45,11 @@
     switch (movie.playbackState) {
         case MPMoviePlaybackStatePlaying:
             [MBProgressHUD hideHUD];
+            if (!(_ChapterID==0&&_FileID==0)) {
+            timer10=[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(send10S) userInfo:nil repeats:YES];
+            timer60=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send60S) userInfo:nil repeats:YES];
+            }
             NSLog(@"正在播放...");
-         timer10=[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(send10S) userInfo:nil repeats:YES];
-         timer60=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send60S) userInfo:nil repeats:YES];
             break;
         case MPMoviePlaybackStatePaused:
             NSLog(@"暂停播放...");
@@ -63,7 +65,9 @@
 -(void)myMovieFinishedCallback:(NSNotification*)notification
 {
 
-    [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(send) userInfo:nil repeats:NO];
+    if (!(_ChapterID==0&&_FileID==0)) {
+     [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(send) userInfo:nil repeats:NO];
+    }
     //销毁播放通知
     [[NSNotificationCenter defaultCenter] removeObserver:self
      name:MPMoviePlayerPlaybackDidFinishNotification

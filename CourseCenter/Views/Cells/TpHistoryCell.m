@@ -27,7 +27,7 @@
         _label6.text=@"拒绝";
     }else if(_info.Status==2)
     {
-        _label6.text=@"拒绝";
+        _label6.text=@"同意";
     }else
     {
         _label6.text=@"未审核";

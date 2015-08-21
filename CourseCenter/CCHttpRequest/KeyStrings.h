@@ -19,6 +19,8 @@
 #define kgetUserInfo                    @"User_Get"
     //修改密码
 #define kPwd_Upd                        @"Pwd_Upd"
+    //图片上传
+#define kPic_Upload                     @"Pic_Upload"
 
 #pragma mark- Index
     //推荐课程
