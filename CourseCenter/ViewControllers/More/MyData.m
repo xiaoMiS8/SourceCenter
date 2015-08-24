@@ -283,6 +283,7 @@
                     return cell=Nil;
                 }
                 FileModel *fileInfo=[theRequest.userInfo objectForKey:@"File"];
+                fileInfo.IsReadFinish=YES;
                 cell.request = theRequest;
                 cell.fileModel=fileInfo;
                 cell.isFirst=NO;
@@ -294,7 +295,9 @@
             if ([row integerValue]==indexPath.row) {
                 cell.isFinish=@"YES";
                 cell.btn.hidden=YES;
-                cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
+                FileModel *fileInfo=[_fileArray objectAtIndex:indexPath.row];
+                fileInfo.IsReadFinish=YES;
+                cell.fileModel=fileInfo;
                 cell.isFirst=NO;
                 return cell;
             }
@@ -303,7 +306,9 @@
         for (NSNumber *row in pauseRow) {
             if ([row integerValue]==indexPath.row) {
                 cell.request = nil;
-                cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
+                FileModel *fileInfo=[_fileArray objectAtIndex:indexPath.row];
+                fileInfo.IsReadFinish=YES;
+                cell.fileModel=fileInfo;
                 //手动设置百分比，显示弧度
                 [cell setPercent];
                 cell.isFirst=NO;
@@ -312,7 +317,9 @@
         }
         //未下载的
         cell.request=nil;
-        cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
+        FileModel *fileInfo=[_fileArray objectAtIndex:indexPath.row];
+        fileInfo.IsReadFinish=YES;
+        cell.fileModel=fileInfo;
         cell.size.text=@"未下载";
         cell.isFirst=YES;
         return cell;
