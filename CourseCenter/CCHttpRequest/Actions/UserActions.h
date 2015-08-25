@@ -13,7 +13,9 @@
 #define KPwd                @"Pwd"
 #define kYpwd               @"Ypwd"
 #define kNPwd               @"NPwd"
-
+#define kOpt                @"opt"
+#define kKey                @"key"
+#define kUrl                @"http://www.able-elec.com/g2smobile/IES2.ashx"
 
 @interface UserActions : NSObject
 
@@ -64,4 +66,15 @@
                            Source:(NSString *)Source
                              File:(NSData *)File
                       finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	选择学校
+ *
+ *	@param 	Opt 	学校标识
+ *	@param 	key 	关键字
+ *	@param 	finished 	finished description
+ */
++ (void)chooseSchoolWithOpt:(NSString *)Opt
+                        key:(NSString *)key
+                        finished:(FinishedBlock)finished;
 @end

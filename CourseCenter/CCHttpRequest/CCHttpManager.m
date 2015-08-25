@@ -54,6 +54,13 @@
     }];
 }
 
+- (void)chooseSchoolWithOpt:(NSString *)Opt
+                        key:(NSString *)key
+                   finished:(FinishedBlock)finished{
+    [UserActions chooseSchoolWithOpt:Opt key:key finished:^(EnumServerStatus status, NSObject *object) {
+       finished(status, object);
+    }];
+}
 
 - (void)getRecommendCourseListWithfinished:(FinishedBlock)finished {
     [IndexActions getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {

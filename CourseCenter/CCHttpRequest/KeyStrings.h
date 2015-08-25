@@ -21,6 +21,8 @@
 #define kPwd_Upd                        @"Pwd_Upd"
     //图片上传
 #define kPic_Upload                     @"Pic_Upload"
+    //选择学校
+#define kChosse_school                  @"Chosse_school"
 
 #pragma mark- Index
     //推荐课程

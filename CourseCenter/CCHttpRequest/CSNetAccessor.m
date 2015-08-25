@@ -132,4 +132,32 @@
     
 }
 
++ (void)sendPostAsyncObjectFormExtraUrl:(NSString *)urlStr
+                             parameters:(id)parameters
+                            connectFlag:(NSString *)flag
+                               finished:(FinishedBlock)finished{
+    NSString *URLString = urlStr;
+    DLog(@"url:---%@,参数:----%@",URLString,parameters);
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager new];
+    [manager.requestSerializer setHTTPShouldHandleCookies:YES];
+    [manager POST:URLString
+       parameters:parameters
+          success:^(NSURLSessionDataTask *task, id responseObject) {
+              NSData *data = [NSJSONSerialization dataWithJSONObject:responseObject options:NSJSONWritingPrettyPrinted error:nil];
+              NSString *jsonString = [[NSString alloc] initWithData:data
+                                                           encoding:NSUTF8StringEncoding];
+              NSDictionary *jsonDic = [NSJSONSerialization JSONObjectWithData:data
+                                                                      options:NSJSONReadingMutableContainers |
+                                       NSJSONReadingMutableLeaves |
+                                       NSJSONReadingAllowFragments
+                                                                        error:nil];
+              DLog(@"returnStr----%@",jsonString);
+              ResponseObject *returnObject = [ResultAnalyzer analyseResult:jsonDic
+                                                              connecteFlag:flag];
+              finished(Enum_SUCCESS, returnObject);
+          } failure:^(NSURLSessionDataTask *task, NSError *error) {
+              finished(Enum_FAIL, error);
+              DLog(@"error---%@",error);
+          }];
+}
 @end

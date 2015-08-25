@@ -57,4 +57,14 @@
         finished(status, object);
     }];
 }
+
++ (void)chooseSchoolWithOpt:(NSString *)Opt
+                        key:(NSString *)key
+                   finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{kOpt:Opt,
+                                 kKey:key};
+    [CSNetAccessor sendPostAsyncObjectFormExtraUrl:kUrl parameters:parameters connectFlag:kChosse_school finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
 @end

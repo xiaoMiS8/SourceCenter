@@ -27,6 +27,7 @@
 #import "TestInfo.h"
 #import "LiveForumInfo.h"
 #import "FCOfflineInfo.h"
+#import "SchoolInfo.h"
 
 #define Kresult             @"result"
 
@@ -116,6 +117,19 @@
     }else if ([flag isEqualToString:kPic_Upload]) {
         if ([responseObject.errrorCode isEqualToString:KSuccess]) {
             responseObject.message = @"提交成功";
+        }
+    }else if ([flag isEqualToString:kChosse_school]) {
+        if ([[resultObject objectForKey:@"status"]longValue]==200) {
+            id result = [resultObject objectForKey:@"rt"];
+            NSMutableArray *results = [[NSMutableArray alloc] initWithCapacity:0];
+            if ([result isKindOfClass:[NSArray class]]) {
+                NSArray *array = (NSArray *)result;
+                for (int i=0; i<array.count; i++) {
+                    SchoolInfo *schoolInfo = [[SchoolInfo alloc] initWithDict:array[i]];
+                    [results addObject:schoolInfo];
+                }
+                responseObject.resultArray = results;
+            }
         }
     } else if ([flag isEqualToString:kNoticeInfo_List]) {
             id result = [resultObject objectForKey:Kresult];

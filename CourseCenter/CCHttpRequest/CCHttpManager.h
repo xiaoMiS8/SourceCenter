@@ -71,6 +71,17 @@
                              File:(NSData *)File
                          finished:(FinishedBlock)finished;
 
+/**
+ *	@brief	选择学校
+ *
+ *	@param 	Opt 	学校标识
+ *	@param 	key 	关键字
+ *	@param 	finished 	finished description
+ */
+- (void)chooseSchoolWithOpt:(NSString *)Opt
+                        key:(NSString *)key
+                   finished:(FinishedBlock)finished;
+
 #pragma mark- Index
 
 /**
