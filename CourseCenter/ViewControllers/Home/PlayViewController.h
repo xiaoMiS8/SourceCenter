@@ -14,4 +14,5 @@
 @property(nonatomic,assign)long ChapterID;
 @property(nonatomic,assign)long FileID;
 @property(nonatomic,assign)long OCID;
+@property(nonatomic,assign)int  Seconds;
 @end

@@ -49,6 +49,9 @@
             timer10=[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(send10S) userInfo:nil repeats:YES];
             timer60=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send60S) userInfo:nil repeats:YES];
             }
+            if (self.Seconds!=0) {
+                movie.currentPlaybackTime=+self.Seconds;
+            }
             NSLog(@"正在播放...");
             break;
         case MPMoviePlaybackStatePaused:

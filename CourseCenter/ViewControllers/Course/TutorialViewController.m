@@ -442,6 +442,7 @@ static NSInteger tag;
                 playVC.OCID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).OCID;
                 playVC.ChapterID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ChapterID;
                 playVC.FileID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileID;
+                playVC.Seconds=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).Seconds;
                 [self presentViewController:playVC animated:YES completion:nil];
                 break;
             }
