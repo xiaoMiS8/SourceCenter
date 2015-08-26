@@ -46,6 +46,7 @@
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     [self isLoginOrCourse];
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]);
 }
 
 -(void)isLoginOrCourse

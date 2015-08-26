@@ -9,7 +9,7 @@
 #import "TutorialViewController.h"
 #import "TuorialDetailViewController.h"
 #import "MoocFileInfo.h"
-#import "HWorkDetailViewController.h"
+#import "HWorkDetailWebViewController.h"
 #import "DetailDataCell.h"
 #import "FileInfo.h"
 #import "PlayViewController.h"
@@ -69,16 +69,16 @@ static NSInteger tag;
 }
 -(void)isTeacherOrStudent
 {
-    role=[[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
-    if (![role isEqualToString:@"4"]) {
-        self.tableView.hidden=YES;
-        _tishi.hidden=NO;
-    }else
-    {
+//    role=[[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+//    if (![role isEqualToString:@"4"]) {
+//        self.tableView.hidden=YES;
+//        _tishi.hidden=NO;
+//    }else
+//    {
         self.tableView.hidden=NO;
         _tishi.hidden=YES;
         [self loadData];
-    }
+//    }
 }
 -(void)loadData
 {
@@ -504,7 +504,9 @@ static NSInteger tag;
 }
 -(void)gotohwVC:(UIButton *)but
 {
-    HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+    
+    HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
+    hwdVC.TestID=((ChapterInfo *)[_arrayData objectAtIndex:but.tag-100]).TestID;
     [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
 }
 

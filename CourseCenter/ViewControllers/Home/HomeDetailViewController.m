@@ -15,7 +15,7 @@
 #import "UIImageView+WebCache.h"
 #import "ApplyViewController.h"
 #import "NSString+HandleString.h"
-#import "HWorkDetailViewController.h"
+#import "HWorkDetailWebViewController.h"
 #import "TutorialViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 #define ICONIMG @"iconpro"
@@ -312,7 +312,8 @@ static NSInteger tag;
 -(void)gotohwVC:(UIButton *)but
 {
     if (but.tag-100<=1) {
-        HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+        HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
+        hwdVC.TestID=((ChapterInfo *)[_arrayData objectAtIndex:but.tag]).TestID;
         [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
     }else
     {

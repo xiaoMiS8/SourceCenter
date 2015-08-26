@@ -110,7 +110,7 @@
     self.title = [self.itemTitles firstObject];
     [self setupTabbar];
     [self controllerTransform];
-    [self addrightItemsWithIsTwo:YES andViewcontroller:viewcontrollers[0]];
+   // [self addrightItemsWithIsTwo:YES andViewcontroller:viewcontrollers[0]];
 }
 
 - (void)setSelectedIndex:(int)selectedIndex
@@ -187,9 +187,10 @@
         hworkVC = self.viewcontrollers[2];
     }else
     {
-        bbsVC = self.viewcontrollers[0];
-        readVC = self.viewcontrollers[1];
-        tpVC = self.viewcontrollers[2];
+        tutoriaVC = self.viewcontrollers[0];
+        bbsVC = self.viewcontrollers[1];
+        readVC = self.viewcontrollers[2];
+        tpVC = self.viewcontrollers[3];
     }
 }
 - (void)didReceiveMemoryWarning {

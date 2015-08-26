@@ -9,7 +9,7 @@
 #import "HWorkViewController.h"
 #import "HWorkCell.h"
 #import "TestInfo.h"
-#import "HWorkDetailViewController.h"
+#import "HWorkDetailWebViewController.h"
 @interface HWorkViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong,nonatomic)CCHttpManager *httpManager;
@@ -107,7 +107,7 @@
 {
     if(_seg.selectedSegmentIndex==0)
     {
-        HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+        HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
         [self pushViewController:hwdVC];
     }
 }

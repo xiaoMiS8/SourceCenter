@@ -12,13 +12,15 @@
 {
     UISearchBar *mySearchBar;
     UISearchDisplayController *searchDC;
+    NSInteger selectNumber;
+    BOOL isTableView;
 
 }
 @property(nonatomic, strong) CCHttpManager * httpManager;
 @property(nonatomic, strong) ResponseObject *reob;
 @property (nonatomic,strong)NSMutableArray *dataArray;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong)NSMutableArray *dataResult;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -28,10 +30,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addTableviewHeader];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     self.dataResult=[[NSMutableArray alloc]init];
-    [self LoadDataWithKey:@""];
+    selectNumber=INT_MAX;
+    [self LoadDataWithKey:@"" isTableView:YES];
+    
 }
 - (void)addTableviewHeader
 {
@@ -42,8 +47,9 @@
     searchDC=[[UISearchDisplayController alloc]initWithSearchBar:mySearchBar contentsController:self];
     searchDC.searchResultsDataSource=self;
     searchDC.searchResultsDelegate=self;
+    searchDC.searchResultsTableView.tableFooterView=[[UIView alloc]init];
 }
--(void)LoadDataWithKey:(NSString *)string
+-(void)LoadDataWithKey:(NSString *)string isTableView:(BOOL)isTV
 {
     [MBProgressHUD showMessage:nil];
     [self.httpManager chooseSchoolWithOpt:@"getschool"
@@ -51,8 +57,17 @@
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
-            self.dataArray=self.reob.resultArray;
+            if (isTV) {
+              self.dataArray=self.reob.resultArray;
+            isTableView=YES;
             [_tableView reloadData];
+            }else
+            {
+              self.dataResult=self.reob.resultArray;
+            isTableView=NO;
+            [searchDC.searchResultsTableView reloadData];
+            }
+            
             return ;
         }
         [MBProgressHUD showError:LOGINMESSAGE_F];
@@ -60,15 +75,32 @@
 }
 
 - (IBAction)sure:(UIButton *)sender {
-    ((AppDelegate *)app).nav =[(AppDelegate *)app inNavigationController];
-    ((AppDelegate *)app).window.rootViewController = ((AppDelegate *)app).nav;
+    if (selectNumber!=INT_MAX) {
+        if (isTableView) {
+          [[NSUserDefaults standardUserDefaults]setObject:((SchoolInfo *)_dataArray[selectNumber]).Url forKey:@"schoolUrl"];
+        }else
+        {
+          [[NSUserDefaults standardUserDefaults]setObject:((SchoolInfo *)_dataArray[selectNumber]).Url forKey:@"schoolUrl"];
+        }
+        ((AppDelegate *)app).nav =[(AppDelegate *)app inNavigationController];
+        ((AppDelegate *)app).window.rootViewController = ((AppDelegate *)app).nav;
+    }else
+    {
+        [Tool showAlertView:@"提示" withMessage:@"请选择学校!" withTarget:self withCancel:@"确定" other:nil];
+    }
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _dataArray.count;
+    if (tableView==self.tableView) {
+        return _dataArray.count;
+    }else
+    {
+       return _dataResult.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,15 +109,35 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIndentifier];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",((SchoolInfo *)_dataArray[indexPath.row]).Schoolname];
+    if (tableView==self.tableView) {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@",((SchoolInfo *)_dataArray[indexPath.row]).Schoolname];
+    }else
+    {
+        cell.textLabel.text = [NSString stringWithFormat:@"%@",((SchoolInfo *)_dataResult[indexPath.row]).Schoolname];
+    }
+    if (selectNumber==indexPath.row) {
+        cell.accessoryType=UITableViewCellAccessoryCheckmark;
+    }else
+    {
+        cell.accessoryType=UITableViewCellAccessoryNone;
+    }
     return cell;
 }
 
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    selectNumber=indexPath.row;
+    [tableView reloadData];
+}
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self LoadDataWithKey:mySearchBar.text isTableView:NO];
 }
 
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [_tableView reloadData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

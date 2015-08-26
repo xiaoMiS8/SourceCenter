@@ -169,10 +169,10 @@ static NSInteger number=0;
         itemSelectedImages = @[@"cTabbar1_s",@"cTabbar3_s",@"cTabbar4_s"];
      
     } else {
-        viewControllers = @[bbsVC, readVC, tpVC];
-        titles = @[@"论坛",@"批阅",@"事务处理"];
-        itemImages = @[@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
-        itemSelectedImages = @[@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
+        viewControllers = @[tutoriaVC,bbsVC, readVC, tpVC];
+        titles = @[@"教程",@"论坛",@"批阅",@"事务处理"];
+        itemImages = @[@"cTabbar1_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
+        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
     }
     
     [tabbar setViewcontrollers:viewControllers itemImages:itemImages itemselectedImages:itemSelectedImages titles:titles];

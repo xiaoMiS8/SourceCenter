@@ -15,7 +15,7 @@
 #import "SourceInfo.h"
 #import "FCourseDetailLast.h"
 #import "GroupInfoViewController.h"
-#import "HWorkDetailViewController.h"
+#import "HWorkDetailWebViewController.h"
 #import "BBsDetailViewController.h"
 #import "FileInfo.h"
 #import "PlayViewController.h"
@@ -496,7 +496,8 @@ static NSInteger  total=0;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section==2) {
-        HWorkDetailViewController *hwdVC=[[HWorkDetailViewController alloc]init];
+        HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
+        
         [self.navigationController pushViewController:hwdVC animated:YES];
     }else if(indexPath.section==3)
     {

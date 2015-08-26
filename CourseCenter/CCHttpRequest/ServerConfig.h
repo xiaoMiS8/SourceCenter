@@ -14,7 +14,7 @@
 
 //***********测试环境************/
     ///服务器IP
-#define kServerIP           @"http://203.156.198.20"
+#define kServerIP           [NSString stringWithFormat:@"%@%@",@"http://",[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]]
     ///服务器端口号
 #define kServerPort         @"/AppServer"
 
