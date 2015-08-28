@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,61 +16,9 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh6-iy-7Y6">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请选择您所在的学校" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDG-Fh-AHD">
-                                        <rect key="frame" x="88" y="34" width="144" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQV-0e-dKV">
-                                        <rect key="frame" x="268" y="28" width="32" height="32"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <state key="normal" title="确定">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="sure:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="M5P-V5-5oR"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" red="0.1217235269" green="0.73243667320000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="centerX" secondItem="HDG-Fh-AHD" secondAttribute="centerX" id="3YY-Xp-6YA"/>
-                                    <constraint firstItem="HDG-Fh-AHD" firstAttribute="centerY" secondItem="CQV-0e-dKV" secondAttribute="centerY" id="4Yy-6T-1W0"/>
-                                    <constraint firstAttribute="height" constant="64" id="aSy-Kz-d2G"/>
-                                    <constraint firstAttribute="trailing" secondItem="CQV-0e-dKV" secondAttribute="trailing" constant="20" id="hJK-uZ-hXy"/>
-                                    <constraint firstAttribute="bottom" secondItem="HDG-Fh-AHD" secondAttribute="bottom" constant="10" id="ob0-fE-y6D"/>
-                                </constraints>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="FrM-gG-hfP">
-                                <rect key="frame" x="0.0" y="104" width="320" height="464"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="7II-3p-SyR"/>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="yDC-du-m3D"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="FrM-gG-hfP" secondAttribute="bottom" id="56J-tb-CJO"/>
-                            <constraint firstItem="FrM-gG-hfP" firstAttribute="top" secondItem="dh6-iy-7Y6" secondAttribute="bottom" constant="40" id="5O1-uT-Wdd"/>
-                            <constraint firstItem="FrM-gG-hfP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="Kkx-qS-rSB"/>
-                            <constraint firstItem="dh6-iy-7Y6" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="fmy-E0-nrz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="FrM-gG-hfP" secondAttribute="trailing" constant="-16" id="wdN-wM-w3X"/>
-                            <constraint firstItem="dh6-iy-7Y6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="zNQ-2w-lpL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dh6-iy-7Y6" secondAttribute="trailing" constant="-16" id="zk1-Pb-da5"/>
-                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="tableView" destination="FrM-gG-hfP" id="UuU-6k-nOP"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>

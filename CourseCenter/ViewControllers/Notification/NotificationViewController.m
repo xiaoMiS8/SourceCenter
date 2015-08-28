@@ -157,13 +157,20 @@
 }
 
 - (IBAction)gotoLogin:(UIButton *)sender {
-    LoginViewController *loginSearchVC = [LoginViewController new];
-    loginSearchVC.block=^()
+    
+    if ([Tool objectIsEmpty:[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]]) {
+        [Tool showAlertView:@"提示" withMessage:@"请先选择学校!" withTarget:nil withCancel:@"确定" other:nil];
+    }else
     {
-        ((AppDelegate *)app).tabar.TowLoginState=@"1";
-        //[self isLogin];
-    };
-    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+        LoginViewController *loginSearchVC = [LoginViewController new];
+        loginSearchVC.block=^()
+        {
+            ((AppDelegate *)app).tabar.TowLoginState=@"1";
+            //[self isLogin];
+        };
+        [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+    }
+   
 }
 
 #pragma mark- UITableViewDelegate && UITableViewDataSource

@@ -253,37 +253,14 @@ static NSInteger tag;
     if (((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileType==1) {
         NSInteger num=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).IsAllowStudy;
         switch (num) {
-            case 0:{
-                [Tool showAlertView:@"提示" withMessage:@"请先学习前面的章节" withTarget:self withCancel:@"确定" other:nil];
-                break;
-            }
             case 1:{
                 PlayViewController *playVC=[[PlayViewController alloc]init];
                 playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
                 [self presentViewController:playVC animated:YES completion:nil];
                 break;
             }
-            case 2:{
-                [Tool showAlertView:@"提示" withMessage:@"还未到开始学习时间" withTarget:self withCancel:@"确定" other:nil];
-                break;
-            }
-            case 3:{
-                 [Tool showAlertView:@"提示" withMessage:@"请先学习完前面的章节" withTarget:self withCancel:@"确定" other:nil];
-                break;
-            }
-            case 4:{
-                [Tool showAlertView:@"提示" withMessage:@"请先完成上一章的测试" withTarget:self withCancel:@"确定" other:nil];
-                break;
-            }
-            case 5:{
-                [Tool showAlertView:@"提示" withMessage:@"请先学习完该章节" withTarget:self withCancel:@"确定" other:nil];
-                break;
-            }
-            case 6:{
-                [Tool showAlertView:@"提示" withMessage:@"请先完成所有章节及测试" withTarget:self withCancel:@"确定" other:nil];
-                break;
-            }
             default:
+                [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];
                 break;
         }
     }else
@@ -305,7 +282,7 @@ static NSInteger tag;
         [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
     }else
     {
-        [Tool showAlertView:@"提示" withMessage:@"您暂时不能学习其他课程!" withTarget:self withCancel:@"确定" other:nil];
+        [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];
     }
     
 }
@@ -317,7 +294,7 @@ static NSInteger tag;
         [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
     }else
     {
-        [Tool showAlertView:@"提示" withMessage:@"您暂时不能学习其他课程!" withTarget:self withCancel:@"确定" other:nil];
+        [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];
     }
     
 }

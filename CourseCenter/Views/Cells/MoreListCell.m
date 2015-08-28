@@ -57,13 +57,11 @@
         case 1:
             _headImag.image=[UIImage imageNamed:@"icon_datum"];
             _headName.text=@"学习资料";
-//            _headImag.image=[UIImage imageNamed:@"icon_download"];
-//            _headName.text=@"离线下载";
             break;
-//        case 2:
-//            _headImag.image=[UIImage imageNamed:@"icon_datum"];
-//            _headName.text=@"学习资料";
-//            break;
+        case 2:
+            _headImag.image=[UIImage imageNamed:@"icon_download"];
+            _headName.text=@"我的下载";
+            break;
 //        case 3:
 //            _headImag.image=[UIImage imageNamed:@"icon_calendar"];
 //            _headName.text=@"我的日程";

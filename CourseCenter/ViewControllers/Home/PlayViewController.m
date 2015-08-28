@@ -8,6 +8,7 @@
 
 #import "PlayViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+static BOOL isFirst;
 @interface PlayViewController ()
 {
     MPMoviePlayerController *movie;
@@ -23,6 +24,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    isFirst=YES;
     self.httpManager = [[CCHttpManager alloc]init];
     if (_isNSBundle) {
      movie =[[MPMoviePlayerController alloc]initWithContentURL:[NSURL fileURLWithPath:self.playUrl]];
@@ -45,12 +47,16 @@
     switch (movie.playbackState) {
         case MPMoviePlaybackStatePlaying:
             [MBProgressHUD hideHUD];
-            if (!(_ChapterID==0&&_FileID==0)) {
-            timer10=[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(send10S) userInfo:nil repeats:YES];
-            timer60=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send60S) userInfo:nil repeats:YES];
-            }
-            if (self.Seconds!=0) {
-                movie.currentPlaybackTime=+self.Seconds;
+            if (isFirst) {
+                if (!(_ChapterID==0&&_FileID==0)) {
+                    timer10=[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(send10S) userInfo:nil repeats:YES];
+                    timer60=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send60S) userInfo:nil repeats:YES];
+                    timer=[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(send) userInfo:nil repeats:YES];
+                }
+                if (self.Seconds!=0) {
+                    movie.currentPlaybackTime=+self.Seconds;
+                }
+                isFirst=NO;
             }
             NSLog(@"正在播放...");
             break;
@@ -67,10 +73,6 @@
 }
 -(void)myMovieFinishedCallback:(NSNotification*)notification
 {
-
-    if (!(_ChapterID==0&&_FileID==0)) {
-     [NSTimer scheduledTimerWithTimeInterval:0 target:self selector:@selector(send) userInfo:nil repeats:NO];
-    }
     //销毁播放通知
     [[NSNotificationCenter defaultCenter] removeObserver:self
      name:MPMoviePlayerPlaybackDidFinishNotification

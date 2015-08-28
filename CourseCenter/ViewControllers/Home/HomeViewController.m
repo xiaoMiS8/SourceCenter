@@ -15,6 +15,7 @@
 #import "ResponseObject.h"
 #import "NSString+HandleString.h"
 #import "MJRefresh.h"
+#import "ChooseSchoolViewController.h"
 @interface HomeViewController ()
 {
     NSString *loginState;
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *courseSelectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *loginPrompt;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UIButton *chooseSchoolBtn;
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (nonatomic, assign) CGFloat startY;
@@ -42,13 +44,23 @@
     [self setupTableView];
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
+    _chooseSchoolBtn.layer.masksToBounds=YES;
+    _chooseSchoolBtn.layer.cornerRadius=5;
     self.courseSelectLabel.text = @"推荐课程";
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     [self isLoginOrCourse];
     NSLog(@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]);
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    static BOOL isFirst=YES;
+    if (isFirst) {
+        ChooseSchoolViewController *schoolVC=[[ChooseSchoolViewController alloc]init];
+        [((AppDelegate *)app).nav pushViewController:schoolVC animated:NO];
+        isFirst=NO;
+    }
+}
 -(void)isLoginOrCourse
 {
     loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
@@ -56,13 +68,16 @@
         _tableView.hidden=YES;
         _loginBtn.hidden=NO;
         _loginPrompt.hidden=NO;
+        _chooseSchoolBtn.hidden=NO;
     }else
     {
         _tableView.hidden=NO;
         _loginBtn.hidden=YES;
         _loginPrompt.hidden=YES;
+        _chooseSchoolBtn.hidden=YES;
         [self rLoadData];
     }
+    
 }
 //推荐课程
 -(void)rLoadData
@@ -125,13 +140,24 @@
     [((AppDelegate *)app).nav pushViewController:testVC animated:YES];
 }
 - (IBAction)gotoLogin:(UIButton *)sender {
-    LoginViewController *loginSearchVC = [LoginViewController new];
-    loginSearchVC.block=^()
+    
+    if ([Tool objectIsEmpty:[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]]) {
+        [Tool showAlertView:@"提示" withMessage:@"请先选择学校!" withTarget:nil withCancel:@"确定" other:nil];
+    }else
     {
-        ((AppDelegate *)app).tabar.OneLoginState=@"1";
-        //[self isLoginOrCourse];
-    };
-    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+        LoginViewController *loginSearchVC = [LoginViewController new];
+        loginSearchVC.block=^()
+        {
+            ((AppDelegate *)app).tabar.OneLoginState=@"1";
+            //[self isLoginOrCourse];
+        };
+        [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+    }
+    
+}
+- (IBAction)chooseSchool:(UIButton *)sender {
+    ChooseSchoolViewController *schoolVC=[[ChooseSchoolViewController alloc]init];
+    [((AppDelegate *)app).nav pushViewController:schoolVC animated:YES];
 }
 
 - (void)setSeg:(UISegmentedControl *)seg

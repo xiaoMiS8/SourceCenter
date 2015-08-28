@@ -16,6 +16,7 @@
 #import "LoginViewController.h"
 #import "MsgInfo.h"
 #import "QuestionSurvey.h"
+#import "MyDownLoad.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
@@ -24,6 +25,7 @@
     MessageCenter *messageCenter;
     MyData *myData;
     QuestionSurvey *questionSurvey;
+    MyDownLoad *myDownload;
     NSString *loginState;
     __block  BOOL isBlock;
 }
@@ -119,7 +121,7 @@
         case 1:
             return 1;
         case 2:
-            return 2;
+            return 3;
         case 3:
             return 1;
         default:
@@ -183,9 +185,10 @@
         case 1:
             [((AppDelegate *)app).nav pushViewController:myData animated:YES];
             break;
-//        case 2:
-//            [((AppDelegate *)app).nav pushViewController:myData animated:YES];
-//            break;
+        case 2:
+            myDownload=[[MyDownLoad alloc]init];
+            [((AppDelegate *)app).nav pushViewController:myDownload animated:YES];
+            break;
 //        case 3:
 //            break;
         default:
@@ -193,13 +196,20 @@
     }
 }
 - (IBAction)gotoLogin:(UIButton *)sender {
-    LoginViewController *loginSearchVC = [LoginViewController new];
-    loginSearchVC.block=^()
+    
+    if ([Tool objectIsEmpty:[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]]) {
+        [Tool showAlertView:@"提示" withMessage:@"请先选择学校!" withTarget:nil withCancel:@"确定" other:nil];
+    }else
     {
-        ((AppDelegate *)app).tabar.FourLoginState=@"1";
-        [self isLoginOrCourse];
-    };
-    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+        LoginViewController *loginSearchVC = [LoginViewController new];
+        loginSearchVC.block=^()
+        {
+            ((AppDelegate *)app).tabar.FourLoginState=@"1";
+            [self isLoginOrCourse];
+        };
+        [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
