@@ -11,6 +11,7 @@
 #import "FileDownLoadManager.h"
 #import "DetailData.h"
 #import "Reachability.h"
+#import "MoocFileInfo.h"
 @implementation DetailDataCell
 
 - (void)awakeFromNib {
@@ -26,18 +27,51 @@
 }
 - (void)btnAction
 {
-    if (_btn.selected) {
-        if (_isFirst) {
-            [self downloadFileName];
-        }else
-        {
-            [self downloadFile];
+    if (_IsAllowStudy==1) {
+        if (_btn.selected) {
+            if (_isFirst) {
+                [self downloadFileName];
+            }else
+            {
+                [self downloadFile];
+            }
+            
+        }else{
+            [self stopDownloadFile];
         }
-        
-    }else{
-        [self stopDownloadFile];
+        _btn.selected=!_btn.selected;
+    }else
+    {
+        switch (_IsAllowStudy) {
+            case 0:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 2:{
+                [Tool showAlertView:@"提示" withMessage:@"还未到开始学习时间" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 3:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习完前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 4:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成上一章的测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 5:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习完该章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 6:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成所有章节及测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            default:
+                break;
+        }
+
     }
-    _btn.selected=!_btn.selected;
 }
 - (void)downloadFileName
 {

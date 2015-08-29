@@ -34,6 +34,8 @@ static NSInteger tag;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
+@property (strong,nonatomic)NSString *filePath;
+@property (strong, nonatomic) UIDocumentInteractionController *documentInteractionController;
 //正在下载的列表
 @property(nonatomic) NSMutableArray *downlingList;
 //已经完成的列表
@@ -349,6 +351,7 @@ static NSInteger tag;
             NSInteger ii=((SectionAndRow *)downIngRow[i]).row;
             MoocFileInfo  *info=_moocFileArray[jj][ii];
             fileInfo.IsReadFinish=info.IsReadFinish;
+            cell.IsAllowStudy=info.IsAllowStudy;
             cell.request = theRequest;
             cell.fileModel=fileInfo;
             cell.btn.hidden=NO;
@@ -365,6 +368,7 @@ static NSInteger tag;
             NSInteger ii=((SectionAndRow *)finishRow[i]).row;
             MoocFileInfo  *info=_moocFileArray[jj][ii];
             ((FileModel *)_fileArray[num]).IsReadFinish=info.IsReadFinish;
+            cell.IsAllowStudy=info.IsAllowStudy;
             cell.isFinish=@"YES";
             cell.btn.hidden=YES;
             cell.fileModel=_fileArray[num];
@@ -381,6 +385,7 @@ static NSInteger tag;
             NSInteger ii=((SectionAndRow *)pauseRow[i]).row;
             MoocFileInfo  *info=_moocFileArray[jj][ii];
             ((FileModel *)_fileArray[num]).IsReadFinish=info.IsReadFinish;
+            cell.IsAllowStudy=info.IsAllowStudy;
             cell.request = nil;
             cell.fileModel=_fileArray[num];
             //手动设置百分比，显示弧度
@@ -400,6 +405,7 @@ static NSInteger tag;
             model.fileType=[@(info.FileType) stringValue];
             model.IsReadFinish=info.IsReadFinish;
             model.isFirstReceived=YES;
+            cell.IsAllowStudy=info.IsAllowStudy;
             cell.request=nil;
             cell.fileModel=model;
             cell.size.text=@"未下载";
@@ -471,9 +477,17 @@ static NSInteger tag;
         }
     }else
     {
-        [Tool showAlertView:@"提示" withMessage:@"请使用第三方软件打开该类型资源" withTarget:self withCancel:@"确定" other:nil];
+        NSString * fileName=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileTitle;
+        if ([[self isExistWithFileName:fileName] isEqualToString:@""]) {
+            [Tool showAlertView:@"提示" withMessage:@"请先下载!" withTarget:self withCancel:@"确定" other:nil];
+        }else
+        {
+            _filePath=[self isExistWithFileName:fileName];
+          [Tool showAlertView:@"提示" withMessage:@"使用第三方软件打开该类型资源" withTarget:self withCancel:@"取消" other:@"确定"];
+        }
     }
 }
+
 -(void)startDownload:(ASIHTTPRequest *)request
 {
     
@@ -508,6 +522,46 @@ static NSInteger tag;
     HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
     hwdVC.TestID=((ChapterInfo *)[_arrayData objectAtIndex:but.tag-100]).TestID;
     [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:_filePath]];
+        self.documentInteractionController.delegate = self;
+        CGRect navRect = self.navigationController.navigationBar.frame;
+        navRect.size = CGSizeMake(1500.0f, 40.0f);
+        [self.documentInteractionController presentOpenInMenuFromRect:navRect inView:self.view animated:YES];
+    }
+}
+//判断文件是否存在 并返回 路径
+-(NSString *)isExistWithFileName:(NSString *)fileName
+{
+    NSString *document = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *plistPath = [[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:@"finishPlist.plist"];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:plistPath]) {
+        NSMutableArray *finishArray = [[NSMutableArray alloc]initWithContentsOfFile:plistPath];
+        for (NSDictionary *dic in finishArray) {
+            if ([fileName isEqualToString:[dic objectForKey:@"filename"]]) {
+                return [[[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:TARGER]stringByAppendingPathComponent:fileName];
+            }
+        }
+        return @"";
+    }
+    return @"";
+}
+-(UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller
+{
+    return self;
+}
+-(UIView *)documentInteractionControllerViewForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view;
+}
+-(CGRect)documentInteractionControllerRectForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view.frame;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -23,5 +23,6 @@
 @property(nonatomic,weak) id parentVC;
 @property(nonatomic,strong)NSString *isFinish;
 @property(nonatomic,assign)BOOL isFirst;
+@property(nonatomic,assign)int  IsAllowStudy;
 -(void)setPercent;
 @end
