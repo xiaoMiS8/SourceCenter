@@ -57,8 +57,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MoreListCell" bundle:nil] forCellReuseIdentifier:@"MoreListCell"];
     myInfo=[[MyInfo alloc]init];
     set=[[SetViewController alloc]init];
-    messageCenter=[[MessageCenter alloc]init];
-    myData=[[MyData alloc]init];
     questionSurvey=[[QuestionSurvey alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
     [self isLoginOrCourse];
@@ -148,6 +146,7 @@
             [((AppDelegate *)app).nav pushViewController:myInfo animated:YES];
             break;
         case 1:
+            messageCenter=[[MessageCenter alloc]init];
             [((AppDelegate *)app).nav pushViewController:messageCenter animated:YES];
             break;
         case 2:
@@ -183,6 +182,7 @@
             [((AppDelegate *)app).nav pushViewController:questionSurvey animated:YES];
             break;
         case 1:
+            myData=[[MyData alloc]init];
             [((AppDelegate *)app).nav pushViewController:myData animated:YES];
             break;
         case 2:

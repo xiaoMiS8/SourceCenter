@@ -8,6 +8,7 @@
 
 #import "MyDownLoad.h"
 #import "FileModel.h"
+#import "FileDownLoadManager.h"
 
 @interface MyDownLoad ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -134,6 +135,10 @@
         if (![writeArray writeToFile:plistPath atomically:YES]) {
             NSLog(@"write plist fail");
         }
+        if (writeArray.count==0) {
+        [[FileDownLoadManager sharedFilesDownManage].finishedlist removeAllObjects];
+        }
+        [[FileDownLoadManager sharedFilesDownManage] loadFinishedfiles];
     }
 
 }

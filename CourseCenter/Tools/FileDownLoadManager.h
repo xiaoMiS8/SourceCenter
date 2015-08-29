@@ -37,4 +37,5 @@
 -(NSMutableArray *)getTempFiles;
 - (void)keepOnNewASINetworkQueueWithGuid:(FileModel*)fileInfo;
 -(void)saveFinishedFile;
+-(void)loadFinishedfiles;
 @end
