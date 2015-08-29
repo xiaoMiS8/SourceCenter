@@ -152,7 +152,11 @@
     self.name.text = topic.UserName;
     self.className.text = topic.ForumClassName;
     NSArray *timeArray = [topic.UpdateTime componentsSeparatedByString:@"T"];
-    self.time.text = [NSString stringWithFormat:@"%@ %@",timeArray[0],timeArray[1]];
+    NSArray *dateArray = [timeArray[0] componentsSeparatedByString:@"-"];
+    NSString *dateStr = [NSString stringWithFormat:@"%@/%@",dateArray[1],dateArray[2]];
+    NSArray *timesArray = [timeArray[1] componentsSeparatedByString:@":"];
+    NSString *timeStr = [NSString stringWithFormat:@"%@:%@",timesArray[0],timesArray[1]];
+    self.time.text = [NSString stringWithFormat:@"%@ %@",dateStr,timeStr];
     self.eye.text = [NSString stringWithFormat:@"%ld",topic.Clicks];
     self.discuss.text = [NSString stringWithFormat:@"%ld",topic.Responses];
     self.agree.text = [NSString stringWithFormat:@"%ld",topic.Goods];

@@ -20,6 +20,7 @@
 #define kClassName              @"ClassName"
 #define kCreateDate             @"CreateDate"
 #define kIsSys                  @"IsSys"
+#define kTopics                 @"topiccount"
 
 @interface ForumTypeInfo : NSObject
 
@@ -47,6 +48,7 @@
 @property(nonatomic, strong) NSString *CreateDate;
     ///是否系统版块
 @property(nonatomic, assign) BOOL IsSys;
+@property(nonatomic, assign) long Topics;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

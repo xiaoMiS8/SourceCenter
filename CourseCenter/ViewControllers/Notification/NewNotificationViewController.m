@@ -111,10 +111,18 @@
         return;
     }
     NSMutableArray *IDs = [[NSMutableArray alloc] initWithCapacity:0];
-    for (int i=1; i<self.isSelecteds.count; i++) {
-        if ([self.isSelecteds[i] boolValue]) {
-            TeachingClassInfo *teachIngClass = self.teachingClasses[i -1];
-            [IDs addObject:[NSNumber numberWithLong:teachIngClass.TeachingClassID]];
+    if ([self.isSelecteds.firstObject boolValue]) {
+        for (int i=1; i<self.teachingClasses.count; i++) {
+                TeachingClassInfo *teachIngClass = self.teachingClasses[i];
+                [IDs addObject:[NSNumber numberWithLong:teachIngClass.TeachingClassID]];
+        }
+
+    } else {
+        for (int i=1; i<self.isSelecteds.count; i++) {
+            if ([self.isSelecteds[i] boolValue]) {
+                TeachingClassInfo *teachIngClass = self.teachingClasses[i];
+                [IDs addObject:[NSNumber numberWithLong:teachIngClass.TeachingClassID]];
+            }
         }
     }
     if (IDs.count < 1) {
@@ -226,6 +234,7 @@
         } else {
             cell.imgView.image = [UIImage imageNamed:@"btn_confirm"];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     if (indexPath.section == 2) {
@@ -245,6 +254,7 @@
             }
             [self.tableView reloadData];
         };
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else {
         NewNotiTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotiTextViewCell"];
@@ -254,6 +264,7 @@
         } else {
             cell.lineLabel.hidden = NO;
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
  

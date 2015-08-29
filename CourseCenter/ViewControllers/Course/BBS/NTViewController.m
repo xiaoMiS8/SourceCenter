@@ -77,6 +77,22 @@
 }
 
 - (void)done {
+    if ([self.datas[0] isEqualToString:@"点击选择板块"]) {
+        [MBProgressHUD showError:@"请先选择板块"];
+        return;
+    }
+    if ([self.datas[1] isEqualToString:@"请输入标题，50字以内！"]) {
+        [MBProgressHUD showError:@"请输入标题"];
+        return;
+    }
+    if ([self.datas[1] length] >= 50) {
+        [MBProgressHUD showError:@"标题过长"];
+        return;
+    }
+    if ([self.datas[2] isEqualToString:@"请输入话题内容"]) {
+        [MBProgressHUD showError:@"请输入内容"];
+        return;
+    }
     [self addTopic];
     self.doBlock();
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -146,6 +162,7 @@
             self.forumType = forumType;
             NTCell1 *cell = (NTCell1 *)[tableView cellForRowAtIndexPath:indexPath];
             cell.desLabel.text = forumType.Title;
+            [self.datas replaceObjectAtIndex:indexPath.row withObject:forumType.Title];
         };
         [self.navigationController pushViewController:selecteSVC animated:YES];
     }

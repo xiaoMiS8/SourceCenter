@@ -25,6 +25,7 @@
         self.ClassName = dict[kClassName];
         self.CreateDate = dict[kCreateDate];
         self.IsSys = [dict[kIsSys] boolValue];
+        self.Topics = [dict[kTopics] intValue];
     }
     return self;
 }

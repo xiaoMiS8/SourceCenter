@@ -68,7 +68,9 @@
 }
 
 - (void)stuDel {
-     [self topicDelete];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"警告" message:@"删除帖子后将无法恢复，请谨慎操作" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认删除", nil];
+    [alertView show];
 }
 
 - (void)topicSet {
@@ -184,8 +186,13 @@
 
 - (void)loadData {
     [self.manager getAppForumResponseInfoListWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
-        self.respones = ((ResponseObject *)object).resultArray;
-        [self.tableView reloadData];
+        if (status == Enum_SUCCESS) {
+            self.respones = ((ResponseObject *)object).resultArray;
+            [self.tableView reloadData];
+        } else {
+            [MBProgressHUD showError:@"刷新失败"];
+        }
+       
     }];
 }
 

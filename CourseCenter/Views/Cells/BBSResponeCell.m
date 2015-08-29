@@ -34,7 +34,11 @@
     self.className.text = response.FromClassName;
     self.agressCount.text = [NSString stringWithFormat:@"%ld",response.Goods];
     NSArray *timeArray = [response.UpdateTime componentsSeparatedByString:@"T"];
-    self.time.text = [NSString stringWithFormat:@"%@ %@",timeArray[0],timeArray[1]];
+    NSArray *dateArray = [timeArray[0] componentsSeparatedByString:@"-"];
+    NSString *dateStr = [NSString stringWithFormat:@"%@/%@",dateArray[1],dateArray[2]];
+    NSArray *timesArray = [timeArray[1] componentsSeparatedByString:@":"];
+    NSString *timeStr = [NSString stringWithFormat:@"%@:%@",timesArray[0],timesArray[1]];
+    self.time.text = [NSString stringWithFormat:@"%@ %@",dateStr,timeStr];
     if (response.IsGood) {
         [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree_push"] forState:UIControlStateNormal];
     } else {
