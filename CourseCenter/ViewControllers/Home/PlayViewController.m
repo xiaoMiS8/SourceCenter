@@ -58,9 +58,11 @@ static BOOL isFirst;
                 }
                 isFirst=NO;
             }
+            [self PlayOrPauseWith:1];
             NSLog(@"正在播放...");
             break;
         case MPMoviePlaybackStatePaused:
+            [self PlayOrPauseWith:2];
             NSLog(@"暂停播放...");
             break;
         case MPMoviePlaybackStateStopped:
@@ -118,6 +120,20 @@ static BOOL isFirst;
 {
     __block typeof(self) myself =self;
     [self.httpManager  addOCMoocStuFileSecondswithChapterID:_ChapterID FileID:_FileID Seconds:movie.currentPlaybackTime finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            myself.reob=(ResponseObject *)object;
+            if ([myself.reob.errrorCode isEqualToString:@"0"]) {
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+-(void)PlayOrPauseWith:(int)type
+{
+    __block typeof(self) myself =self;
+    [self.httpManager  OCMoocStuFilePlayPausewithChapterID:_ChapterID
+      FileID:_FileID PlayOrPause:type finished:^(EnumServerStatus status, NSObject *object) {
         if (status==0) {
             myself.reob=(ResponseObject *)object;
             if ([myself.reob.errrorCode isEqualToString:@"0"]) {

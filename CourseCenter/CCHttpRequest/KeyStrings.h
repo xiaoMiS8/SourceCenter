@@ -45,7 +45,8 @@
 #define kOCMoocStuFile_StudyTimes       @"OCMoocStuFile_StudyTimes"
     //章节下资料学习点回调
 #define kOCMoocStuFile_Seconds          @"OCMoocStuFile_Seconds"
-
+    //章节下资料播放或者暂停
+#define kOCMoocStuFilePlayPause         @"OCMoocStuFilePlayPause"
 
 #pragma mark- Notice
 

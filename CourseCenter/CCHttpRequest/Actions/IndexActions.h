@@ -130,4 +130,17 @@
                                      Seconds:(long)Seconds
                                       finished:(FinishedBlock)finished;
 
+/**
+ *	@brief	视频播放或者暂停调用
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	PlayOrPause 暂停或者播放
+ *	@param 	finished 	finished description
+ */
++ (void)OCMoocStuFilePlayPausewithChapterID:(long)ChapterID
+                                     FileID:(long)FileID
+                                PlayOrPause:(int)PlayOrPause
+                                   finished:(FinishedBlock)finished;
+
 @end

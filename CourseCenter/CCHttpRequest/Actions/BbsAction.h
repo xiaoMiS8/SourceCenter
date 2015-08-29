@@ -44,6 +44,7 @@
 #define kStudyTimes         @"StudyTimes"
 #define kSeconds            @"Seconds"
 #define kFile               @"File"
+#define kPlayOrPause        @"PlayOrPause"
 
 @interface BbsAction : NSObject
 

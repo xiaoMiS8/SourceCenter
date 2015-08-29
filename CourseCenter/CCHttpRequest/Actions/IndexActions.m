@@ -164,4 +164,21 @@
                                          finished(status, object);
                                      }];
 }
+
++ (void)OCMoocStuFilePlayPausewithChapterID:(long)ChapterID
+                                     FileID:(long)FileID
+                                PlayOrPause:(int)PlayOrPause
+                                   finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{
+                                 kChapterID: [NSNumber numberWithLong:ChapterID],
+                                 kFileID: [NSNumber numberWithLong:FileID],
+                                 kPlayOrPause:[NSNumber numberWithLong:PlayOrPause]
+                                 };
+    [CSNetAccessor sendPostAsyncObjectFormUrl:@"/Index/App_OCMoocStuFilePlayPause_Set"
+                                   parameters:parameters
+                                  connectFlag:kOCMoocStuFilePlayPause
+                                     finished:^(EnumServerStatus status, NSObject *object) {
+                                         finished(status, object);
+                                     }];
+}
 @end

@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface HWorkDetailWebViewController : BaseViewController<UIWebViewDelegate>
+@interface HWorkDetailWebViewController : BaseViewController<UIWebViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,assign)long TestID;
 @end

@@ -21,8 +21,19 @@
     // Do any additional setup after loading the view from its nib.
     self.title=@"作业";
     self.httpManager = [[CCHttpManager alloc]init];
-    [self setupCustomRightWithtitle:@"提交" target:self action:@selector(submit)];
-     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
+    [self setupCustomRightWithtitle:@"提交" target:self action:@selector(isSure)];
+     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@""]]];
+}
+
+-(void)isSure
+{
+    [Tool showAlertView:@"提示" withMessage:@"是否提交作业!" withTarget:self withCancel:@"取消" other:@"确定"];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex==1) {
+        [self submit];
+    }
 }
 -(void)submit
 {

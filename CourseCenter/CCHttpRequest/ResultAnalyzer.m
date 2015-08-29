@@ -114,6 +114,10 @@
         if ([responseObject.errrorCode isEqualToString:KSuccess]) {
             responseObject.message = @"提交成功";
         }
+    }else if ([flag isEqualToString:kOCMoocStuFilePlayPause]) {
+        if ([responseObject.errrorCode isEqualToString:KSuccess]) {
+            responseObject.message = @"提交成功";
+        }
     }else if ([flag isEqualToString:kPic_Upload]) {
         if ([responseObject.errrorCode isEqualToString:KSuccess]) {
             responseObject.message = @"提交成功";
