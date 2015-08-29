@@ -181,6 +181,8 @@
 		CA6B42E41B7102020055CC64 /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA6B42E21B7102020055CC64 /* CollectionViewCell.m */; };
 		CA6B42E51B7102020055CC64 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */; };
 		CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7228BD1B57F4F8006F719A /* NewMessage.xib */; };
+		CA869D891B917BAB001A0EB4 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA869D871B917B5E001A0EB4 /* QuickLook.framework */; };
+		CA869D8B1B9185F8001A0EB4 /* sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CA869D8A1B9185F8001A0EB4 /* sample.pdf */; };
 		CACBFC831B53FE7400FAD388 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC811B53FE7400FAD388 /* MessageCenter.m */; };
 		CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC821B53FE7400FAD388 /* MessageCenter.xib */; };
 		CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC861B54021F00FAD388 /* MessageCenterCell.m */; };
@@ -681,6 +683,8 @@
 		CA6B42E21B7102020055CC64 /* CollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
 		CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CA7228BD1B57F4F8006F719A /* NewMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessage.xib; sourceTree = "<group>"; };
+		CA869D871B917B5E001A0EB4 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		CA869D8A1B9185F8001A0EB4 /* sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sample.pdf; sourceTree = "<group>"; };
 		CACBFC801B53FE7400FAD388 /* MessageCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenter.h; sourceTree = "<group>"; };
 		CACBFC811B53FE7400FAD388 /* MessageCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenter.m; sourceTree = "<group>"; };
 		CACBFC821B53FE7400FAD388 /* MessageCenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCenter.xib; sourceTree = "<group>"; };
@@ -1016,6 +1020,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA869D891B917BAB001A0EB4 /* QuickLook.framework in Frameworks */,
 				52DEE04E1B7D762E00DD4486 /* libz.1.2.5.dylib in Frameworks */,
 				52DEE04C1B7D762500DD4486 /* SystemConfiguration.framework in Frameworks */,
 				52DEE04A1B7D760200DD4486 /* MobileCoreServices.framework in Frameworks */,
@@ -1461,6 +1466,7 @@
 			isa = PBXGroup;
 			children = (
 				52DEE04D1B7D762E00DD4486 /* libz.1.2.5.dylib */,
+				CA869D871B917B5E001A0EB4 /* QuickLook.framework */,
 				52DEE04B1B7D762500DD4486 /* SystemConfiguration.framework */,
 				52DEE0491B7D760200DD4486 /* MobileCoreServices.framework */,
 				52DEE0471B7D75EE00DD4486 /* CFNetwork.framework */,
@@ -1683,6 +1689,7 @@
 				D4B2F3461B02FEDA007B017E /* CourseViewController.h */,
 				D4B2F3471B02FEDA007B017E /* CourseViewController.m */,
 				D4B2F3481B02FEDA007B017E /* CourseViewController.xib */,
+				CA869D8A1B9185F8001A0EB4 /* sample.pdf */,
 				D4459B731B63D5C900DEB780 /* TutorialViewController.h */,
 				D4459B741B63D5C900DEB780 /* TutorialViewController.m */,
 				D4459B751B63D5C900DEB780 /* TutorialViewController.xib */,
@@ -2147,6 +2154,7 @@
 				5963C3661B201E8300A09D30 /* HttpTestResultViewController.xib in Resources */,
 				CACD8D501B8169C400335952 /* LoginViewController.xib in Resources */,
 				D4459B771B63D5C900DEB780 /* TutorialViewController.xib in Resources */,
+				CA869D8B1B9185F8001A0EB4 /* sample.pdf in Resources */,
 				D4DF08991B5B970500B816DD /* NewNotimgCell.xib in Resources */,
 				524E887B1B7367CF004A11A2 /* UIView3.xib in Resources */,
 				59B72C6E1B76E22500C895FE /* TextViewCell.xib in Resources */,

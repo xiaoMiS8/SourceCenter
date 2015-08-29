@@ -8,7 +8,7 @@
 
 #import "CourseBaseViewController.h"
 #import "FileDownLoadManager.h"
-@interface TutorialViewController : CourseBaseViewController<DownloadDelegate>
+@interface TutorialViewController : CourseBaseViewController<DownloadDelegate,UIAlertViewDelegate,UIDocumentInteractionControllerDelegate>
 @property(nonatomic,assign)long OCID;
 @property(nonatomic, assign) int FileType;
 -(void)changeFileState;
