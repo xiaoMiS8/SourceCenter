@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AffairInfo.h"
 #import "TPViewController.h"
-@interface TPViewCell : UITableViewCell
+@interface TPViewCell : UITableViewCell<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) IBOutlet UILabel *label2;
 @property (weak, nonatomic) IBOutlet UILabel *label3;

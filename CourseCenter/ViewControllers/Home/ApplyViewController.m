@@ -99,10 +99,10 @@
     UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(0, 0,80, cell.frame.size.height)];
     lable.textAlignment=NSTextAlignmentRight;
       if (((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).UserLimit==0) {
-      lable.text=[NSString stringWithFormat:@"%d/%@",((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).InReadStudentNum,@"无上限"];
+      lable.text=[NSString stringWithFormat:@"%@",@"不限"];
       }else
       {
-        lable.text=[NSString stringWithFormat:@"%d/%d",((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).InReadStudentNum,((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).UserLimit];
+      lable.text=[NSString stringWithFormat:@"%d/%d",((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).InReadStudentNum,((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).UserLimit];
       }
     cell.accessoryView=lable;
    }
@@ -118,6 +118,7 @@
     cell.imageView.image=[UIImage imageNamed:@"btn_confirm"];
     }
     cell.textLabel.text =((RecruitInfo *)[_dataArray objectAtIndex:indexPath.row]).ClassName;
+    cell.textLabel.font=Font_14;
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

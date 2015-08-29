@@ -25,18 +25,35 @@
     }
     _btn1.tag=_indexPath.row;
     _btn2.tag=_indexPath.row;
-    _label1.text=_info.Reson;
+  //  _label1.text=_info.AffairType;
     _label2.text=_info.CreateDate;
     _label3.text=_info.UserName;
     _label4.text=_info.ClassName;
-    _label5.text=_info.OrganizationName;
-    _label6.text=_info.AffairDesc;
+    _label5.text=_info.AffairDesc;
+    _label6.text=_info.Reson;
 }
 - (IBAction)refuse:(UIButton *)sender {
-    [self checkWithStatus:1];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"你确定要拒绝吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag=100;
+    [alert show];
 }
 - (IBAction)agree:(UIButton *)sender {
-    [self checkWithStatus:2];
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"提示" message:@"你确定要同意吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag=101;
+    [alert show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag==100) {
+        if (buttonIndex==1) {
+            [self checkWithStatus:1];
+        }
+    }
+    if (alertView.tag==101) {
+        if (buttonIndex==1) {
+            [self checkWithStatus:2];
+        }
+    }
 }
 -(void)checkWithStatus:(int)status
 {
