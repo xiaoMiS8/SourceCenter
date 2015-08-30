@@ -120,7 +120,7 @@
         _image.image=[UIImage imageNamed:@"icon_document1"];
     }else if([_fileModel.fileType integerValue]==9)
     {
-        _image.image=[UIImage imageNamed:@"other"];
+        _image.image=[UIImage imageNamed:@""];
     }
     if (_fileModel.IsReadFinish) {
         _isFinishL.hidden=YES;
