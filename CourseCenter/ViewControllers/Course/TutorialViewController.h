@@ -13,4 +13,5 @@
 @property(nonatomic, assign) int FileType;
 -(void)changeFileState;
 -(void)removeASIRequst:( ASIHTTPRequest*)request;
+-(void)loadData;
 @end

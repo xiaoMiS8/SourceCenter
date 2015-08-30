@@ -142,6 +142,7 @@
                     self.reob=(ResponseObject *)object;
                     if ([self.reob.errrorCode isEqualToString:@"0"]) {
                         [MBProgressHUD showSuccess:REGISTSUCCESS];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"registsuccess" object:nil];
                         if (self.block) {
                             self.block();
                         }
@@ -174,6 +175,7 @@
                     self.reob=(ResponseObject *)object;
                     if ([self.reob.errrorCode isEqualToString:@"0"]) {
                         [MBProgressHUD showSuccess:REGISTSUCCESS];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"registsuccess" object:nil];
                         if (self.block) {
                             self.block();
                         }

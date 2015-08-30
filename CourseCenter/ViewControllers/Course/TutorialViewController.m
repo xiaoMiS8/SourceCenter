@@ -14,6 +14,7 @@
 #import "FileInfo.h"
 #import "PlayViewController.h"
 #import "SectionAndRow.h"
+#import "PICircularProgressView.h"
 #define SECTION_STATE @"SECTION_STATE"
 static NSInteger tag;
 @interface TutorialViewController ()
@@ -52,7 +53,8 @@ static NSInteger tag;
 @property (nonatomic, weak) ASINetworkQueue *queue;
 //对象数组
 @property(nonatomic,strong)NSMutableArray *fileArray;
-
+//进度条
+@property(nonatomic,strong)PICircularProgressView *progress;
 @end
 
 @implementation TutorialViewController
@@ -317,7 +319,7 @@ static NSInteger tag;
     title=((ChapterInfo *)[_arrayData objectAtIndex:section]).Title;
     view.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
     view.layer.borderWidth=0.5;
-    UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, _tableView.frame.size.width-20, 50)];
+    UILabel *lable=[[UILabel alloc]initWithFrame:CGRectMake(20, 0, 150, 50)];
     lable.font=Font_14;
     lable.text=title;
     [view addSubview:lable];
@@ -332,6 +334,19 @@ static NSInteger tag;
         [button addTarget:self action:@selector(press:) forControlEvents:UIControlEventTouchUpInside];
     }
     [view addSubview:button];
+   if (((ChapterInfo *)[_arrayData objectAtIndex:section]).ChapterRate!=-1)
+    {
+        _progress=[[PICircularProgressView alloc]init];
+        _progress.frame=CGRectMake(_tableView.frame.size.width-50, 5, 40, 40);
+        _progress.progress=(double)((ChapterInfo *)[_arrayData objectAtIndex:section]).ChapterRate/100;
+        _progress.thicknessRatio=0.2;
+        _progress.innerBackgroundColor=RGBA(255, 255, 255, 1);
+        _progress.outerBackgroundColor=RGBA(255, 255, 255, 1);
+        _progress.progressFillColor=RGBA(161, 210, 110, 1);
+        _progress.textColor=RGBA(255, 96, 112, 1);
+        [view addSubview:_progress];
+
+    }
     return view;
 }
 
@@ -452,6 +467,7 @@ static NSInteger tag;
                 playVC.ChapterID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ChapterID;
                 playVC.FileID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileID;
                 playVC.Seconds=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).Seconds;
+                playVC.tutorVC=self;
                 [self presentViewController:playVC animated:YES completion:nil];
                 break;
             }
@@ -523,10 +539,41 @@ static NSInteger tag;
 }
 -(void)gotohwVC:(UIButton *)but
 {
-    
-    HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
-    hwdVC.TestID=((ChapterInfo *)[_arrayData objectAtIndex:but.tag-100]).TestID;
-    [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
+    NSInteger num=((ChapterInfo *)[_arrayData objectAtIndex:but.tag-100]).IsAllowStudy;
+    switch (num) {
+        case 0:{
+            [Tool showAlertView:@"提示" withMessage:@"请先学习前面的章节" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 1:{
+            HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
+            hwdVC.TestID=((ChapterInfo *)[_arrayData objectAtIndex:but.tag-100]).TestID;
+            [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
+            break;
+        }
+        case 2:{
+            [Tool showAlertView:@"提示" withMessage:@"还未到开始学习时间" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 3:{
+            [Tool showAlertView:@"提示" withMessage:@"请先学习完前面的章节" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 4:{
+            [Tool showAlertView:@"提示" withMessage:@"请先完成上一章的测试" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 5:{
+            [Tool showAlertView:@"提示" withMessage:@"请先学习完该章节" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 6:{
+            [Tool showAlertView:@"提示" withMessage:@"请先完成所有章节及测试" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex

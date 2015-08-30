@@ -182,7 +182,6 @@
 		CA6B42E51B7102020055CC64 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */; };
 		CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7228BD1B57F4F8006F719A /* NewMessage.xib */; };
 		CA869D891B917BAB001A0EB4 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA869D871B917B5E001A0EB4 /* QuickLook.framework */; };
-		CA869D8B1B9185F8001A0EB4 /* sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = CA869D8A1B9185F8001A0EB4 /* sample.pdf */; };
 		CACBFC831B53FE7400FAD388 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC811B53FE7400FAD388 /* MessageCenter.m */; };
 		CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC821B53FE7400FAD388 /* MessageCenter.xib */; };
 		CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC861B54021F00FAD388 /* MessageCenterCell.m */; };
@@ -212,6 +211,7 @@
 		CAE5D45F1B6E6EB2004F5D5B /* FCourseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE5D45D1B6E6EB2004F5D5B /* FCourseCell.m */; };
 		CAE5D4601B6E6EB2004F5D5B /* FCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE5D45E1B6E6EB2004F5D5B /* FCourseCell.xib */; };
 		CAE5D4621B6E721A004F5D5B /* BBSListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CAE5D4611B6E721A004F5D5B /* BBSListCell.xib */; };
+		CAE5FCB41B92AA02006B6701 /* PICircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = CAE5FCB31B92AA02006B6701 /* PICircularProgressView.m */; };
 		D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A31B6CBBB90044CAE5 /* AffairsAction.m */; };
 		D40691A71B6CBDF30044CAE5 /* AffairInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A61B6CBDF30044CAE5 /* AffairInfo.m */; };
 		D40691AA1B6CE2970044CAE5 /* SurveyAction.m in Sources */ = {isa = PBXBuildFile; fileRef = D40691A91B6CE2970044CAE5 /* SurveyAction.m */; };
@@ -684,7 +684,6 @@
 		CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CA7228BD1B57F4F8006F719A /* NewMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessage.xib; sourceTree = "<group>"; };
 		CA869D871B917B5E001A0EB4 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
-		CA869D8A1B9185F8001A0EB4 /* sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = sample.pdf; sourceTree = "<group>"; };
 		CACBFC801B53FE7400FAD388 /* MessageCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenter.h; sourceTree = "<group>"; };
 		CACBFC811B53FE7400FAD388 /* MessageCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenter.m; sourceTree = "<group>"; };
 		CACBFC821B53FE7400FAD388 /* MessageCenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCenter.xib; sourceTree = "<group>"; };
@@ -730,6 +729,8 @@
 		CAE5D45D1B6E6EB2004F5D5B /* FCourseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCourseCell.m; sourceTree = "<group>"; };
 		CAE5D45E1B6E6EB2004F5D5B /* FCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FCourseCell.xib; sourceTree = "<group>"; };
 		CAE5D4611B6E721A004F5D5B /* BBSListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BBSListCell.xib; sourceTree = "<group>"; };
+		CAE5FCB21B92AA02006B6701 /* PICircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PICircularProgressView.h; sourceTree = "<group>"; };
+		CAE5FCB31B92AA02006B6701 /* PICircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PICircularProgressView.m; sourceTree = "<group>"; };
 		D40691A21B6CBBB90044CAE5 /* AffairsAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairsAction.h; sourceTree = "<group>"; };
 		D40691A31B6CBBB90044CAE5 /* AffairsAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffairsAction.m; sourceTree = "<group>"; };
 		D40691A51B6CBDF30044CAE5 /* AffairInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffairInfo.h; sourceTree = "<group>"; };
@@ -1541,6 +1542,8 @@
 			isa = PBXGroup;
 			children = (
 				52DEE04F1B7D784700DD4486 /* Resume */,
+				CAE5FCB21B92AA02006B6701 /* PICircularProgressView.h */,
+				CAE5FCB31B92AA02006B6701 /* PICircularProgressView.m */,
 				D4B2F3621B033B34007B017E /* Tool.h */,
 				D4B2F3631B033B34007B017E /* Tool.m */,
 			);
@@ -1689,7 +1692,6 @@
 				D4B2F3461B02FEDA007B017E /* CourseViewController.h */,
 				D4B2F3471B02FEDA007B017E /* CourseViewController.m */,
 				D4B2F3481B02FEDA007B017E /* CourseViewController.xib */,
-				CA869D8A1B9185F8001A0EB4 /* sample.pdf */,
 				D4459B731B63D5C900DEB780 /* TutorialViewController.h */,
 				D4459B741B63D5C900DEB780 /* TutorialViewController.m */,
 				D4459B751B63D5C900DEB780 /* TutorialViewController.xib */,
@@ -2154,7 +2156,6 @@
 				5963C3661B201E8300A09D30 /* HttpTestResultViewController.xib in Resources */,
 				CACD8D501B8169C400335952 /* LoginViewController.xib in Resources */,
 				D4459B771B63D5C900DEB780 /* TutorialViewController.xib in Resources */,
-				CA869D8B1B9185F8001A0EB4 /* sample.pdf in Resources */,
 				D4DF08991B5B970500B816DD /* NewNotimgCell.xib in Resources */,
 				524E887B1B7367CF004A11A2 /* UIView3.xib in Resources */,
 				59B72C6E1B76E22500C895FE /* TextViewCell.xib in Resources */,
@@ -2228,6 +2229,7 @@
 				D4B2F3941B033E51007B017E /* AFHTTPRequestOperationManager.m in Sources */,
 				CA20AA3F1B5AAF5300598370 /* CourseData.m in Sources */,
 				D44B7E381B6FAD2B0036B3D5 /* BBSResponeCell.m in Sources */,
+				CAE5FCB41B92AA02006B6701 /* PICircularProgressView.m in Sources */,
 				042E75E61B16148A00396AAF /* UIView+IQKeyboardToolbar.m in Sources */,
 				D4DF08921B5B94CA00B816DD /* QBImagePickerGroupCell.m in Sources */,
 				594C98FE1B1442AE00A4C3F6 /* CourseSearchViewController.m in Sources */,

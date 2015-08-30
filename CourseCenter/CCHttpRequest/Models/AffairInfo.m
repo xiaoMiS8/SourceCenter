@@ -14,7 +14,7 @@
     self = [super init];
     if (self) {
         self.AffairID = [dict[kAffairID] longValue];
-        self.AffairType = [dict[kAffairType] intValue];
+        self.AffairType = dict[kAffairType];
         self.AffairDesc = dict[kAffairDesc];
         self.CreateDate = dict[kCreateDate];
         self.UserID = [dict[KUserID] longValue];

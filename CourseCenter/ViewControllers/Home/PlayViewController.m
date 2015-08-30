@@ -61,6 +61,7 @@ static BOOL isFirst;
             if (_isRecord) {
                 [self PlayOrPauseWith:1];
             }
+    
             NSLog(@"正在播放...");
             break;
         case MPMoviePlaybackStatePaused:
@@ -89,7 +90,9 @@ static BOOL isFirst;
     timer60=nil;
     [timer invalidate];
     timer=nil;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [_tutorVC loadData];
+    }];
 }
 -(void)send10S
 {

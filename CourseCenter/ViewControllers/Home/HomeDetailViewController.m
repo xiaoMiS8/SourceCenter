@@ -59,6 +59,8 @@ static NSInteger tag;
     self.twoV.layer.borderWidth=1;
     self.threeV.layer.borderColor=RGBA(205, 205, 205, 1).CGColor;
     self.threeV.layer.borderWidth=1;
+    self.teacherImage.layer.masksToBounds=YES;
+    self.teacherImage.layer.cornerRadius=self.teacherImage.frame.size.height/2;
     [self addTableViewFoot];
     [self.tableView registerNib:[UINib nibWithNibName:@"CourseDetailCell" bundle:nil] forCellReuseIdentifier:@"CourseDetailCell"];
     self.httpManager = [[CCHttpManager alloc]init];
@@ -323,9 +325,41 @@ static NSInteger tag;
 -(void)gotohwVC:(UIButton *)but
 {
     if (but.tag-100<=1) {
-        HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
-        hwdVC.TestID=((ChapterInfo *)[_arrayData objectAtIndex:but.tag]).TestID;
-        [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
+        NSInteger num=((ChapterInfo *)[_arrayData objectAtIndex:but.tag-100]).IsAllowStudy;
+        switch (num) {
+            case 0:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 1:{
+                HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
+                hwdVC.TestID=((ChapterInfo *)[_arrayData objectAtIndex:but.tag]).TestID;
+                [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
+                break;
+            }
+            case 2:{
+                [Tool showAlertView:@"提示" withMessage:@"还未到开始学习时间" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 3:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习完前面的章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 4:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成上一章的测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 5:{
+                [Tool showAlertView:@"提示" withMessage:@"请先学习完该章节" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            case 6:{
+                [Tool showAlertView:@"提示" withMessage:@"请先完成所有章节及测试" withTarget:self withCancel:@"确定" other:nil];
+                break;
+            }
+            default:
+                break;
+        }
     }else
     {
         [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];

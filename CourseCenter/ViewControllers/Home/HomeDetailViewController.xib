@@ -181,7 +181,7 @@
     </objects>
     <resources>
         <image name="icon_cycle" width="18" height="18"/>
-        <image name="iconpro" width="35" height="35"/>
+        <image name="iconpro" width="57" height="57"/>
         <image name="nav_bg" width="94" height="60"/>
     </resources>
 </document>

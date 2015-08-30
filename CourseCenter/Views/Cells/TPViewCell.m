@@ -25,7 +25,7 @@
     }
     _btn1.tag=_indexPath.row;
     _btn2.tag=_indexPath.row;
-  //  _label1.text=_info.AffairType;
+    _label1.text=_info.AffairType;
     _label2.text=_info.CreateDate;
     _label3.text=_info.UserName;
     _label4.text=_info.ClassName;
