@@ -17,6 +17,7 @@
 #define kIsTop                  @"IsTop"
 #define kIsGood                 @"IsGood"
 #define kGoods                  @"Goods"
+#define kIsCanDel               @"IsCanDel"
 
 @interface TopicResponseInfo : NSObject
 
@@ -39,6 +40,7 @@
     ///点赞数
 @property(nonatomic, assign) long Goods;
 @property(nonatomic, strong) NSString *userImg;
+@property(nonatomic, assign) BOOL IsCanDel;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

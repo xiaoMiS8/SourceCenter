@@ -60,7 +60,7 @@
 
 - (void)setOCourse:(OCourseInfo *)oCourse {
     _oCourse = oCourse;
-    [self.teachImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:@"defaultHead"]];
+    [self.teachImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:@"me"]];
     self.teachName.text = oCourse.TeacherName;
     self.orgName.text = oCourse.OrganizationName;
     self.ocName.text = oCourse.Name;

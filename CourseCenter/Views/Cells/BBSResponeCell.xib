@@ -68,7 +68,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Mk-s0-0yh">
-                        <rect key="frame" x="-1" y="167" width="322" height="1"/>
+                        <rect key="frame" x="-8" y="167" width="336" height="1"/>
                         <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -76,7 +76,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPd-1C-W0i">
-                        <rect key="frame" x="-1" y="8" width="322" height="1"/>
+                        <rect key="frame" x="-8" y="8" width="336" height="1"/>
                         <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -98,18 +98,18 @@
                     <constraint firstItem="cSx-Sj-jz5" firstAttribute="leading" secondItem="xP9-Oh-5Rp" secondAttribute="trailing" constant="2" id="NF4-PF-AZr"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1Mk-s0-0yh" secondAttribute="bottom" id="Qfy-TB-0Q6"/>
                     <constraint firstItem="Q2Y-cJ-3tw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="S3o-fJ-OqV"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="1Mk-s0-0yh" secondAttribute="trailing" constant="-9" id="TWo-db-6p7"/>
-                    <constraint firstItem="zPd-1C-W0i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-9" id="TYp-NY-SQj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1Mk-s0-0yh" secondAttribute="trailing" constant="-16" id="TWo-db-6p7"/>
+                    <constraint firstItem="zPd-1C-W0i" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-16" id="TYp-NY-SQj"/>
                     <constraint firstItem="f17-Kb-HQs" firstAttribute="leading" secondItem="JvJ-j4-j5R" secondAttribute="trailing" constant="8" id="U9f-zs-RgI"/>
                     <constraint firstItem="1Mk-s0-0yh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JvJ-j4-j5R" secondAttribute="bottom" constant="10" id="XAQ-lt-Abw"/>
                     <constraint firstItem="cSx-Sj-jz5" firstAttribute="centerY" secondItem="f17-Kb-HQs" secondAttribute="centerY" constant="-6" id="aGH-FI-w5b"/>
                     <constraint firstAttribute="trailingMargin" secondItem="cSx-Sj-jz5" secondAttribute="trailing" constant="10" id="dY0-ec-Q2s"/>
                     <constraint firstItem="TTt-0u-eKA" firstAttribute="centerY" secondItem="f17-Kb-HQs" secondAttribute="centerY" id="fgw-fK-8rF"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="zPd-1C-W0i" secondAttribute="trailing" constant="-9" id="iHn-BU-h2I"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="zPd-1C-W0i" secondAttribute="trailing" constant="-16" id="iHn-BU-h2I"/>
                     <constraint firstItem="JvJ-j4-j5R" firstAttribute="leading" secondItem="Q2Y-cJ-3tw" secondAttribute="leading" id="lZw-SD-xbV"/>
                     <constraint firstItem="f17-Kb-HQs" firstAttribute="top" secondItem="JvJ-j4-j5R" secondAttribute="top" constant="8" id="lo2-9M-tuJ"/>
                     <constraint firstItem="BS5-jq-p9R" firstAttribute="top" secondItem="f17-Kb-HQs" secondAttribute="bottom" constant="2" id="mgF-nG-eyc"/>
-                    <constraint firstItem="1Mk-s0-0yh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-9" id="uCq-WL-ygO"/>
+                    <constraint firstItem="1Mk-s0-0yh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-16" id="uCq-WL-ygO"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
