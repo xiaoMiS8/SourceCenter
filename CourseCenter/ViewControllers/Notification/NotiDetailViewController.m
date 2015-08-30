@@ -44,6 +44,8 @@
           
         
         
+        } else {
+            [MBProgressHUD showError:@"内部错误"];
         }
         [self.tableView reloadData];
     }];
@@ -114,10 +116,12 @@
         cell.isDetail = YES;
         cell.noticeInfo = self.noticeInfo;
         cell.noticeRespones = self.noticeRespones;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     else {
         NotiDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NotiDetailCell"];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }

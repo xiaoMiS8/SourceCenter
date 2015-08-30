@@ -90,9 +90,11 @@
     static NSString *cellIdentifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
     }
     cell.textLabel.text = ((ForumTypeInfo *)self.forumTypes[indexPath.row]).Title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld",((ForumTypeInfo *)self.forumTypes[indexPath.row]).Topics];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
