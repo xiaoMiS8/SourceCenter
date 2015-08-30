@@ -22,6 +22,7 @@
         self.IsTop = [dict[kIsTop] boolValue];
         self.IsGood = [dict[kIsGood] boolValue];
         self.Goods = [dict[kGoods] longValue];
+        self.IsCanDel = [dict[kIsCanDel] boolValue];
     }
     return self;
 }

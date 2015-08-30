@@ -14,6 +14,7 @@
 @interface BBsDetailViewController ()<UITextViewDelegate,UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *bomView;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
+@property(nonatomic, assign) int deleResIndex;
 
 @property(nonatomic, strong) TopicSetView *topSetView;
 
@@ -21,7 +22,7 @@
 
 @property(nonatomic, strong) CCHttpManager *manager;
 
-@property(nonatomic, strong) NSArray *respones;
+@property(nonatomic, strong) NSMutableArray *respones;
 
 
 @end
@@ -187,7 +188,7 @@
 - (void)loadData {
     [self.manager getAppForumResponseInfoListWithTopicID:self.topic.TopicID finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
-            self.respones = ((ResponseObject *)object).resultArray;
+            self.respones = [[NSMutableArray alloc] initWithArray:((ResponseObject *)object).resultArray];
             [self.tableView reloadData];
         } else {
             [MBProgressHUD showError:@"刷新失败"];
@@ -275,6 +276,23 @@
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row > 0) {
+        if (((TopicResponseInfo *)self.respones[indexPath.row - 1]).IsCanDel) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.deleResIndex = (int)indexPath.row;
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确定要删除吗？删除后将无法恢复请谨慎操作" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定删除", nil];
+    alertView.tag = 12;
+    [alertView show];
+}
+
+
 #pragma mark- UITextViewDelegate
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
@@ -297,9 +315,30 @@
 
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        [self topicDelete];
+    if (alertView.tag != 12) {
+        if (buttonIndex == 1) {
+            [self topicDelete];
+        }
+    } else {
+        if (buttonIndex == 1) {
+            long responseID = ((TopicResponseInfo *)(self.respones[self.deleResIndex -1])).ResponseID;
+            [self.manager deleteForumResponseWithResponseID:responseID finished:^(EnumServerStatus status, NSObject *object) {
+                if (status == Enum_SUCCESS) {
+                    if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                        [MBProgressHUD showSuccess:((ResponseObject *)object).errorMessage];
+                        [self.respones removeObjectAtIndex:self.deleResIndex - 1];
+                        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.deleResIndex inSection:0]] withRowAnimation:UITableViewRowAnimationLeft];
+
+                    } else {
+                       [MBProgressHUD showError:((ResponseObject *)object).errorMessage];
+                    }
+                } else {
+                    [MBProgressHUD showError:@"服务器异常"];
+                }
+            }];
+        }
     }
+  
 }
 
 - (void)didReceiveMemoryWarning {

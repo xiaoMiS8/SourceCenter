@@ -28,7 +28,7 @@
 
 - (void)setResponse:(TopicResponseInfo *)response {
     _response = response;
-     [self.userImg sd_setImageWithURL:[NSURL URLWithString:response.userImg] placeholderImage:[UIImage imageNamed:@"defaultHead"]];
+     [self.userImg sd_setImageWithURL:[NSURL URLWithString:response.userImg] placeholderImage:[UIImage imageNamed:@"me"]];
     self.content.text  = response.Conten;
     self.name.text = response.UserName;
     self.className.text = response.FromClassName;
