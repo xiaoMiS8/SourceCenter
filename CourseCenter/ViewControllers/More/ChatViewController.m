@@ -24,6 +24,7 @@
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (nonatomic,strong)NSMutableArray *myDataArray;
+@property (nonatomic,strong)NSMutableArray *reverseArray;
 @end
 
 @implementation ChatViewController
@@ -43,6 +44,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     self.httpManager = [[CCHttpManager alloc]init];
     self.myDataArray=[[NSMutableArray alloc]init];
+    self.reverseArray=[[NSMutableArray alloc]init];
     [self getFilePath];
     [self initMsg];
     //1.tableView
@@ -71,7 +73,8 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.myDataArray=self.reob.resultArray;
-                [self readDataForPlistWithArray:self.reob.resultArray];
+                self.reverseArray=[[self.reob.resultArray reverseObjectEnumerator]allObjects];
+                [self readDataForPlistWithArray:self.reverseArray];
                 //0.加载数据
                 [self loadData];
                 [_chatView reloadData];

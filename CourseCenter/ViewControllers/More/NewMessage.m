@@ -58,11 +58,11 @@
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
--(void)bLoadDataWithId:(NSString *)ID type:(NSString *)type
+-(void)bLoadDataWithId:(long)ID type:(int)type
 {
     NSString *partURL = [[[kServerIP stringByAppendingString:kServerPort] stringByAppendingString:kSerVerName] stringByAppendingString:kServiceName];
     NSString *URLString =[partURL stringByAppendingString:@"/Msg/App_ClassUser_List"];
-    NSDictionary *parameters = @{@"ID": [NSNumber numberWithLong:53],@"Type": [NSNumber numberWithInt:1]};
+    NSDictionary *parameters = @{@"ID": [NSNumber numberWithLong:ID],@"Type": [NSNumber numberWithInt:type]};
     AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
     NSMutableURLRequest *request = [requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -121,7 +121,9 @@
         [_array addObject:_dict];
     }
     for (int i=0; i<_arrayData.count; i++) {
-        [self bLoadDataWithId:nil type:nil];
+        int type=((GroupInfo *)[_arrayData objectAtIndex:i]).Type;
+        long ID=((GroupInfo *)[_arrayData objectAtIndex:i]).ID;
+        [self bLoadDataWithId:ID type:type];
     }
     [MBProgressHUD hideHUD];
 }
@@ -215,6 +217,9 @@
 -(BOOL)returnWithSection:(NSInteger)section
 {
         NSMutableArray *array=[((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",section]];
+        if (array.count==0) {
+              return NO;
+       }
         for (int j=0; j<array.count; j++) {
             if ([array[j] isEqualToString:@"NOSEL"]) {
                 return NO;
