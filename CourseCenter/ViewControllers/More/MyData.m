@@ -29,6 +29,8 @@
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (nonatomic,strong)NSMutableArray *dataArray;
+@property (strong,nonatomic)NSString *filePath;
+@property (strong, nonatomic) UIDocumentInteractionController *documentInteractionController;
 //正在下载的列表
 @property(nonatomic) NSMutableArray *downlingList;
 //已经完成的列表
@@ -334,16 +336,30 @@
         [self.navigationController pushViewController:courseData animated:YES];
     }else
     {
-        PlayViewController *playVC=[[PlayViewController alloc]init];
-        FileModel *info=((FileModel *)[_fileArray objectAtIndex:indexPath.row]);
-        if ([Tool isExistWithName:info.fileName]) {
-            playVC.isNSBundle=YES;
-            playVC.playUrl=[Tool getPathUrlWithName:info.fileName];
+        if ([((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileType isEqualToString:@"1"]) {
+            PlayViewController *playVC=[[PlayViewController alloc]init];
+            FileModel *info=((FileModel *)[_fileArray objectAtIndex:indexPath.row]);
+            if ([Tool isExistWithName:info.fileName]) {
+                playVC.isNSBundle=YES;
+                playVC.playUrl=[Tool getPathUrlWithName:info.fileName];
+            }else
+            {
+                playVC.playUrl=((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileURL;
+            }
+            [self presentViewController:playVC animated:YES completion:nil];
         }else
         {
-            playVC.playUrl=((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileURL;
+            
+            FileModel *info=((FileModel *)[_fileArray objectAtIndex:indexPath.row]);
+            if ([[self isExistWithFileName:info.fileName] isEqualToString:@""]) {
+                [Tool showAlertView:@"提示" withMessage:@"请先下载!" withTarget:self withCancel:@"确定" other:nil];
+            }else
+            {
+                _filePath=[self isExistWithFileName:info.fileName];
+                [Tool showAlertView:@"提示" withMessage:@"使用第三方软件打开该类型资源" withTarget:self withCancel:@"取消" other:@"确定"];
+            }
+            
         }
-        [self presentViewController:playVC animated:YES completion:nil];
     }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -367,6 +383,47 @@
     [self initDownFinishPause];
     [self changeFileState];
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:_filePath]];
+        self.documentInteractionController.delegate = self;
+        CGRect navRect = self.navigationController.navigationBar.frame;
+        navRect.size = CGSizeMake(1500.0f, 40.0f);
+        [self.documentInteractionController presentOpenInMenuFromRect:navRect inView:self.view animated:YES];
+    }
+}
+//判断文件是否存在 并返回 路径
+-(NSString *)isExistWithFileName:(NSString *)fileName
+{
+    NSString *document = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *plistPath = [[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:@"finishPlist.plist"];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:plistPath]) {
+        NSMutableArray *finishArray = [[NSMutableArray alloc]initWithContentsOfFile:plistPath];
+        for (NSDictionary *dic in finishArray) {
+            if ([fileName isEqualToString:[dic objectForKey:@"filename"]]) {
+                return [[[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:TARGER]stringByAppendingPathComponent:fileName];
+            }
+        }
+        return @"";
+    }
+    return @"";
+}
+-(UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller
+{
+    return self;
+}
+-(UIView *)documentInteractionControllerViewForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view;
+}
+-(CGRect)documentInteractionControllerRectForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view.frame;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

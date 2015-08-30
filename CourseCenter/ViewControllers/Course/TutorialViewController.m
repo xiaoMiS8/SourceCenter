@@ -35,6 +35,8 @@ static NSInteger tag;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (strong,nonatomic)NSString *filePath;
+@property(nonatomic,assign)long openFileID;
+@property(nonatomic, assign) long  openChapterID;
 @property (strong, nonatomic) UIDocumentInteractionController *documentInteractionController;
 //正在下载的列表
 @property(nonatomic) NSMutableArray *downlingList;
@@ -445,6 +447,7 @@ static NSInteger tag;
                 {
                  playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
                 }
+                playVC.isRecord=YES;
                 playVC.OCID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).OCID;
                 playVC.ChapterID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ChapterID;
                 playVC.FileID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileID;
@@ -483,6 +486,8 @@ static NSInteger tag;
         }else
         {
             _filePath=[self isExistWithFileName:fileName];
+            _openChapterID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ChapterID;
+            _openFileID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileID;
           [Tool showAlertView:@"提示" withMessage:@"使用第三方软件打开该类型资源" withTarget:self withCancel:@"取消" other:@"确定"];
         }
     }
@@ -533,6 +538,7 @@ static NSInteger tag;
         CGRect navRect = self.navigationController.navigationBar.frame;
         navRect.size = CGSizeMake(1500.0f, 40.0f);
         [self.documentInteractionController presentOpenInMenuFromRect:navRect inView:self.view animated:YES];
+        [self addStuFileWithChapterID:_openChapterID fileID:[NSString stringWithFormat:@"%ld",_openFileID]];
     }
 }
 //判断文件是否存在 并返回 路径

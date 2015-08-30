@@ -24,6 +24,8 @@
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (strong,nonatomic)NSMutableArray *dataArray;
+@property (strong,nonatomic)NSString *filePath;
+@property (strong, nonatomic) UIDocumentInteractionController *documentInteractionController;
 //正在下载的列表
 @property(nonatomic) NSMutableArray *downlingList;
 //已经完成的列表
@@ -234,6 +236,7 @@
             FileModel *fileInfo=[theRequest.userInfo objectForKey:@"File"];
             cell.request = theRequest;
             fileInfo.IsReadFinish=YES;
+            cell.IsAllowStudy=1;
             cell.fileModel=fileInfo;
             cell.isFirst=NO;
             return cell;
@@ -245,6 +248,7 @@
             cell.isFinish=@"YES";
             cell.btn.hidden=YES;
             ((FileModel *)[_fileArray objectAtIndex:indexPath.row]).IsReadFinish=YES;
+            cell.IsAllowStudy=1;
             cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
             cell.isFirst=NO;
             return cell;
@@ -258,6 +262,7 @@
             cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
             //手动设置百分比，显示弧度
             [cell setPercent];
+            cell.IsAllowStudy=1;
             cell.isFirst=NO;
             return cell;
         }
@@ -266,6 +271,7 @@
     cell.request=nil;
     ((FileModel *)[_fileArray objectAtIndex:indexPath.row]).IsReadFinish=YES;
     cell.fileModel=[_fileArray objectAtIndex:indexPath.row];
+    cell.IsAllowStudy=1;
     cell.size.text=@"未下载";
     cell.isFirst=YES;
     return cell;
@@ -285,7 +291,16 @@
         [self presentViewController:playVC animated:YES completion:nil];
     }else
     {
-         [Tool showAlertView:@"提示" withMessage:@"请使用第三方软件打开该类型资源" withTarget:self withCancel:@"确定" other:nil];
+        
+        FileModel *info=((FileModel *)[_fileArray objectAtIndex:indexPath.row]);
+        if ([[self isExistWithFileName:info.fileName] isEqualToString:@""]) {
+            [Tool showAlertView:@"提示" withMessage:@"请先下载!" withTarget:self withCancel:@"确定" other:nil];
+        }else
+        {
+            _filePath=[self isExistWithFileName:info.fileName];
+            [Tool showAlertView:@"提示" withMessage:@"使用第三方软件打开该类型资源" withTarget:self withCancel:@"取消" other:@"确定"];
+        }
+
     }
     
 }
@@ -299,6 +314,48 @@
 -(void)finishedDownload:(ASIHTTPRequest *)request
 {
     [self changeFileState];
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:_filePath]];
+        self.documentInteractionController.delegate = self;
+        CGRect navRect = self.navigationController.navigationBar.frame;
+        navRect.size = CGSizeMake(1500.0f, 40.0f);
+        [self.documentInteractionController presentOpenInMenuFromRect:navRect inView:self.view animated:YES];
+    }
+}
+
+//判断文件是否存在 并返回 路径
+-(NSString *)isExistWithFileName:(NSString *)fileName
+{
+    NSString *document = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *plistPath = [[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:@"finishPlist.plist"];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:plistPath]) {
+        NSMutableArray *finishArray = [[NSMutableArray alloc]initWithContentsOfFile:plistPath];
+        for (NSDictionary *dic in finishArray) {
+            if ([fileName isEqualToString:[dic objectForKey:@"filename"]]) {
+                return [[[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:TARGER]stringByAppendingPathComponent:fileName];
+            }
+        }
+        return @"";
+    }
+    return @"";
+}
+
+-(UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller
+{
+    return self;
+}
+-(UIView *)documentInteractionControllerViewForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view;
+}
+-(CGRect)documentInteractionControllerRectForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view.frame;
 }
 
 - (void)didReceiveMemoryWarning {

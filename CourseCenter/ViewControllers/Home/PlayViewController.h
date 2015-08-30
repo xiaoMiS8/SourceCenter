@@ -15,4 +15,5 @@
 @property(nonatomic,assign)long FileID;
 @property(nonatomic,assign)long OCID;
 @property(nonatomic,assign)int  Seconds;
+@property(nonatomic,assign)BOOL isRecord;
 @end

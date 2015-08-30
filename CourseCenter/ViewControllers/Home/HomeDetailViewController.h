@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface HomeDetailViewController : BaseViewController
+@interface HomeDetailViewController : BaseViewController<UIAlertViewDelegate,UIDocumentInteractionControllerDelegate>
 @property(nonatomic,assign)long  OCID;
 @property(nonatomic,strong)NSString *teacherImgUrl;
 @property(nonatomic,strong)NSString *topImgUrl;

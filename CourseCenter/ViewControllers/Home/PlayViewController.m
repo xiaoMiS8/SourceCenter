@@ -47,7 +47,7 @@ static BOOL isFirst;
     switch (movie.playbackState) {
         case MPMoviePlaybackStatePlaying:
             [MBProgressHUD hideHUD];
-            if (isFirst) {
+            if (isFirst&&_isRecord) {
                 if (!(_ChapterID==0&&_FileID==0)) {
                     timer10=[NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(send10S) userInfo:nil repeats:YES];
                     timer60=[NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send60S) userInfo:nil repeats:YES];
@@ -58,11 +58,15 @@ static BOOL isFirst;
                 }
                 isFirst=NO;
             }
-            [self PlayOrPauseWith:1];
+            if (_isRecord) {
+                [self PlayOrPauseWith:1];
+            }
             NSLog(@"正在播放...");
             break;
         case MPMoviePlaybackStatePaused:
-            [self PlayOrPauseWith:2];
+            if (_isRecord) {
+              [self PlayOrPauseWith:2];
+            }
             NSLog(@"暂停播放...");
             break;
         case MPMoviePlaybackStateStopped:

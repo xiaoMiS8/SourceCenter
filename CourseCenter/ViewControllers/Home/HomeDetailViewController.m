@@ -31,6 +31,8 @@ static NSInteger tag;
 }
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
+@property (strong,nonatomic)NSString *filePath;
+@property (strong, nonatomic) UIDocumentInteractionController *documentInteractionController;
 @property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 @property (weak, nonatomic) IBOutlet UIView *oneV;
 @property (weak, nonatomic) IBOutlet UIView *twoV;
@@ -250,24 +252,56 @@ static NSInteger tag;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileType==1) {
-        NSInteger num=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).IsAllowStudy;
-        switch (num) {
+        MoocFileInfo *moocFileInfo=(MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row];
+    
+        switch (moocFileInfo.IsAllowStudy) {
             case 1:{
-                PlayViewController *playVC=[[PlayViewController alloc]init];
-                playVC.playUrl=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ViewUrl;
-                [self presentViewController:playVC animated:YES completion:nil];
+                [self studyWithMoocFileInfo:moocFileInfo];
                 break;
             }
             default:
                 [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];
                 break;
         }
+}
+
+-(void)studyWithMoocFileInfo:(MoocFileInfo *)moocFileInfo
+{
+    if (moocFileInfo.FileType==1) {
+        PlayViewController *playVC=[[PlayViewController alloc]init];
+        if ([Tool isExistWithName:moocFileInfo.FileTitle]) {
+            playVC.isNSBundle=YES;
+            playVC.playUrl=[Tool getPathUrlWithName:moocFileInfo.FileTitle];
+        }else
+        {
+            playVC.playUrl=moocFileInfo.ViewUrl;
+        }
+        [self presentViewController:playVC animated:YES completion:nil];
     }else
     {
-        [Tool showAlertView:@"提示" withMessage:@"请使用第三方软件打开该类型资源" withTarget:self withCancel:@"确定" other:nil];
+        if ([[self isExistWithFileName:moocFileInfo.FileTitle] isEqualToString:@""]) {
+            [Tool showAlertView:@"提示" withMessage:@"请先下载!" withTarget:self withCancel:@"确定" other:nil];
+        }else
+        {
+            _filePath=[self isExistWithFileName:moocFileInfo.FileTitle];
+            [Tool showAlertView:@"提示" withMessage:@"使用第三方软件打开该类型资源" withTarget:self withCancel:@"取消" other:@"确定"];
+        }
+    }
+
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        self.documentInteractionController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:_filePath]];
+        self.documentInteractionController.delegate = self;
+        CGRect navRect = self.navigationController.navigationBar.frame;
+        navRect.size = CGSizeMake(1500.0f, 40.0f);
+        [self.documentInteractionController presentOpenInMenuFromRect:navRect inView:self.view animated:YES];
     }
 }
+
 -(void)press:(UIButton *)but
 {
     if (but.tag-100<=1) {
@@ -328,6 +362,37 @@ static NSInteger tag;
     tutoriaVC.OCID=_OCID;
     [((AppDelegate *)app).nav pushViewController:tutoriaVC animated:YES];
 }
+
+//判断文件是否存在 并返回 路径
+-(NSString *)isExistWithFileName:(NSString *)fileName
+{
+    NSString *document = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *plistPath = [[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:@"finishPlist.plist"];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:plistPath]) {
+        NSMutableArray *finishArray = [[NSMutableArray alloc]initWithContentsOfFile:plistPath];
+        for (NSDictionary *dic in finishArray) {
+            if ([fileName isEqualToString:[dic objectForKey:@"filename"]]) {
+                return [[[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:TARGER]stringByAppendingPathComponent:fileName];
+            }
+        }
+        return @"";
+    }
+    return @"";
+}
+-(UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller
+{
+    return self;
+}
+-(UIView *)documentInteractionControllerViewForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view;
+}
+-(CGRect)documentInteractionControllerRectForPreview:(UIDocumentInteractionController *)controller
+{
+    return self.view.frame;
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
    
