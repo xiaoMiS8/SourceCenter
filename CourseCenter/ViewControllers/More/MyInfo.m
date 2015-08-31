@@ -108,11 +108,7 @@
 {
     //得到图片
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    if (UIImagePNGRepresentation(image) == nil) {
-        data = UIImageJPEGRepresentation(image, 0.5);
-    } else {
-        data = UIImagePNGRepresentation(image);
-    }
+    data = UIImagePNGRepresentation(image);
     [MBProgressHUD showMessage:@"图片上传中..."];
     [self.httpManager uploadPictureWithSourceID:self.userInfo.userID Source:@"Notice" File:data finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
