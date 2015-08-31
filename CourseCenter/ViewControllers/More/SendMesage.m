@@ -52,13 +52,15 @@
     }
     return mArray;
 }
--(NSMutableArray *)getArrayId
+-(NSString *)getArrayId
 {
-    NSMutableArray *arrayId=[[NSMutableArray alloc]init];
+    NSString *arrayIds=@"";
+    NSString *string=nil;
     for (int i=0; i<_editingTagControl.data.count; i++) {
-        [arrayId addObject:[[_editingTagControl.data[i] objectForKey:@"UserID"]stringValue]];
+        string=[NSString stringWithFormat:@"%@,",[[_editingTagControl.data[i] objectForKey:@"UserID"]stringValue]];
+        arrayIds=[arrayIds stringByAppendingString:string];
     }
-    return arrayId;
+    return arrayIds;
 }
 -(void)sureMessage
 {

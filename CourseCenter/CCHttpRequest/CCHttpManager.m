@@ -307,7 +307,7 @@
 
 - (void)addAppMessageWithTitle:(NSString *)Title
                         Conten:(NSString *)Conten
-                ReceiveUserIDs:(NSArray *)ReceiveUserIDs
+                ReceiveUserIDs:(NSString *)ReceiveUserIDs
                       finished:(FinishedBlock)finished {
     [MsgAction addAppMessageWithTitle:Title
                                Conten:Conten

@@ -351,7 +351,7 @@
  */
 - (void)addAppMessageWithTitle:(NSString *)Title
                         Conten:(NSString *)Conten
-                ReceiveUserIDs:(NSArray *)ReceiveUserIDs
+                ReceiveUserIDs:(NSString *)ReceiveUserIDs
                       finished:(FinishedBlock)finished;
 /**
  *  @brief  某人所在的所有教学班及组

@@ -60,7 +60,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Z2-wg-QLV">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Z2-wg-QLV">
                     <rect key="frame" x="0.0" y="518" width="320" height="1"/>
                     <color key="backgroundColor" red="0.75686317680000004" green="0.75686264039999995" blue="0.76078426840000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -69,7 +69,7 @@
                         <constraint firstAttribute="height" constant="1" id="gdC-2y-SBI"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="la9-4P-0uF">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="la9-4P-0uF">
                     <rect key="frame" x="20" y="524" width="39" height="39"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="la9-4P-0uF" secondAttribute="height" multiplier="1:1" id="WLU-iU-b4C"/>
@@ -78,7 +78,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-mX-3rW">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-mX-3rW">
                     <rect key="frame" x="69" y="524" width="39" height="39"/>
                     <state key="normal" image="btn_photo">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
