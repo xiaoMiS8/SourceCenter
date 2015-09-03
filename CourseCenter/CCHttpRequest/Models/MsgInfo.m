@@ -20,6 +20,7 @@
         self.UserName = dict[kUserName];
         self.CreateTime = dict[kCreateTime];
         self.SendOrReceive = dict[kSendOrReceive];
+        self.Gender = [dict[KGender] intValue];
     }
     return self;
 }

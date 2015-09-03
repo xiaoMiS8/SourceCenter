@@ -22,6 +22,7 @@
 @property(nonatomic, assign) int UnReadCount;
     //用户头像
 @property(nonatomic, strong) NSString *UserImgUrl;
+@property(nonatomic, assign) int Gender;
     //内容
 @property(nonatomic, strong) NSString *Conten;
     //用户ID

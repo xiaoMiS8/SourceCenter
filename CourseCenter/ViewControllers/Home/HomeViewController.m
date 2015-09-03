@@ -247,6 +247,7 @@
     homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
     homeDetailVc.topImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).CourseImgUrl;
     homeDetailVc.RegStatus=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).RegStatus;
+    homeDetailVc.gender=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).Gender;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 

@@ -27,7 +27,12 @@
 {
     switch (indexPath.section) {
         case 0:
-            [self.headImag sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:HeadIMG]];
+            if (self.userInfo.gender==2) {
+              [self.headImag sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:@"iconpro"]];
+            }else
+            {
+             [self.headImag sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:@"me"]];
+            }
             _headName.text=self.userInfo.userName;
             break;
         case 1:

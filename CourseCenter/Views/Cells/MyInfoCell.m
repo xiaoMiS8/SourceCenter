@@ -21,7 +21,12 @@
             _textFiled.hidden=YES;
             _headImg.hidden=NO;
             _leftLable.text=@"头   像";
-            [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:HEADIMG]];
+            if (self.userInfo.gender==2) {
+              [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:@"iconpro"]];
+            }else
+            {
+                [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:@"me"]];
+            }
             break;
         case 1:
             _leftLable.text=@"用户名";

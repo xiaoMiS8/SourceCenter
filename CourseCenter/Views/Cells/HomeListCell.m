@@ -46,7 +46,12 @@
         _oCourse=oCourse;
     }
     [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
+    if (_oCourse.Gender==2) {
+        [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:@"iconpro"]];
+    }else
+    {
+        [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:@"me"]];
+    }
     [self.nameLabel setText:oCourse.TeacherName];
     [self.collegeLabel setText:oCourse.OrganizationName];
     if (oCourse.RegStatus==1) {

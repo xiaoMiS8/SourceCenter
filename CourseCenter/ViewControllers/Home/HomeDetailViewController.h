@@ -13,4 +13,5 @@
 @property(nonatomic,strong)NSString *teacherImgUrl;
 @property(nonatomic,strong)NSString *topImgUrl;
 @property(nonatomic,assign)int RegStatus;
+@property(nonatomic,assign)int gender;
 @end

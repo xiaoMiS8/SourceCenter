@@ -101,7 +101,12 @@ static NSInteger tag;
 -(void)showteacherInfo:(TeacherInfo *)info
 {
     [self.topImageView sd_setImageWithURL:[NSURL URLWithString:_topImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
-    [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
+    if (self.gender==2) {
+        [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:@"iconpro"]];
+    }else
+    {
+        [self.teacherImage sd_setImageWithURL:[NSURL URLWithString:self.teacherImgUrl] placeholderImage:[UIImage imageNamed:@"me"]];
+    }
     [self.StartDate setText:[info.StartDate carveNSStringWithStr:@" "][0]];
     [self.TeacherName setText:info.TeacherName];
     [self.OrganizationName setText:info.OrganizationName];
