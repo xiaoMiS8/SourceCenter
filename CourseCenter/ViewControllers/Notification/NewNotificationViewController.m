@@ -132,10 +132,22 @@
     BOOL IsForMail = [self.isSendSelecteds[0] boolValue];
     BOOL IsForSMS = [self.isSendSelecteds[1] boolValue];
     [self.httpManager AddAppNoticeWithTitle:title Conten:content IsTop:NO IsForMail:IsForMail IsForSMS:IsForSMS SourceIDs:IDs finished:^(EnumServerStatus status, NSObject *object) {
-        
+        if (status == Enum_SUCCESS) {
+            if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                [MBProgressHUD showSuccess:((ResponseObject *)object).errorMessage];
+                if (self.DoBlock) {
+                    self.DoBlock();
+                     [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            } else {
+                 [MBProgressHUD showError:((ResponseObject *)object).errorMessage];
+            }
+        } else {
+            [MBProgressHUD showError:@"网络繁忙请稍候再试"];
+        }
     }];
-    self.DoBlock();
-    [self dismissViewControllerAnimated:YES completion:nil];
+   
+   
 }
 
 - (void)addFooter {

@@ -62,6 +62,26 @@
         isFirst=NO;
     }
 }
+
+- (void)isLoginNot {
+    [self.seg setSelectedSegmentIndex:0];
+    self.courseSelectLabel.text = @"推荐课程";
+    loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        _tableView.hidden=YES;
+        _loginBtn.hidden=NO;
+        _loginPrompt.hidden=NO;
+        _chooseSchoolBtn.hidden=NO;
+    }else
+        {
+        _tableView.hidden=NO;
+        _loginBtn.hidden=YES;
+        _loginPrompt.hidden=YES;
+        _chooseSchoolBtn.hidden=YES;
+        [self rLoadDataWithIsNot:YES];
+        }
+}
+
 -(void)isLoginOrCourse
 {
     [self.seg setSelectedSegmentIndex:0];
@@ -78,14 +98,16 @@
         _loginBtn.hidden=YES;
         _loginPrompt.hidden=YES;
         _chooseSchoolBtn.hidden=YES;
-        [self rLoadData];
+        [self rLoadDataWithIsNot:NO];
     }
     
 }
 //推荐课程
--(void)rLoadData
+-(void)rLoadDataWithIsNot:(BOOL)isNot
 {
-    [MBProgressHUD showMessage:nil];
+    if (isNot == NO) {
+        [MBProgressHUD showMessage:nil];
+    }
     [self.httpManager getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
@@ -209,7 +231,7 @@
     if (seg.selectedSegmentIndex == 0) {
         self.courseSelectLabel.text = @"推荐课程";
         if ([loginState isEqualToString:@"1"]) {
-            [self rLoadData];
+            [self rLoadDataWithIsNot:NO];
         }
     }
     else {

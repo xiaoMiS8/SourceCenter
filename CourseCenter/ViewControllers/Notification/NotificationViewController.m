@@ -145,7 +145,7 @@
     {
         NewNotificationViewController *newNotificationVC = [NewNotificationViewController new];
         newNotificationVC.DoBlock = ^{
-            DLog(@"点击确定了");
+            [self loadData];
         };
         LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newNotificationVC];
         UIViewController *tabbar = ((AppDelegate *)app).nav.viewControllers.firstObject;

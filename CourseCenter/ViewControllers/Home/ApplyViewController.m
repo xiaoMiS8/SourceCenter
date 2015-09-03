@@ -143,9 +143,9 @@
                     if ([self.reob.errrorCode isEqualToString:@"0"]) {
                         [MBProgressHUD showSuccess:REGISTSUCCESS];
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"registsuccess" object:nil];
-                        if (self.block) {
-                            self.block();
-                        }
+//                        if (self.block) {
+//                            self.block();
+//                        }
                         [self.navigationController popViewControllerAnimated:YES];
                         return ;
                     }else{
@@ -176,9 +176,9 @@
                     if ([self.reob.errrorCode isEqualToString:@"0"]) {
                         [MBProgressHUD showSuccess:REGISTSUCCESS];
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"registsuccess" object:nil];
-                        if (self.block) {
-                            self.block();
-                        }
+//                        if (self.block) {
+//                            self.block();
+//                        }
                         [self.navigationController popViewControllerAnimated:YES];
                         return ;
                     }else{

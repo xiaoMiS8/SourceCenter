@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "UserInfo.h"
 #define SECTION_STATE @"SECTION_STATE"
+static BOOL isSelect;
 @interface NewMessage ()
 {
     NSMutableArray *_array;
@@ -40,6 +41,7 @@
     ((AppDelegate *)app).dicData=[NSMutableDictionary dictionaryWithCapacity:0];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewMessageCell" bundle:nil] forCellReuseIdentifier:@"NewMessageCell"];
     [self aLoadData];
+    isSelect=NO;
 }
 -(void)aLoadData
 {
@@ -179,7 +181,9 @@
     [_tableView reloadData];
 }
 - (IBAction)btn_left:(UIButton *)sender {
-    _head_btn_left.selected=!_head_btn_left.selected;
+    isSelect=!isSelect;
+    _head_btn_left.selected=isSelect;
+    BOOL n = _head_btn_left.selected;
     [self setSelectStateWith:sender.tag];
     [_tableView reloadData];
 }
