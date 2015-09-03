@@ -11,7 +11,7 @@
 #import "MessageCell.h"
 #import "IQKeyboardManager.h"
 #import "MsgInfo.h"
-#define kToolBarH  0 //44
+#define kToolBarH  44
 #define kTextFieldH 30
 
 @interface ChatViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
@@ -50,7 +50,7 @@
     //1.tableView
     [self addChatView];
     //2.工具栏
-    //[self addToolBar];
+    [self addToolBar];
 }
 - (void)getFilePath
 {
