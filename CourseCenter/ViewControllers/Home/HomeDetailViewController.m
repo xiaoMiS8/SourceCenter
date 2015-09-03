@@ -267,7 +267,12 @@ static NSInteger tag;
                 break;
             }
             default:
-                [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];
+                if (indexPath.section==1) {
+                    [self showTishiWithCase:moocFileInfo.IsAllowStudy];
+                }else
+                {
+                 [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];
+                }
                 break;
         }
 }
@@ -370,6 +375,39 @@ static NSInteger tag;
         [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];
     }
     
+}
+
+-(void)showTishiWithCase:(int)mycase
+{
+    switch (mycase) {
+        case 0:{
+            [Tool showAlertView:@"提示" withMessage:@"请先学习前面的章节" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 2:{
+            [Tool showAlertView:@"提示" withMessage:@"还未到开始学习时间" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 3:{
+            [Tool showAlertView:@"提示" withMessage:@"请先学习完前面的章节" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 4:{
+            [Tool showAlertView:@"提示" withMessage:@"请先完成上一章的测试" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 5:{
+            [Tool showAlertView:@"提示" withMessage:@"请先学习完该章节" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        case 6:{
+            [Tool showAlertView:@"提示" withMessage:@"请先完成所有章节及测试" withTarget:self withCancel:@"确定" other:nil];
+            break;
+        }
+        default:
+            break;
+    }
+
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
