@@ -28,6 +28,7 @@
         self.ResponseCount = [[dict objectForKey:kResponseCount] intValue];
         self.IsCanDel = [[dict objectForKey:kIsCanDel] boolValue];
         self.rowscount = [[dict objectForKey:krowscount] intValue];
+        self.Gender = [dict[KGender] intValue];
         NSMutableArray *noticeResones = [[NSMutableArray alloc] initWithCapacity:0];
         id noticeResponse = [dict objectForKey:kNoticeResponse];
         if ([noticeResponse isKindOfClass:[NSArray class]]) {

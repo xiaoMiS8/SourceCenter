@@ -38,7 +38,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大圣" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaT-D3-VnS">
-                                        <rect key="frame" x="70" y="8" width="34" height="20.5"/>
+                                        <rect key="frame" x="70" y="8" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -59,6 +59,7 @@
                                     <constraint firstItem="Vrp-4h-IS7" firstAttribute="leading" secondItem="A7s-eE-XlE" secondAttribute="leading" constant="2" id="LNg-wV-Pt2"/>
                                     <constraint firstItem="ddu-iq-pf7" firstAttribute="top" secondItem="NaT-D3-VnS" secondAttribute="bottom" constant="8" id="eKX-me-5er"/>
                                     <constraint firstItem="Vrp-4h-IS7" firstAttribute="top" secondItem="A7s-eE-XlE" secondAttribute="top" id="gMb-VB-jAC"/>
+                                    <constraint firstAttribute="trailing" secondItem="NaT-D3-VnS" secondAttribute="trailing" constant="20" id="hT4-Kg-WFV"/>
                                     <constraint firstAttribute="height" constant="60" id="kRe-au-9lQ"/>
                                     <constraint firstAttribute="trailing" secondItem="ddu-iq-pf7" secondAttribute="trailing" constant="20" id="q4M-dG-v8L"/>
                                     <constraint firstItem="NaT-D3-VnS" firstAttribute="top" secondItem="A7s-eE-XlE" secondAttribute="top" constant="8" id="zLW-En-d6I"/>

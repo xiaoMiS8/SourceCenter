@@ -25,6 +25,7 @@
 #define krowscount              @"rowscount"
 #define kNoticeResponse         @"NoticeResponse"
 #define kKUserImg               @"KUserImg"
+#define kGender                 @"Gender"
 
 @interface NoticeInfo : NSObject
 
@@ -35,6 +36,7 @@
     //姓名
 @property(nonatomic, strong) NSString       *UserName;
 @property(nonatomic, strong) NSString       *UserImg;
+@property(nonatomic, assign) int            Gender;
     //通知标题
 @property(nonatomic, strong) NSString       *Title;
     //通知内容
