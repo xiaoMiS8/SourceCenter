@@ -179,7 +179,7 @@
     [_tableView reloadData];
 }
 - (IBAction)btn_left:(UIButton *)sender {
-    sender.selected=!sender.selected;
+    _head_btn_left.selected=!_head_btn_left.selected;
     [self setSelectStateWith:sender.tag];
     [_tableView reloadData];
 }
