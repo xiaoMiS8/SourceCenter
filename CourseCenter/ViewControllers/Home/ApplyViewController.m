@@ -160,10 +160,10 @@
     }else
     {
         if (_myrow==100000) {
-            if (self.block) {
-                self.block();
-            }
-            [self.navigationController popViewControllerAnimated:YES];
+//            if (self.block) {
+//                self.block();
+//            }
+//            [self.navigationController popViewControllerAnimated:YES];
           [MBProgressHUD showError:REGISTERROR1];
         }else
         {
