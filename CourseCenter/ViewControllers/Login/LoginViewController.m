@@ -29,6 +29,7 @@
     _loginBtn.layer.cornerRadius=5;
     _userName.allowsEditingTextAttributes=YES;
     _userName.clearButtonMode=UITextFieldViewModeWhileEditing;
+    _userName.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginName"];
     _passWord.secureTextEntry=YES;
     _passWord.clearButtonMode=UITextFieldViewModeWhileEditing;
     self.httpManager = [[CCHttpManager alloc]init];
@@ -51,6 +52,7 @@
                 [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",info.userType] forKey:@"role"];
                 [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%ld",info.userID]forKey:@"userID"];
                 [[NSUserDefaults standardUserDefaults] setObject:info.userImg forKey:@"userImg"];
+                [[NSUserDefaults standardUserDefaults] setObject:_userName.text forKey:@"loginName"];
                 [[NSUserDefaults standardUserDefaults]synchronize];
                 if (self.block) {
                     self.block();

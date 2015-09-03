@@ -160,6 +160,7 @@
     SendMesage *sendMessage=[[SendMesage alloc]
                              init];
     sendMessage.array=_subArray;
+    sendMessage.messageCenter=_messageCenter;
     [((AppDelegate *)app).nav pushViewController:sendMessage animated:YES];
 }
 - (IBAction)selectAll:(UIButton *)sender {

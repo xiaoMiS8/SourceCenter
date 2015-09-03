@@ -8,7 +8,9 @@
 
 #import "BaseViewController.h"
 #import "TLTagsControl.h"
+#import "MessageCenter.h"
 @interface SendMesage : BaseViewController
 @property (weak, nonatomic) IBOutlet TLTagsControl *editingTagControl;
 @property (strong,nonatomic)NSMutableArray *array;
+@property (nonatomic,strong)MessageCenter *messageCenter;
 @end

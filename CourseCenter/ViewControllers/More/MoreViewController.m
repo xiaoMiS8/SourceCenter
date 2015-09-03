@@ -55,9 +55,6 @@
         _tableView.scrollEnabled=NO;
     }
     [self.tableView registerNib:[UINib nibWithNibName:@"MoreListCell" bundle:nil] forCellReuseIdentifier:@"MoreListCell"];
-    myInfo=[[MyInfo alloc]init];
-    set=[[SetViewController alloc]init];
-    questionSurvey=[[QuestionSurvey alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
     [self isLoginOrCourse];
 }
@@ -142,6 +139,7 @@
     __block typeof (self) myself =self;
     switch (indexPath.section) {
         case 0:
+            myInfo=[[MyInfo alloc]init];
             myInfo.userInfo=self.userInfo;
             [((AppDelegate *)app).nav pushViewController:myInfo animated:YES];
             break;
@@ -157,6 +155,7 @@
           {
          [myself isLoginOrCourse];
           };
+            set=[[SetViewController alloc]init];
             set.userInfo=self.userInfo;
             [((AppDelegate *)app).nav pushViewController:set animated:YES];
             break;
@@ -179,6 +178,7 @@
 {
     switch (index.row) {
         case 0:
+            questionSurvey=[[QuestionSurvey alloc]init];
             [((AppDelegate *)app).nav pushViewController:questionSurvey animated:YES];
             break;
         case 1:

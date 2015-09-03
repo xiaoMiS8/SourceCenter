@@ -42,7 +42,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" placeholder="请输入您的密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYe-gC-xn6">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bYe-gC-xn6">
                     <rect key="frame" x="95" y="75" width="260" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="OPO-E2-aIh"/>
@@ -83,7 +83,7 @@
                         <action selector="forgetPassword:" destination="-1" eventType="touchUpInside" id="tTp-1K-abC"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="test" placeholder="请输入您的用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uJz-ty-CDr">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入您的用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uJz-ty-CDr">
                     <rect key="frame" x="95" y="21" width="260" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="IxV-B9-M17"/>

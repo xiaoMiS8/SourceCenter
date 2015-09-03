@@ -7,10 +7,10 @@
 //
 
 #import "BaseViewController.h"
-
+#import "MessageCenter.h"
 @interface NewMessage : BaseViewController
 @property (weak, nonatomic) IBOutlet UILabel *head_title;
 @property (weak, nonatomic) IBOutlet UIButton *head_btn_right;
 @property (weak, nonatomic) IBOutlet UIButton *head_btn_left;
-
+@property (nonatomic,strong)MessageCenter *messageCenter;
 @end

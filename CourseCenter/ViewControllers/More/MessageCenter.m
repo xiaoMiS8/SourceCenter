@@ -82,6 +82,7 @@
 -(void)addMessage
 {
     NewMessage *newMessage=[[NewMessage alloc]init];
+    newMessage.messageCenter=self;
     [((AppDelegate *)app).nav pushViewController:newMessage animated:YES];
 }
 - (void)didReceiveMemoryWarning {

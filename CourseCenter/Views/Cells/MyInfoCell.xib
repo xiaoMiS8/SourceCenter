@@ -25,7 +25,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="阿联酋 迪拜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-ad-AQr">
+                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-ad-AQr">
                         <rect key="frame" x="81" y="5" width="216" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="OPT-lM-gzw"/>
@@ -87,6 +87,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="iconpro" width="35" height="35"/>
+        <image name="iconpro" width="57" height="57"/>
     </resources>
 </document>
