@@ -2045,7 +2045,7 @@
 					};
 					D4B2F30C1B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = H277GDZ7M9;
+						DevelopmentTeam = YQV68UZ2XR;
 						TestTargetID = D4B2F2F01B02FA00007B017E;
 					};
 				};

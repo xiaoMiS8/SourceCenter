@@ -38,7 +38,7 @@
     self.bomView2.layer.borderWidth = 0.5f;
     self.bomView3.layer.borderColor = [UIColor grayColor].CGColor;
     self.bomView3.layer.borderWidth = 0.5f;
-    self.content.preferredMaxLayoutWidth = Swidth - 10 - 10;
+    self.content.preferredMaxLayoutWidth = Swidth - 10 - 10 -10;
     self.title.preferredMaxLayoutWidth = Swidth - 10 -10;
 }
 
