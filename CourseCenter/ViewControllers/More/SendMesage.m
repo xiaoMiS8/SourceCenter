@@ -78,6 +78,20 @@
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"请输入内容(必填)"]) {
+        textView.text=@"";
+        textView.textColor=RGBA(0, 0, 0, 1);
+    }
+}
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text=@"请输入内容(必填)";
+        textView.textColor=RGBA(193, 193, 194, 1);
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
