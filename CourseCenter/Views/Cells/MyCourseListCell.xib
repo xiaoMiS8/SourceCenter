@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UA2-5w-EsZ">
-                        <rect key="frame" x="18" y="18" width="284" height="418"/>
+                        <rect key="frame" x="18" y="18" width="284" height="411"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-gS-B3f">
                                 <rect key="frame" x="0.0" y="0.0" width="284" height="160"/>
@@ -30,6 +30,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7s-eE-XlE">
                                 <rect key="frame" x="10" y="10" width="158" height="60"/>
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topbg" translatesAutoresizingMaskIntoConstraints="NO" id="amx-Pb-cLI">
+                                        <rect key="frame" x="0.0" y="0.0" width="158" height="60"/>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vrp-4h-IS7">
                                         <rect key="frame" x="2" y="0.0" width="60" height="60"/>
                                         <animations/>
@@ -38,29 +41,31 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大圣" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaT-D3-VnS">
-                                        <rect key="frame" x="70" y="8" width="68" height="20.5"/>
+                                        <rect key="frame" x="70" y="8.5" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大圣来了" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-iq-pf7">
-                                        <rect key="frame" x="70" y="36" width="68" height="20.5"/>
+                                        <rect key="frame" x="70" y="36.5" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <animations/>
                                 <constraints>
                                     <constraint firstItem="NaT-D3-VnS" firstAttribute="leading" secondItem="Vrp-4h-IS7" secondAttribute="trailing" constant="8" id="BRe-IM-cpB"/>
+                                    <constraint firstItem="amx-Pb-cLI" firstAttribute="leading" secondItem="A7s-eE-XlE" secondAttribute="leading" id="GRc-bM-651"/>
                                     <constraint firstItem="ddu-iq-pf7" firstAttribute="leading" secondItem="NaT-D3-VnS" secondAttribute="leading" id="Gwo-P7-7XX"/>
                                     <constraint firstItem="Vrp-4h-IS7" firstAttribute="leading" secondItem="A7s-eE-XlE" secondAttribute="leading" constant="2" id="LNg-wV-Pt2"/>
+                                    <constraint firstAttribute="bottom" secondItem="amx-Pb-cLI" secondAttribute="bottom" id="RIA-kQ-jcT"/>
+                                    <constraint firstAttribute="trailing" secondItem="amx-Pb-cLI" secondAttribute="trailing" id="Tdc-VP-69z"/>
                                     <constraint firstItem="ddu-iq-pf7" firstAttribute="top" secondItem="NaT-D3-VnS" secondAttribute="bottom" constant="8" id="eKX-me-5er"/>
                                     <constraint firstItem="Vrp-4h-IS7" firstAttribute="top" secondItem="A7s-eE-XlE" secondAttribute="top" id="gMb-VB-jAC"/>
                                     <constraint firstAttribute="trailing" secondItem="NaT-D3-VnS" secondAttribute="trailing" constant="20" id="hT4-Kg-WFV"/>
                                     <constraint firstAttribute="height" constant="60" id="kRe-au-9lQ"/>
+                                    <constraint firstItem="amx-Pb-cLI" firstAttribute="top" secondItem="A7s-eE-XlE" secondAttribute="top" id="nBJ-4v-hWX"/>
                                     <constraint firstAttribute="trailing" secondItem="ddu-iq-pf7" secondAttribute="trailing" constant="20" id="q4M-dG-v8L"/>
                                     <constraint firstItem="NaT-D3-VnS" firstAttribute="top" secondItem="A7s-eE-XlE" secondAttribute="top" constant="8" id="zLW-En-d6I"/>
                                     <constraint firstAttribute="bottom" secondItem="Vrp-4h-IS7" secondAttribute="bottom" id="zav-EV-idM"/>
@@ -96,17 +101,17 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人工智能基础" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sky-RN-U8C">
-                                <rect key="frame" x="10" y="180" width="102" height="20.5"/>
+                                <rect key="frame" x="10" y="180" width="90" height="18"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人工智能研究1班" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOw-wE-tlW">
-                                <rect key="frame" x="10" y="208" width="129" height="20.5"/>
+                                <rect key="frame" x="10" y="205.5" width="98.5" height="16"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTL-Vn-T9B">
@@ -140,7 +145,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uz5-lW-d8h">
-                                <rect key="frame" x="0.0" y="238" width="284" height="179.5"/>
+                                <rect key="frame" x="0.0" y="231" width="284" height="179.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eI-qC-oc0">
                                         <rect key="frame" x="0.0" y="90" width="284" height="0.5"/>
@@ -163,7 +168,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-5V-rUX" customClass="ProgressView">
-                                        <rect key="frame" x="83.5" y="23" width="180.5" height="30"/>
+                                        <rect key="frame" x="83" y="23" width="180.5" height="30"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="e1M-sO-cgu"/>
@@ -189,7 +194,7 @@
                                         </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标准进度45.1%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ol-gu-iIv">
-                                        <rect key="frame" x="124.5" y="65" width="98.5" height="17"/>
+                                        <rect key="frame" x="124" y="65" width="98.5" height="17"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -226,14 +231,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小组进度28.1%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqD-al-TuU">
-                                        <rect key="frame" x="167.5" y="91" width="98.5" height="17"/>
+                                        <rect key="frame" x="167" y="91" width="98.5" height="17"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的进度25.1%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvZ-4I-OfO">
-                                        <rect key="frame" x="53.5" y="2" width="98.5" height="17"/>
+                                        <rect key="frame" x="53" y="2" width="98.5" height="17"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -271,14 +276,14 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同学" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0i-na-iV9">
-                                <rect key="frame" x="230" y="207.5" width="34" height="20.5"/>
+                                <rect key="frame" x="230" y="203.5" width="34" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1111" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxv-NS-qvy">
-                                <rect key="frame" x="189.5" y="207.5" width="38.5" height="20.5"/>
+                                <rect key="frame" x="189" y="203.5" width="38.5" height="20.5"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -369,5 +374,6 @@
     <resources>
         <image name="arrow_r" width="33" height="34"/>
         <image name="tearch_image" width="27" height="60"/>
+        <image name="topbg" width="119" height="38"/>
     </resources>
 </document>

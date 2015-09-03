@@ -49,9 +49,9 @@
     self.bomView.layer.borderWidth = 0.5f;
     self.teachImg.layer.cornerRadius = 30;
     self.teachImg.layer.masksToBounds = YES;
-    self.userBg.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-    self.userBg.layer.cornerRadius = 30;
-    self.userBg.layer.masksToBounds = YES;
+//    self.userBg.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+//    self.userBg.layer.cornerRadius = 30;
+//    self.userBg.layer.masksToBounds = YES;
     self.chapView.layer.cornerRadius = 20;
     self.chapView.layer.masksToBounds = YES;
     self.ussertypeBg.hidden = YES;
