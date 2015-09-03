@@ -190,7 +190,7 @@
         tutoriaVC = self.viewcontrollers[0];
         bbsVC = self.viewcontrollers[1];
         readVC = self.viewcontrollers[2];
-        tpVC = self.viewcontrollers[3];
+//        tpVC = self.viewcontrollers[3];
     }
 }
 - (void)didReceiveMemoryWarning {

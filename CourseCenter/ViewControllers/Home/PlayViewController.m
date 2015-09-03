@@ -23,6 +23,18 @@ static BOOL isFirst;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarOrientation:UIDeviceOrientationLandscapeRight animated:YES];
+    CGFloat duration = [UIApplication sharedApplication].statusBarOrientationAnimationDuration;
+        //设置旋转动画
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:duration];
+        //设置导航栏旋转
+    self.navigationController.navigationBar.frame = CGRectMake(-204, 224, 480, 32);
+    self.navigationController.navigationBar.transform = CGAffineTransformMakeRotation(M_PI*1.5);
+        //设置视图旋转
+    self.view.bounds = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.view.transform = CGAffineTransformMakeRotation(M_PI*1.5);
+    [UIView commitAnimations];
     // Do any additional setup after loading the view.
     isFirst=YES;
     self.httpManager = [[CCHttpManager alloc]init];
@@ -32,10 +44,18 @@ static BOOL isFirst;
      movie =[[MPMoviePlayerController alloc]initWithContentURL:[NSURL URLWithString:self.playUrl]];
     }
     [movie prepareToPlay];
-    [movie.view setFrame:self.view.bounds];
     [movie setControlStyle:MPMovieControlStyleFullscreen];
     [movie setShouldAutoplay:YES];
-    [self.view addSubview:movie.view];
+    UIView *mView = movie.view;
+    mView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:mView];
+    NSDictionary *views = NSDictionaryOfVariableBindings(mView);
+    NSString *vflH = @"H:|-0-[mView]-0-|";
+    NSString *vflV = @"V:|-0-[mView]-0-|";
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflH options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vflV options:0 metrics:nil views:views]];
+    
+    
     // 注册一个播放结束的通知
     [[NSNotificationCenter defaultCenter] addObserver:self
     selector:@selector(myMovieFinishedCallback:)name:MPMoviePlayerPlaybackDidFinishNotification
@@ -91,7 +111,11 @@ static BOOL isFirst;
     [timer invalidate];
     timer=nil;
     [self dismissViewControllerAnimated:YES completion:^{
-        [_tutorVC loadData];
+//        [_tutorVC loadData];
+        if (self.pauseBlock) {
+            self.pauseBlock(movie.currentPlaybackTime);
+        }
+        
     }];
 }
 -(void)send10S
@@ -150,6 +174,7 @@ static BOOL isFirst;
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
