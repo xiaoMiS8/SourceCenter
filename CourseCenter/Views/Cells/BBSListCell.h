@@ -12,5 +12,6 @@
 @interface BBSListCell : UITableViewCell
 
 @property(nonatomic, strong) TopicInfo *topic;
+@property(nonatomic, copy) void (^agreeBlock) ();
 
 @end

@@ -137,6 +137,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     BBSListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BBSListCell"];
     cell.topic = self.topics[indexPath.row];
+    cell.agreeBlock = ^() {
+        if ( ((TopicInfo *)self.topics[indexPath.row]).IsGood) {
+            ((TopicInfo *)self.topics[indexPath.row]).Goods -= 1;
+        } else {
+            ((TopicInfo *)self.topics[indexPath.row]).Goods += 1;
+        }
+        ((TopicInfo *)self.topics[indexPath.row]).IsGood = ! ((TopicInfo *)self.topics[indexPath.row]).IsGood;
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    };
     return cell;
 }
 
