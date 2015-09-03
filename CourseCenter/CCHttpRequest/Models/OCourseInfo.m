@@ -39,6 +39,7 @@
         self.MyFCRate = [dict objectForKey:kMyFCRate];
         self.MyGroupFCRate = [dict objectForKey:kMyGroupFCRate];
         self.PlanFCRate = [dict objectForKey:kPlanFCRate];
+        self.Gender = [dict[KGender] intValue];
     }
     return self;
 }

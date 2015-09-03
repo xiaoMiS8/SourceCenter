@@ -59,6 +59,7 @@
 @property(nonatomic, strong) NSArray *imgs;
 @property(nonatomic, assign) BOOL iscanDel;
 @property(nonatomic, strong) NSString *userImg;
+@property(nonatomic, assign) int Gender;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

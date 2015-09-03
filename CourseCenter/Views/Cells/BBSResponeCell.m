@@ -28,7 +28,11 @@
 
 - (void)setResponse:(TopicResponseInfo *)response {
     _response = response;
-     [self.userImg sd_setImageWithURL:[NSURL URLWithString:response.userImg] placeholderImage:[UIImage imageNamed:@"me"]];
+    NSString *imgName = @"iconpro";
+    if (response.Gender !=2) {
+        imgName = @"me";
+    }
+     [self.userImg sd_setImageWithURL:[NSURL URLWithString:response.userImg] placeholderImage:[UIImage imageNamed:imgName]];
     self.content.text  = response.Conten;
     self.name.text = response.UserName;
     self.className.text = response.FromClassName;

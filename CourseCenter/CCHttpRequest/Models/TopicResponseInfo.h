@@ -41,6 +41,7 @@
 @property(nonatomic, assign) long Goods;
 @property(nonatomic, strong) NSString *userImg;
 @property(nonatomic, assign) BOOL IsCanDel;
+@property(nonatomic, assign) int Gender;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

@@ -19,7 +19,8 @@
 @property(nonatomic, strong) UIButton *sendBtn;
 
 @property(nonatomic, strong) CCHttpManager *httpManger;
-@property(nonatomic, strong) NSArray *noticeRespones;
+@property(nonatomic, strong) NSMutableArray *noticeRespones;
+@property(nonatomic, strong) NSString *responsecontent;
 
 @end
 
@@ -39,7 +40,7 @@
     [self.httpManger getNoticeResponseListWithNoticeID:self.noticeInfo.NoticeID PageIndex:1 PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
-               self.noticeRespones = ((ResponseObject *)object).resultArray;
+               self.noticeRespones = [[NSMutableArray alloc] initWithArray:((ResponseObject *)object).resultArray];
             }
           
         
@@ -158,8 +159,24 @@
         [MBProgressHUD showError:@"回复内容不能为空"];
         return;
     }
+    self.responsecontent = self.textView.text;
     [self.httpManger AddNoticeResponseWithNoticeID:self.noticeInfo.NoticeID Conten:self.textView.text finished:^(EnumServerStatus status, NSObject *object) {
-        [self loadData];
+        if (status == Enum_SUCCESS) {
+            if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                NoticeResponseInfo *respone = [[NoticeResponseInfo alloc] init];
+                respone.Conten = self.responsecontent;
+                respone.UserName = self.noticeInfo.UserName;
+                self.noticeInfo.ResponseCount += 1;
+                [self.noticeRespones addObject:respone];
+                [MBProgressHUD showSuccess:((ResponseObject *)object).errorMessage];
+                [self.tableView reloadData];
+            } else {
+                [MBProgressHUD showError:((ResponseObject *)object).errorMessage];
+            }
+        } else {
+            [MBProgressHUD showError:@"内部错误"];
+        }
+     
     }];
     
     self.textView.text = @"";

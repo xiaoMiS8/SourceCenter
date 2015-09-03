@@ -23,6 +23,7 @@
         self.IsGood = [dict[kIsGood] boolValue];
         self.Goods = [dict[kGoods] longValue];
         self.IsCanDel = [dict[kIsCanDel] boolValue];
+        self.Gender = [dict[KGender] intValue];
     }
     return self;
 }
