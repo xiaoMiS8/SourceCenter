@@ -249,7 +249,7 @@
                 }
                 self.topic.IsGood = !self.topic.IsGood;
                 [self.tableView reloadData];
-                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
+//                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
             }];
            
         };
@@ -261,7 +261,7 @@
         cell.agreeBlcok = ^{
             [self.manager updateForumMyIsGoodWithTopicID:self.topic.TopicID ResponseID:((TopicResponseInfo *)self.respones[indexPath.row - 1]).ResponseID finished:^(EnumServerStatus status, NSObject *object) {
                 [self reloadData];
-                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
+//                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
             }];
         };
         return cell;
