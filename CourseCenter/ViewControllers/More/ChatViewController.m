@@ -78,6 +78,7 @@
                 //0.加载数据
                 [self loadData];
                 [_chatView reloadData];
+                [_chatView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.myDataArray.count -1 inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:YES];
                 return ;
             }
         }
