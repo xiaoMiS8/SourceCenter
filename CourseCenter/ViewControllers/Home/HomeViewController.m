@@ -64,6 +64,8 @@
 }
 -(void)isLoginOrCourse
 {
+    [self.seg setSelectedSegmentIndex:0];
+    self.courseSelectLabel.text = @"推荐课程";
     loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
     if ([loginState isEqualToString:@"0"]||loginState==nil) {
         _tableView.hidden=YES;
