@@ -92,10 +92,10 @@
     UIButton *btn=sender;
     if (![btn.titleLabel.text isEqualToString:@" "]) {
         ApplyViewController *applyVc = [[ApplyViewController alloc]init];
-        applyVc.block=^()
-        {
-            _hVC.isFanhui=@"YES";
-        };
+//        applyVc.block=^()
+//        {
+//            _hVC.isFanhui=@"YES";
+//        };
         applyVc.OCID=btn.tag;
         [((AppDelegate *)app).nav pushViewController:applyVc animated:YES];
         return;

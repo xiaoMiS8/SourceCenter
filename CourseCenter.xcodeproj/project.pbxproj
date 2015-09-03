@@ -182,6 +182,8 @@
 		CA6B42E51B7102020055CC64 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */; };
 		CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA7228BD1B57F4F8006F719A /* NewMessage.xib */; };
 		CA869D891B917BAB001A0EB4 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA869D871B917B5E001A0EB4 /* QuickLook.framework */; };
+		CA92AB081B981404000E8D20 /* MyPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA92AB061B981404000E8D20 /* MyPicViewController.m */; };
+		CA92AB091B981404000E8D20 /* MyPicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CA92AB071B981404000E8D20 /* MyPicViewController.xib */; };
 		CACBFC831B53FE7400FAD388 /* MessageCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC811B53FE7400FAD388 /* MessageCenter.m */; };
 		CACBFC841B53FE7400FAD388 /* MessageCenter.xib in Resources */ = {isa = PBXBuildFile; fileRef = CACBFC821B53FE7400FAD388 /* MessageCenter.xib */; };
 		CACBFC881B54021F00FAD388 /* MessageCenterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CACBFC861B54021F00FAD388 /* MessageCenterCell.m */; };
@@ -684,6 +686,9 @@
 		CA6B42E31B7102020055CC64 /* CollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		CA7228BD1B57F4F8006F719A /* NewMessage.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessage.xib; sourceTree = "<group>"; };
 		CA869D871B917B5E001A0EB4 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		CA92AB051B981404000E8D20 /* MyPicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPicViewController.h; sourceTree = "<group>"; };
+		CA92AB061B981404000E8D20 /* MyPicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPicViewController.m; sourceTree = "<group>"; };
+		CA92AB071B981404000E8D20 /* MyPicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyPicViewController.xib; sourceTree = "<group>"; };
 		CACBFC801B53FE7400FAD388 /* MessageCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenter.h; sourceTree = "<group>"; };
 		CACBFC811B53FE7400FAD388 /* MessageCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenter.m; sourceTree = "<group>"; };
 		CACBFC821B53FE7400FAD388 /* MessageCenter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCenter.xib; sourceTree = "<group>"; };
@@ -1800,6 +1805,9 @@
 				52DBDE211B903F7600E86590 /* MyDownLoad.h */,
 				52DBDE221B903F7600E86590 /* MyDownLoad.m */,
 				52DBDE231B903F7600E86590 /* MyDownLoad.xib */,
+				CA92AB051B981404000E8D20 /* MyPicViewController.h */,
+				CA92AB061B981404000E8D20 /* MyPicViewController.m */,
+				CA92AB071B981404000E8D20 /* MyPicViewController.xib */,
 			);
 			path = More;
 			sourceTree = "<group>";
@@ -2130,6 +2138,7 @@
 				CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */,
 				CA20AA331B5A19A100598370 /* SendMesage.xib in Resources */,
 				52E7DFE11B71A30400BB46DE /* HWorkCell.xib in Resources */,
+				CA92AB091B981404000E8D20 /* MyPicViewController.xib in Resources */,
 				52DEE0611B7D78F600DD4486 /* file_pause_normal.png in Resources */,
 				D4459B901B63D75A00DEB780 /* CourseTabbarViewController.xib in Resources */,
 				59682AEF1B84D27800DA2778 /* NewTypeViewController.xib in Resources */,
@@ -2222,6 +2231,7 @@
 				D77E0EC61B6A23300057FFF9 /* ForumTypeInfo.m in Sources */,
 				52DEE03F1B7D74E000DD4486 /* ASIDataCompressor.m in Sources */,
 				CA3706981B8CB4B7007AA675 /* SchoolInfo.m in Sources */,
+				CA92AB081B981404000E8D20 /* MyPicViewController.m in Sources */,
 				D4CE16661B3418C500DBBDE7 /* SpecialtyTypeInfo.m in Sources */,
 				59682AEE1B84D27800DA2778 /* NewTypeViewController.m in Sources */,
 				52DBDE241B903F7600E86590 /* MyDownLoad.m in Sources */,

@@ -15,6 +15,7 @@
 #import "PlayViewController.h"
 #import "SectionAndRow.h"
 #import "PICircularProgressView.h"
+#import "MyPicViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 static NSInteger tag;
 @interface TutorialViewController ()
@@ -497,6 +498,11 @@ static NSInteger tag;
             default:
                 break;
         }
+    }else if (((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileType==6) {
+        MyPicViewController *picVC=[[MyPicViewController alloc]init];
+        picVC.url=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).DownUrl;
+        picVC.picName=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileTitle;;
+        [((AppDelegate *)app).nav pushViewController:picVC animated:YES];
     }else
     {
         NSString * fileName=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileTitle;

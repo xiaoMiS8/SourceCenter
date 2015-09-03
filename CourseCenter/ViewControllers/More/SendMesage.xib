@@ -38,7 +38,7 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oWV-w3-gef" customClass="TLTagsControl">
                     <rect key="frame" x="57" y="5" width="258" height="30"/>
                 </scrollView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入标题" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CC6-1b-mtx">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入标题(可不填)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CC6-1b-mtx">
                     <rect key="frame" x="10" y="41" width="310" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="NR0-Cz-bb9"/>
@@ -54,11 +54,15 @@
                         <constraint firstAttribute="height" constant="1" id="dJy-lG-KJt"/>
                     </constraints>
                 </view>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbO-1o-RFt">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入内容(必填)" translatesAutoresizingMaskIntoConstraints="NO" id="nbO-1o-RFt">
                     <rect key="frame" x="0.0" y="82" width="320" height="436"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="0.75686317680000004" green="0.75686264039999995" blue="0.76078426840000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Nxj-bU-q0X"/>
+                    </connections>
                 </textView>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Z2-wg-QLV">
                     <rect key="frame" x="0.0" y="518" width="320" height="1"/>
@@ -118,6 +122,7 @@
                 <constraint firstItem="la9-4P-0uF" firstAttribute="height" secondItem="tTk-mX-3rW" secondAttribute="height" id="zpO-iF-MXP"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="228" y="-42"/>
         </view>
     </objects>
     <resources>

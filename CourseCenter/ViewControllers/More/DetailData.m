@@ -11,6 +11,7 @@
 #import "FileInfo.h"
 #import "PlayViewController.h"
 #import "SectionAndRow.h"
+#import "MyPicViewController.h"
 @interface DetailData ()
 {
     //正在下载的文件 位置 列表
@@ -289,6 +290,12 @@
             playVC.playUrl=((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileURL;
         }
         [self presentViewController:playVC animated:YES completion:nil];
+    }else if ([((FileModel *)[_fileArray objectAtIndex:indexPath.row]).fileType isEqualToString:@"6"]) {
+        MyPicViewController *picVC=[[MyPicViewController alloc]init];
+        FileInfo *info= [_dataArray objectAtIndex:indexPath.row];
+            picVC.url=info.FileURL;
+            picVC.picName=info.FileTitle; 
+        [((AppDelegate *)app).nav pushViewController:picVC animated:YES];
     }else
     {
         
