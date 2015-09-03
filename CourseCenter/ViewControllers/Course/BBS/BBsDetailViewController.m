@@ -269,11 +269,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row > 0) {
-        self.parentID = ((TopicResponseInfo *)self.respones[indexPath.row - 1]).ParentID;
-        [self.textView becomeFirstResponder];
-        self.textView.text = @"";
-    }
+//    if (indexPath.row > 0) {
+//        self.parentID = ((TopicResponseInfo *)self.respones[indexPath.row - 1]).ParentID;
+//        [self.textView becomeFirstResponder];
+//        self.textView.text = @"";
+//    }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

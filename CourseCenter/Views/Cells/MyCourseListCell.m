@@ -80,6 +80,7 @@
     [self.ocoureImg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl]];
 #warning 暂时去掉我的翻转课堂进度 －－－－日后可能会加吧？
     oCourse.IsShowFC = NO;
+    self.normProgress.hidden = YES;
 #warning 暂时去掉我的翻转课堂进度 －－－－日后可能会加吧？
     if (!oCourse.IsShowMooc && !oCourse.IsShowFC) {
         for (NSLayoutConstraint *constraint in self.bomView.constraints) {

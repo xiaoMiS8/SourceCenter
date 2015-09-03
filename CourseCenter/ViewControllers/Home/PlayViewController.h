@@ -18,4 +18,6 @@
 @property(nonatomic,assign)int  Seconds;
 @property(nonatomic,assign)BOOL isRecord;
 @property(nonatomic,strong)TutorialViewController *tutorVC;
+
+@property(nonatomic, copy) void (^pauseBlock)(NSInteger sends);
 @end

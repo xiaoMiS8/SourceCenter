@@ -94,18 +94,18 @@
     [bigview addSubview:view];
     self.progressView = view;
     
-    UIView *line = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.progressView.frame), 0, 2, Height)];
-    line.backgroundColor = [Tool colorWithHexString:@"#15b591"];
-    [self addSubview:line];
-    self.line = line;
-    UIView *coreView = [[UIView alloc] init];
-    coreView.bounds = CGRectMake(0, 0, 10, 10);
-    coreView.backgroundColor = [Tool colorWithHexString:@"#15b591"];
-    [self addSubview:coreView];
-    coreView.center = self.line.frame.origin;
-    coreView.layer.cornerRadius = 5;
-    coreView.layer.masksToBounds = YES;
-    self.coreView = coreView;
+//    UIView *line = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.progressView.frame), 0, 2, Height)];
+//    line.backgroundColor = [Tool colorWithHexString:@"#15b591"];
+//    [self addSubview:line];
+//    self.line = line;
+//    UIView *coreView = [[UIView alloc] init];
+//    coreView.bounds = CGRectMake(0, 0, 10, 10);
+//    coreView.backgroundColor = [Tool colorWithHexString:@"#15b591"];
+//    [self addSubview:coreView];
+//    coreView.center = self.line.frame.origin;
+//    coreView.layer.cornerRadius = 5;
+//    coreView.layer.masksToBounds = YES;
+//    self.coreView = coreView;
     
     UIView *groupProgressView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 0, Height -10)];
     groupProgressView.backgroundColor = [Tool colorWithHexString:@"#3e4967"];
@@ -126,20 +126,20 @@
     groupCore.layer.masksToBounds = YES;
     self.groupCore = groupCore;
     
-    UIView *normline = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 2, Height)];
-    normline.backgroundColor = [Tool colorWithHexString:@"#f37385"];
-    [self addSubview:normline];
-    self.normLine = normline;
+//    UIView *normline = [[UIView alloc] initWithFrame:CGRectMake(0, 10, 2, Height)];
+//    normline.backgroundColor = [Tool colorWithHexString:@"#f37385"];
+//    [self addSubview:normline];
+//    self.normLine = normline;
     
-    UIView *normCore = [[UIView alloc] init];
-    normCore.bounds = CGRectMake(0, 0, 10, 10);
-    CGPoint point = CGPointMake(self.normLine.frame.origin.x, CGRectGetMaxY(self.normLine.frame));
-    normCore.center = point;
-    normCore.backgroundColor = [Tool colorWithHexString:@"#f37385"];
-    normCore.layer.cornerRadius = 5;
-    normCore.layer.masksToBounds = YES;
-    [self addSubview:normCore];
-    self.normCore = normCore;
+//    UIView *normCore = [[UIView alloc] init];
+//    normCore.bounds = CGRectMake(0, 0, 10, 10);
+//    CGPoint point = CGPointMake(self.normLine.frame.origin.x, CGRectGetMaxY(self.normLine.frame));
+//    normCore.center = point;
+//    normCore.backgroundColor = [Tool colorWithHexString:@"#f37385"];
+//    normCore.layer.cornerRadius = 5;
+//    normCore.layer.masksToBounds = YES;
+//    [self addSubview:normCore];
+//    self.normCore = normCore;
 
     
 }

@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UA2-5w-EsZ">
-                        <rect key="frame" x="18" y="18" width="284" height="411"/>
+                        <rect key="frame" x="18" y="18" width="284" height="412"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rRZ-gS-B3f">
                                 <rect key="frame" x="0.0" y="0.0" width="284" height="160"/>
@@ -41,13 +41,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大圣" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaT-D3-VnS">
-                                        <rect key="frame" x="70" y="8.5" width="68" height="20.5"/>
+                                        <rect key="frame" x="70" y="8" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大圣来了" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ddu-iq-pf7">
-                                        <rect key="frame" x="70" y="36.5" width="68" height="20.5"/>
+                                        <rect key="frame" x="70" y="36" width="68" height="20.5"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="highlightedColor"/>
@@ -108,7 +108,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人工智能研究1班" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOw-wE-tlW">
-                                <rect key="frame" x="10" y="205.5" width="98.5" height="16"/>
+                                <rect key="frame" x="10" y="206" width="98.5" height="16"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -145,7 +145,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uz5-lW-d8h">
-                                <rect key="frame" x="0.0" y="231" width="284" height="179.5"/>
+                                <rect key="frame" x="0.0" y="232" width="284" height="179.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eI-qC-oc0">
                                         <rect key="frame" x="0.0" y="90" width="284" height="0.5"/>
@@ -158,17 +158,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-UA-PzI">
-                                        <rect key="frame" x="10" y="30" width="53.5" height="20.5"/>
-                                        <animations/>
-                                        <string key="text">MOOC
-</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EH9-5V-rUX" customClass="ProgressView">
-                                        <rect key="frame" x="83" y="23" width="180.5" height="30"/>
+                                        <rect key="frame" x="83" y="19.5" width="180.5" height="30"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="e1M-sO-cgu"/>
@@ -194,7 +185,7 @@
                                         </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标准进度45.1%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ol-gu-iIv">
-                                        <rect key="frame" x="124" y="65" width="98.5" height="17"/>
+                                        <rect key="frame" x="124" y="61.5" width="98.5" height="17"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -223,8 +214,8 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小组进度28.1%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gr-9I-tgL">
-                                        <rect key="frame" x="160" y="2" width="98.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小组进度" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gr-9I-tgL">
+                                        <rect key="frame" x="190" y="6.5" width="56" height="17"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -238,9 +229,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的进度25.1%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvZ-4I-OfO">
-                                        <rect key="frame" x="53" y="2" width="98.5" height="17"/>
+                                        <rect key="frame" x="83" y="6.5" width="98.5" height="17"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4d-UA-PzI">
+                                        <rect key="frame" x="10" y="30" width="53.5" height="20.5"/>
+                                        <animations/>
+                                        <string key="text">MOOC
+</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -250,14 +250,14 @@
                                 <constraints>
                                     <constraint firstItem="UU0-3e-1aW" firstAttribute="leading" secondItem="nAf-c4-utk" secondAttribute="leading" constant="-30" id="3Wg-JY-cCY"/>
                                     <constraint firstItem="fqD-al-TuU" firstAttribute="centerY" secondItem="UU0-3e-1aW" secondAttribute="centerY" id="3xo-PY-gSQ"/>
-                                    <constraint firstItem="EH9-5V-rUX" firstAttribute="centerY" secondItem="b4d-UA-PzI" secondAttribute="centerY" constant="-2" id="4Cq-yt-UcF"/>
+                                    <constraint firstItem="EH9-5V-rUX" firstAttribute="centerY" secondItem="b4d-UA-PzI" secondAttribute="centerY" constant="-6" id="4Cq-yt-UcF"/>
                                     <constraint firstItem="3Ol-gu-iIv" firstAttribute="top" secondItem="EH9-5V-rUX" secondAttribute="bottom" constant="12" id="5yf-mz-yHC"/>
                                     <constraint firstItem="5gr-9I-tgL" firstAttribute="leading" secondItem="fvZ-4I-OfO" secondAttribute="trailing" constant="8" id="A7V-gO-vbF"/>
                                     <constraint firstItem="nAf-c4-utk" firstAttribute="centerY" secondItem="osm-Ep-TBQ" secondAttribute="centerY" constant="-2" id="DMx-5Y-rRQ"/>
                                     <constraint firstItem="b4d-UA-PzI" firstAttribute="top" secondItem="Uz5-lW-d8h" secondAttribute="top" constant="30" id="EAn-PH-ciN"/>
                                     <constraint firstItem="fTv-YJ-mpG" firstAttribute="top" secondItem="nAf-c4-utk" secondAttribute="bottom" constant="12" id="Fn2-5c-r8k"/>
-                                    <constraint firstItem="fvZ-4I-OfO" firstAttribute="leading" secondItem="EH9-5V-rUX" secondAttribute="leading" constant="-30" id="QqP-tR-RXt"/>
-                                    <constraint firstItem="EH9-5V-rUX" firstAttribute="top" secondItem="fvZ-4I-OfO" secondAttribute="bottom" constant="4" id="RrD-pG-wpd"/>
+                                    <constraint firstItem="fvZ-4I-OfO" firstAttribute="leading" secondItem="EH9-5V-rUX" secondAttribute="leading" id="QqP-tR-RXt"/>
+                                    <constraint firstItem="EH9-5V-rUX" firstAttribute="top" secondItem="fvZ-4I-OfO" secondAttribute="bottom" constant="-4" id="RrD-pG-wpd"/>
                                     <constraint firstItem="9eI-qC-oc0" firstAttribute="top" secondItem="Uz5-lW-d8h" secondAttribute="top" constant="90" id="SbT-61-3WM"/>
                                     <constraint firstItem="nAf-c4-utk" firstAttribute="leading" secondItem="osm-Ep-TBQ" secondAttribute="trailing" constant="20" id="ScB-mn-Sqp"/>
                                     <constraint firstItem="fqD-al-TuU" firstAttribute="leading" secondItem="UU0-3e-1aW" secondAttribute="trailing" constant="8" id="T55-Gx-Oou"/>
@@ -276,16 +276,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="同学" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0i-na-iV9">
-                                <rect key="frame" x="230" y="203.5" width="34" height="20.5"/>
+                                <rect key="frame" x="238" y="206.5" width="26" height="16"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.75686274509999996" green="0.75686274509999996" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1111" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxv-NS-qvy">
-                                <rect key="frame" x="189" y="203.5" width="38.5" height="20.5"/>
+                                <rect key="frame" x="205.5" y="206.5" width="30" height="16"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

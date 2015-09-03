@@ -2033,10 +2033,11 @@
 				TargetAttributes = {
 					D4B2F2F01B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = YQV68UZ2XR;
+						DevelopmentTeam = DRJ42M455V;
 					};
 					D4B2F30C1B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = H277GDZ7M9;
 						TestTargetID = D4B2F2F01B02FA00007B017E;
 					};
 				};
@@ -2613,6 +2614,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -2634,6 +2636,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

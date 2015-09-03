@@ -467,7 +467,10 @@ static NSInteger tag;
                 playVC.ChapterID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ChapterID;
                 playVC.FileID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileID;
                 playVC.Seconds=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).Seconds;
-                playVC.tutorVC=self;
+                playVC.pauseBlock = ^(NSInteger sends) {
+                    ((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).Seconds = (int)sends;
+                };
+//                playVC.tutorVC=self;
                 [self presentViewController:playVC animated:YES completion:nil];
                 break;
             }
