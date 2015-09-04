@@ -260,7 +260,14 @@
         cell.response = self.respones[indexPath.row - 1];
         cell.agreeBlcok = ^{
             [self.manager updateForumMyIsGoodWithTopicID:self.topic.TopicID ResponseID:((TopicResponseInfo *)self.respones[indexPath.row - 1]).ResponseID finished:^(EnumServerStatus status, NSObject *object) {
-                [self reloadData];
+                if (((TopicResponseInfo *)self.respones[indexPath.row - 1]).IsGood) {
+                    ((TopicResponseInfo *)self.respones[indexPath.row - 1]).Goods -= 1;
+                } else {
+                   ((TopicResponseInfo *)self.respones[indexPath.row - 1]).Goods += 1;
+                }
+                ((TopicResponseInfo *)self.respones[indexPath.row - 1]).IsGood = !((TopicResponseInfo *)self.respones[indexPath.row - 1]).IsGood;
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//                [self reloadData];
 //                [MBProgressHUD showSuccess:((ResponseObject *)object).message];
             }];
         };

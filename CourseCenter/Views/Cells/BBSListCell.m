@@ -166,6 +166,13 @@
         self.agreeImg.image = [UIImage imageNamed:@"icon_agree"];
     }
 }
+- (IBAction)agreeClick:(id)sender {
+    if (self.agreeBlock) {
+        self.agreeBlock();
+    }
+}
+- (IBAction)btnAction:(id)sender {
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
