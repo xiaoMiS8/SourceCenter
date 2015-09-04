@@ -4,18 +4,28 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/More/DetailData.m"
-            timestampString = "462954407.061306"
+            filePath = "CourseCenter/CCHttpRequest/CCHttpManager.m"
+            timestampString = "463066569.252878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
+            landmarkName = "-addAppMessageWithTitle:Conten:ReceiveUserIDs:finished:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +35,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/More/DetailData.m"
-            timestampString = "462953996.986737"
+            filePath = "CourseCenter/ViewControllers/More/MessageCell.m"
+            timestampString = "463066826.626609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-kLoadData"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-setCellFrame:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +51,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/More/NewMessage.m"
-            timestampString = "462955886.16437"
+            filePath = "CourseCenter/Thirds/SDWebImage/UIImageView+WebCache.m"
+            timestampString = "463066847.27525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
-            landmarkName = "-btn_left:"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-sd_setImageWithURL:placeholderImage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,14 +67,62 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CourseCenter/ViewControllers/Home/HomeDetailViewController.m"
-            timestampString = "462959006.331703"
+            filePath = "CourseCenter/ViewControllers/More/ChatViewController.m"
+            timestampString = "463067092.902527"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-sendMessage"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CourseCenter/ViewControllers/More/ChatViewController.m"
+            timestampString = "463067345.701377"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-sureMessageWithmessage:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ChatViewController sureMessage]"
+                  moduleName = "CourseCenter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/2345_muzhenhua/Documents/abc/SourceCenter/CourseCenter/ViewControllers/More/ChatViewController.m"
+                  timestampString = "463067172.641517"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33-[ChatViewController sureMessage]_block_invoke"
+                  moduleName = "CourseCenter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/2345_muzhenhua/Documents/abc/SourceCenter/CourseCenter/ViewControllers/More/ChatViewController.m"
+                  timestampString = "463067172.641696"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
+                  offsetFromSymbolStart = "42">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
