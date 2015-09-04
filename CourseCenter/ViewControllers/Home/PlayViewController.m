@@ -76,12 +76,11 @@ static BOOL isFirst;
                 if (self.Seconds!=0) {
                     movie.currentPlaybackTime=+self.Seconds;
                 }
-                isFirst=NO;
             }
-            if (_isRecord) {
+            if (_isRecord&&isFirst==NO) {
                 [self PlayOrPauseWith:1];
             }
-    
+            isFirst=NO;
             NSLog(@"正在播放...");
             break;
         case MPMoviePlaybackStatePaused:

@@ -24,6 +24,7 @@ static NSInteger tag;
     NSMutableDictionary *_dict;
     NSMutableArray *_arrayData;
     NSMutableArray *_moocFileArray;
+    NSMutableArray *_sectionArray;
     NSString *role;
     //正在下载的文件 位置 列表
     NSMutableArray *downIngRow;
@@ -67,6 +68,7 @@ static NSInteger tag;
     self.httpManager = [[CCHttpManager alloc]init];
     _array=[NSMutableArray arrayWithCapacity:0];
     _moocFileArray=[NSMutableArray arrayWithCapacity:0];
+    _sectionArray=[NSMutableArray arrayWithCapacity:0];
     tag=0;
     self.fileArray=[[NSMutableArray alloc]init];
     [FileDownLoadManager sharedFilesDownManageWithBasepath:BASEPATH TargetPathArr:[NSArray arrayWithObject:[NSString stringWithFormat:@"%@/%@",BASEPATH,TARGER]]];
@@ -91,12 +93,31 @@ static NSInteger tag;
 {
     [MBProgressHUD showMessage:nil];
     [self.httpManager getChapterStudyListwithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 _arrayData=self.reob.resultArray;
                 [self showCourseData];
-                [self loadOCMoocFile];
+                [self addMoocFileArray];
+               // [self loadOCMoocFile];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+-(void)loadData1
+{
+    [MBProgressHUD showMessage:nil];
+    [self.httpManager getChapterStudyListwithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                _arrayData=self.reob.resultArray;
+                [self showCourseData];
+                // [self loadOCMoocFile];
                 return ;
             }
         }
@@ -112,31 +133,56 @@ static NSInteger tag;
     }
     [_tableView reloadData];
 }
--(void)loadOCMoocFile
+-(void)addMoocFileArray
 {
-    if (tag==_arrayData.count) {
-        [MBProgressHUD hideHUD];
-        [self dataConvert];
-        return ;
+    for (int i=0; i<_arrayData.count; i++) {
+         [_moocFileArray addObject:[NSMutableArray arrayWithArray:nil]];
     }
-    long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:tag]).ChapterID;
+}
+-(void)loadOCMoocFileWithSection:(NSInteger)section WithIsBlock:(BOOL)isBlock
+{
+//    if (tag==_arrayData.count) {
+//        [MBProgressHUD hideHUD];
+//        [self dataConvert];
+//        return ;
+//    }
+    if (!isBlock) {
+        for (NSNumber *num in _sectionArray) {
+            if ([num integerValue]==section) {
+                [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+                return;
+            }
+        }
+    }
+    long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:section]).ChapterID;
     if (((ChapterInfo *)[_arrayData objectAtIndex:tag]).TestID<=0)
     {
+        [MBProgressHUD showMessage:nil];
         [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
+            [MBProgressHUD hideHUD];
             if (status==0) {
                 self.reob=(ResponseObject *)object;
                 if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                    [_moocFileArray addObject:self.reob.resultArray];
-                    tag++;
-                    [self loadOCMoocFile];
+                    //[_moocFileArray addObject:self.reob.resultArray];
+                      _moocFileArray[section]=self.reob.resultArray;
+                     [self dataConvert];
+                    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+                    [_sectionArray addObject:[NSNumber numberWithInteger:section]];
+//                    tag++;
+//                    [self loadOCMoocFile];
+                    return ;
                 }
             }
+            [MBProgressHUD showError:LOGINMESSAGE_F];
         }];
     }else
     {
-        [_moocFileArray addObject:[NSMutableArray arrayWithArray:nil]];
-        tag++;
-        [self loadOCMoocFile];
+//      [_moocFileArray addObject:[NSMutableArray arrayWithArray:nil]];
+        _moocFileArray[section]=[NSMutableArray arrayWithArray:nil];
+        [self dataConvert];
+        [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+//        tag++;
+//        [self loadOCMoocFile];
     }
 }
 -(void)dataConvert
@@ -442,7 +488,7 @@ static NSInteger tag;
     {
         [dicto setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
     }
-    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
+    [self loadOCMoocFileWithSection:but.tag-100 WithIsBlock:NO];
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -470,6 +516,8 @@ static NSInteger tag;
                 playVC.Seconds=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).Seconds;
                 playVC.pauseBlock = ^(NSInteger sends) {
                     ((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).Seconds = (int)sends;
+                    [self loadData1];
+                    //[self loadOCMoocFileWithSection:indexPath.section WithIsBlock:YES];
                 };
 //                playVC.tutorVC=self;
                 [self presentViewController:playVC animated:YES completion:nil];
@@ -503,6 +551,8 @@ static NSInteger tag;
         picVC.url=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).DownUrl;
         picVC.picName=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileTitle;;
         [((AppDelegate *)app).nav pushViewController:picVC animated:YES];
+        [self loadData1];
+        //[self loadOCMoocFileWithSection:indexPath.section WithIsBlock:YES];
     }else
     {
         NSString * fileName=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileTitle;
@@ -514,6 +564,8 @@ static NSInteger tag;
             _openChapterID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ChapterID;
             _openFileID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileID;
           [Tool showAlertView:@"提示" withMessage:@"使用第三方软件打开该类型资源" withTarget:self withCancel:@"取消" other:@"确定"];
+            [self loadData1];
+         //[self loadOCMoocFileWithSection:indexPath.section WithIsBlock:YES];
         }
     }
 }
@@ -531,6 +583,7 @@ static NSInteger tag;
     FileModel *fileInfo=[request.userInfo objectForKey:@"File"];
     if (![fileInfo.fileType isEqualToString:@"1"]) {
        [self addStuFileWithChapterID:fileInfo.ChapterID fileID:fileInfo.fileID];
+       [self loadData1];
     }
 }
 -(void)addStuFileWithChapterID:(long)chapterid fileID:(NSString *)fileid
