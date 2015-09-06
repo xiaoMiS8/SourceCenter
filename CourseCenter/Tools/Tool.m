@@ -291,6 +291,11 @@
     dispatch_resume(_timer);
     
 }
++(void)showAlertView:(NSString *)title withMessage:(NSString *)message withTarget:(id)target  withCancel:(NSString *)btn1 other:(NSString *)btn2
+{
+    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:title message:message delegate:target cancelButtonTitle:btn1 otherButtonTitles:btn2, nil];
+    [alert show];
+}
 //+ (void)saveCookies{
 //    NSData *cookiesData = [NSKeyedArchiver archivedDataWithRootObject: [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies]];
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -307,4 +312,47 @@
 //        [cookieStorage setCookie: cookie];
 //    }
 //}
+
++(BOOL)isExistWithName:(NSString *)name
+{
+    NSString *document = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    NSString *plistPath = [[document stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:@"finishPlist.plist"];
+    if ([[NSFileManager defaultManager]fileExistsAtPath:plistPath]) {
+        NSMutableArray *finishArr = [[NSMutableArray alloc]initWithContentsOfFile:plistPath];
+        for (NSDictionary *dic in finishArr) {
+            if([name isEqualToString:[dic objectForKey:@"filename"]])
+            {
+                return YES;
+            }
+        }
+              return NO;
+    }
+  return NO;
+}
+
++(NSString *)getPathUrlWithName:(NSString *)name
+{
+    NSString *filePath = [[[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"]stringByAppendingPathComponent:BASEPATH]stringByAppendingPathComponent:TARGER] stringByAppendingPathComponent:name];
+    return filePath;
+}
++(NSString *)getHomeDirectory
+{
+    return NSHomeDirectory();
+}
++(NSString *)getAppPath
+{
+    return [[NSBundle mainBundle]bundlePath];
+}
++(NSString *)getDocument
+{
+  return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES)objectAtIndex:0];
+}
++(NSString *)getLibrary
+{
+    return [NSSearchPathForDirectoriesInDomains(NSLibraryDirectory,NSUserDomainMask,YES)objectAtIndex:0];
+}
++(NSString *)getTemp
+{
+    return NSTemporaryDirectory();
+}
 @end

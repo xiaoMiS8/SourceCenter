@@ -56,12 +56,19 @@
     _timeLabel.text = message.time;
     
     _iconView.frame = cellFrame.iconFrame;
+    if(message.type==kMessageModelTypeOther)
+    {
+      [ _iconView sd_setImageWithURL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"userImg"]] placeholderImage:[UIImage imageNamed:@"other"]];
+    }else
+    {
+       [ _iconView sd_setImageWithURL:[NSURL URLWithString:((MsgInfo *)_dic).UserImgUrl] placeholderImage:[UIImage imageNamed:@"other"]];
+    }
 //    NSString *iconStr = message.type ? @"other" : @"me";
 //    _iconView.image = [UIImage imageNamed:iconStr];
-    [ _iconView sd_setImageWithURL:[NSURL URLWithString:((MsgInfo *)_dic).UserImgUrl] placeholderImage:[UIImage imageNamed:@"other"]];
+    
     _textView.frame = cellFrame.textFrame;
-    NSString *textBg = message.type==kMessageModelTypeOther ? @"chat_recive_nor" : @"chat_send_nor";
-    UIColor *textColor = message.type==kMessageModelTypeOther ? [UIColor blackColor] : [UIColor whiteColor];
+    NSString *textBg = message.type==kMessageModelTypeMe ? @"chat_recive_nor" : @"chat_send_nor";
+    UIColor *textColor = message.type==kMessageModelTypeMe ? [UIColor blackColor] : [UIColor whiteColor];
     [_textView setTitleColor:textColor forState:UIControlStateNormal];
     [_textView setBackgroundImage:[UIImage resizeImage:textBg] forState:UIControlStateNormal];
     [_textView setTitle:message.text forState:UIControlStateNormal];

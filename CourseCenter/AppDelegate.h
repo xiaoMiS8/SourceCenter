@@ -22,6 +22,6 @@
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 @property(nonatomic,strong)NSMutableDictionary *dicData;
-
+-(UINavigationController *)inNavigationController;
 @end
 

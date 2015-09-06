@@ -52,13 +52,15 @@
     }
     return mArray;
 }
--(NSMutableArray *)getArrayId
+-(NSString *)getArrayId
 {
-    NSMutableArray *arrayId=[[NSMutableArray alloc]init];
+    NSString *arrayIds=@"";
+    NSString *string=nil;
     for (int i=0; i<_editingTagControl.data.count; i++) {
-        [arrayId addObject:[[_editingTagControl.data[i] objectForKey:@"UserID"]stringValue]];
+        string=[NSString stringWithFormat:@"%@,",[[_editingTagControl.data[i] objectForKey:@"UserID"]stringValue]];
+        arrayIds=[arrayIds stringByAppendingString:string];
     }
-    return arrayId;
+    return arrayIds;
 }
 -(void)sureMessage
 {
@@ -69,12 +71,26 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [MBProgressHUD showSuccess:self.reob.errorMessage];
-                [self.navigationController popViewControllerAnimated:YES];
+                [self.navigationController popToViewController:_messageCenter animated:YES];
                 return ;
             }
         }
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
+}
+-(void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@"请输入内容(必填)"]) {
+        textView.text=@"";
+        textView.textColor=RGBA(0, 0, 0, 1);
+    }
+}
+-(void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text=@"请输入内容(必填)";
+        textView.textColor=RGBA(193, 193, 194, 1);
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

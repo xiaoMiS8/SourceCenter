@@ -7,6 +7,7 @@
 //
 
 #import "BBSResponeCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface BBSResponeCell ()
 @property (weak, nonatomic) IBOutlet UILabel *content;
@@ -22,21 +23,34 @@
 @implementation BBSResponeCell
 
 - (void)awakeFromNib {
-    self.content.preferredMaxLayoutWidth = Swidth - 10 - 10;
+    self.content.preferredMaxLayoutWidth = Swidth - 10 - 20;
 }
 
 - (void)setResponse:(TopicResponseInfo *)response {
     _response = response;
+    NSString *imgName = @"iconpro";
+    if (response.Gender !=2) {
+        imgName = @"me";
+    }
+     [self.userImg sd_setImageWithURL:[NSURL URLWithString:response.userImg] placeholderImage:[UIImage imageNamed:imgName]];
     self.content.text  = response.Conten;
     self.name.text = response.UserName;
     self.className.text = response.FromClassName;
     self.agressCount.text = [NSString stringWithFormat:@"%ld",response.Goods];
-    self.time.text = response.UpdateTime;
+    NSArray *timeArray = [response.UpdateTime componentsSeparatedByString:@"T"];
+    NSArray *dateArray = [timeArray[0] componentsSeparatedByString:@"-"];
+    NSString *dateStr = [NSString stringWithFormat:@"%@/%@",dateArray[1],dateArray[2]];
+    NSArray *timesArray = [timeArray[1] componentsSeparatedByString:@":"];
+    NSString *timeStr = [NSString stringWithFormat:@"%@:%@",timesArray[0],timesArray[1]];
+    self.time.text = [NSString stringWithFormat:@"%@ %@",dateStr,timeStr];
     if (response.IsGood) {
         [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree_push"] forState:UIControlStateNormal];
     } else {
         [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree"] forState:UIControlStateNormal];
     }
+}
+- (IBAction)agreeAction:(id)sender {
+    self.agreeBlcok();
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

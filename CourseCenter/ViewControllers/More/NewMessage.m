@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "UserInfo.h"
 #define SECTION_STATE @"SECTION_STATE"
+static BOOL isSelect;
 @interface NewMessage ()
 {
     NSMutableArray *_array;
@@ -40,6 +41,7 @@
     ((AppDelegate *)app).dicData=[NSMutableDictionary dictionaryWithCapacity:0];
     [self.tableView registerNib:[UINib nibWithNibName:@"NewMessageCell" bundle:nil] forCellReuseIdentifier:@"NewMessageCell"];
     [self aLoadData];
+    isSelect=NO;
 }
 -(void)aLoadData
 {
@@ -58,11 +60,11 @@
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
 }
--(void)bLoadDataWithId:(NSString *)ID type:(NSString *)type
+-(void)bLoadDataWithId:(long)ID type:(int)type
 {
     NSString *partURL = [[[kServerIP stringByAppendingString:kServerPort] stringByAppendingString:kSerVerName] stringByAppendingString:kServiceName];
     NSString *URLString =[partURL stringByAppendingString:@"/Msg/App_ClassUser_List"];
-    NSDictionary *parameters = @{@"ID": [NSNumber numberWithLong:53],@"Type": [NSNumber numberWithInt:1]};
+    NSDictionary *parameters = @{@"ID": [NSNumber numberWithLong:ID],@"Type": [NSNumber numberWithInt:type]};
     AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
     NSMutableURLRequest *request = [requestSerializer requestWithMethod:@"GET" URLString:URLString parameters:parameters error:nil];
     AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -121,7 +123,9 @@
         [_array addObject:_dict];
     }
     for (int i=0; i<_arrayData.count; i++) {
-        [self bLoadDataWithId:nil type:nil];
+        int type=((GroupInfo *)[_arrayData objectAtIndex:i]).Type;
+        long ID=((GroupInfo *)[_arrayData objectAtIndex:i]).ID;
+        [self bLoadDataWithId:ID type:type];
     }
     [MBProgressHUD hideHUD];
 }
@@ -158,6 +162,7 @@
     SendMesage *sendMessage=[[SendMesage alloc]
                              init];
     sendMessage.array=_subArray;
+    sendMessage.messageCenter=_messageCenter;
     [((AppDelegate *)app).nav pushViewController:sendMessage animated:YES];
 }
 - (IBAction)selectAll:(UIButton *)sender {
@@ -176,7 +181,9 @@
     [_tableView reloadData];
 }
 - (IBAction)btn_left:(UIButton *)sender {
-    sender.selected=!sender.selected;
+    isSelect=!isSelect;
+    _head_btn_left.selected=isSelect;
+    BOOL n = _head_btn_left.selected;
     [self setSelectStateWith:sender.tag];
     [_tableView reloadData];
 }
@@ -215,6 +222,9 @@
 -(BOOL)returnWithSection:(NSInteger)section
 {
         NSMutableArray *array=[((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",section]];
+        if (array.count==0) {
+              return NO;
+       }
         for (int j=0; j<array.count; j++) {
             if ([array[j] isEqualToString:@"NOSEL"]) {
                 return NO;

@@ -46,4 +46,27 @@
     }];
 }
 
++ (void)uploadPictureWithSourceID:(long)SourceID
+                           Source:(NSString *)Source
+                             File:(NSData *)File
+                         finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{kSourceID: [NSNumber numberWithLong:SourceID],
+                                   kSource:  Source};
+    [CSNetAccessor httpRequestUploadFormUrl:@"/User/ImgUpload"
+                                  formDatas:File
+                                 parameters:parameters
+                                connectFlag:kPic_Upload finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+                                }];
+}
+
++ (void)chooseSchoolWithOpt:(NSString *)Opt
+                        key:(NSString *)key
+                   finished:(FinishedBlock)finished{
+    NSDictionary *parameters = @{kOpt:Opt,
+                                 kKey:key};
+    [CSNetAccessor sendPostAsyncObjectFormExtraUrl:kUrl parameters:parameters connectFlag:kChosse_school finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status, object);
+    }];
+}
 @end

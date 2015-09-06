@@ -62,6 +62,8 @@
 @property(nonatomic, strong) NSString               *Ranks;
     //用户头像路径
 @property(nonatomic, strong) NSString               *TeacherImgUrl;
+    //性别
+@property(nonatomic, assign) int Gender;
     //1
 @property(nonatomic, assign) BOOL                   IsNewImg;
     //课程图片地址

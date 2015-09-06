@@ -24,7 +24,7 @@
     ///事务ID
 @property(nonatomic, assign) long AffairID;
     ///事务类型
-@property(nonatomic, assign) int AffairType;
+@property(nonatomic, strong) NSString *AffairType;
     ///事务详情
 @property(nonatomic, strong) NSString *AffairDesc;
     ///创建时间

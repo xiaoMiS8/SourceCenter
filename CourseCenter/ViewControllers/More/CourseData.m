@@ -84,19 +84,23 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DetailData *detailData= [[DetailData alloc] init];
+    DetailData *detailData= [[DetailData alloc]init];
     detailData.OCID=self.OCID;
     switch (indexPath.row) {
         case 0:
+            detailData.FileType=-1;
             detailData.title=@"全部资料";
             break;
         case 1:
+            detailData.FileType=-2;
             detailData.title=@"文稿资料";
             break;
         case 2:
+            detailData.FileType=6;
             detailData.title=@"图片资料";
             break;
         case 3:
+            detailData.FileType=1;
             detailData.title=@"视频资料";
             break;
         default:

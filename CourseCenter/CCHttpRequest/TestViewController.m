@@ -88,9 +88,9 @@
         }];
         
     } else if ([cell.textLabel.text isEqualToString:@"学科列表"]) {
-        [self.httpManager getSpecialtyTypeTreeWithParentID:-1 finished:^(EnumServerStatus status, NSObject *object) {
-            resultVC.result = [NSString stringWithFormat:@"%@", object];
-        }];
+//        [self.httpManager getSpecialtyTypeTreeWithParentID:-1 finished:^(EnumServerStatus status, NSObject *object) {
+//            resultVC.result = [NSString stringWithFormat:@"%@", object];
+//        }];
         
     } else if ([cell.textLabel.text isEqualToString:@"Mooc基本信息"]) {
         [self.httpManager getAppOCMoocGetWithOCID:2 finished:^(EnumServerStatus status, NSObject *object) {

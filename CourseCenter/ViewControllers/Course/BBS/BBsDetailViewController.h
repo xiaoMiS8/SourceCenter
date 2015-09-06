@@ -13,5 +13,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property(nonatomic, strong) TopicInfo *topic;
+@property(nonatomic, assign) long OCID;
+
+@property(nonatomic, copy) void(^topicSetBlcok)();
+
+@property(nonatomic, copy) void(^AgreeBlock)(void);
 
 @end

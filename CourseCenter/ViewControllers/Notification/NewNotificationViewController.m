@@ -102,20 +102,52 @@
     NewNotiTextViewCell *contentCell = (NewNotiTextViewCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:1]];
     NSString *title = titleCell.textView.text;
     NSString *content = contentCell.textView.text;
+    if (title == nil || [title isEqualToString:@""]) {
+        [MBProgressHUD showError:@"请输入标题"];
+        return;
+    }
+    if (content == nil || [content isEqualToString:@""]) {
+        [MBProgressHUD showError:@"请输入通知内容"];
+        return;
+    }
     NSMutableArray *IDs = [[NSMutableArray alloc] initWithCapacity:0];
-    for (int i=1; i<self.isSelecteds.count; i++) {
-        if ([self.isSelecteds[i] boolValue]) {
-            TeachingClassInfo *teachIngClass = self.teachingClasses[i -1];
-            [IDs addObject:[NSNumber numberWithLong:teachIngClass.TeachingClassID]];
+    if ([self.isSelecteds.firstObject boolValue]) {
+        for (int i=1; i<self.teachingClasses.count; i++) {
+                TeachingClassInfo *teachIngClass = self.teachingClasses[i];
+                [IDs addObject:[NSNumber numberWithLong:teachIngClass.TeachingClassID]];
         }
+
+    } else {
+        for (int i=1; i<self.isSelecteds.count; i++) {
+            if ([self.isSelecteds[i] boolValue]) {
+                TeachingClassInfo *teachIngClass = self.teachingClasses[i];
+                [IDs addObject:[NSNumber numberWithLong:teachIngClass.TeachingClassID]];
+            }
+        }
+    }
+    if (IDs.count < 1) {
+        [MBProgressHUD showError:@"请选择班级"];
+        return;
     }
     BOOL IsForMail = [self.isSendSelecteds[0] boolValue];
     BOOL IsForSMS = [self.isSendSelecteds[1] boolValue];
     [self.httpManager AddAppNoticeWithTitle:title Conten:content IsTop:NO IsForMail:IsForMail IsForSMS:IsForSMS SourceIDs:IDs finished:^(EnumServerStatus status, NSObject *object) {
-        
+        if (status == Enum_SUCCESS) {
+            if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                [MBProgressHUD showSuccess:((ResponseObject *)object).errorMessage];
+                if (self.DoBlock) {
+                    self.DoBlock();
+                     [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            } else {
+                 [MBProgressHUD showError:((ResponseObject *)object).errorMessage];
+            }
+        } else {
+            [MBProgressHUD showError:@"网络繁忙请稍候再试"];
+        }
     }];
-    self.DoBlock();
-    [self dismissViewControllerAnimated:YES completion:nil];
+   
+   
 }
 
 - (void)addFooter {
@@ -214,6 +246,7 @@
         } else {
             cell.imgView.image = [UIImage imageNamed:@"btn_confirm"];
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     if (indexPath.section == 2) {
@@ -233,6 +266,7 @@
             }
             [self.tableView reloadData];
         };
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else {
         NewNotiTextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewNotiTextViewCell"];
@@ -242,6 +276,7 @@
         } else {
             cell.lineLabel.hidden = NO;
         }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
  

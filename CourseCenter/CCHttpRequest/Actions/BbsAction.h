@@ -38,6 +38,13 @@
 #define kChapterID          @"ChapterID"
 #define kSource             @"Source"
 #define kSourceID           @"SourceID"
+#define kFileID             @"FileID"
+#define kIsFinish           @"IsFinish"
+#define kTimeCount          @"TimeCount"
+#define kStudyTimes         @"StudyTimes"
+#define kSeconds            @"Seconds"
+#define kFile               @"File"
+#define kPlayOrPause        @"PlayOrPause"
 
 @interface BbsAction : NSObject
 
@@ -56,7 +63,7 @@
  */
 + (void)getAppForumTopicListWithOCID:(long)OCID
                          ForumTypeID:(long)ForumTypeID
-                           IsEssence:(BOOL)IsEssence
+                           IsEssence:(int)IsEssence
                            IsMyStart:(BOOL)IsMyStart
                             IsMyJoin:(BOOL)IsMyJoin
                            SearchKey:(NSString *)SearchKey
@@ -246,6 +253,7 @@
  *  @param finished finished description
  */
 + (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                            ForumTypeID:(NSString *)ForumTypeID
                                finished:(FinishedBlock)finished;
 
 @end

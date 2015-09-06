@@ -19,6 +19,10 @@
 #define kgetUserInfo                    @"User_Get"
     //修改密码
 #define kPwd_Upd                        @"Pwd_Upd"
+    //图片上传
+#define kPic_Upload                     @"Pic_Upload"
+    //选择学校
+#define kChosse_school                  @"Chosse_school"
 
 #pragma mark- Index
     //推荐课程
@@ -33,6 +37,16 @@
 #define kChapterStudy_List              @"ChapterStudy_List"
     //章节下资料列表
 #define kOCMoocFileStudy_List           @"OCMoocFileStudy_List"
+    //章节下资料学习情况
+#define kOCMoocStuFile_Add              @"OCMoocStuFile_Add"
+    //章节下资料学习10秒回调
+#define kOCMoocStuFile_TimeCount        @"OCMoocStuFile_TimeCount"
+    //章节下资料学习60秒回调
+#define kOCMoocStuFile_StudyTimes       @"OCMoocStuFile_StudyTimes"
+    //章节下资料学习点回调
+#define kOCMoocStuFile_Seconds          @"OCMoocStuFile_Seconds"
+    //章节下资料播放或者暂停
+#define kOCMoocStuFilePlayPause         @"OCMoocStuFilePlayPause"
 
 #pragma mark- Notice
 

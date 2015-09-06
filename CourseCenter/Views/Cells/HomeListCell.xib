@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -53,9 +53,14 @@
                                         <rect key="frame" x="0.0" y="0.0" width="304" height="160"/>
                                         <animations/>
                                     </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J4f-hh-jVA">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J4f-hh-jVA">
                                         <rect key="frame" x="10" y="16" width="160" height="60"/>
                                         <subviews>
+                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="topbg" translatesAutoresizingMaskIntoConstraints="NO" id="9Tj-Au-MHH">
+                                                <rect key="frame" x="0.0" y="0.0" width="160" height="60"/>
+                                                <animations/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TxC-hQ-IKM">
                                                 <rect key="frame" x="2" y="2" width="56" height="56"/>
                                                 <animations/>
@@ -71,18 +76,13 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="孙悟空" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6x-d5-fHa">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="孙悟空" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6x-d5-fHa">
                                                 <rect key="frame" x="66" y="8" width="51" height="20.5"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" alpha="0.49999999999999961" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="topbg" translatesAutoresizingMaskIntoConstraints="NO" id="9Tj-Au-MHH">
-                                                <rect key="frame" x="0.0" y="0.0" width="160" height="60"/>
-                                                <animations/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            </imageView>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -91,16 +91,23 @@
                                             <constraint firstItem="TxC-hQ-IKM" firstAttribute="leading" secondItem="J4f-hh-jVA" secondAttribute="leading" constant="2" id="0Me-nr-jmg"/>
                                             <constraint firstAttribute="width" constant="160" id="Fmn-Ph-rjI"/>
                                             <constraint firstItem="TxC-hQ-IKM" firstAttribute="top" secondItem="J4f-hh-jVA" secondAttribute="top" constant="2" id="JY5-iB-ruB"/>
+                                            <constraint firstItem="9le-m1-wjz" firstAttribute="width" secondItem="d6x-d5-fHa" secondAttribute="width" id="K1E-Q2-FX2"/>
                                             <constraint firstAttribute="trailing" secondItem="9Tj-Au-MHH" secondAttribute="trailing" id="PRz-iR-VrP"/>
                                             <constraint firstItem="9Tj-Au-MHH" firstAttribute="leading" secondItem="J4f-hh-jVA" secondAttribute="leading" id="Pnd-Q4-uBg"/>
                                             <constraint firstItem="9le-m1-wjz" firstAttribute="top" secondItem="d6x-d5-fHa" secondAttribute="bottom" constant="2" id="RR5-TY-vaK"/>
                                             <constraint firstItem="9Tj-Au-MHH" firstAttribute="top" secondItem="J4f-hh-jVA" secondAttribute="top" id="am5-d8-OX9"/>
                                             <constraint firstItem="d6x-d5-fHa" firstAttribute="top" secondItem="J4f-hh-jVA" secondAttribute="top" constant="8" id="eFU-TD-MPZ"/>
                                             <constraint firstItem="d6x-d5-fHa" firstAttribute="leading" secondItem="9le-m1-wjz" secondAttribute="leading" id="hxL-g1-Xnt"/>
+                                            <constraint firstAttribute="trailing" secondItem="9le-m1-wjz" secondAttribute="trailing" constant="5" id="iBA-pE-AnY"/>
                                             <constraint firstAttribute="height" constant="60" id="wtg-Yy-BHs"/>
                                             <constraint firstAttribute="bottom" secondItem="9Tj-Au-MHH" secondAttribute="bottom" id="z4X-qZ-IP6"/>
                                             <constraint firstAttribute="bottom" secondItem="TxC-hQ-IKM" secondAttribute="bottom" constant="2" id="z9T-Rh-htw"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Fmn-Ph-rjI"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St2-ZB-Ms5">
                                         <rect key="frame" x="209" y="110" width="80" height="35"/>

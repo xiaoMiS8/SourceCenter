@@ -51,7 +51,18 @@
 + (BOOL)isMobileNumber:(NSString *)mobileNum;
 #pragma mark- 按钮处理
 +(void)startTimeWithBtn:(UIButton *)btn;
+#pragma mark- alertView
++(void)showAlertView:(NSString *)title withMessage:(NSString *)message withTarget:(id)target  withCancel:(NSString *)btn1 other:(NSString *)btn2;
 #pragma mark- Cookies处理
 //+ (void)saveCookies;
 //+ (void)loadCookies;
+#pragma mark- 下载资料文件处理
++(BOOL)isExistWithName:(NSString *)name;
++(NSString *)getPathUrlWithName:(NSString *)name;
+#pragma mark- 沙河目录
++(NSString *)getHomeDirectory;
++(NSString *)getAppPath;
++(NSString *)getDocument;
++(NSString *)getLibrary;
++(NSString *)getTemp;
 @end

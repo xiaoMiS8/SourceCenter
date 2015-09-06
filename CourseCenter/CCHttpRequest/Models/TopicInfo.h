@@ -16,13 +16,14 @@
 #define kConten                 @"Conten"
 #define kUserName               @"UserName"
 #define kIsTeacherTopic         @"IsTeacherTopic"
-#define kForumClassName         @"ForumClassName"
+#define kForumClassName         @"FromClassName"
 #define kUpdateTime             @"UpdateTime"
 #define kClicks                 @"Clicks"
 #define kResponses              @"Responses"
 #define kGoods                  @"Goods"
 #define kIsGood                 @"IsGood"
 #define kRowsCount              @"RowsCount"
+#define kIsCanDel               @"IsCanDel"
 
 @interface TopicInfo : NSObject
 
@@ -56,6 +57,9 @@
 @property(nonatomic, assign) long           RowsCount;
     ///图片（接口暂时没有该字段）
 @property(nonatomic, strong) NSArray *imgs;
+@property(nonatomic, assign) BOOL iscanDel;
+@property(nonatomic, strong) NSString *userImg;
+@property(nonatomic, assign) int Gender;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

@@ -11,7 +11,7 @@
 #import "MessageCell.h"
 #import "IQKeyboardManager.h"
 #import "MsgInfo.h"
-#define kToolBarH  0 //44
+#define kToolBarH  44
 #define kTextFieldH 30
 
 @interface ChatViewController () <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
@@ -19,11 +19,13 @@
     NSMutableArray *_cellFrameDatas;
     UITableView *_chatView;
     UIImageView *_toolBar;
+    UITextField *textField;
     
 }
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (nonatomic,strong)NSMutableArray *myDataArray;
+@property (nonatomic,strong)NSMutableArray *reverseArray;
 @end
 
 @implementation ChatViewController
@@ -43,11 +45,25 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     self.httpManager = [[CCHttpManager alloc]init];
     self.myDataArray=[[NSMutableArray alloc]init];
+    self.reverseArray=[[NSMutableArray alloc]init];
+    [self getFilePath];
     [self initMsg];
     //1.tableView
     [self addChatView];
     //2.工具栏
-    //[self addToolBar];
+    [self addToolBar];
+}
+- (void)getFilePath
+{
+    
+    NSString *path = [[Tool getDocument] stringByAppendingPathComponent:PLISTNAME];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:path] == NO)
+    {
+        NSFileManager* fileManager = [NSFileManager defaultManager];
+        [fileManager createFileAtPath:path contents:nil attributes:nil];
+        NSMutableArray *rootArray = [NSMutableArray array];
+        [rootArray writeToFile:path atomically:YES];
+    }
 }
 -(void)initMsg
 {
@@ -58,10 +74,12 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.myDataArray=self.reob.resultArray;
-                [self readDataForPlistWithArray:self.reob.resultArray];
+                self.reverseArray=[[self.reob.resultArray reverseObjectEnumerator]allObjects];
+                [self readDataForPlistWithArray:self.reverseArray];
                 //0.加载数据
                 [self loadData];
                 [_chatView reloadData];
+                [_chatView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:self.myDataArray.count -1 inSection:0] atScrollPosition:UITableViewScrollPositionNone animated:NO];
                 return ;
             }
         }
@@ -70,12 +88,19 @@
 }
 -(void)readDataForPlistWithArray:(NSMutableArray *)array
 {
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"messages" ofType:@"plist"];
-    NSMutableArray *data = [[NSMutableArray alloc] initWithContentsOfFile:plistPath];
-    [data removeAllObjects];
-    [data writeToFile:plistPath atomically:YES];
+    NSString *plistPath = [[Tool getDocument]stringByAppendingPathComponent:PLISTNAME];
+    NSMutableArray *data = [[NSMutableArray alloc]init];
     for (int i=0; i<array.count;i++) {
         NSMutableDictionary *dic=[[NSMutableDictionary alloc]init];
+        if ([Tool objectIsEmpty:((MsgInfo *)array[i]).Conten]) {
+            ((MsgInfo *)array[i]).Conten=@"";
+        }
+        if ([Tool objectIsEmpty:((MsgInfo *)array[i]).CreateTime]) {
+            ((MsgInfo *)array[i]).CreateTime=@"";
+        }
+        if ([Tool objectIsEmpty:((MsgInfo *)array[i]).SendOrReceive]) {
+            ((MsgInfo *)array[i]).SendOrReceive=@"";
+        }
         [dic setObject:((MsgInfo *)array[i]).Conten forKey:@"text"];
         [dic setObject:((MsgInfo *)array[i]).CreateTime forKey:@"time"];
         [dic setObject:((MsgInfo *)array[i]).SendOrReceive forKey:@"type"];
@@ -90,8 +115,8 @@
 - (void)loadData
 {
     _cellFrameDatas =[NSMutableArray array];
-    NSURL *dataUrl = [[NSBundle mainBundle] URLForResource:@"messages.plist" withExtension:nil];
-    NSArray *dataArray = [NSArray arrayWithContentsOfURL:dataUrl];
+    NSString *plistPath = [[Tool getDocument]stringByAppendingPathComponent:PLISTNAME];
+    NSArray *dataArray = [NSArray arrayWithContentsOfFile:plistPath];
     for (NSDictionary *dict in dataArray) {
         MessageModel *message = [MessageModel messageModelWithDict:dict];
         CellFrameModel *lastFrame = [_cellFrameDatas lastObject];
@@ -131,30 +156,52 @@
     _toolBar = bgView;
     [self.view addSubview:bgView];
     
-    UIButton *sendSoundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    sendSoundBtn.frame = CGRectMake(0, 0, kToolBarH, kToolBarH);
-    [sendSoundBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_nor"] forState:UIControlStateNormal];
-    [bgView addSubview:sendSoundBtn];
+//    UIButton *sendSoundBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    sendSoundBtn.frame = CGRectMake(0, 0, kToolBarH, kToolBarH);
+//    [sendSoundBtn setImage:[UIImage imageNamed:@"chat_bottom_voice_nor"] forState:UIControlStateNormal];
+//    [bgView addSubview:sendSoundBtn];
     
-    UIButton *addMoreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    addMoreBtn.frame = CGRectMake(self.view.frame.size.width - kToolBarH, 0, kToolBarH, kToolBarH);
-    [addMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_nor"] forState:UIControlStateNormal];
-    [bgView addSubview:addMoreBtn];
     
-    UIButton *expressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    expressBtn.frame = CGRectMake(self.view.frame.size.width - kToolBarH * 2, 0, kToolBarH, kToolBarH);
-    [expressBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_nor"] forState:UIControlStateNormal];
-    [bgView addSubview:expressBtn];
     
-    UITextField *textField = [[UITextField alloc] init];
+//    UIButton *expressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    expressBtn.frame = CGRectMake(self.view.frame.size.width - kToolBarH * 2, 0, kToolBarH, kToolBarH);
+//    [expressBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_nor"] forState:UIControlStateNormal];
+//    [bgView addSubview:expressBtn];
+    
+    textField = [[UITextField alloc] init];
     textField.returnKeyType = UIReturnKeySend;
     textField.enablesReturnKeyAutomatically = YES;
     textField.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 1)];
     textField.leftViewMode = UITextFieldViewModeAlways;
-    textField.frame = CGRectMake(kToolBarH, (kToolBarH - kTextFieldH) * 0.5, self.view.frame.size.width - 3 * kToolBarH, kTextFieldH);
+    textField.frame = CGRectMake(20, (kToolBarH - kTextFieldH) * 0.5, self.view.frame.size.width - 2 * kToolBarH, kTextFieldH);
     textField.background = [UIImage imageNamed:@"chat_bottom_textfield"];
     textField.delegate = self;
     [bgView addSubview:textField];
+    
+    UIButton *addMoreBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    addMoreBtn.frame = CGRectMake(self.view.frame.size.width - kToolBarH-20, 0, kToolBarH+20, kToolBarH);
+    [addMoreBtn setTitle:@"发送" forState:UIControlStateNormal];
+    [addMoreBtn setTitleColor:RGBA(0, 0, 0, 1) forState:UIControlStateNormal];
+    [addMoreBtn addTarget:self action:@selector(sendMessage) forControlEvents:UIControlEventTouchUpInside];
+    //[addMoreBtn setImage:[UIImage imageNamed:@"chat_bottom_up_nor"] forState:UIControlStateNormal];
+    [bgView addSubview:addMoreBtn];
+}
+-(void)sendMessage
+{
+    [self textFieldShouldReturn:textField];
+}
+
+-(void)sureMessageWithmessage:(NSString *)message
+{
+    [self.httpManager addAppMessageWithTitle:@"" Conten:message ReceiveUserIDs:[[NSNumber  numberWithLong:_userID] stringValue] finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
 }
 
 #pragma mark - tableView的数据源和代理方法
@@ -192,35 +239,57 @@
 #pragma mark - UITextField的代理方法
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    //1.获得时间
-    NSDate *senddate=[NSDate date];
-    NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
-    [dateformatter setDateFormat:@"HH:mm"];
-    NSString *locationString=[dateformatter stringFromDate:senddate];
+    if ([textField.text isEqualToString:@""]) {
+        [MBProgressHUD showError:@"信息不能为空!"];
+        return YES;
+    }else
+    {
+        MsgInfo *info=[[MsgInfo alloc]init];
+        //1.获得时间
+        NSDate *senddate=[NSDate date];
+        NSDateFormatter *dateformatter=[[NSDateFormatter alloc] init];
+        [dateformatter setDateFormat:@"HH:mm"];
+        NSString *locationString=[dateformatter stringFromDate:senddate];
+        
+        
+        //2.创建一个MessageModel类
+        MessageModel *message = [[MessageModel alloc] init];
+        message.text = textField.text;
+        message.time = locationString;
+        message.type = 1;
+        
+        
+        //3.创建一个CellFrameModel类
+        CellFrameModel *cellFrame = [[CellFrameModel alloc] init];
+        CellFrameModel *lastCellFrame = [_cellFrameDatas lastObject];
+        message.showTime = ![lastCellFrame.message.time isEqualToString:message.time];
+        cellFrame.message = message;
+        
+        //4.添加进去，并且刷新数据
+        [_cellFrameDatas addObject:cellFrame];
+        
+        info.CreateTime=[Tool getNowTime];
+        info.Conten=textField.text;
+        info.SendOrReceive=@"2";
+        [_myDataArray addObject:info];
+        
+        //_myDataArray
+        [_chatView reloadData];
+        
+        //5.自动滚到最后一行
+        NSIndexPath *lastPath = [NSIndexPath indexPathForRow:_cellFrameDatas.count - 1 inSection:0];
+        [_chatView scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        
+        
+        [self sureMessageWithmessage:textField.text];
+        
+        textField.text = @"";
+        
+        
+        
+        return YES;
+    }
     
-    //2.创建一个MessageModel类
-    MessageModel *message = [[MessageModel alloc] init];
-    message.text = textField.text;
-    message.time = locationString;
-    message.type = 0;
-    
-    //3.创建一个CellFrameModel类
-    CellFrameModel *cellFrame = [[CellFrameModel alloc] init];
-    CellFrameModel *lastCellFrame = [_cellFrameDatas lastObject];
-    message.showTime = ![lastCellFrame.message.time isEqualToString:message.time];
-    cellFrame.message = message;
-    
-    //4.添加进去，并且刷新数据
-    [_cellFrameDatas addObject:cellFrame];
-    [_chatView reloadData];
-    
-    //5.自动滚到最后一行
-    NSIndexPath *lastPath = [NSIndexPath indexPathForRow:_cellFrameDatas.count - 1 inSection:0];
-    [_chatView scrollToRowAtIndexPath:lastPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    
-    textField.text = @"";
-    
-    return YES;
 }
 
 - (void)endEdit

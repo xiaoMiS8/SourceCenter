@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="chooseSchoolBtn" destination="JqQ-Gj-dxQ" id="iYB-zJ-mVe"/>
                 <outlet property="courseSelectLabel" destination="0Ss-cw-HUC" id="1HQ-9G-v7T"/>
                 <outlet property="loginBtn" destination="okJ-0U-ZG5" id="rnO-dA-Icj"/>
                 <outlet property="loginPrompt" destination="Sgt-JY-r7W" id="Hpg-dO-HyW"/>
@@ -68,16 +69,6 @@
                         <constraint firstAttribute="centerY" secondItem="0Ss-cw-HUC" secondAttribute="centerY" id="cH4-pL-AL6"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="puF-6l-hUN">
-                    <rect key="frame" x="270" y="140" width="60" height="30"/>
-                    <animations/>
-                    <state key="normal" title="接口测试">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="testAction:" destination="-1" eventType="touchUpInside" id="lIi-TX-oHo"/>
-                    </connections>
-                </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tZ2-cc-rFp">
                     <rect key="frame" x="0.0" y="40" width="600" height="511"/>
                     <animations/>
@@ -87,11 +78,26 @@
                         <outlet property="delegate" destination="-1" id="fcq-9b-7LH"/>
                     </connections>
                 </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JqQ-Gj-dxQ">
+                    <rect key="frame" x="250" y="371" width="100" height="30"/>
+                    <color key="backgroundColor" red="0.1217235269" green="0.73243667320000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="6j0-iR-2aK"/>
+                        <constraint firstAttribute="height" constant="30" id="hhI-31-SSa"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="重新选择学校">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="chooseSchool:" destination="-1" eventType="touchUpInside" id="UdR-9K-DsN"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="puF-6l-hUN" firstAttribute="top" secondItem="4HX-tA-X7b" secondAttribute="bottom" constant="100" id="26S-n5-xhB"/>
+                <constraint firstItem="JqQ-Gj-dxQ" firstAttribute="top" secondItem="okJ-0U-ZG5" secondAttribute="bottom" constant="10" id="0ms-cU-ktI"/>
                 <constraint firstItem="Sgt-JY-r7W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="598-N9-1pg"/>
                 <constraint firstAttribute="trailing" secondItem="4HX-tA-X7b" secondAttribute="trailing" id="6NY-XU-lDI"/>
                 <constraint firstAttribute="centerX" secondItem="Sgt-JY-r7W" secondAttribute="centerX" id="Aah-BA-0P6"/>
@@ -104,15 +110,13 @@
                 <constraint firstItem="tZ2-cc-rFp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dhh-dl-obn"/>
                 <constraint firstItem="tZ2-cc-rFp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="jAJ-ol-Rsk"/>
                 <constraint firstAttribute="bottom" secondItem="tZ2-cc-rFp" secondAttribute="bottom" constant="49" id="qv1-s8-2ff"/>
+                <constraint firstAttribute="centerX" secondItem="JqQ-Gj-dxQ" secondAttribute="centerX" id="rLK-WJ-da2"/>
                 <constraint firstItem="4HX-tA-X7b" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="tbk-vC-mdZ"/>
-                <constraint firstAttribute="centerX" secondItem="puF-6l-hUN" secondAttribute="centerX" id="teU-1h-5ob"/>
-                <constraint firstAttribute="centerY" secondItem="puF-6l-hUN" secondAttribute="centerY" id="tex-vX-O8V"/>
                 <constraint firstAttribute="centerX" secondItem="okJ-0U-ZG5" secondAttribute="centerX" id="ysZ-Jl-JfI"/>
             </constraints>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="jAJ-ol-Rsk"/>
-                    <exclude reference="tex-vX-O8V"/>
                 </mask>
             </variation>
         </view>

@@ -46,5 +46,15 @@ typedef void (^FinishedBlock)(EnumServerStatus status,NSObject *object);
                        parameters:(id)parameters
                       connectClass:(Class)Class
                          finished:(FinishedBlock)finished;
+///发送一个post异步请求
++ (void)sendPostAsyncObjectFormExtraUrl:(NSString *)urlStr
+                        parameters:(id)parameters
+                       connectFlag:(NSString *)flag
+                          finished:(FinishedBlock)finished;
 
++(void)httpRequestUploadFormUrl:(NSString *)urlStr
+                      formDatas:(NSData *)formDatas
+                     parameters:(NSDictionary *)parameters
+                    connectFlag:(NSString *)flag
+                       finished:(FinishedBlock)finished;
 @end

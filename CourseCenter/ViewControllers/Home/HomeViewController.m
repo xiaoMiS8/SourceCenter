@@ -14,52 +14,100 @@
 #import "TestViewController.h"
 #import "ResponseObject.h"
 #import "NSString+HandleString.h"
+#import "MJRefresh.h"
+#import "ChooseSchoolViewController.h"
 @interface HomeViewController ()
 {
     NSString *loginState;
+    NSString *userId;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet UILabel *courseSelectLabel;
 @property (weak, nonatomic) IBOutlet UILabel *loginPrompt;
 @property (weak, nonatomic) IBOutlet UIButton *loginBtn;
+@property (weak, nonatomic) IBOutlet UIButton *chooseSchoolBtn;
 @property (strong,nonatomic)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (nonatomic, assign) CGFloat startY;
 @property (nonatomic,strong)NSMutableArray *dataArray;
+@property(nonatomic, assign) int index;
 @end
 
 @implementation HomeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLoginNot) name:@"loginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLoginNot) name:@"logout" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLoginNot) name:@"registsuccess" object:nil];
     [self setupTableView];
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
+    _chooseSchoolBtn.layer.masksToBounds=YES;
+    _chooseSchoolBtn.layer.cornerRadius=5;
     self.courseSelectLabel.text = @"推荐课程";
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     [self isLoginOrCourse];
+    NSLog(@"%@",[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]);
 }
--(void)isLoginOrCourse
+-(void)viewDidAppear:(BOOL)animated
 {
+    static BOOL isFirst=YES;
+    if (isFirst) {
+        ChooseSchoolViewController *schoolVC=[[ChooseSchoolViewController alloc]init];
+        [((AppDelegate *)app).nav pushViewController:schoolVC animated:NO];
+        isFirst=NO;
+    }
+}
+
+- (void)isLoginNot {
+    [self.seg setSelectedSegmentIndex:0];
+    self.courseSelectLabel.text = @"推荐课程";
     loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
     if ([loginState isEqualToString:@"0"]||loginState==nil) {
         _tableView.hidden=YES;
         _loginBtn.hidden=NO;
         _loginPrompt.hidden=NO;
+        _chooseSchoolBtn.hidden=NO;
+    }else
+        {
+        _tableView.hidden=NO;
+        _loginBtn.hidden=YES;
+        _loginPrompt.hidden=YES;
+        _chooseSchoolBtn.hidden=YES;
+        [self rLoadDataWithIsNot:YES];
+        }
+}
+
+-(void)isLoginOrCourse
+{
+    [self.seg setSelectedSegmentIndex:0];
+    self.courseSelectLabel.text = @"推荐课程";
+    loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        _tableView.hidden=YES;
+        _loginBtn.hidden=NO;
+        _loginPrompt.hidden=NO;
+        _chooseSchoolBtn.hidden=NO;
     }else
     {
         _tableView.hidden=NO;
         _loginBtn.hidden=YES;
         _loginPrompt.hidden=YES;
-        [self rLoadData];
+        _chooseSchoolBtn.hidden=YES;
+        [self rLoadDataWithIsNot:NO];
     }
+    
 }
 //推荐课程
--(void)rLoadData
+-(void)rLoadDataWithIsNot:(BOOL)isNot
 {
-    [MBProgressHUD showMessage:nil];
+    if (isNot == NO) {
+        [MBProgressHUD showMessage:nil];
+    }
     [self.httpManager getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
@@ -67,6 +115,7 @@
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
+                [self.tableView removeFooter];
                 return ;
             }
         }
@@ -76,14 +125,35 @@
 //全部课程
 -(void)aLoadData
 {
+    self.index = 1;
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
+                [self.tableView addLegendFooterWithRefreshingBlock:^{
+                    [self loadMore];
+                }];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+- (void)loadMore {
+    self.index ++;
+    self.httpManager = [[CCHttpManager alloc] init];
+    [self.httpManager getOCAllListWithSpecialtyTypeID:-1 key:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                [self.dataArray addObjectsFromArray:self.reob.resultArray];
+                [_tableView reloadData];
+                [self.tableView.legendFooter endRefreshing];
                 return ;
             }
         }
@@ -95,13 +165,24 @@
     [((AppDelegate *)app).nav pushViewController:testVC animated:YES];
 }
 - (IBAction)gotoLogin:(UIButton *)sender {
-    LoginViewController *loginSearchVC = [LoginViewController new];
-    loginSearchVC.block=^()
+    
+    if ([Tool objectIsEmpty:[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]]) {
+        [Tool showAlertView:@"提示" withMessage:@"请先选择学校!" withTarget:nil withCancel:@"确定" other:nil];
+    }else
     {
-        ((AppDelegate *)app).tabar.OneLoginState=@"1";
-        [self isLoginOrCourse];
-    };
-    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+        LoginViewController *loginSearchVC = [LoginViewController new];
+        loginSearchVC.block=^()
+        {
+            ((AppDelegate *)app).tabar.OneLoginState=@"1";
+            //[self isLoginOrCourse];
+        };
+        [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+    }
+    
+}
+- (IBAction)chooseSchool:(UIButton *)sender {
+    ChooseSchoolViewController *schoolVC=[[ChooseSchoolViewController alloc]init];
+    [((AppDelegate *)app).nav pushViewController:schoolVC animated:YES];
 }
 
 - (void)setSeg:(UISegmentedControl *)seg
@@ -136,15 +217,21 @@
 
 - (void)search
 {
-    CourseSearchViewController *courseSearchVC = [CourseSearchViewController new];
-    [((AppDelegate *)app).nav pushViewController:courseSearchVC animated:YES];
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        [Tool showAlertView:@"提示" withMessage:@"请先登录!" withTarget:self withCancel:@"确定" other:nil];
+    }else
+    {
+        CourseSearchViewController *courseSearchVC = [CourseSearchViewController new];
+        [((AppDelegate *)app).nav pushViewController:courseSearchVC animated:YES];
+    }
+    
 }
 
 - (void)segValueChange:(UISegmentedControl *)seg {
     if (seg.selectedSegmentIndex == 0) {
         self.courseSelectLabel.text = @"推荐课程";
         if ([loginState isEqualToString:@"1"]) {
-            [self rLoadData];
+            [self rLoadDataWithIsNot:NO];
         }
     }
     else {
@@ -173,6 +260,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     HomeListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeListCell"];
+    cell.hVC=self;
     cell.oCourse=[self.dataArray objectAtIndex:indexPath.row];
     return cell;
 }
@@ -183,6 +271,7 @@
     homeDetailVc.teacherImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).TeacherImgUrl;
     homeDetailVc.topImgUrl=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).CourseImgUrl;
     homeDetailVc.RegStatus=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).RegStatus;
+    homeDetailVc.gender=((OCourseInfo *)[self.dataArray objectAtIndex:indexPath.row]).Gender;
     [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
 }
 

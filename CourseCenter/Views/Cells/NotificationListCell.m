@@ -97,7 +97,11 @@
 
 - (void)setNoticeInfo:(NoticeInfo *)noticeInfo {
     _noticeInfo = noticeInfo;
-    [self.picImg sd_setImageWithURL:[NSURL URLWithString:noticeInfo.UserImg] placeholderImage:[UIImage imageNamed:@"me"]];
+    NSString *imgName = @"iconpro";
+    if (noticeInfo.Gender !=2) {
+        imgName = @"me";
+    }
+    [self.picImg sd_setImageWithURL:[NSURL URLWithString:noticeInfo.UserImg] placeholderImage:[UIImage imageNamed:imgName]];
     CGSize nameSize = [self getSizeWithString:noticeInfo.UserName font:self.nameLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
     CGRect nameRect = (CGRect){{CGRectGetMaxX(self.picImg.frame) + margin, CGRectGetMinY(self.picImg.frame) + 4}, nameSize};
     self.nameLabel.frame = nameRect;
@@ -106,7 +110,12 @@
     CGSize dateSize = [self getSizeWithString:noticeInfo.UpdateTime font:self.dateLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
     CGRect dateRect = (CGRect){{CGRectGetMinX(nameRect),CGRectGetMaxY(nameRect) + margin_up}, dateSize};
     self.dateLabel.frame = dateRect;
-    self.dateLabel.text = noticeInfo.UpdateTime;
+    NSArray *timeArray = [noticeInfo.UpdateTime componentsSeparatedByString:@"T"];
+    NSArray *dateArray = [timeArray[0] componentsSeparatedByString:@"-"];
+    NSString *dateStr = [NSString stringWithFormat:@"%@/%@",dateArray[1],dateArray[2]];
+    NSArray *timesArray = [timeArray[1] componentsSeparatedByString:@":"];
+    NSString *timeStr = [NSString stringWithFormat:@"%@:%@",timesArray[0],timesArray[1]];
+    self.dateLabel.text = [NSString stringWithFormat:@"%@ %@",dateStr,timeStr];
     
     CGSize titleSize = [self getSizeWithString:noticeInfo.Title font:self.titleLabel.font size:CGSizeMake([UIScreen mainScreen].bounds.size.width - 20, CGFLOAT_MAX)];
     CGRect titleRect = (CGRect){{margin_left,CGRectGetMaxY(self.picImg.frame) + margin},titleSize};

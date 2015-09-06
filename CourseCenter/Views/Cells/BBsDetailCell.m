@@ -7,6 +7,7 @@
 //
 
 #import "BBsDetailCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface BBsDetailCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *img;
@@ -24,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *discuss;
 @property (weak, nonatomic) IBOutlet UILabel *agree;
 @property (weak, nonatomic) IBOutlet UIImageView *dicussImg;
-@property (weak, nonatomic) IBOutlet UIImageView *agreeImg;
+@property (weak, nonatomic) IBOutlet UIButton *agreeBtn;
 
 @end
 
@@ -37,8 +38,12 @@
     self.bomView2.layer.borderWidth = 0.5f;
     self.bomView3.layer.borderColor = [UIColor grayColor].CGColor;
     self.bomView3.layer.borderWidth = 0.5f;
-    self.content.preferredMaxLayoutWidth = Swidth - 10 - 10;
+    self.content.preferredMaxLayoutWidth = Swidth - 10 - 10 -10;
     self.title.preferredMaxLayoutWidth = Swidth - 10 -10;
+}
+
+- (void)tapAction:(UITapGestureRecognizer *)tap {
+    self.agreeBlock();
 }
 
 - (void)setTopic:(TopicInfo *)topic {
@@ -65,21 +70,29 @@
         }
         
     }
-    
+    [self.img sd_setImageWithURL:[NSURL URLWithString:topic.userImg] placeholderImage:[UIImage imageNamed:@"me"]];
     self.title.text = topic.Title;
     self.content.text = topic.Conten;
     self.name.text = topic.UserName;
     self.className.text = topic.ForumClassName;
-    self.time.text = topic.UpdateTime;
+    NSArray *timeArray = [topic.UpdateTime componentsSeparatedByString:@"T"];
+    NSArray *dateArray = [timeArray[0] componentsSeparatedByString:@"-"];
+    NSString *dateStr = [NSString stringWithFormat:@"%@/%@",dateArray[1],dateArray[2]];
+    NSArray *timesArray = [timeArray[1] componentsSeparatedByString:@":"];
+    NSString *timeStr = [NSString stringWithFormat:@"%@:%@",timesArray[0],timesArray[1]];
+    self.time.text = [NSString stringWithFormat:@"%@ %@",dateStr,timeStr];
     self.eye.text = [NSString stringWithFormat:@"%ld",topic.Clicks];
     self.discuss.text = [NSString stringWithFormat:@"%ld",topic.Responses];
     self.agree.text = [NSString stringWithFormat:@"%ld",topic.Goods];
     if (topic.IsGood) {
-        self.agreeImg.image = [UIImage imageNamed:@"icon_agree_push"];
+        [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree_push"] forState:UIControlStateNormal];
     } else {
-        self.agreeImg.image = [UIImage imageNamed:@"icon_agree"];
+        [self.agreeBtn setImage:[UIImage imageNamed:@"icon_agree"] forState:UIControlStateNormal];
     }
 
+}
+- (IBAction)agreeAction:(id)sender {
+    self.agreeBlock();
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

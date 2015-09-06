@@ -13,7 +13,9 @@
 #define KPwd                @"Pwd"
 #define kYpwd               @"Ypwd"
 #define kNPwd               @"NPwd"
-
+#define kOpt                @"opt"
+#define kKey                @"key"
+#define kUrl                @"http://www.able-elec.com/g2smobile/IES2.ashx"
 
 @interface UserActions : NSObject
 
@@ -52,4 +54,27 @@
                           NPwd:(NSString *)NPwd
                       finished:(FinishedBlock)finished;
 
+/**
+ *	@brief	上传图片
+ *
+ *	@param 	SourceID 	上传ID  如 UserID  NoticeID
+ *	@param 	Source 	    上传类型 如 Source  Notice
+ *	@param 	File 	    图片data
+ *	@param 	finished 	finished description
+ */
++ (void)uploadPictureWithSourceID:(long)SourceID
+                           Source:(NSString *)Source
+                             File:(NSData *)File
+                      finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	选择学校
+ *
+ *	@param 	Opt 	学校标识
+ *	@param 	key 	关键字
+ *	@param 	finished 	finished description
+ */
++ (void)chooseSchoolWithOpt:(NSString *)Opt
+                        key:(NSString *)key
+                        finished:(FinishedBlock)finished;
 @end

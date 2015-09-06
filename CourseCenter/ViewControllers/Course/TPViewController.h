@@ -11,5 +11,6 @@
 @interface TPViewController : CourseBaseViewController
 
 @property(nonatomic, strong) UIButton *rightBtn;
-
+@property(nonatomic,assign)long OCID;
+-(void)LoadData;
 @end

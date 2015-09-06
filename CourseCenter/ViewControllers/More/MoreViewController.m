@@ -15,6 +15,8 @@
 #import "UserInfo.h"
 #import "LoginViewController.h"
 #import "MsgInfo.h"
+#import "QuestionSurvey.h"
+#import "MyDownLoad.h"
 @interface MoreViewController ()
 {
     NSArray *myarray;
@@ -22,6 +24,8 @@
     SetViewController *set;
     MessageCenter *messageCenter;
     MyData *myData;
+    QuestionSurvey *questionSurvey;
+    MyDownLoad *myDownload;
     NSString *loginState;
     __block  BOOL isBlock;
 }
@@ -39,7 +43,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLoginOrCourse) name:@"loginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLoginOrCourse) name:@"logout" object:nil];
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
     if (SHeight<=480) {
@@ -50,10 +55,6 @@
         _tableView.scrollEnabled=NO;
     }
     [self.tableView registerNib:[UINib nibWithNibName:@"MoreListCell" bundle:nil] forCellReuseIdentifier:@"MoreListCell"];
-    myInfo=[[MyInfo alloc]init];
-    set=[[SetViewController alloc]init];
-    messageCenter=[[MessageCenter alloc]init];
-    myData=[[MyData alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
     [self isLoginOrCourse];
 }
@@ -115,7 +116,7 @@
         case 1:
             return 1;
         case 2:
-            return 2;
+            return 3;
         case 3:
             return 1;
         default:
@@ -138,10 +139,12 @@
     __block typeof (self) myself =self;
     switch (indexPath.section) {
         case 0:
+            myInfo=[[MyInfo alloc]init];
             myInfo.userInfo=self.userInfo;
             [((AppDelegate *)app).nav pushViewController:myInfo animated:YES];
             break;
         case 1:
+            messageCenter=[[MessageCenter alloc]init];
             [((AppDelegate *)app).nav pushViewController:messageCenter animated:YES];
             break;
         case 2:
@@ -152,6 +155,7 @@
           {
          [myself isLoginOrCourse];
           };
+            set=[[SetViewController alloc]init];
             set.userInfo=self.userInfo;
             [((AppDelegate *)app).nav pushViewController:set animated:YES];
             break;
@@ -174,13 +178,17 @@
 {
     switch (index.row) {
         case 0:
+            questionSurvey=[[QuestionSurvey alloc]init];
+            [((AppDelegate *)app).nav pushViewController:questionSurvey animated:YES];
             break;
         case 1:
+            myData=[[MyData alloc]init];
             [((AppDelegate *)app).nav pushViewController:myData animated:YES];
             break;
-//        case 2:
-//            [((AppDelegate *)app).nav pushViewController:myData animated:YES];
-//            break;
+        case 2:
+            myDownload=[[MyDownLoad alloc]init];
+            [((AppDelegate *)app).nav pushViewController:myDownload animated:YES];
+            break;
 //        case 3:
 //            break;
         default:
@@ -188,13 +196,20 @@
     }
 }
 - (IBAction)gotoLogin:(UIButton *)sender {
-    LoginViewController *loginSearchVC = [LoginViewController new];
-    loginSearchVC.block=^()
+    
+    if ([Tool objectIsEmpty:[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]]) {
+        [Tool showAlertView:@"提示" withMessage:@"请先选择学校!" withTarget:nil withCancel:@"确定" other:nil];
+    }else
     {
-        ((AppDelegate *)app).tabar.FourLoginState=@"1";
-        [self isLoginOrCourse];
-    };
-    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+        LoginViewController *loginSearchVC = [LoginViewController new];
+        loginSearchVC.block=^()
+        {
+            ((AppDelegate *)app).tabar.FourLoginState=@"1";
+            [self isLoginOrCourse];
+        };
+        [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+    }
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

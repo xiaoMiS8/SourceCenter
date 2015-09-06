@@ -27,7 +27,12 @@
 {
     switch (indexPath.section) {
         case 0:
-            [self.headImag sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:HeadIMG]];
+            if (self.userInfo.gender==2) {
+              [self.headImag sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:@"iconpro"]];
+            }else
+            {
+             [self.headImag sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:@"me"]];
+            }
             _headName.text=self.userInfo.userName;
             break;
         case 1:
@@ -57,13 +62,11 @@
         case 1:
             _headImag.image=[UIImage imageNamed:@"icon_datum"];
             _headName.text=@"学习资料";
-//            _headImag.image=[UIImage imageNamed:@"icon_download"];
-//            _headName.text=@"离线下载";
             break;
-//        case 2:
-//            _headImag.image=[UIImage imageNamed:@"icon_datum"];
-//            _headName.text=@"学习资料";
-//            break;
+        case 2:
+            _headImag.image=[UIImage imageNamed:@"icon_download"];
+            _headName.text=@"我的下载";
+            break;
 //        case 3:
 //            _headImag.image=[UIImage imageNamed:@"icon_calendar"];
 //            _headName.text=@"我的日程";

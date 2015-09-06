@@ -18,19 +18,6 @@
             <rect key="frame" x="0.0" y="0.0" width="292" height="63"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BD-VA-Duz">
-                    <rect key="frame" x="10" y="15" width="25" height="25"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="6BD-VA-Duz" secondAttribute="height" multiplier="1:1" id="Qgd-vT-dOj"/>
-                    </constraints>
-                    <state key="normal" image="btn_confirm">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <state key="selected" image="btn_confirm_hover"/>
-                    <connections>
-                        <action selector="btn_left:" destination="-1" eventType="touchUpInside" id="syt-Js-vzz"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="金融管理0701班" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oys-F2-Yry">
                     <rect key="frame" x="45" y="22" width="102" height="20"/>
                     <constraints>
@@ -62,6 +49,19 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BD-VA-Duz">
+                    <rect key="frame" x="8" y="16" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="6BD-VA-Duz" secondAttribute="height" multiplier="1:1" id="Qgd-vT-dOj"/>
+                    </constraints>
+                    <state key="normal" image="btn_confirm">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="btn_confirm_hover"/>
+                    <connections>
+                        <action selector="btn_left:" destination="-1" eventType="touchUpInside" id="syt-Js-vzz"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -81,7 +81,7 @@
                 <constraint firstItem="7Ef-0q-t1J" firstAttribute="top" secondItem="XA8-Nz-eIC" secondAttribute="top" id="yUY-vq-NrD"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-64" y="89.5"/>
+            <point key="canvasLocation" x="30" y="88.5"/>
         </view>
     </objects>
     <resources>

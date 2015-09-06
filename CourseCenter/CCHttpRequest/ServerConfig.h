@@ -14,15 +14,15 @@
 
 //***********测试环境************/
     ///服务器IP
-#define kServerIP           @"http://203.156.198.20"
+#define kServerIP           [NSString stringWithFormat:@"%@%@",@"http://",[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]]
     ///服务器端口号
-#define kServerPort         @":8080"
+#define kServerPort         @"/AppServer"
 
 ////***********正式环境************/
 //    ///服务器IP
-//#define kServerIP           @"http://203.156.198.20"
+//#define kServerIP           @"http://cooc.smmu.edu.cn"
 //    ///服务器端口号
-//#define kServerPort         @":8080"
+//#define kServerPort         @"/AppServer"
 
 
 

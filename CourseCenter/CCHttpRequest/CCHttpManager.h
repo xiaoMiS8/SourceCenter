@@ -58,6 +58,30 @@
                           NPwd:(NSString *)NPwd
                       finished:(FinishedBlock)finished;
 
+/**
+ *	@brief	上传图片
+ *
+ *	@param 	SourceID 	上传ID  如 UserID  NoticeID
+ *	@param 	Source 	    上传类型 如 Source  Notice
+ *	@param 	File 	    图片data
+ *	@param 	finished 	finished description
+ */
+- (void)uploadPictureWithSourceID:(long)SourceID
+                           Source:(NSString *)Source
+                             File:(NSData *)File
+                         finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	选择学校
+ *
+ *	@param 	Opt 	学校标识
+ *	@param 	key 	关键字
+ *	@param 	finished 	finished description
+ */
+- (void)chooseSchoolWithOpt:(NSString *)Opt
+                        key:(NSString *)key
+                   finished:(FinishedBlock)finished;
+
 #pragma mark- Index
 
 /**
@@ -87,6 +111,7 @@
  *  @param finished finished description
  */
 - (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+                                SearchKey:(NSString *)searchKey
                                 finished:(FinishedBlock)finished;
 /**
  *  Mooc基本信息
@@ -116,6 +141,70 @@
                               ChapterID:(long)ChapterID
                                FileType:(int)FileType
                                finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	非视频资源下载完成调用
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	IsFinish 	资源是否学习完成
+ *	@param 	finished 	finished description
+ */
+- (void)addOCMoocStuFilewithChapterID:(long)ChapterID
+                               FileID:(int)FileID
+                             IsFinish:(int)IsFinish
+                             finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	视频学习每10S回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	TimeCount 	学习时间
+ *	@param 	finished 	finished description
+ */
+- (void)addOCMoocStuFileTimeCountwithChapterID:(long)ChapterID
+                                        FileID:(long)FileID
+                                     TimeCount:(long)TimeCount
+                                      finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	视频学习每60S回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	StudyTimes 	学习时间
+ *	@param 	finished 	finished description
+ */
+- (void)addOCMoocStuFileStudyTimeswithChapterID:(long)OCID
+                                         FileID:(long)FileID
+                                     StudyTimes:(long)StudyTimes
+                                       finished:(FinishedBlock)finished;
+/**
+ *	@brief	视频学习时间点回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	Seconds 	学习时间
+ *	@param 	finished 	finished description
+ */
+- (void)addOCMoocStuFileSecondswithChapterID:(long)ChapterID
+                                      FileID:(long)FileID
+                                     Seconds:(long)Seconds
+                                    finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	视频播放或者暂停调用
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	PlayOrPause 暂停或者播放
+ *	@param 	finished 	finished description
+ */
+- (void)OCMoocStuFilePlayPausewithChapterID:(long)ChapterID
+                                      FileID:(long)FileID
+                                 PlayOrPause:(int)PlayOrPause
+                                    finished:(FinishedBlock)finished;
 
 #pragma mark- Notice
 
@@ -262,7 +351,7 @@
  */
 - (void)addAppMessageWithTitle:(NSString *)Title
                         Conten:(NSString *)Conten
-                ReceiveUserIDs:(NSArray *)ReceiveUserIDs
+                ReceiveUserIDs:(NSString *)ReceiveUserIDs
                       finished:(FinishedBlock)finished;
 /**
  *  @brief  某人所在的所有教学班及组
@@ -433,7 +522,7 @@
  */
 - (void)getAppForumTopicListWithOCID:(long)OCID
                          ForumTypeID:(long)ForumTypeID
-                           IsEssence:(BOOL)IsEssence
+                           IsEssence:(int)IsEssence
                            IsMyStart:(BOOL)IsMyStart
                             IsMyJoin:(BOOL)IsMyJoin
                            SearchKey:(NSString *)SearchKey
@@ -622,7 +711,7 @@
  *  @param TopicID  论坛主题ID
  *  @param finished finished description
  */
-- (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+- (void)addAppForumTopicTypeWithTopicID:(long)TopicID ForumTypeID:(NSString *)ForumTypeID
                                finished:(FinishedBlock)finished;
 
 #pragma mark -Test
@@ -755,7 +844,7 @@
  */
 - (void)getAffairsListWithType:(int)Type
                           OCID:(long)OCID
-                     IsHistory:(BOOL)IsHistory
+                     IsHistory:(int)IsHistory
                      PageIndex:(int)PageIndex
                       PageSize:(int)PageSize
                       finished:(FinishedBlock)finished;

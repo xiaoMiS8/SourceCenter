@@ -10,8 +10,21 @@
 #import "UIImageView+WebCache.h"
 #import "HomeDetailViewController.h"
 #import "ApplyViewController.h"
+#import "TutorialViewController.h"
+#import "CCHttpManager.h"
+#import "LoginViewController.h"
+#import "CourseTabbarViewController.h"
+#import "TutorialViewController.h"
+#import "FCourseViewController.h"
+#import "BBsViewController.h"
+#import "HWorkViewController.h"
+#import "TPViewController.h"
+#import "LineNavigationController.h"
+#import "ReadViewController.h"
+#import "UIImageView+WebCache.h"
+#import "MyCourseListCell.h"
+
 #define ICONIMG @"iconpro"
-#define BAGNIMG @"nav_bg"
 #define STUDY   @"study"
 #define SINGUP  @"SINGUP"
 @interface HomeListCell ()
@@ -45,8 +58,13 @@
     if (_oCourse==nil) {
         _oCourse=oCourse;
     }
-    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:BAGNIMG]];
-    [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:ICONIMG]];
+    [self.bgimg sd_setImageWithURL:[NSURL URLWithString:oCourse.CourseImgUrl] placeholderImage:[UIImage imageNamed:NOPIC]];
+    if (_oCourse.Gender==2) {
+        [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:@"iconpro"]];
+    }else
+    {
+        [self.iconImg sd_setImageWithURL:[NSURL URLWithString:oCourse.TeacherImgUrl] placeholderImage:[UIImage imageNamed:@"me"]];
+    }
     [self.nameLabel setText:oCourse.TeacherName];
     [self.collegeLabel setText:oCourse.OrganizationName];
     if (oCourse.RegStatus==1) {
@@ -74,21 +92,96 @@
     UIButton *btn=sender;
     if (![btn.titleLabel.text isEqualToString:@" "]) {
         ApplyViewController *applyVc = [[ApplyViewController alloc]init];
+//        applyVc.block=^()
+//        {
+//            _hVC.isFanhui=@"YES";
+//        };
         applyVc.OCID=btn.tag;
         [((AppDelegate *)app).nav pushViewController:applyVc animated:YES];
         return;
     }
-    HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
-    homeDetailVc.OCID=btn.tag;
-    homeDetailVc.teacherImgUrl=_oCourse.TeacherImgUrl;
-    homeDetailVc.topImgUrl=_oCourse.CourseImgUrl;
-    homeDetailVc.RegStatus=_oCourse.RegStatus;
-    [((AppDelegate *)app).nav pushViewController:homeDetailVc animated:YES];
+//    TutorialViewController *tutoriaVC = [[TutorialViewController alloc] init];
+//    tutoriaVC.title=@"教程";
+//    tutoriaVC.OCID=btn.tag;
+    
+//    HomeDetailViewController *homeDetailVc = [[HomeDetailViewController alloc]init];
+//    homeDetailVc.OCID=btn.tag;
+//    homeDetailVc.teacherImgUrl=_oCourse.TeacherImgUrl;
+//    homeDetailVc.topImgUrl=_oCourse.CourseImgUrl;
+//    homeDetailVc.RegStatus=_oCourse.RegStatus;
+//    [((AppDelegate *)app).nav pushViewController:tutoriaVC animated:YES];
+    
+    [((AppDelegate *)app).nav pushViewController:[self setTabbar] animated:YES];
+    
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     
    
 }
+
+- (CourseTabbarViewController *)setTabbar {
+    CourseTabbarViewController *tabbar = [[CourseTabbarViewController alloc] init];
+    TutorialViewController *tutoriaVC = [[TutorialViewController alloc] init];
+    tutoriaVC.OCID=self.oCourse.OCID;
+    tutoriaVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
+    FCourseViewController *fCourseVC = [[FCourseViewController alloc] init];
+    fCourseVC.ocourse = self.oCourse;
+    fCourseVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
+    BBsViewController *bbsVC = [[BBsViewController alloc] init];
+    bbsVC.OCID = self.oCourse.OCID;
+    bbsVC.TitleChageBlock = ^(NSString *title) {
+        tabbar.title = title;
+    };
+    bbsVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
+    HWorkViewController *hworkVC = [[HWorkViewController alloc] init];
+    hworkVC.OCID=self.oCourse.OCID;
+    hworkVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
+    ReadViewController *readVC = [ReadViewController new];
+    readVC.OCID = self.oCourse.OCID;
+    
+    
+    TPViewController *tpVC = [[TPViewController alloc] init];
+    tpVC.OCID=self.oCourse.OCID;
+    tpVC.PushBlock = ^(UIViewController *viewController) {
+        [tabbar.navigationController pushViewController:viewController animated:YES];
+    };
+    
+    NSArray *viewControllers = nil;
+    NSArray *titles = nil;
+    NSArray *itemImages = nil;
+    NSArray *itemSelectedImages = nil;
+    
+    NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if ([role isEqualToString:@"4"]) {
+        viewControllers = @[tutoriaVC,bbsVC, hworkVC];
+        titles = @[@"教程",@"论坛",@"作业"];
+        itemImages = @[@"cTabbar1_n",@"cTabbar3_n",@"cTabbar4_n"];
+        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar3_s",@"cTabbar4_s"];
+        
+    } else {
+            //        viewControllers = @[tutoriaVC,bbsVC, readVC, tpVC];
+            //        titles = @[@"教程",@"论坛",@"批阅",@"事务处理"];
+            //        itemImages = @[@"cTabbar1_n",@"cTabbar3_n",@"cTabbar4_n",@"cTabbar5_n"];
+            //        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar3_s",@"cTabbar4_s",@"cTabbar5_s"];
+        viewControllers = @[tutoriaVC,bbsVC, tpVC];
+        titles = @[@"教程",@"论坛",@"事务处理"];
+        itemImages = @[@"cTabbar1_n",@"cTabbar3_n",@"cTabbar5_n"];
+        itemSelectedImages = @[@"cTabbar1_s",@"cTabbar3_s",@"cTabbar5_s"];
+    }
+    
+    [tabbar setViewcontrollers:viewControllers itemImages:itemImages itemselectedImages:itemSelectedImages titles:titles];
+    return tabbar;
+    
+}
+
 
 @end

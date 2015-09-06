@@ -29,6 +29,7 @@
     _loginBtn.layer.cornerRadius=5;
     _userName.allowsEditingTextAttributes=YES;
     _userName.clearButtonMode=UITextFieldViewModeWhileEditing;
+    _userName.text=[[NSUserDefaults standardUserDefaults]objectForKey:@"loginName"];
     _passWord.secureTextEntry=YES;
     _passWord.clearButtonMode=UITextFieldViewModeWhileEditing;
     self.httpManager = [[CCHttpManager alloc]init];
@@ -49,12 +50,15 @@
                 [[NSUserDefaults standardUserDefaults]setObject:@"1" forKey:@"isLogin"];
                 UserInfo *info=(UserInfo *)self.reob.resultObject;
                 [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%d",info.userType] forKey:@"role"];
-                [[NSUserDefaults standardUserDefaults]setObject:username forKey:@"username"];
-                [[NSUserDefaults standardUserDefaults]setObject:password forKey:@"password"];
+                [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%ld",info.userID]forKey:@"userID"];
+                [[NSUserDefaults standardUserDefaults] setObject:info.userImg forKey:@"userImg"];
+                [[NSUserDefaults standardUserDefaults] setObject:_userName.text forKey:@"loginName"];
                 [[NSUserDefaults standardUserDefaults]synchronize];
                 if (self.block) {
                     self.block();
                 }
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"loginSuccess" object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;
             }

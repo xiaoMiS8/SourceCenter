@@ -41,6 +41,26 @@
         finished(status, object);
     }];
 }
+- (void)uploadPictureWithSourceID:(long)SourceID
+                           Source:(NSString *)Source
+                             File:(NSData *)File
+                         finished:(FinishedBlock)finished{
+    [UserActions uploadPictureWithSourceID:SourceID
+                                    Source:Source
+                                    File:File
+                                  finished:^(EnumServerStatus status, NSObject *object)
+                                      {
+        finished(status, object);
+    }];
+}
+
+- (void)chooseSchoolWithOpt:(NSString *)Opt
+                        key:(NSString *)key
+                   finished:(FinishedBlock)finished{
+    [UserActions chooseSchoolWithOpt:Opt key:key finished:^(EnumServerStatus status, NSObject *object) {
+       finished(status, object);
+    }];
+}
 
 - (void)getRecommendCourseListWithfinished:(FinishedBlock)finished {
     [IndexActions getRecommendCourseListWithfinished:^(EnumServerStatus status, NSObject *object) {
@@ -62,9 +82,10 @@
     }];
 }
 
-- (void)getSpecialtyTypeTreeWithParentID:(long)ParentID finished:(FinishedBlock)finished {
+- (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+    SearchKey:(NSString *)searchKey finished:(FinishedBlock)finished {
     [IndexActions getSpecialtyTypeTreeWithParentID:ParentID
-                                          finished:^(EnumServerStatus status, NSObject *object) {
+                                        SearchKey:searchKey finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
 }
@@ -96,6 +117,67 @@
         finished(status, object);
     }];
 }
+
+- (void)addOCMoocStuFilewithChapterID:(long)ChapterID
+                               FileID:(int)FileID
+                             IsFinish:(int)IsFinish
+                             finished:(FinishedBlock)finished{
+    [IndexActions addOCMoocStuFilewithChapterID:ChapterID
+                                       FileID:FileID
+                                       IsFinish:IsFinish
+                                       finished:^(EnumServerStatus status, NSObject *object) {
+        finished(status,object);
+    }];
+    
+}
+
+- (void)addOCMoocStuFileTimeCountwithChapterID:(long)ChapterID
+                                        FileID:(long)FileID
+                                     TimeCount:(long)TimeCount
+                                      finished:(FinishedBlock)finished{
+    [IndexActions addOCMoocStuFileTimeCountwithChapterID:ChapterID
+                                         FileID:FileID
+                                       TimeCount:TimeCount
+                                       finished:^(EnumServerStatus status, NSObject *object) {
+                                           finished(status,object);
+   }];
+}
+
+- (void)addOCMoocStuFileStudyTimeswithChapterID:(long)OCID
+                                         FileID:(long)FileID
+                                     StudyTimes:(long)StudyTimes
+                                       finished:(FinishedBlock)finished{
+    [IndexActions addOCMoocStuFileStudyTimeswithChapterID:OCID
+                                                  FileID:FileID
+                                               StudyTimes:StudyTimes
+                                                finished:^(EnumServerStatus status, NSObject *object) {
+                                                    finished(status,object);
+   }];
+}
+- (void)addOCMoocStuFileSecondswithChapterID:(long)ChapterID
+                                      FileID:(long)FileID
+                                     Seconds:(long)Seconds
+                                    finished:(FinishedBlock)finished{
+    [IndexActions addOCMoocStuFileSecondswithChapterID:ChapterID
+                                                   FileID:FileID
+                                                   Seconds:Seconds
+                                                 finished:^(EnumServerStatus status, NSObject *object) {
+                                                     finished(status,object);
+   }];
+}
+
+- (void)OCMoocStuFilePlayPausewithChapterID:(long)ChapterID
+                                     FileID:(long)FileID
+                                PlayOrPause:(int)PlayOrPause
+                                   finished:(FinishedBlock)finished{
+     [IndexActions OCMoocStuFilePlayPausewithChapterID:ChapterID
+                                                FileID:FileID
+                                           PlayOrPause:PlayOrPause
+                                              finished:^(EnumServerStatus status, NSObject *object) {
+                                                  finished(status,object);
+   }];
+}
+
 
 - (void)getNoticeInfoListWithOCID:(long)OCID
                             SysID:(long)SysID
@@ -225,7 +307,7 @@
 
 - (void)addAppMessageWithTitle:(NSString *)Title
                         Conten:(NSString *)Conten
-                ReceiveUserIDs:(NSArray *)ReceiveUserIDs
+                ReceiveUserIDs:(NSString *)ReceiveUserIDs
                       finished:(FinishedBlock)finished {
     [MsgAction addAppMessageWithTitle:Title
                                Conten:Conten
@@ -380,7 +462,7 @@
 
 - (void)getAppForumTopicListWithOCID:(long)OCID
                          ForumTypeID:(long)ForumTypeID
-                           IsEssence:(BOOL)IsEssence
+                           IsEssence:(int)IsEssence
                            IsMyStart:(BOOL)IsMyStart
                             IsMyJoin:(BOOL)IsMyJoin
                            SearchKey:(NSString *)SearchKey
@@ -580,8 +662,10 @@
 }
 
 - (void)addAppForumTopicTypeWithTopicID:(long)TopicID
+                            ForumTypeID:(NSString *)ForumTypeID
                                finished:(FinishedBlock)finished {
     [BbsAction addAppForumTopicTypeWithTopicID:TopicID
+                                   ForumTypeID:ForumTypeID
                                       finished:^(EnumServerStatus status, NSObject *object) {
         finished(status, object);
     }];
@@ -705,7 +789,7 @@
 
 - (void)getAffairsListWithType:(int)Type
                           OCID:(long)OCID
-                     IsHistory:(BOOL)IsHistory
+                     IsHistory:(int)IsHistory
                      PageIndex:(int)PageIndex
                       PageSize:(int)PageSize
                       finished:(FinishedBlock)finished {
@@ -724,7 +808,7 @@
     [AffairsAction updateOCAffairsStatusWithAffairID:AffairID
                                               Status:Status
                                             finished:^(EnumServerStatus status, NSObject *object) {
-        finished(Status, object);
+        finished(status, object);
     }];
 }
 

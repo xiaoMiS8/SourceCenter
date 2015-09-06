@@ -7,7 +7,9 @@
 //
 
 #import "CourseBaseViewController.h"
+#import "OCourseInfo.h"
 
 @interface FCourseViewController : CourseBaseViewController
+@property(nonatomic, strong) OCourseInfo *ocourse;
 
 @end

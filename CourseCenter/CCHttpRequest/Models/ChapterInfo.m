@@ -24,8 +24,9 @@
         self.BuildMode = [[dict objectForKey:kBuildMode] intValue];
         self.FileNum = [[dict objectForKey:kFileNum] intValue];
         self.IsFinish = [[dict objectForKey:kIsFinish] boolValue];
-        self.IsAllowStudy = [[dict objectForKey:kIsAllowStudy] boolValue];
+        self.IsAllowStudy = [[dict objectForKey:kIsAllowStudy] integerValue];
         self.IsTest = [[dict objectForKey:kIsTest] boolValue];
+        self.ChapterRate = [[dict objectForKey:kChapterRate] intValue];
     }
     return self;
 }

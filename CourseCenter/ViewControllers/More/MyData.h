@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-
 @interface MyData : BaseViewController
+@property (nonatomic, assign) int FileType;
 
 @end

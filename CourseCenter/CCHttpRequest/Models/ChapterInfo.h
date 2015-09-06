@@ -23,6 +23,7 @@
 #define kIsAllowStudy                   @"IsAllowStudy"
 #define kIsTest                         @"IsTest"
 #define kPopTime                        @"PopTime"
+#define kChapterRate                         @"ChapterRate"
 
 @interface ChapterInfo : NSObject
 
@@ -51,11 +52,13 @@
     //是否完成
 @property(nonatomic, assign) BOOL       IsFinish;
     // 是否允许学习该节
-@property(nonatomic, assign) BOOL       IsAllowStudy;
+@property(nonatomic, assign) int       IsAllowStudy;
     //是否为测试
 @property(nonatomic, assign) BOOL       IsTest;
     //0
 @property(nonatomic, assign) long       PopTime;
+    //进度
+@property(nonatomic, assign) int       ChapterRate;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

@@ -13,6 +13,11 @@
 @property(nonatomic, strong) UIButton *rightBtn1;
 @property(nonatomic, strong) UIButton *rightBtn2;
 
+@property(nonatomic, assign) long OCID;
+@property(nonatomic, assign) long CourseID;
+
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property(nonatomic, copy) void(^TitleChageBlock)(NSString *title);
 
 @end

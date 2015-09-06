@@ -7,8 +7,20 @@
 //
 
 #import "ViewController.h"
-
+#import "SchoolInfo.h"
 @interface ViewController ()
+{
+    UISearchBar *mySearchBar;
+    UISearchDisplayController *searchDC;
+    NSInteger selectNumber;
+    BOOL isTableView;
+
+}
+@property(nonatomic, strong) CCHttpManager * httpManager;
+@property(nonatomic, strong) ResponseObject *reob;
+@property (nonatomic,strong)NSMutableArray *dataArray;
+@property (nonatomic,strong)NSMutableArray *dataResult;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -17,7 +29,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

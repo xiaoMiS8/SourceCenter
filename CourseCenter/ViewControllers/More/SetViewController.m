@@ -32,6 +32,7 @@
     self.exitBtn.layer.masksToBounds=YES;
     self.exitBtn.layer.cornerRadius=5;
     self.httpManager = [[CCHttpManager alloc]init];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     myInfo=[[MyInfo alloc]init];
     passWord=[[SetPassword alloc]init];
     idea=[[IdeaWithVersion alloc]init];
@@ -53,7 +54,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 2;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -133,12 +134,14 @@
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [[NSUserDefaults standardUserDefaults]setObject:@"0" forKey:@"isLogin"];
                 [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"role"];
+                [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userImg"];
                 [MBProgressHUD showSuccess:self.reob.errorMessage];
                 //退出回调刷新页面
                 if (self.block) {
                     _block();
                 }
                 ((AppDelegate *)app).tabar.FourLoginState=@"0";
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"logout" object:nil];
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;
             }

@@ -17,6 +17,7 @@
 #define kOCID                       @"OCID"
 #define kChapterID                  @"ChapterID"
 #define kFileType                   @"FileType"
+#define kSearchKey                  @"SearchKey"
 
 @interface IndexActions : NSObject
 
@@ -47,6 +48,7 @@
  *  @param finished finished description
  */
 + (void)getSpecialtyTypeTreeWithParentID:(long)ParentID
+                               SearchKey:(NSString *)searchKey
                                 finished:(FinishedBlock)finished;
 /**
  *  Mooc基本信息
@@ -76,5 +78,69 @@
                               ChapterID:(long)ChapterID
                                FileType:(int)FileType
                                finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	非视频资源下载完成调用
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	IsFinish 	资源是否学习完成
+ *	@param 	finished 	finished description
+ */
++ (void)addOCMoocStuFilewithChapterID:(long)ChapterID
+                                   FileID:(int)FileID
+                                   IsFinish:(int)IsFinish
+                                  finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	视频学习每10S回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	TimeCount 	学习时间
+ *	@param 	finished 	finished description
+ */
++ (void)addOCMoocStuFileTimeCountwithChapterID:(long)ChapterID
+                               FileID:(long)FileID
+                             TimeCount:(long)TimeCount
+                             finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	视频学习每60S回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	StudyTimes 	学习时间
+ *	@param 	finished 	finished description
+ */
++ (void)addOCMoocStuFileStudyTimeswithChapterID:(long)OCID
+                                        FileID:(long)FileID
+                                     StudyTimes:(long)StudyTimes
+                                      finished:(FinishedBlock)finished;
+/**
+ *	@brief	视频学习时间点回调
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	Seconds 	学习时间
+ *	@param 	finished 	finished description
+ */
++ (void)addOCMoocStuFileSecondswithChapterID:(long)ChapterID
+                                        FileID:(long)FileID
+                                     Seconds:(long)Seconds
+                                      finished:(FinishedBlock)finished;
+
+/**
+ *	@brief	视频播放或者暂停调用
+ *
+ *	@param 	ChapterID 	章节ID
+ *	@param 	FileID 	    资源文件编号
+ *	@param 	PlayOrPause 暂停或者播放
+ *	@param 	finished 	finished description
+ */
++ (void)OCMoocStuFilePlayPausewithChapterID:(long)ChapterID
+                                     FileID:(long)FileID
+                                PlayOrPause:(int)PlayOrPause
+                                   finished:(FinishedBlock)finished;
 
 @end

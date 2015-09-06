@@ -10,6 +10,7 @@
 #import "HomeViewController.h"
 #import "CourseViewController.h"
 #import "NotificationViewController.h"
+#import "UIImageView+WebCache.h"
 @interface TabBarViewController ()<UITabBarControllerDelegate>
 
 @property(nonatomic, strong) NSArray *viewcontrollers;
@@ -38,6 +39,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupCustomBackWithImage:@"barbuttonItem_back" title:@""];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCenterImage) name:@"loginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCenterImage) name:@"logout" object:nil];
+}
+
+
+- (void)setCenterImage {
+    NSString *userImg = [[NSUserDefaults standardUserDefaults] objectForKey:@"userImg"];
+    [self.centerImg sd_setImageWithURL:[NSURL URLWithString:userImg] placeholderImage:[UIImage imageNamed:@"iconpro"]];
 }
 
 /**
@@ -131,7 +140,6 @@
     if (viewController == self.viewcontrollers[0]) {
         [self addCenterandRightItem];
         if (![_OneLoginState isEqualToString:nowLoginState]) {
-            [viewController viewDidLoad];
             _OneLoginState=nowLoginState;
         }
     }
@@ -139,7 +147,6 @@
         [self removeCenterandRightItem];
         [self addNotificationRightItem];
         if (![_TowLoginState isEqualToString:nowLoginState]) {
-            [viewController viewDidLoad];
             _TowLoginState=nowLoginState;
         }
     }
@@ -147,7 +154,6 @@
         [self removeNotificationRightItem];
         [self addcenterImg];
         if (![_ThreeLoginState isEqualToString:nowLoginState]) {
-            [viewController viewDidLoad];
             _ThreeLoginState=nowLoginState;
         }
     }
@@ -156,7 +162,6 @@
         [self removeCenterandRightItem];
         [self removeNotificationRightItem];
         if (![_FourLoginState isEqualToString:nowLoginState]) {
-            [viewController viewDidLoad];
             _FourLoginState=nowLoginState;
         }
     }
@@ -226,19 +231,20 @@
  *	@brief	设置课程navigationItem
  */
 - (void)addcenterImg
-
-
 {
+    UIView *imgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
     if (self.centerImg == nil) {
         UIImageView *img = [[UIImageView alloc] init];
-        img.bounds = CGRectMake(0, 0, 40, 40);
-        img.backgroundColor = [UIColor purpleColor];
+        img.frame = CGRectMake(0,0,40, 40);
         img.layer.cornerRadius = 20;
+        img.layer.masksToBounds=YES;
         CourseViewController *courseVC = self.viewcontrollers[2];
         courseVC.centerImg = img;
-        self.centerImg = img;
+         self.centerImg = img;
+
     }
-    self.navigationItem.titleView = self.centerImg;
+    [imgView addSubview:self.centerImg];
+    self.navigationItem.titleView = imgView;
  
 }
 

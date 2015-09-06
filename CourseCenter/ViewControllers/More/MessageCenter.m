@@ -27,6 +27,7 @@
     self.title=@"消息中心";
     [self setupCustomRightWithImage:[UIImage imageNamed:@"notification_add"] target:self action:@selector(addMessage)];
     [self.tableView registerNib:[UINib nibWithNibName:@"MessageCenterCell" bundle:nil] forCellReuseIdentifier:@"MessageCenterCell"];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager = [[CCHttpManager alloc]init];
     self.dataArray=[[NSMutableArray array]init];
     
@@ -81,6 +82,7 @@
 -(void)addMessage
 {
     NewMessage *newMessage=[[NewMessage alloc]init];
+    newMessage.messageCenter=self;
     [((AppDelegate *)app).nav pushViewController:newMessage animated:YES];
 }
 - (void)didReceiveMemoryWarning {

@@ -19,6 +19,7 @@
 @interface NotificationViewController ()
 {
     NSString *loginState;
+    NSString *userId;
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong) CCHttpManager *httpManager;
@@ -40,19 +41,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLogin) name:@"loginSuccess" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isLogin) name:@"logout" object:nil];
     self.index = 1;
     [self setupTable];
     [self addtableHeader];
     _loginBtn.layer.masksToBounds=YES;
     _loginBtn.layer.cornerRadius=5;
-    [self isLogin];
+    if (userId!=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"]&&[[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"]isEqualToString:@"1"]) {
+        [self isLogin];
+        userId=[[NSUserDefaults standardUserDefaults]objectForKey:@"userID"];
+    }
   
     
 }
 
 -(void)isLogin
 {
-    
+    NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if ([role isEqualToString:@"4"]) {
+        self.addBtn.hidden = YES;
+    }
     loginState=[[NSUserDefaults standardUserDefaults]objectForKey:@"isLogin"];
     if ([loginState isEqualToString:@"0"]||loginState==nil) {
         _tableView.hidden=YES;
@@ -63,13 +72,19 @@
         _tableView.hidden=NO;
         _loginBtn.hidden=YES;
         _Message.hidden=YES;
+     NSString *role = [[NSUserDefaults standardUserDefaults]objectForKey:@"role"];
+    if (![role isEqualToString:@"4"]) {
+       self.addBtn.hidden = NO;
+    } else {
+        self.addBtn.hidden = YES;
+    }
         [self.tableView.legendHeader beginRefreshing];
     }
 }
 
 - (void)addtableHeader {
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
-        [self loadData];
+    [self loadData];
     }];
     self.tableView.header.updatedTimeHidden = YES;
 }
@@ -90,6 +105,7 @@
             [self.tableView addLegendFooterWithRefreshingBlock:^{
                 [self loadMore];
             }];
+            
         } else {
            
         }
@@ -122,27 +138,39 @@
 
     //添加通知
 - (void)addBtnAction:(id)sender {
-    NewNotificationViewController *newNotificationVC = [NewNotificationViewController new];
-    newNotificationVC.DoBlock = ^{
-        DLog(@"点击确定了");
-    };
-    LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newNotificationVC];
-    UIViewController *tabbar = ((AppDelegate *)app).nav.viewControllers.firstObject;
-    [tabbar presentViewController:nav animated:YES completion:^{
-        
-          }];
-
+    
+    if ([loginState isEqualToString:@"0"]||loginState==nil) {
+        [Tool showAlertView:@"提示" withMessage:@"请先登录!" withTarget:self withCancel:@"确定" other:nil];
+    }else
+    {
+        NewNotificationViewController *newNotificationVC = [NewNotificationViewController new];
+        newNotificationVC.DoBlock = ^{
+            [self loadData];
+        };
+        LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newNotificationVC];
+        UIViewController *tabbar = ((AppDelegate *)app).nav.viewControllers.firstObject;
+        [tabbar presentViewController:nav animated:YES completion:^{
+            
+        }];
+    }
     
 }
 
 - (IBAction)gotoLogin:(UIButton *)sender {
-    LoginViewController *loginSearchVC = [LoginViewController new];
-    loginSearchVC.block=^()
+    
+    if ([Tool objectIsEmpty:[[NSUserDefaults standardUserDefaults]objectForKey:@"schoolUrl"]]) {
+        [Tool showAlertView:@"提示" withMessage:@"请先选择学校!" withTarget:nil withCancel:@"确定" other:nil];
+    }else
     {
-        ((AppDelegate *)app).tabar.TowLoginState=@"1";
-        [self isLogin];
-    };
-    [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+        LoginViewController *loginSearchVC = [LoginViewController new];
+        loginSearchVC.block=^()
+        {
+            ((AppDelegate *)app).tabar.TowLoginState=@"1";
+            //[self isLogin];
+        };
+        [((AppDelegate *)app).nav pushViewController:loginSearchVC animated:YES];
+    }
+   
 }
 
 #pragma mark- UITableViewDelegate && UITableViewDataSource

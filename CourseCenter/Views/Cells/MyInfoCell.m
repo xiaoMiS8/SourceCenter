@@ -21,7 +21,12 @@
             _textFiled.hidden=YES;
             _headImg.hidden=NO;
             _leftLable.text=@"头   像";
-            [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:HEADIMG]];
+            if (self.userInfo.gender==2) {
+              [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:@"iconpro"]];
+            }else
+            {
+                [self.headImg sd_setImageWithURL:[NSURL URLWithString:self.userInfo.userImg] placeholderImage:[UIImage imageNamed:@"me"]];
+            }
             break;
         case 1:
             _leftLable.text=@"用户名";
@@ -29,7 +34,10 @@
             break;
         case 2:
             _leftLable.text=@"性   别";
-            _textFiled.text=self.userInfo.gender==1?@"男":@"nv";
+            if(self.userInfo.gender!=0)
+            {
+             _textFiled.text=self.userInfo.gender==1?@"男":@"女";
+            }
             break;
         case 3:
             _leftLable.text=@"所在地";

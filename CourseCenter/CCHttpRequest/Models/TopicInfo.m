@@ -27,6 +27,8 @@
         self.Goods = [dict[kGoods] longValue];
         self.IsGood = [dict[kIsGood] boolValue];
         self.RowsCount = [dict[kRowsCount] longValue];
+        self.iscanDel = [dict[kIsCanDel] boolValue];
+        self.Gender = [dict[KGender] intValue];
     }
     return self;
 }

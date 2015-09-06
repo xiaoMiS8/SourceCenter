@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
-
-@interface DetailData : BaseViewController
+#import "FileDownLoadManager.h"
+@interface DetailData : BaseViewController<DownloadDelegate,UIDocumentInteractionControllerDelegate,UIAlertViewDelegate>
 @property (nonatomic, assign) long OCID;
+@property (nonatomic, assign) int FileType;
+-(void)changeFileState;
+-(void)removeASIRequst:( ASIHTTPRequest*)request;
 @end

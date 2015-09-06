@@ -22,7 +22,7 @@
         self.Type = [dict[kType] intValue];
         self.LiveType = dict[kLiveType];
         self.BuildMode = [dict[kBuildMode] intValue];
-        self.FastScore = [dict[kFastScore] intValue];
+        self.FastScore = dict[kFastScore];
         self.UncommittedCount = [dict[kUncommittedCount] intValue];
         self.submittedCount = [dict[ksubmittedCount] intValue];
         self.MarkingCount = [dict[kMarkingCount] intValue];

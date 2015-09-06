@@ -18,11 +18,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" indicatorStyle="black" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PbO-Qo-4Yf">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="176"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="508"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="176" id="6Ye-Qx-aY6"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="6Ye-Qx-aY6"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="6kf-yR-oTq"/>
                         <outlet property="delegate" destination="-1" id="6ZP-zH-CeB"/>
@@ -51,6 +56,7 @@
                 <constraint firstAttribute="trailing" secondItem="PbO-Qo-4Yf" secondAttribute="trailing" id="3tf-W0-bJ2"/>
                 <constraint firstItem="PbO-Qo-4Yf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VXh-CG-DdZ"/>
                 <constraint firstAttribute="bottom" secondItem="NWJ-W6-96W" secondAttribute="bottom" constant="10" id="W8Q-SC-Zff"/>
+                <constraint firstItem="NWJ-W6-96W" firstAttribute="top" secondItem="PbO-Qo-4Yf" secondAttribute="bottom" id="vE9-PE-IWI"/>
                 <constraint firstAttribute="trailing" secondItem="NWJ-W6-96W" secondAttribute="trailing" constant="10" id="vIP-w8-yvn"/>
                 <constraint firstItem="PbO-Qo-4Yf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="za0-Ti-ejb"/>
             </constraints>

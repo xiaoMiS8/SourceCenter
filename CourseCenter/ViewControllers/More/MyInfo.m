@@ -9,6 +9,9 @@
 #import "MyInfo.h"
 #import "MyInfoCell.h"
 @interface MyInfo ()
+{
+    NSData *data;
+}
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
@@ -20,8 +23,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title=@"我的信息";
-    [self setupCustomRightWithtitle:@"保存" target:self action:@selector(saveInfo)];
+//    [self setupCustomRightWithtitle:@"保存" target:self action:@selector(saveInfo)];
     [self.tableView registerNib:[UINib nibWithNibName:@"MyInfoCell" bundle:nil] forCellReuseIdentifier:@"MyInfoCell"];
+    self.tableView.tableFooterView=[[UIView alloc]init];
     self.httpManager=[[CCHttpManager alloc]init];
 }
 -(void)saveInfo
@@ -35,7 +39,7 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 3;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -104,13 +108,27 @@
 {
     //得到图片
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    data = UIImagePNGRepresentation(image);
+    [MBProgressHUD showMessage:@"图片上传中..."];
+    [self.httpManager uploadPictureWithSourceID:self.userInfo.userID Source:@"Notice" File:data finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                [MBProgressHUD showSuccess:@"图片上传成功"];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 /*
 #pragma mark - Navigation
 

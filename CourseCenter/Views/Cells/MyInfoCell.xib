@@ -25,7 +25,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="阿联酋 迪拜" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-ad-AQr">
+                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cf2-ad-AQr">
                         <rect key="frame" x="81" y="5" width="216" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="OPT-lM-gzw"/>
@@ -50,7 +50,7 @@
                             <constraint firstAttribute="width" secondItem="u1U-Ad-Y4c" secondAttribute="height" multiplier="1:1" id="5CG-1M-xkY"/>
                         </constraints>
                     </imageView>
-                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="学渣经常骂学霸 因为学霸经常装逼说成绩差" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-Mt-hQb">
+                    <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="学渣经常骂学霸 因为学霸经常装逼说成绩差" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-Mt-hQb">
                         <rect key="frame" x="61" y="8" width="251" height="33.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -87,6 +87,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="iconpro" width="35" height="35"/>
+        <image name="iconpro" width="57" height="57"/>
     </resources>
 </document>

@@ -18,7 +18,12 @@
 }
 -(void)setMsgInfo:(MsgInfo *)msgInfo
 {
-    [self.headImage sd_setImageWithURL:[NSURL URLWithString:msgInfo.UserImgUrl] placeholderImage:[UIImage imageNamed:HEADIMG]];
+    if (msgInfo.Gender==2) {
+     [self.headImage sd_setImageWithURL:[NSURL URLWithString:msgInfo.UserImgUrl] placeholderImage:[UIImage imageNamed:@"iconpro"]];
+    }else
+    {
+       [self.headImage sd_setImageWithURL:[NSURL URLWithString:msgInfo.UserImgUrl] placeholderImage:[UIImage imageNamed:@"me"]];
+    }
     if (_msgInfo==nil) {
         _msgInfo=msgInfo;
     }

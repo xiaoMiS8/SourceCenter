@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.2 大熊猫的食物有哪些不同的分类" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-d4-Uv5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1.2 大熊猫的食物有哪些不同的分类" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-d4-Uv5">
                         <rect key="frame" x="28" y="8" width="221" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="vsa-pv-l3Q"/>
@@ -57,6 +57,7 @@
                     <constraint firstAttribute="centerY" secondItem="pCl-6c-Ley" secondAttribute="centerY" id="R9X-OK-a9j"/>
                     <constraint firstItem="JdE-1E-DVv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="SBm-PC-KJf"/>
                     <constraint firstItem="ftQ-d4-Uv5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Xfx-eN-AAw"/>
+                    <constraint firstItem="pCl-6c-Ley" firstAttribute="leading" secondItem="ftQ-d4-Uv5" secondAttribute="trailing" id="mc2-Eb-XLg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
