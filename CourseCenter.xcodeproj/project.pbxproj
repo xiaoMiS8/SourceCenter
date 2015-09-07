@@ -57,6 +57,7 @@
 		524E887F1B7367CF004A11A2 /* UIView5.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E88701B7367CF004A11A2 /* UIView5.xib */; };
 		524E88801B7367CF004A11A2 /* UIView6.m in Sources */ = {isa = PBXBuildFile; fileRef = 524E88721B7367CF004A11A2 /* UIView6.m */; };
 		524E88811B7367CF004A11A2 /* UIView6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 524E88731B7367CF004A11A2 /* UIView6.xib */; };
+		52B2396E1B9D2369003741D3 /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B2396C1B9D2369003741D3 /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		52C8EED71B4E9F3A00BDBE76 /* Array.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED11B4E9F3A00BDBE76 /* Array.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		52C8EED81B4E9F3A00BDBE76 /* multipy_unicode.dat in Resources */ = {isa = PBXBuildFile; fileRef = 52C8EED21B4E9F3A00BDBE76 /* multipy_unicode.dat */; };
 		52C8EED91B4E9F3A00BDBE76 /* SearchCore.mm in Sources */ = {isa = PBXBuildFile; fileRef = 52C8EED41B4E9F3A00BDBE76 /* SearchCore.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -473,6 +474,9 @@
 		524E88711B7367CF004A11A2 /* UIView6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView6.h; sourceTree = "<group>"; };
 		524E88721B7367CF004A11A2 /* UIView6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView6.m; sourceTree = "<group>"; };
 		524E88731B7367CF004A11A2 /* UIView6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIView6.xib; sourceTree = "<group>"; };
+		52B2396B1B9D2369003741D3 /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		52B2396C1B9D2369003741D3 /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		52B2396D1B9D2369003741D3 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		52C8EED01B4E9F3A00BDBE76 /* Array.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array.h; sourceTree = "<group>"; };
 		52C8EED11B4E9F3A00BDBE76 /* Array.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Array.mm; sourceTree = "<group>"; };
 		52C8EED21B4E9F3A00BDBE76 /* multipy_unicode.dat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multipy_unicode.dat; sourceTree = "<group>"; };
@@ -1134,6 +1138,16 @@
 			name = HWorkViews;
 			sourceTree = "<group>";
 		};
+		52B2396A1B9D2369003741D3 /* GTMBase64 */ = {
+			isa = PBXGroup;
+			children = (
+				52B2396B1B9D2369003741D3 /* GTMBase64.h */,
+				52B2396C1B9D2369003741D3 /* GTMBase64.m */,
+				52B2396D1B9D2369003741D3 /* GTMDefines.h */,
+			);
+			path = GTMBase64;
+			sourceTree = "<group>";
+		};
 		52C8EECF1B4E9F3A00BDBE76 /* FuzzySearch */ = {
 			isa = PBXGroup;
 			children = (
@@ -1546,6 +1560,7 @@
 		D4B2F3201B02FB2E007B017E /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				52B2396A1B9D2369003741D3 /* GTMBase64 */,
 				52DEE04F1B7D784700DD4486 /* Resume */,
 				CAE5FCB21B92AA02006B6701 /* PICircularProgressView.h */,
 				CAE5FCB31B92AA02006B6701 /* PICircularProgressView.m */,
@@ -2291,6 +2306,7 @@
 				524E88801B7367CF004A11A2 /* UIView6.m in Sources */,
 				52DEE0441B7D74E000DD4486 /* ASIInputStream.m in Sources */,
 				CACBFC9B1B540C5100FAD388 /* MessageCell.m in Sources */,
+				52B2396E1B9D2369003741D3 /* GTMBase64.m in Sources */,
 				D4B2F3F11B034265007B017E /* SDWebImageDownloaderOperation.m in Sources */,
 				D40691A41B6CBBB90044CAE5 /* AffairsAction.m in Sources */,
 				D49C64EA1B393D4E006B6D37 /* TeacherInfo.m in Sources */,

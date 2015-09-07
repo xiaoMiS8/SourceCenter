@@ -20,6 +20,7 @@
 #define kUpdatetime             @"Updatetime"
 #define kDownURL                @"DownURL"
 #define kViewURL                @"ViewURL"
+#define kimgBytesIn             @"imgBytesIn"
 
 @interface AttachmentInfo : NSObject
 

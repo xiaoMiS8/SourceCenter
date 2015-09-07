@@ -9,6 +9,7 @@
 #import "Tool.h"
 #import <objc/runtime.h>
 @implementation Tool
+static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 + (UIColor *) colorWithHexString: (NSString *)color
 {
@@ -257,6 +258,8 @@
         return NO;
     }
 }
+
+
 /**
  *	@brief	倒计时按钮获取验证码
  *
