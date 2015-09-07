@@ -138,13 +138,20 @@
     BBSListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BBSListCell"];
     cell.topic = self.topics[indexPath.row];
     cell.agreeBlock = ^() {
-        if ( ((TopicInfo *)self.topics[indexPath.row]).IsGood) {
-            ((TopicInfo *)self.topics[indexPath.row]).Goods -= 1;
-        } else {
-            ((TopicInfo *)self.topics[indexPath.row]).Goods += 1;
-        }
-        ((TopicInfo *)self.topics[indexPath.row]).IsGood = ! ((TopicInfo *)self.topics[indexPath.row]).IsGood;
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self.manager updateForumMyIsGoodWithTopicID:((TopicInfo *)self.topics[indexPath.row]).TopicID ResponseID:0 finished:^(EnumServerStatus status, NSObject *object) {
+            if (status == Enum_SUCCESS) {
+                if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                    if ( ((TopicInfo *)self.topics[indexPath.row]).IsGood) {
+                        ((TopicInfo *)self.topics[indexPath.row]).Goods -= 1;
+                    } else {
+                        ((TopicInfo *)self.topics[indexPath.row]).Goods += 1;
+                    }
+                    ((TopicInfo *)self.topics[indexPath.row]).IsGood = ! ((TopicInfo *)self.topics[indexPath.row]).IsGood;
+                    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+                }
+            }
+        }];
+      
     };
     return cell;
 }
