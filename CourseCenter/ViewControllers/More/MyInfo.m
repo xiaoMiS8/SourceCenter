@@ -8,6 +8,7 @@
 
 #import "MyInfo.h"
 #import "MyInfoCell.h"
+#import "GTMBase64.h"
 @interface MyInfo ()
 {
     NSData *data;
@@ -109,7 +110,8 @@
     //得到图片
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
     data = UIImageJPEGRepresentation(image,0.1);
-    NSString *img_base64=[@"data:image/jpg;base64," stringByAppendingString:[Tool base64Encoding:data]];
+    data=[GTMBase64 encodeData:data];
+    NSString *img_base64=[@"data:image/jpg;base64," stringByAppendingString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
 //    [MBProgressHUD showMessage:@"图片上传中..."];
 //    [self.httpManager uploadPictureWithSourceID:self.userInfo.userID Source:@"Notice" File:data finished:^(EnumServerStatus status, NSObject *object) {
 //        [MBProgressHUD hideHUD];
