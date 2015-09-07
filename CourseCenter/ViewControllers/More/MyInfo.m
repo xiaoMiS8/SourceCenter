@@ -134,6 +134,7 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [MBProgressHUD showSuccess:@"图片上传成功"];
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"UploadSuccess" object:img_base64];
                 return ;
             }
         }
@@ -144,6 +145,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

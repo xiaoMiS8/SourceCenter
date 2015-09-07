@@ -9,6 +9,7 @@
 #import "MoreListCell.h"
 #import "UIImageView+WebCache.h"
 #define HeadIMG @"iconpro"
+
 @implementation MoreListCell
 
 - (void)awakeFromNib {
@@ -17,7 +18,7 @@
     _headImag.layer.cornerRadius=5;
     _messageNum.layer.masksToBounds=YES;
     _messageNum.layer.cornerRadius=5;
-
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateUserImg:) name:@"UploadSuccess" object:nil];
 }
 -(void)setUserInfo:(UserInfo *)userInfo
 {
@@ -76,6 +77,18 @@
     }
     
 }
+
+-(void)updateUserImg:(NSNotification *)not
+{
+    NSIndexPath* indexPath=[NSIndexPath indexPathForRow:0 inSection:0];
+    self.userInfo.userImg=not.object;
+    [self setIndexPath:indexPath];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

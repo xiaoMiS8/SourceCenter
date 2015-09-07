@@ -8,11 +8,14 @@
 
 #import "MyInfoCell.h"
 #import "UIImageView+WebCache.h"
+#import "GTMBase64.h"
 #define HEADIMG @"iconpro"
+
 @implementation MyInfoCell
 
 - (void)awakeFromNib {
     // Initialization code
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(updateUserImg:) name:@"UploadSuccess" object:nil];
 }
 -(void)setIndexPath:(NSIndexPath *)indexPath
 {
@@ -51,10 +54,18 @@
             break;
     }
 }
+-(void)updateUserImg:(NSNotification *)not
+{
+    [self.headImg sd_setImageWithURL:[NSURL URLWithString:not.object]];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
