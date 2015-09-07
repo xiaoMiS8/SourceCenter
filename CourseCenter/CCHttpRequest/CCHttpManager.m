@@ -41,17 +41,32 @@
         finished(status, object);
     }];
 }
+//- (void)uploadPictureWithSourceID:(long)SourceID
+//                           Source:(NSString *)Source
+//                             File:(NSData *)File
+//                         finished:(FinishedBlock)finished{
+//    [UserActions uploadPictureWithSourceID:SourceID
+//                                    Source:Source
+//                                    File:File
+//                                  finished:^(EnumServerStatus status, NSObject *object)
+//                                      {
+//        finished(status, object);
+//    }];
+//}
+
 - (void)uploadPictureWithSourceID:(long)SourceID
                            Source:(NSString *)Source
-                             File:(NSData *)File
+                         FileName:(NSString *)FileName
+                       imgBytesIn:(NSString *)imgBytesIn
                          finished:(FinishedBlock)finished{
     [UserActions uploadPictureWithSourceID:SourceID
                                     Source:Source
-                                    File:File
+                                  FileName:FileName
+                                imgBytesIn:imgBytesIn
                                   finished:^(EnumServerStatus status, NSObject *object)
-                                      {
-        finished(status, object);
-    }];
+     {
+         finished(status, object);
+     }];
 }
 
 - (void)chooseSchoolWithOpt:(NSString *)Opt

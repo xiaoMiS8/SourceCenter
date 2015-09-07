@@ -108,9 +108,25 @@
 {
     //得到图片
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    data = UIImagePNGRepresentation(image);
+    data = UIImageJPEGRepresentation(image,0.1);
+    NSString *img_base64=[@"data:image/jpg;base64," stringByAppendingString:[Tool base64Encoding:data]];
+//    [MBProgressHUD showMessage:@"图片上传中..."];
+//    [self.httpManager uploadPictureWithSourceID:self.userInfo.userID Source:@"Notice" File:data finished:^(EnumServerStatus status, NSObject *object) {
+//        [MBProgressHUD hideHUD];
+//        if (status==0) {
+//            self.reob=(ResponseObject *)object;
+//            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+//                [MBProgressHUD showSuccess:@"图片上传成功"];
+//                return ;
+//            }
+//        }
+//        [MBProgressHUD showError:LOGINMESSAGE_F];
+//    }];
+    
     [MBProgressHUD showMessage:@"图片上传中..."];
-    [self.httpManager uploadPictureWithSourceID:self.userInfo.userID Source:@"Notice" File:data finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager uploadPictureWithSourceID:self.userInfo.userID
+    Source:@"User" FileName:@"123.jpg" imgBytesIn:img_base64
+    finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
@@ -121,6 +137,8 @@
         }
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
+
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
