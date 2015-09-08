@@ -17,6 +17,7 @@
 @property (nonatomic, assign, readonly) CGRect timeFrame;
 @property (nonatomic, assign, readonly) CGRect iconFrame;
 @property (nonatomic, assign, readonly) CGRect textFrame;
+@property (nonatomic, assign, readonly) CGRect imgframe;
 @property (nonatomic, assign, readonly) CGFloat cellHeght;
 
 @end

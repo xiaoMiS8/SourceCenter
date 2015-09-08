@@ -45,8 +45,11 @@
     CGFloat textFrameY = iconFrameY;
     CGFloat textFrameX = message.type==kMessageModelTypeMe ? (2 * padding + iconFrameW) : (frame.size.width - (padding * 2 + iconFrameW + textRealSize.width));
     _textFrame = (CGRect){textFrameX, textFrameY, textRealSize};
-    
-    //4.cell的高度
+    //4图片高度
+    CGFloat imgFrameX = message.type==kMessageModelTypeMe ? (2 * padding + iconFrameW) : (frame.size.width - (padding * 2 + iconFrameW + 180));
+    _textFrame = (message.imgurl.count!=0)?((CGRect){imgFrameX, textFrameY, 180,110}):(CGRect){textFrameX, textFrameY, textRealSize};
+//    _textFrame=(CGRect){textFrameX, textFrameY, 180,110};
+    //5.cell的高度
     _cellHeght = MAX(CGRectGetMaxY(_iconFrame), CGRectGetMaxY(_textFrame)) + padding;
 }
 
