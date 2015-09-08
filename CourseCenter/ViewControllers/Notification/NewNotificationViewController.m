@@ -15,6 +15,7 @@
 #import "TeachingClassInfo.h"
 #import "QBImagePickerController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "GTMBase64.h"
 
 @interface NewNotificationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate,QBImagePickerControllerDelegate>
 
@@ -25,6 +26,8 @@
 @property(nonatomic, strong) NSMutableArray *teachingClasses;
 @property(nonatomic, strong) NSMutableArray *isSelecteds;
 @property(nonatomic, strong) NSMutableArray *isSendSelecteds;
+@property(nonatomic, strong) NSMutableArray *uploadImgs;
+@property(nonatomic, assign) long notiID;
 
 @end
 
@@ -35,6 +38,7 @@
     [self initDataSource];
     self.title = @"新建通知";
     self.tmpSelectedStr = @"请选择班级";
+    self.uploadImgs = [[NSMutableArray alloc] initWithCapacity:0];
     self.teachingClasses = [[NSMutableArray alloc] initWithCapacity:0];
     self.httpManager = [[CCHttpManager alloc] init];
     self.isSelecteds = [[NSMutableArray alloc] initWithCapacity:0];
@@ -134,11 +138,9 @@
     [self.httpManager AddAppNoticeWithTitle:title Conten:content IsTop:NO IsForMail:IsForMail IsForSMS:IsForSMS SourceIDs:IDs finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
-                [MBProgressHUD showSuccess:((ResponseObject *)object).errorMessage];
-                if (self.DoBlock) {
-                    self.DoBlock();
-                     [self dismissViewControllerAnimated:YES completion:nil];
-                }
+                self.notiID = [((ResponseObject *)object).errorMessage integerValue];
+                 [self dismissViewControllerAnimated:YES completion:nil];
+                [self upLoadImgs];
             } else {
                  [MBProgressHUD showError:((ResponseObject *)object).errorMessage];
             }
@@ -148,6 +150,41 @@
     }];
    
    
+}
+
+- (void)upLoadImgs {
+    if (self.uploadImgs.count > 0) {
+        for (int i=0; i<self.uploadImgs.count; i++) {
+            UIImage * image = self.uploadImgs[i];
+            NSData *data = UIImageJPEGRepresentation(image,0.1);
+            data=[GTMBase64 encodeData:data];
+            NSString *img_base64=[@"data:image/jpg;base64," stringByAppendingString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+            [MBProgressHUD showMessage:@"图片上传中..."];
+            [self.httpManager uploadPictureWithSourceID:self.notiID
+                                                 Source:@"OCNotice" FileName:@"123.jpg" imgBytesIn:img_base64
+                                               finished:^(EnumServerStatus status, NSObject *object) {
+                                                   [MBProgressHUD hideHUD];
+                                                   if (status==0) {
+                                                       if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                                                           if (i == self.uploadImgs.count - 1) {
+                                                               if (self.DoBlock) {
+                                                                   self.DoBlock();
+                                                               }
+                                                           }
+                                                           [MBProgressHUD hideHUD];
+                                                           
+                                                       }
+                                                   }
+                                               }];
+        }
+
+    } else {
+        if (self.DoBlock) {
+            self.DoBlock();
+        }
+    }
+    
+
 }
 
 - (void)addFooter {
@@ -462,7 +499,7 @@
         UIImage *img = [UIImage imageWithCGImage:[assets[i] aspectRatioThumbnail]];
         [imgs addObject:img];
     }
-    
+    [self.uploadImgs addObjectsFromArray:imgs];
     NSMutableArray *bigArray = nil;
     
     if (self.dataSource.count < 3) {
@@ -542,6 +579,7 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    [self.uploadImgs addObject:image];
     NSMutableArray *bigArray = [[NSMutableArray alloc] initWithCapacity:0];
     if (self.dataSource.count < 3) {
         NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];

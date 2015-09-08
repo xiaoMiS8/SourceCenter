@@ -26,6 +26,7 @@
 #define kNoticeResponse         @"NoticeResponse"
 #define kKUserImg               @"KUserImg"
 #define kGender                 @"Gender"
+#define kNimgs                  @"ImgUrl"
 
 @interface NoticeInfo : NSObject
 
