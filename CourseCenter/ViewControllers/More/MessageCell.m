@@ -12,11 +12,14 @@
 #import "UIImage+ResizeImage.h"
 #import "MsgInfo.h"
 #import "UIImageView+WebCache.h"
+#import "NSString+HandleString.h"
+
 @interface MessageCell()
 {
     UILabel *_timeLabel;
     UIImageView *_iconView;
     UIButton *_textView;
+    UIImageView *_imgView;
 }
 @end
 
@@ -43,6 +46,9 @@
         _textView.titleLabel.font = [UIFont systemFontOfSize:13];
         _textView.contentEdgeInsets = UIEdgeInsetsMake(textPadding, textPadding, textPadding, textPadding);
         [self.contentView addSubview:_textView];
+        
+        _imgView = [[UIImageView alloc]init];
+        [self.contentView addSubview:_imgView];
     }
     return self;
 }
@@ -66,12 +72,22 @@
 //    NSString *iconStr = message.type ? @"other" : @"me";
 //    _iconView.image = [UIImage imageNamed:iconStr];
     
-    _textView.frame = cellFrame.textFrame;
-    NSString *textBg = message.type==kMessageModelTypeMe ? @"chat_recive_nor" : @"chat_send_nor";
-    UIColor *textColor = message.type==kMessageModelTypeMe ? [UIColor blackColor] : [UIColor whiteColor];
-    [_textView setTitleColor:textColor forState:UIControlStateNormal];
-    [_textView setBackgroundImage:[UIImage resizeImage:textBg] forState:UIControlStateNormal];
-    [_textView setTitle:message.text forState:UIControlStateNormal];
+    if (message.imgurl.count==0) {
+        _textView.frame = cellFrame.textFrame;
+        NSString *textBg = message.type==kMessageModelTypeMe ? @"chat_recive_nor" : @"chat_send_nor";
+        UIColor *textColor = message.type==kMessageModelTypeMe ? [UIColor blackColor] : [UIColor whiteColor];
+        [_textView setTitleColor:textColor forState:UIControlStateNormal];
+        [_textView setBackgroundImage:[UIImage resizeImage:textBg] forState:UIControlStateNormal];
+        [_textView setTitle:message.text forState:UIControlStateNormal];
+    }else
+    {
+        _imgView.frame = cellFrame.textFrame;
+        NSString *string=message.imgurl[0];
+        string = [string cutString:10];
+        string = [string substringToIndex:(string.length-2)];
+        [_imgView sd_setImageWithURL:[NSURL URLWithString:string]];
+    }
+    
 }
 
 @end

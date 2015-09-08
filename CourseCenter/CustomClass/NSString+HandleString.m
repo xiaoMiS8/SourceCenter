@@ -58,7 +58,7 @@
 -(NSString *)cutString:(NSInteger )index
 {
     NSInteger startindex=self.length;
-    NSString *stringF=[self substringWithRange:NSMakeRange(startindex-4, index)];
+    NSString *stringF=[self substringWithRange:NSMakeRange(index,startindex-index)];
     return stringF;
 }
 //保留字符串特定位

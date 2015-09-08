@@ -104,6 +104,7 @@
         [dic setObject:((MsgInfo *)array[i]).Conten forKey:@"text"];
         [dic setObject:((MsgInfo *)array[i]).CreateTime forKey:@"time"];
         [dic setObject:((MsgInfo *)array[i]).SendOrReceive forKey:@"type"];
+        [dic setObject:((MsgInfo *)array[i]).ImgUrl forKey:@"imgurl"];
         [data addObject:dic];
     }
     [data writeToFile:plistPath atomically:YES];
