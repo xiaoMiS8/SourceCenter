@@ -15,6 +15,7 @@
 #import "TeachingClassInfo.h"
 #import "QBImagePickerController.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "GTMBase64.h"
 
 @interface NewNotificationViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate,QBImagePickerControllerDelegate>
 
@@ -25,6 +26,8 @@
 @property(nonatomic, strong) NSMutableArray *teachingClasses;
 @property(nonatomic, strong) NSMutableArray *isSelecteds;
 @property(nonatomic, strong) NSMutableArray *isSendSelecteds;
+@property(nonatomic, strong) NSMutableArray *upLoadimgs;
+@property(nonatomic, assign) long notifID;
 
 @end
 
@@ -35,6 +38,7 @@
     [self initDataSource];
     self.title = @"新建通知";
     self.tmpSelectedStr = @"请选择班级";
+    self.upLoadimgs = [[NSMutableArray alloc] initWithCapacity:0];
     self.teachingClasses = [[NSMutableArray alloc] initWithCapacity:0];
     self.httpManager = [[CCHttpManager alloc] init];
     self.isSelecteds = [[NSMutableArray alloc] initWithCapacity:0];
@@ -134,7 +138,7 @@
     [self.httpManager AddAppNoticeWithTitle:title Conten:content IsTop:NO IsForMail:IsForMail IsForSMS:IsForSMS SourceIDs:IDs finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
-                [MBProgressHUD showSuccess:((ResponseObject *)object).errorMessage];
+                self.notifID = [((ResponseObject *)object).errorMessage integerValue];
                 if (self.DoBlock) {
                     self.DoBlock();
                      [self dismissViewControllerAnimated:YES completion:nil];
@@ -149,7 +153,6 @@
    
    
 }
-
 - (void)addFooter {
     UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0.5)];
     lineLabel.backgroundColor = [UIColor blackColor];
@@ -462,7 +465,7 @@
         UIImage *img = [UIImage imageWithCGImage:[assets[i] aspectRatioThumbnail]];
         [imgs addObject:img];
     }
-    
+    [self.upLoadimgs addObjectsFromArray:imgs];
     NSMutableArray *bigArray = nil;
     
     if (self.dataSource.count < 3) {
@@ -542,6 +545,7 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
+    [self.upLoadimgs addObject:image];
     NSMutableArray *bigArray = [[NSMutableArray alloc] initWithCapacity:0];
     if (self.dataSource.count < 3) {
         NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];
