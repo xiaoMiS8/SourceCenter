@@ -140,7 +140,9 @@
             if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
                 self.notiID = [((ResponseObject *)object).errorMessage integerValue];
                  [self dismissViewControllerAnimated:YES completion:nil];
-                [self upLoadImgs];
+                if (self.dataSource.count > 2) {
+                    [self upLoadImgs];
+                }
             } else {
                  [MBProgressHUD showError:((ResponseObject *)object).errorMessage];
             }
@@ -153,6 +155,13 @@
 }
 
 - (void)upLoadImgs {
+    NSArray *bigArray  =self.dataSource.lastObject;
+    for (int i=0; i<bigArray.count; i++) {
+        NSArray *array = bigArray[i];
+        for (int j=0; j<array.count; j++) {
+            [self.uploadImgs addObject:array[j]];
+        }
+    }
     if (self.uploadImgs.count > 0) {
         for (int i=0; i<self.uploadImgs.count; i++) {
             UIImage * image = self.uploadImgs[i];
@@ -499,7 +508,6 @@
         UIImage *img = [UIImage imageWithCGImage:[assets[i] aspectRatioThumbnail]];
         [imgs addObject:img];
     }
-    [self.uploadImgs addObjectsFromArray:imgs];
     NSMutableArray *bigArray = nil;
     
     if (self.dataSource.count < 3) {
@@ -579,7 +587,6 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
-    [self.uploadImgs addObject:image];
     NSMutableArray *bigArray = [[NSMutableArray alloc] initWithCapacity:0];
     if (self.dataSource.count < 3) {
         NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];

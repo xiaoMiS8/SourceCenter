@@ -47,9 +47,12 @@
             
             UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
             btn.tag = i;
-            btn.frame = CGRectMake(CGRectGetWidth(img.frame) - 4, -4, 8, 8);
+            [btn setTitle:@"x" forState:UIControlStateNormal];
+            btn.layer.cornerRadius = 8;
+            btn.layer.masksToBounds = YES;
+            btn.backgroundColor = [UIColor grayColor];
+            btn.frame = CGRectMake(CGRectGetWidth(img.frame) - 12, -6, 16, 16);
             [btn addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
-            btn.backgroundColor = [UIColor blueColor];
             [img addSubview:btn];
             [self.imgsView addSubview:img];
         }

@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>E2BA9F990D21FC1D90D5BA8843B88A437CA1C396</key>
-		<string>https://github.com/xiaoMiS8/SourceCenter.git</string>
+		<string>https://xiaoMiS8%2520@github.com/xiaoMiS8/SourceCenter.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>CourseCenter.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/xiaoMiS8/SourceCenter.git</string>
+	<string>https://xiaoMiS8%2520@github.com/xiaoMiS8/SourceCenter.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
