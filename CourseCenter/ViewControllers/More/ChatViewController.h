@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ChatViewController : UIViewController
+@interface ChatViewController : UIViewController<UIImagePickerControllerDelegate,UIActionSheetDelegate,UINavigationControllerDelegate>
 @property (nonatomic,assign)long userID;
+@property (nonatomic,strong)NSString *MessageID;
 @end
