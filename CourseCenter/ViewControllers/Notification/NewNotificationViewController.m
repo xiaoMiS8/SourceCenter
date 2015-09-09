@@ -26,8 +26,8 @@
 @property(nonatomic, strong) NSMutableArray *teachingClasses;
 @property(nonatomic, strong) NSMutableArray *isSelecteds;
 @property(nonatomic, strong) NSMutableArray *isSendSelecteds;
-@property(nonatomic, strong) NSMutableArray *upLoadimgs;
-@property(nonatomic, assign) long notifID;
+@property(nonatomic, strong) NSMutableArray *uploadImgs;
+@property(nonatomic, assign) long notiID;
 
 @end
 
@@ -38,7 +38,7 @@
     [self initDataSource];
     self.title = @"新建通知";
     self.tmpSelectedStr = @"请选择班级";
-    self.upLoadimgs = [[NSMutableArray alloc] initWithCapacity:0];
+    self.uploadImgs = [[NSMutableArray alloc] initWithCapacity:0];
     self.teachingClasses = [[NSMutableArray alloc] initWithCapacity:0];
     self.httpManager = [[CCHttpManager alloc] init];
     self.isSelecteds = [[NSMutableArray alloc] initWithCapacity:0];
@@ -138,10 +138,10 @@
     [self.httpManager AddAppNoticeWithTitle:title Conten:content IsTop:NO IsForMail:IsForMail IsForSMS:IsForSMS SourceIDs:IDs finished:^(EnumServerStatus status, NSObject *object) {
         if (status == Enum_SUCCESS) {
             if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
-                self.notifID = [((ResponseObject *)object).errorMessage integerValue];
-                if (self.DoBlock) {
-                    self.DoBlock();
-                     [self dismissViewControllerAnimated:YES completion:nil];
+                self.notiID = [((ResponseObject *)object).errorMessage integerValue];
+                 [self dismissViewControllerAnimated:YES completion:nil];
+                if (self.dataSource.count > 2) {
+                    [self upLoadImgs];
                 }
             } else {
                  [MBProgressHUD showError:((ResponseObject *)object).errorMessage];
@@ -153,6 +153,49 @@
    
    
 }
+
+- (void)upLoadImgs {
+    NSArray *bigArray  =self.dataSource.lastObject;
+    for (int i=0; i<bigArray.count; i++) {
+        NSArray *array = bigArray[i];
+        for (int j=0; j<array.count; j++) {
+            [self.uploadImgs addObject:array[j]];
+        }
+    }
+    if (self.uploadImgs.count > 0) {
+        for (int i=0; i<self.uploadImgs.count; i++) {
+            UIImage * image = self.uploadImgs[i];
+            NSData *data = UIImageJPEGRepresentation(image,0.1);
+            data=[GTMBase64 encodeData:data];
+            NSString *img_base64=[@"data:image/jpg;base64," stringByAppendingString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+            [MBProgressHUD showMessage:@"图片上传中..."];
+            [self.httpManager uploadPictureWithSourceID:self.notiID
+                                                 Source:@"OCNotice" FileName:@"123.jpg" imgBytesIn:img_base64
+                                               finished:^(EnumServerStatus status, NSObject *object) {
+                                                   [MBProgressHUD hideHUD];
+                                                   if (status==0) {
+                                                       if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                                                           if (i == self.uploadImgs.count - 1) {
+                                                               if (self.DoBlock) {
+                                                                   self.DoBlock();
+                                                               }
+                                                           }
+                                                           [MBProgressHUD hideHUD];
+                                                           
+                                                       }
+                                                   }
+                                               }];
+        }
+
+    } else {
+        if (self.DoBlock) {
+            self.DoBlock();
+        }
+    }
+    
+
+}
+
 - (void)addFooter {
     UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 0.5)];
     lineLabel.backgroundColor = [UIColor blackColor];
@@ -465,7 +508,6 @@
         UIImage *img = [UIImage imageWithCGImage:[assets[i] aspectRatioThumbnail]];
         [imgs addObject:img];
     }
-    [self.upLoadimgs addObjectsFromArray:imgs];
     NSMutableArray *bigArray = nil;
     
     if (self.dataSource.count < 3) {
@@ -545,7 +587,6 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
-    [self.upLoadimgs addObject:image];
     NSMutableArray *bigArray = [[NSMutableArray alloc] initWithCapacity:0];
     if (self.dataSource.count < 3) {
         NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];

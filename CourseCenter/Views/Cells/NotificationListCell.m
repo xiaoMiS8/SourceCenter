@@ -9,6 +9,8 @@
 #import "NotificationListCell.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+HandleString.h"
+#import "MJPhotoBrowser.h"
+#import "MJPhoto.h"
 
 #define margin              8.0
 #define margin_left         10
@@ -96,6 +98,25 @@
    
 }
 
+- (void)tap:(UITapGestureRecognizer *)tap {
+    UIImageView *imgView = (UIImageView *)tap.view;
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:self.noticeInfo.imgs.count];
+    for (int i = 0; i<self.noticeInfo.imgs.count; i++) {
+            // 替换为中等尺寸图片
+        NSString *url = self.noticeInfo.imgs[i];
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.url = [NSURL URLWithString:url]; // 图片路径
+        photo.srcImageView = (UIImageView *)[self.contentView viewWithTag:i + 10]; // 来源于哪个UIImageView
+        [photos addObject:photo];
+    }
+
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = imgView.tag - 10; // 弹出相册时显示的第一张图片是？
+    browser.photos = photos; // 设置所有的图片
+    [browser show];
+}
+
+
 - (void)setNoticeInfo:(NoticeInfo *)noticeInfo {
     _noticeInfo = noticeInfo;
     NSString *imgName = @"iconpro";
@@ -135,13 +156,17 @@
         img = nil;
     }
     for (int i=0; i<noticeInfo.imgs.count; i++) {
-        imgInfo *imgInfo = noticeInfo.imgs[i];
+//        imgInfo *imgInfo = noticeInfo.imgs[i];
+        NSString *imgurl = noticeInfo.imgs[i];
         int row = i % 3;
         int lon = i / 3;
         UIImageView *imgView = [[UIImageView alloc] init];
-        imgView.backgroundColor = [UIColor redColor];
+        imgView.tag = i + 10;
+        imgView.userInteractionEnabled = YES;
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+        [imgView addGestureRecognizer:tap];
         imgView.frame = CGRectMake(margin_left + row * (imgWidth + margin_up), CGRectGetMaxY(messageRect) + margin + lon * (margin_up + imgWidth), imgWidth, imgWidth);
-        [imgView sd_setImageWithURL:[NSURL URLWithString:@"http://image.kuwo.cn/artistxz/default_160.jpg"]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:imgurl]];
         [self.contentView addSubview:imgView];
         self.cellHeight = CGRectGetMaxY(imgView.frame) + margin_bom;
         [self.imgs addObject:imgView];

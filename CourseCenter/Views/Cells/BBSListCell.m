@@ -8,6 +8,8 @@
 
 #import "BBSListCell.h"
 #import "UIImageView+WebCache.h"
+#import "MJPhoto.h"
+#import "MJPhotoBrowser.h"
 
 @interface BBSListCell ()
 
@@ -43,6 +45,23 @@
     self.imgViews = [[NSMutableArray alloc] initWithCapacity:0];
 }
 
+- (void)tap:(UITapGestureRecognizer *)tap {
+    UIImageView *imgView = (UIImageView *)tap.view;
+    NSMutableArray *photos = [NSMutableArray arrayWithCapacity:self.topic.imgs.count];
+    for (int i = 0; i<self.topic.imgs.count; i++) {
+            // 替换为中等尺寸图片
+        NSString *url = self.topic.imgs[i];
+        MJPhoto *photo = [[MJPhoto alloc] init];
+        photo.url = [NSURL URLWithString:url]; // 图片路径
+        photo.srcImageView = (UIImageView *)[self.contentView viewWithTag:i + 10]; // 来源于哪个UIImageView
+        [photos addObject:photo];
+    }
+    
+    MJPhotoBrowser *browser = [[MJPhotoBrowser alloc] init];
+    browser.currentPhotoIndex = imgView.tag - 10; // 弹出相册时显示的第一张图片是？
+    browser.photos = photos; // 设置所有的图片
+    [browser show];
+}
 - (void)setTopic:(TopicInfo *)topic {
     _topic = topic;
     if (topic.imgs && topic.imgs.count > 0) {
@@ -59,9 +78,13 @@
                     int row = i % 3;
                     int lon = i / 3;
                     UIImageView *imgView = [[UIImageView alloc] init];
+                    imgView.userInteractionEnabled = YES;
                     imgView.frame = CGRectMake(offset + row * (width + offset), offset + lon * (offset + height), width, height);
-                    [imgView sd_setImageWithURL:[NSURL URLWithString:@"http://image.kuwo.cn/artistxz/default_160.jpg"]];
+                    imgView.tag = 10 + i;
+                    [imgView sd_setImageWithURL:[NSURL URLWithString:topic.imgs[i]]];
                     [self.imgView addSubview:imgView];
+                    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap:)];
+                    [imgView addGestureRecognizer:tap];
                     self.ImgHeight = CGRectGetMaxY(imgView.frame) + offset;
                     [self.imgView addSubview:imgView];
                     [self.imgViews addObject:imgView];
