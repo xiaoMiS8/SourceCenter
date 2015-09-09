@@ -12,6 +12,7 @@
 #import "imgsCell.h"
 #import "QBImagePickerController.h"
 #import "SelectSViewController.h"
+#import "GTMBase64.h"
 
 @interface NTViewController ()<UITextViewDelegate,QBImagePickerControllerDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -25,6 +26,7 @@
 @property(nonatomic, strong) CCHttpManager *manager;
 
 @property(nonatomic, strong) NSMutableArray *imgs;
+@property(nonatomic, assign) long topicId;
 
 @end
 
@@ -99,9 +101,50 @@
 }
 
 - (void)addTopic {
+    __weak typeof(self) wself = self;
     [self.manager addForumTopicWithOCID:self.OCID CourseID:0 ForumTypeID:self.forumType.ForumTypeID GroupTaskID:0 Title:self.datas[1] Conten:self.datas[2] TopicType:3 Tags:nil ChapterID:0 Source:@"" SourceID:0 finished:^(EnumServerStatus status, NSObject *object) {
-        
+        if (status == Enum_SUCCESS) {
+            if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                wself.topicId = [((ResponseObject *)object).errorMessage integerValue];
+                [wself upLoadImgs];
+            }
+        }
     }];
+}
+
+- (void)upLoadImgs {
+    if (self.imgs.count > 0) {
+        for (int i=0; i<self.imgs.count; i++) {
+            UIImage * image = self.imgs[i];
+            NSData *data = UIImageJPEGRepresentation(image,0.1);
+            data=[GTMBase64 encodeData:data];
+            NSString *img_base64=[@"data:image/jpg;base64," stringByAppendingString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+            [MBProgressHUD showMessage:@"图片上传中..."];
+            [self.manager uploadPictureWithSourceID:self.topicId
+                                                 Source:@"ForumTopic" FileName:@"123.jpg" imgBytesIn:img_base64
+                                               finished:^(EnumServerStatus status, NSObject *object) {
+                                                   [MBProgressHUD hideHUD];
+                                                   if (status==0) {
+                                                       if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
+                                                           if (i == self.imgs.count - 1) {
+//                                                               if (self.DoBlock) {
+//                                                                   self.DoBlock();
+//                                                               }
+                                                           }
+                                                           [MBProgressHUD hideHUD];
+                                                           
+                                                       }
+                                                   }
+                                               }];
+        }
+        
+    } else {
+//        if (self.DoBlock) {
+//            self.DoBlock();
+//        }
+    }
+    
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

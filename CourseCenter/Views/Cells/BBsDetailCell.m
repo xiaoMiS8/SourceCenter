@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *agree;
 @property (weak, nonatomic) IBOutlet UIImageView *dicussImg;
 @property (weak, nonatomic) IBOutlet UIButton *agreeBtn;
+@property(nonatomic, assign) CGFloat ImgHeight;
+@property(nonatomic, strong) NSMutableArray *imgViews;
 
 @end
 
@@ -49,13 +51,36 @@
 - (void)setTopic:(TopicInfo *)topic {
     _topic = topic;
     if (topic.imgs && topic.imgs.count > 0) {
+        for (int i=0; i<self.imgViews.count; i++) {
+            UIImageView *imgView = self.imgViews[i];
+            [imgView removeFromSuperview];
+        }
         for (NSLayoutConstraint *constraint in self.imgsView.constraints) {
             if (constraint.firstAttribute == NSLayoutAttributeHeight) {
-                constraint.constant = 280;
+                CGFloat width = (Swidth -20 -10 -10 - 18 - 4*10)/3;
+                CGFloat height = (Swidth -20 -10 -10 -18 - 4*10)/3 + 20;
+                CGFloat offset = 10;
+                for (int i=0; i<topic.imgs.count; i++) {
+                    int row = i % 3;
+                    int lon = i / 3;
+                    UIImageView *imgView = [[UIImageView alloc] init];
+                    imgView.frame = CGRectMake(offset + row * (width + offset), offset + lon * (offset + height), width, height);
+                    [imgView sd_setImageWithURL:[NSURL URLWithString:@"http://image.kuwo.cn/artistxz/default_160.jpg"]];
+                    [self.imgsView addSubview:imgView];
+                    self.ImgHeight = CGRectGetMaxY(imgView.frame) + offset;
+                    [self.imgsView addSubview:imgView];
+                    [self.imgViews addObject:imgView];
+                }
+                
+                constraint.constant = self.ImgHeight;
             }
         }
         
     } else {
+        for (int i=0; i<self.imgViews.count; i++) {
+            UIImageView *imgView = self.imgViews[i];
+            [imgView removeFromSuperview];
+        }
         for (NSLayoutConstraint *constraint in self.imgsView.constraints) {
             if (constraint.firstAttribute == NSLayoutAttributeHeight) {
                 constraint.constant = 0;

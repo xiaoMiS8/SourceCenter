@@ -29,6 +29,7 @@
         self.RowsCount = [dict[kRowsCount] longValue];
         self.iscanDel = [dict[kIsCanDel] boolValue];
         self.Gender = [dict[KGender] intValue];
+        self.imgs = dict[kimgs];
     }
     return self;
 }
