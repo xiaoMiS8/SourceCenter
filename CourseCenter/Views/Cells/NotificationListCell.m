@@ -8,6 +8,7 @@
 
 #import "NotificationListCell.h"
 #import "UIImageView+WebCache.h"
+#import "NSString+HandleString.h"
 
 #define margin              8.0
 #define margin_left         10
@@ -140,7 +141,7 @@
         UIImageView *imgView = [[UIImageView alloc] init];
         imgView.backgroundColor = [UIColor redColor];
         imgView.frame = CGRectMake(margin_left + row * (imgWidth + margin_up), CGRectGetMaxY(messageRect) + margin + lon * (margin_up + imgWidth), imgWidth, imgWidth);
-        [imgView sd_setImageWithURL:[NSURL URLWithString:imgInfo.url]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:@"http://image.kuwo.cn/artistxz/default_160.jpg"]];
         [self.contentView addSubview:imgView];
         self.cellHeight = CGRectGetMaxY(imgView.frame) + margin_bom;
         [self.imgs addObject:imgView];

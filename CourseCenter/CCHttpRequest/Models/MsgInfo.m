@@ -16,6 +16,7 @@
         self.UnReadCount = [dict[kUnReadCount] intValue];
         self.UserImgUrl = dict[kUserImgUrl];
         self.Conten = dict[kConten];
+        self.ImgUrl = dict[kImgUrl];
         self.UserID = [dict[kUserID] longValue];
         self.UserName = dict[kUserName];
         self.CreateTime = dict[kCreateTime];

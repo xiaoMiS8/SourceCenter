@@ -19,6 +19,7 @@ typedef enum {
 @property (nonatomic, copy) NSString *time;
 @property (nonatomic, assign) MessageModelType type;
 @property (nonatomic, assign) BOOL showTime;
+@property (nonatomic, strong) NSMutableArray *imgurl;
 
 + (id)messageModelWithDict:(NSDictionary *)dict;
 

@@ -40,6 +40,7 @@
             }
             self.NoticeResponse = noticeResones;
         }
+        self.imgs = dict[kNimgs];
         
     }
     

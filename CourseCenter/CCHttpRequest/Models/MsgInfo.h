@@ -11,10 +11,12 @@
 #define kUnReadCount        @"UnReadCount"
 #define kUserImgUrl         @"UserImgUrl"
 #define kConten             @"Conten"
+#define kImgUrl             @"ImgUrl"
 #define kUserID             @"UserID"
 #define kUserName           @"UserName"
 #define kCreateTime         @"CreateTime"
 #define kSendOrReceive      @"SendOrReceive"
+
 
 @interface MsgInfo : NSObject
 
@@ -25,6 +27,8 @@
 @property(nonatomic, assign) int Gender;
     //内容
 @property(nonatomic, strong) NSString *Conten;
+    //图片
+@property(nonatomic,strong) NSMutableArray *ImgUrl;
     //用户ID
 @property(nonatomic, assign) long UserID;
     //姓名

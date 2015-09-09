@@ -16,7 +16,7 @@
     message.text = dict[@"text"];
     message.time = dict[@"time"];
     message.type = [dict[@"type"] intValue];
-    
+    message.imgurl = dict[@"imgurl"];
     return message;
 }
 
