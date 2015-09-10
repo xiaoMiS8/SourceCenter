@@ -27,6 +27,7 @@
 
 @property(nonatomic, strong) NSMutableArray *imgs;
 @property(nonatomic, assign) long topicId;
+@property(nonatomic, strong) NSMutableArray *placeholds;
 
 @end
 
@@ -39,7 +40,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"NTCell1" bundle:nil] forCellReuseIdentifier:@"NTCell1"];
     [self.tableView registerNib:[UINib nibWithNibName:@"TextViewCell" bundle:nil] forCellReuseIdentifier:@"TextViewCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"imgsCell" bundle:nil] forCellReuseIdentifier:@"imgsCell"];
-    self.datas = [[NSMutableArray alloc] initWithArray:@[@"点击选择板块",@"请输入标题，50字以内！",@"请输入话题内容"]];
+    self.datas = [[NSMutableArray alloc] initWithArray:@[@"点击选择板块",@"",@""]];
+    self.placeholds = [[NSMutableArray alloc] initWithArray:@[@"",@"请输入标题，50字以内！",@"请输入话题内容"]];
     self.imgs = [[NSMutableArray alloc] initWithCapacity:0];
     [self addNavItem];
     
@@ -83,7 +85,7 @@
         [MBProgressHUD showError:@"请先选择板块"];
         return;
     }
-    if ([self.datas[1] isEqualToString:@"请输入标题，50字以内！"]) {
+    if ([self.datas[1] isEqualToString:@"请输入标题，50字以内！"] || [self.datas[1] isEqualToString:@""]) {
         [MBProgressHUD showError:@"请输入标题"];
         return;
     }
@@ -91,12 +93,11 @@
         [MBProgressHUD showError:@"标题过长"];
         return;
     }
-    if ([self.datas[2] isEqualToString:@"请输入话题内容"]) {
+    if ([self.datas[2] isEqualToString:@"请输入话题内容"] || [self.datas[2] isEqualToString:@""]) {
         [MBProgressHUD showError:@"请输入内容"];
         return;
     }
     [self addTopic];
-    self.doBlock();
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -106,7 +107,12 @@
         if (status == Enum_SUCCESS) {
             if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
                 wself.topicId = [((ResponseObject *)object).errorMessage integerValue];
-                [wself upLoadImgs];
+                if (wself.doBlock) {
+                    wself.doBlock();
+                }
+                if (self.imgs.count > 0) {
+                    [wself upLoadImgs];
+                }
             }
         }
     }];
@@ -127,9 +133,9 @@
                                                    if (status==0) {
                                                        if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
                                                            if (i == self.imgs.count - 1) {
-//                                                               if (self.DoBlock) {
-//                                                                   self.DoBlock();
-//                                                               }
+                                                               if (self.doBlock) {
+                                                                   self.doBlock();
+                                                               }
                                                            }
                                                            [MBProgressHUD hideHUD];
                                                            
@@ -139,9 +145,9 @@
         }
         
     } else {
-//        if (self.DoBlock) {
-//            self.DoBlock();
-//        }
+        if (self.doBlock) {
+            self.doBlock();
+        }
     }
     
     
@@ -165,6 +171,7 @@
             return size.height + 1;
         }
         TextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextViewCell"];
+        cell.pleholdLabel.text = self.placeholds[indexPath.row];
         cell.textView.text = self.datas[indexPath.row];
         CGSize size =  [cell.textView sizeThatFits:CGSizeMake(cell.textView.frame.size.width -16 , FLT_MAX)];
         CGFloat textHeight = size.height + 20;
@@ -188,6 +195,7 @@
         }
         TextViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TextViewCell"];
         cell.textView.delegate = self;
+        cell.pleholdLabel.text = self.placeholds[indexPath.row];
         cell.textView.text = self.datas[indexPath.row];
         return cell;
     }
@@ -219,11 +227,12 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-    textView.text = @"";
     textView.textColor = [UIColor blackColor];
     self.updatedStr = textView.text;
     TextViewCell *cell = (TextViewCell *)[[textView superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    [self.placeholds replaceObjectAtIndex:indexPath.row withObject:@""];
+    cell.pleholdLabel.text = self.placeholds[indexPath.row];
     [self.datas replaceObjectAtIndex:indexPath.row withObject:self.updatedStr];
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
@@ -233,6 +242,13 @@
     self.updatedStr = textView.text;
     TextViewCell *cell = (TextViewCell *)[[textView superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    if (indexPath.row == 1) {
+        if (textView.text == nil || [textView.text isEqualToString:@""]) {
+            [self.placeholds replaceObjectAtIndex:indexPath.row withObject:@"请输入标题，50字以内！"];
+        } else {
+            [self.placeholds replaceObjectAtIndex:indexPath.row withObject:@"请输入话题内容"];
+        }
+    }
     [self.datas replaceObjectAtIndex:indexPath.row withObject:self.updatedStr];
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
@@ -295,7 +311,7 @@
     NSLog(@"%@", assets);
     NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];
     for (int i=0; i<assets.count; i++) {
-        UIImage *img = [UIImage imageWithCGImage:[assets[i] aspectRatioThumbnail]];
+        UIImage *img = [UIImage imageWithCGImage:[[assets[i] defaultRepresentation] fullResolutionImage]];
         [imgs addObject:img];
     }
     [self.imgs addObjectsFromArray:imgs];

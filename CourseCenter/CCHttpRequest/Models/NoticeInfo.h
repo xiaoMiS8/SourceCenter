@@ -24,7 +24,7 @@
 #define kIsCanDel               @"IsCanDel"
 #define krowscount              @"rowscount"
 #define kNoticeResponse         @"NoticeResponse"
-#define kKUserImg               @"KUserImg"
+#define kKUserImg               @"UserImgUrl"
 #define kGender                 @"Gender"
 #define kNimgs                  @"ImgUrl"
 

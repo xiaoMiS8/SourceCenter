@@ -303,7 +303,7 @@
 #pragma mark- UITextViewDelegate
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    self.textView.text = @"";
+    self.placeholdLabel.text = @"";
     return YES;
 }
 - (IBAction)sendClick:(id)sender {
