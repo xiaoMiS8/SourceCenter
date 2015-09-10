@@ -167,8 +167,8 @@
                 respone.Conten = self.responsecontent;
                 respone.UserName = self.noticeInfo.UserName;
                 self.noticeInfo.ResponseCount += 1;
-                [self.noticeRespones addObject:respone];
-                [MBProgressHUD showSuccess:((ResponseObject *)object).errorMessage];
+                [self.noticeRespones insertObject:respone atIndex:0];
+                [MBProgressHUD showSuccess:@"回复成功"];
                 [self.tableView reloadData];
             } else {
                 [MBProgressHUD showError:((ResponseObject *)object).errorMessage];

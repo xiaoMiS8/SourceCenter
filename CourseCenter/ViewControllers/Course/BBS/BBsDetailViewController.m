@@ -315,7 +315,8 @@
     [self.manager addForumResponseWithTopicID:self.topic.TopicID ParentID:self.parentID Conten:self.textView.text finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD showSuccess:@"回复成功"];
         [wself reloadData];
-        wself.textView.text = @"发表评论（限250字以内）";
+        wself.placeholdLabel.text = @"发表评论（限250字以内）";
+        wself.textView.text = @"";
         [wself.textView endEditing:YES];
     }];
 }

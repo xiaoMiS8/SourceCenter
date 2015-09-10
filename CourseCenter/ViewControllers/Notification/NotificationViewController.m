@@ -145,7 +145,7 @@
     {
         NewNotificationViewController *newNotificationVC = [NewNotificationViewController new];
         newNotificationVC.DoBlock = ^{
-            [self loadData];
+            [self.tableView.header beginRefreshing];
         };
         LineNavigationController *nav = [[LineNavigationController alloc] initWithRootViewController:newNotificationVC];
         UIViewController *tabbar = ((AppDelegate *)app).nav.viewControllers.firstObject;
