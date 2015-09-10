@@ -82,10 +82,7 @@
     }else
     {
         _imgView.frame = cellFrame.textFrame;
-        NSString *string=message.imgurl[0];
-        string = [string cutString:10];
-        string = [string substringToIndex:(string.length-2)];
-        [_imgView sd_setImageWithURL:[NSURL URLWithString:string]];
+        [_imgView sd_setImageWithURL:[NSURL URLWithString:message.imgurl[0]]];
     }
     
 }
