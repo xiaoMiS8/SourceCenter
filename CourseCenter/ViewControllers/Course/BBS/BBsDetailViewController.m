@@ -172,7 +172,6 @@
             if (status == Enum_SUCCESS) {
                 [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
                 wself.topicSetBlcok();
-                [wself.navigationController popViewControllerAnimated:YES];
             }
         }];
     };

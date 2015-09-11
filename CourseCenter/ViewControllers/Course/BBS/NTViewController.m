@@ -242,13 +242,13 @@
     self.updatedStr = textView.text;
     TextViewCell *cell = (TextViewCell *)[[textView superview] superview];
     NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    if (indexPath.row == 1) {
-        if (textView.text == nil || [textView.text isEqualToString:@""]) {
-            [self.placeholds replaceObjectAtIndex:indexPath.row withObject:@"请输入标题，50字以内！"];
-        } else {
-            [self.placeholds replaceObjectAtIndex:indexPath.row withObject:@"请输入话题内容"];
-        }
-    }
+//    if (indexPath.row == 1) {
+//        if (textView.text == nil || [textView.text isEqualToString:@""]) {
+//            [self.placeholds replaceObjectAtIndex:indexPath.row withObject:@"请输入标题，50字以内！"];
+//        } else {
+//            [self.placeholds replaceObjectAtIndex:indexPath.row withObject:@"请输入话题内容"];
+//        }
+//    }
     [self.datas replaceObjectAtIndex:indexPath.row withObject:self.updatedStr];
     [self.tableView beginUpdates];
     [self.tableView endUpdates];

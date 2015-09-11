@@ -2115,7 +2115,6 @@
 				TargetAttributes = {
 					D4B2F2F01B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = DRJ42M455V;
 					};
 					D4B2F30C1B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -2606,8 +2605,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ren jian (UPHCYJ94P2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ren jian (UPHCYJ94P2)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2629,7 +2628,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "3535297c-2afd-4d77-9935-6b52baee439a";
+				PROVISIONING_PROFILE = "cfcf455f-ebf8-4bce-a1c7-7cda3e4c0a95";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2651,8 +2650,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: ren jian (UPHCYJ94P2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ren jian (UPHCYJ94P2)";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2667,7 +2666,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "3535297c-2afd-4d77-9935-6b52baee439a";
+				PROVISIONING_PROFILE = "cfcf455f-ebf8-4bce-a1c7-7cda3e4c0a95";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -2678,14 +2677,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3535297c-2afd-4d77-9935-6b52baee439a";
+				PROVISIONING_PROFILE = "cfcf455f-ebf8-4bce-a1c7-7cda3e4c0a95";
 			};
 			name = Debug;
 		};
@@ -2694,14 +2693,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3535297c-2afd-4d77-9935-6b52baee439a";
+				PROVISIONING_PROFILE = "cfcf455f-ebf8-4bce-a1c7-7cda3e4c0a95";
 			};
 			name = Release;
 		};

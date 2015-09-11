@@ -9,13 +9,14 @@
 #import "ShareToViewController.h"
 #import "NewNotiSelectCell.h"
 
-@interface ShareToViewController ()
+@interface ShareToViewController ()<UIAlertViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *manager;
 
 @property(nonatomic, strong) NSArray *forums;
 @property(nonatomic, strong) NSMutableArray *selecteds;
 @property(nonatomic, strong) NSMutableArray *selectedforums;
+@property(nonatomic, strong) NSIndexPath  *indexPath;
 
 @end
 
@@ -40,13 +41,8 @@
 }
 
 - (void)done {
-    self.selectedforums = [[NSMutableArray alloc] initWithCapacity:0];
-    for (int i=0; i<self.selecteds.count; i++) {
-        ForumTypeInfo *forum = self.forums[[self.selecteds[i] integerValue]];
-        [self.selectedforums addObject:forum];
-    }
-    self.doneBlock(self.selectedforums);
-    [self.navigationController popViewControllerAnimated:YES];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要分享至该模块？" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alertView show];
 }
 
 - (void)initManager {
@@ -84,6 +80,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.indexPath = indexPath;
     if (![self isExistwithIndex:indexPath.row]) {
         [self.selecteds addObject:@(indexPath.row)];
         
@@ -101,6 +98,21 @@
         }
     }
     return NO;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        self.selectedforums = [[NSMutableArray alloc] initWithCapacity:0];
+        for (int i=0; i<self.selecteds.count; i++) {
+            ForumTypeInfo *forum = self.forums[[self.selecteds[i] integerValue]];
+            [self.selectedforums addObject:forum];
+        }
+        self.doneBlock(self.selectedforums);
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [self.selecteds removeObject:@(self.indexPath.row)];
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
