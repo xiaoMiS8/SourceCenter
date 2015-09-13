@@ -14,6 +14,7 @@
     UISearchDisplayController *searchDC;
     NSInteger selectNumber;
     BOOL isTableView;
+    NSInteger resultRow;
     
 }
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -45,7 +46,8 @@
     mySearchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64,Swidth, 40)];
     mySearchBar.placeholder = @"输入学校和关键字来搜索";
     mySearchBar.delegate=self;
-    [self.tableView.tableHeaderView addSubview:mySearchBar];
+    mySearchBar.showsCancelButton=NO;
+    self.tableView.tableHeaderView = mySearchBar;
     searchDC=[[UISearchDisplayController alloc]initWithSearchBar:mySearchBar contentsController:self];
     searchDC.searchResultsDataSource=self;
     searchDC.searchResultsDelegate=self;
@@ -130,8 +132,22 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    selectNumber=indexPath.row;
-    [tableView reloadData];
+    if (tableView==_tableView) {
+        selectNumber=indexPath.row;
+        [tableView reloadData];
+    }else
+    {
+        for (int i=0;i<_dataArray.count;i++) {
+            if ([((SchoolInfo *)_dataArray[i]).Schoolname isEqualToString:((SchoolInfo *)_dataResult[indexPath.row]).Schoolname] ) {
+                resultRow=i;
+                selectNumber=indexPath.row;
+                [tableView reloadData];
+                break;
+            }
+        }
+        
+    }
+    
 }
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
@@ -140,6 +156,7 @@
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
+    selectNumber=resultRow;
     [_tableView reloadData];
 }
 

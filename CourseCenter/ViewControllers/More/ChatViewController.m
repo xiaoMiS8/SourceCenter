@@ -22,6 +22,7 @@
     UIImageView *_toolBar;
     UITextField *textField;
     NSData *data;
+    NSString *img_base64;
     
 }
 @property(nonatomic, strong)CCHttpManager *httpManager;
@@ -54,7 +55,6 @@
     [self addChatView];
     //2.工具栏
     [self addToolBar];
-    [self sureMessageWithmessage:@""];
 }
 - (void)getFilePath
 {
@@ -169,7 +169,7 @@
     
     UIButton *expressBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     expressBtn.frame = CGRectMake(self.view.frame.size.width - kToolBarH * 2, 0, kToolBarH, kToolBarH);
-    [expressBtn setImage:[UIImage imageNamed:@"chat_bottom_smile_nor"] forState:UIControlStateNormal];
+    [expressBtn setImage:[UIImage imageNamed:@"btn_camera"] forState:UIControlStateNormal];
     [expressBtn addTarget:self action:@selector(sendImage) forControlEvents:UIControlEventTouchUpInside];
     [bgView addSubview:expressBtn];
     
@@ -244,20 +244,11 @@
     UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
     data = UIImageJPEGRepresentation(image,0.1);
     data=[GTMBase64 encodeData:data];
-    NSString *img_base64=[@"data:image/jpg;base64," stringByAppendingString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
+    img_base64=[@"data:image/jpg;base64," stringByAppendingString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
     [self reloadData:img_base64];
-    [self.httpManager uploadPictureWithSourceID:[_MessageID intValue]  Source:@"Message" FileName:@"123.jpg" imgBytesIn:img_base64 finished:^(EnumServerStatus status, NSObject *object) {
-        if (status==0) {
-      self.reob=(ResponseObject *)object;
-    if ([self.reob.errrorCode isEqualToString:@"0"]) {
-        return ;
-        }
-    }
-       [MBProgressHUD showError:LOGINMESSAGE_F];
-    }];
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
+    [self sureMessageWithmessage:@""];
 
+}
 -(void)sureMessageWithmessage:(NSString *)message
 {
     [self.httpManager addAppMessageWithTitle:@"" Conten:message ReceiveUserIDs:[[NSNumber  numberWithLong:_userID] stringValue] finished:^(EnumServerStatus status, NSObject *object) {
@@ -265,6 +256,9 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 self.MessageID=self.reob.errorMessage;
+                if ([message isEqualToString:@""]) {
+                    [self uploadPicture];
+                }
                 return ;
             }
         }
@@ -272,6 +266,19 @@
     }];
 }
 
+-(void)uploadPicture
+{
+    [self.httpManager uploadPictureWithSourceID:[_MessageID intValue]  Source:@"Message" FileName:@"123.jpg" imgBytesIn:img_base64 finished:^(EnumServerStatus status, NSObject *object) {
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - tableView的数据源和代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

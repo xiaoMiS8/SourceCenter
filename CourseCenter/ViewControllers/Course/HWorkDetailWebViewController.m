@@ -45,6 +45,9 @@
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 [MBProgressHUD showSuccess:@"作业提交成功!"];
+                if (self.popBlock) {
+                    self.popBlock();
+                }
                 [self.navigationController popViewControllerAnimated:YES];
                 return ;
             }

@@ -10,4 +10,6 @@
 
 @interface HWorkDetailWebViewController : BaseViewController<UIWebViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,assign)long TestID;
+
+@property(nonatomic, copy) void (^popBlock)(void);
 @end

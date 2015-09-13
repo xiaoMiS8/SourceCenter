@@ -13,13 +13,14 @@
 #import "MsgInfo.h"
 #import "UIImageView+WebCache.h"
 #import "NSString+HandleString.h"
-
+#import "MyPicViewController.h"
 @interface MessageCell()
 {
     UILabel *_timeLabel;
     UIImageView *_iconView;
     UIButton *_textView;
     UIImageView *_imgView;
+    UITapGestureRecognizer *tapGR;
 }
 @end
 
@@ -48,7 +49,7 @@
         [self.contentView addSubview:_textView];
         
         _imgView = [[UIImageView alloc]init];
-        [self.contentView addSubview:_imgView];
+        
     }
     return self;
 }
@@ -73,18 +74,33 @@
 //    _iconView.image = [UIImage imageNamed:iconStr];
     
     if (message.imgurl.count==0) {
+        [_imgView removeFromSuperview];
+        [self.contentView addSubview:_textView];
         _textView.frame = cellFrame.textFrame;
         NSString *textBg = message.type==kMessageModelTypeMe ? @"chat_recive_nor" : @"chat_send_nor";
         UIColor *textColor = message.type==kMessageModelTypeMe ? [UIColor blackColor] : [UIColor whiteColor];
         [_textView setTitleColor:textColor forState:UIControlStateNormal];
         [_textView setBackgroundImage:[UIImage resizeImage:textBg] forState:UIControlStateNormal];
         [_textView setTitle:message.text forState:UIControlStateNormal];
+        [self.contentView removeGestureRecognizer:tapGR];
     }else
     {
-        _imgView.frame = cellFrame.textFrame;
+        [_textView removeFromSuperview];
+        [self.contentView addSubview:_imgView];
+         _imgView.frame = cellFrame.textFrame;
         [_imgView sd_setImageWithURL:[NSURL URLWithString:message.imgurl[0]]];
+        tapGR = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(imageTap)];
+        [self.contentView addGestureRecognizer:tapGR];
     }
     
+}
+-(void)imageTap
+{
+    MyPicViewController *picVC=[[MyPicViewController alloc]init];
+    MessageModel *message = _cellFrame.message;
+    picVC.url= message.imgurl[0];
+    picVC.picName=@"";
+    [((AppDelegate *)app).nav pushViewController:picVC animated:YES];
 }
 
 @end

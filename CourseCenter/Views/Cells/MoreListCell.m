@@ -56,15 +56,15 @@
 -(void)setSectionWith:(NSIndexPath *)myIndexPath
 {
     switch (myIndexPath.row) {
+//        case 0:
+//            _headImag.image=[UIImage imageNamed:@"icon_vote"];
+//            _headName.text=@"教学投票";
+//            break;
         case 0:
-            _headImag.image=[UIImage imageNamed:@"icon_vote"];
-            _headName.text=@"教学投票";
-            break;
-        case 1:
             _headImag.image=[UIImage imageNamed:@"icon_datum"];
             _headName.text=@"学习资料";
             break;
-        case 2:
+        case 1:
             _headImag.image=[UIImage imageNamed:@"icon_download"];
             _headName.text=@"我的下载";
             break;

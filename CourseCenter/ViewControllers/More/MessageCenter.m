@@ -11,12 +11,14 @@
 #import "ChatViewController.h"
 #import "NewMessage.h"
 #import "MsgInfo.h"
+#import "MJRefresh.h"
 @interface MessageCenter ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic, strong)CCHttpManager *httpManager;
 @property (strong,nonatomic)ResponseObject *reob;
 @property (nonatomic,strong)NSMutableArray *dataArray;
 @property (nonatomic,strong)MsgInfo *msgInfo;
+@property(nonatomic, assign) int index;
 @end
 
 @implementation MessageCenter
@@ -38,14 +40,35 @@
 }
 -(void)loadMyInfo
 {
+    self.index = 1;
     [MBProgressHUD showMessage:nil];
-    [self.httpManager getAppMessageListWithkey:nil PageIndex:1 PageSize:INT_MAX finished:^(EnumServerStatus status, NSObject *object) {
+    [self.httpManager getAppMessageListWithkey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                  self.dataArray=self.reob.resultArray;
                 [_tableView reloadData];
+                [self.tableView addLegendFooterWithRefreshingBlock:^{
+                    [self loadMore];
+                }];
+                return ;
+            }
+        }
+        [MBProgressHUD showError:LOGINMESSAGE_F];
+    }];
+}
+- (void)loadMore {
+    self.index ++;
+    self.httpManager = [[CCHttpManager alloc] init];
+    [self.httpManager getAppMessageListWithkey:nil PageIndex:self.index PageSize:10 finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
+        if (status==0) {
+            self.reob=(ResponseObject *)object;
+            if ([self.reob.errrorCode isEqualToString:@"0"]) {
+                [self.dataArray addObjectsFromArray:self.reob.resultArray];
+                [_tableView reloadData];
+                [self.tableView.legendFooter endRefreshing];
                 return ;
             }
         }

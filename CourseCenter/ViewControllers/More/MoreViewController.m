@@ -116,7 +116,7 @@
         case 1:
             return 1;
         case 2:
-            return 3;
+            return 2;
         case 3:
             return 1;
         default:
@@ -177,15 +177,15 @@
 -(void)chooseViewControllerWithindexPath:(NSIndexPath *)index
 {
     switch (index.row) {
+//        case 0:
+//            questionSurvey=[[QuestionSurvey alloc]init];
+//            [((AppDelegate *)app).nav pushViewController:questionSurvey animated:YES];
+//            break;
         case 0:
-            questionSurvey=[[QuestionSurvey alloc]init];
-            [((AppDelegate *)app).nav pushViewController:questionSurvey animated:YES];
-            break;
-        case 1:
             myData=[[MyData alloc]init];
             [((AppDelegate *)app).nav pushViewController:myData animated:YES];
             break;
-        case 2:
+        case 1:
             myDownload=[[MyDownLoad alloc]init];
             [((AppDelegate *)app).nav pushViewController:myDownload animated:YES];
             break;

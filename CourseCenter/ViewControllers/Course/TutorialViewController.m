@@ -57,6 +57,8 @@ static NSInteger tag;
 @property(nonatomic,strong)NSMutableArray *fileArray;
 //进度条
 @property(nonatomic,strong)PICircularProgressView *progress;
+//选择的selectSection
+@property(nonatomic,assign)NSInteger selectSection;
 @end
 
 @implementation TutorialViewController
@@ -109,7 +111,7 @@ static NSInteger tag;
 }
 -(void)loadData1
 {
-    [MBProgressHUD showMessage:nil];
+         //[MBProgressHUD showMessage:nil];
     [self.httpManager getChapterStudyListwithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD hideHUD];
         if (status==0) {
@@ -118,6 +120,7 @@ static NSInteger tag;
                 _arrayData=self.reob.resultArray;
                 [self showCourseData];
                 // [self loadOCMoocFile];
+//                [self loadOCMoocFileWithSection:_selectSection WithIsBlock:YES];
                 return ;
             }
         }
@@ -492,6 +495,7 @@ static NSInteger tag;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    _selectSection=indexPath.section;
     if (((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileType==1) {
         NSInteger num=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).IsAllowStudy;
         switch (num) {
@@ -517,7 +521,8 @@ static NSInteger tag;
                 playVC.pauseBlock = ^(NSInteger sends) {
                     ((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).Seconds = (int)sends;
                     [self loadData1];
-                    //[self loadOCMoocFileWithSection:indexPath.section WithIsBlock:YES];
+                    [self loadOCMoocFileWithSection:indexPath.section WithIsBlock:YES];
+                    
                 };
 //                playVC.tutorVC=self;
                 [self presentViewController:playVC animated:YES completion:nil];
@@ -552,7 +557,7 @@ static NSInteger tag;
         picVC.picName=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileTitle;;
         [((AppDelegate *)app).nav pushViewController:picVC animated:YES];
         [self loadData1];
-        //[self loadOCMoocFileWithSection:indexPath.section WithIsBlock:YES];
+        [self loadOCMoocFileWithSection:indexPath.section WithIsBlock:YES];
     }else
     {
         NSString * fileName=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileTitle;
@@ -564,7 +569,7 @@ static NSInteger tag;
             _openChapterID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).ChapterID;
             _openFileID=((MoocFileInfo *)[[_moocFileArray objectAtIndex:indexPath.section]objectAtIndex:indexPath.row]).FileID;
           [Tool showAlertView:@"提示" withMessage:@"使用第三方软件打开该类型资源" withTarget:self withCancel:@"取消" other:@"确定"];
-            [self loadData1];
+           // [self loadData1];
          //[self loadOCMoocFileWithSection:indexPath.section WithIsBlock:YES];
         }
     }
@@ -610,6 +615,10 @@ static NSInteger tag;
         case 1:{
             HWorkDetailWebViewController *hwdVC=[[HWorkDetailWebViewController alloc]init];
             hwdVC.TestID=((ChapterInfo *)[_arrayData objectAtIndex:but.tag-100]).TestID;
+            hwdVC.popBlock=^(void)
+            {
+                [self loadData1];
+            };
             [((AppDelegate *)app).nav pushViewController:hwdVC animated:YES];
             break;
         }
@@ -648,6 +657,8 @@ static NSInteger tag;
         navRect.size = CGSizeMake(1500.0f, 40.0f);
         [self.documentInteractionController presentOpenInMenuFromRect:navRect inView:self.view animated:YES];
         [self addStuFileWithChapterID:_openChapterID fileID:[NSString stringWithFormat:@"%ld",_openFileID]];
+        [self loadData1];
+        [self loadOCMoocFileWithSection:_selectSection WithIsBlock:YES];
     }
 }
 //判断文件是否存在 并返回 路径

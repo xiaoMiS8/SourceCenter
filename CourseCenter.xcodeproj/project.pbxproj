@@ -2115,6 +2115,7 @@
 				TargetAttributes = {
 					D4B2F2F01B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
+						DevelopmentTeam = YQV68UZ2XR;
 					};
 					D4B2F30C1B02FA00007B017E = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -2677,14 +2678,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cfcf455f-ebf8-4bce-a1c7-7cda3e4c0a95";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -2693,14 +2694,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/CourseCenter/CoureCenterPrefixHeader.pch";
 				INFOPLIST_FILE = CourseCenter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cfcf455f-ebf8-4bce-a1c7-7cda3e4c0a95";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
