@@ -25,6 +25,7 @@
 #define kRowsCount              @"RowsCount"
 #define kIsCanDel               @"IsCanDel"
 #define kimgs                   @"ImgUrl"
+#define kUserImgUrl               @"UserImgUrl"
 
 @interface TopicInfo : NSObject
 

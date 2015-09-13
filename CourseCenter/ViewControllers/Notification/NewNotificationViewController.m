@@ -140,6 +140,9 @@
             if ([((ResponseObject *)object).errrorCode isEqualToString:@"0"]) {
                 self.notiID = [((ResponseObject *)object).errorMessage integerValue];
                  [self dismissViewControllerAnimated:YES completion:nil];
+                if (self.DoBlock) {
+                    self.DoBlock();
+                }
                 if (self.dataSource.count > 2) {
                     [self upLoadImgs];
                 }
@@ -505,7 +508,7 @@
     NSLog(@"%@", assets);
     NSMutableArray *imgs = [[NSMutableArray alloc] initWithCapacity:0];
     for (int i=0; i<assets.count; i++) {
-        UIImage *img = [UIImage imageWithCGImage:[assets[i] aspectRatioThumbnail]];
+        UIImage *img = [UIImage imageWithCGImage:[[assets[i] defaultRepresentation] fullResolutionImage]];
         [imgs addObject:img];
     }
     NSMutableArray *bigArray = nil;

@@ -19,6 +19,7 @@
         self.Title = dict[kTitle];
         self.Conten = dict[kConten];
         self.UserName = dict[kUserName];
+        self.userImg = dict[kUserImgUrl];
         self.IsTeacherTopic = [dict[kIsTeacherTopic] boolValue];
         self.ForumClassName = dict[kForumClassName];
         self.UpdateTime = dict[kUpdateTime];

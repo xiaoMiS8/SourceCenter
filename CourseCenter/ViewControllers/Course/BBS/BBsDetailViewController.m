@@ -172,7 +172,6 @@
             if (status == Enum_SUCCESS) {
                 [MBProgressHUD showSuccess: ((ResponseObject *)object).message];
                 wself.topicSetBlcok();
-                [wself.navigationController popViewControllerAnimated:YES];
             }
         }];
     };
@@ -303,7 +302,7 @@
 #pragma mark- UITextViewDelegate
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    self.textView.text = @"";
+    self.placeholdLabel.text = @"";
     return YES;
 }
 - (IBAction)sendClick:(id)sender {
@@ -315,7 +314,8 @@
     [self.manager addForumResponseWithTopicID:self.topic.TopicID ParentID:self.parentID Conten:self.textView.text finished:^(EnumServerStatus status, NSObject *object) {
         [MBProgressHUD showSuccess:@"回复成功"];
         [wself reloadData];
-        wself.textView.text = @"发表评论（限250字以内）";
+        wself.placeholdLabel.text = @"发表评论（限250字以内）";
+        wself.textView.text = @"";
         [wself.textView endEditing:YES];
     }];
 }

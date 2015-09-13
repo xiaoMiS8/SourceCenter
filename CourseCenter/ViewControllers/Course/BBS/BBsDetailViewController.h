@@ -11,6 +11,7 @@
 
 @interface BBsDetailViewController : CourseBaseViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *placeholdLabel;
 
 @property(nonatomic, strong) TopicInfo *topic;
 @property(nonatomic, assign) long OCID;

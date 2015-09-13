@@ -17,6 +17,7 @@
         self.ParentID = [dict[kParentID] longValue];
         self.Conten = dict[kConten];
         self.UserName = dict[kUserName];
+        self.userImg = dict[kUserImgUrl];
         self.FromClassName = dict[kForumClassName];
         self.UpdateTime = dict[kUpdateTime];
         self.IsTop = [dict[kIsTop] boolValue];
