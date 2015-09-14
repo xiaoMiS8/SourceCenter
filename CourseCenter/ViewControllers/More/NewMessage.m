@@ -12,6 +12,7 @@
 #import "GroupInfo.h"
 #import "AFNetworking.h"
 #import "UserInfo.h"
+#import "SendMsgViewController.h"
 #define SECTION_STATE @"SECTION_STATE"
 static BOOL isSelect;
 @interface NewMessage ()
@@ -159,8 +160,9 @@ static BOOL isSelect;
 }
 -(void)sure
 {
-    SendMesage *sendMessage=[[SendMesage alloc]
-                             init];
+    SendMsgViewController *sendMessage = [SendMsgViewController new];
+//    SendMesage *sendMessage=[[SendMesage alloc]
+//                             init];
     sendMessage.array=_subArray;
     sendMessage.messageCenter=_messageCenter;
     [((AppDelegate *)app).nav pushViewController:sendMessage animated:YES];

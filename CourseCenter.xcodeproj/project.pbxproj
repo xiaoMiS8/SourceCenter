@@ -376,6 +376,10 @@
 		D77F02C91B9FD657009CD623 /* MJPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = D77F029D1B9FD657009CD623 /* MJPhotoView.m */; };
 		D77F02DC1B9FD755009CD623 /* MBProgressHUD+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = D77F02DB1B9FD755009CD623 /* MBProgressHUD+Add.m */; };
 		D77F02DF1B9FD7A6009CD623 /* SDWebImageManager+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = D77F02DE1B9FD7A6009CD623 /* SDWebImageManager+MJ.m */; };
+		D788C9BA1BA6C58D00A196B0 /* SendMsgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D788C9B81BA6C58D00A196B0 /* SendMsgViewController.m */; };
+		D788C9BB1BA6C58D00A196B0 /* SendMsgViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D788C9B91BA6C58D00A196B0 /* SendMsgViewController.xib */; };
+		D788C9BF1BA6C9E500A196B0 /* NewMsgCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = D788C9BD1BA6C9E500A196B0 /* NewMsgCell1.m */; };
+		D788C9C01BA6C9E500A196B0 /* NewMsgCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = D788C9BE1BA6C9E500A196B0 /* NewMsgCell1.xib */; };
 		D7EE43CC1B709F75004FB295 /* TopicSetView.m in Sources */ = {isa = PBXBuildFile; fileRef = D7EE43CB1B709F75004FB295 /* TopicSetView.m */; };
 /* End PBXBuildFile section */
 
@@ -1047,6 +1051,12 @@
 		D77F02DB1B9FD755009CD623 /* MBProgressHUD+Add.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Add.m"; sourceTree = "<group>"; };
 		D77F02DD1B9FD7A6009CD623 /* SDWebImageManager+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SDWebImageManager+MJ.h"; sourceTree = "<group>"; };
 		D77F02DE1B9FD7A6009CD623 /* SDWebImageManager+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SDWebImageManager+MJ.m"; sourceTree = "<group>"; };
+		D788C9B71BA6C58D00A196B0 /* SendMsgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendMsgViewController.h; sourceTree = "<group>"; };
+		D788C9B81BA6C58D00A196B0 /* SendMsgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendMsgViewController.m; sourceTree = "<group>"; };
+		D788C9B91BA6C58D00A196B0 /* SendMsgViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendMsgViewController.xib; sourceTree = "<group>"; };
+		D788C9BC1BA6C9E500A196B0 /* NewMsgCell1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMsgCell1.h; sourceTree = "<group>"; };
+		D788C9BD1BA6C9E500A196B0 /* NewMsgCell1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMsgCell1.m; sourceTree = "<group>"; };
+		D788C9BE1BA6C9E500A196B0 /* NewMsgCell1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMsgCell1.xib; sourceTree = "<group>"; };
 		D7EE43CA1B709F75004FB295 /* TopicSetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicSetView.h; sourceTree = "<group>"; };
 		D7EE43CB1B709F75004FB295 /* TopicSetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicSetView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1830,6 +1840,12 @@
 				CA20AA2F1B5A19A100598370 /* SendMesage.h */,
 				CA20AA301B5A19A100598370 /* SendMesage.m */,
 				CA20AA311B5A19A100598370 /* SendMesage.xib */,
+				D788C9B71BA6C58D00A196B0 /* SendMsgViewController.h */,
+				D788C9B81BA6C58D00A196B0 /* SendMsgViewController.m */,
+				D788C9B91BA6C58D00A196B0 /* SendMsgViewController.xib */,
+				D788C9BC1BA6C9E500A196B0 /* NewMsgCell1.h */,
+				D788C9BD1BA6C9E500A196B0 /* NewMsgCell1.m */,
+				D788C9BE1BA6C9E500A196B0 /* NewMsgCell1.xib */,
 				CA20AA341B5A663C00598370 /* TLTagsControl.h */,
 				CA20AA351B5A663C00598370 /* TLTagsControl.m */,
 				CAE5082F1B74446500F908E8 /* QuestionSurvey.h */,
@@ -2175,6 +2191,7 @@
 				52DBDE201B9011FC00E86590 /* ChooseSchoolViewController.xib in Resources */,
 				59C478651B14044D008A49BF /* HomeListCell.xib in Resources */,
 				59EDB6491B78FE0700CBFBB3 /* ReadListCell.xib in Resources */,
+				D788C9BB1BA6C58D00A196B0 /* SendMsgViewController.xib in Resources */,
 				59E247941B73B11C009E4268 /* NTCell1.xib in Resources */,
 				042E75EC1B16176100396AAF /* FindPasswordViewController.xib in Resources */,
 				52CDC9A91B8D668000F544E3 /* HWorkDetailWebViewController.xib in Resources */,
@@ -2212,6 +2229,7 @@
 				CAE2F3BA1B6D0DE300BF4132 /* ApplyViewController.xib in Resources */,
 				CA7228BF1B57F4F8006F719A /* NewMessage.xib in Resources */,
 				CA20AA331B5A19A100598370 /* SendMesage.xib in Resources */,
+				D788C9C01BA6C9E500A196B0 /* NewMsgCell1.xib in Resources */,
 				52E7DFE11B71A30400BB46DE /* HWorkCell.xib in Resources */,
 				CA92AB091B981404000E8D20 /* MyPicViewController.xib in Resources */,
 				52DEE0611B7D78F600DD4486 /* file_pause_normal.png in Resources */,
@@ -2311,6 +2329,7 @@
 				59682AEE1B84D27800DA2778 /* NewTypeViewController.m in Sources */,
 				52DBDE241B903F7600E86590 /* MyDownLoad.m in Sources */,
 				D4B2F3ED1B034265007B017E /* SDImageCache.m in Sources */,
+				D788C9BA1BA6C58D00A196B0 /* SendMsgViewController.m in Sources */,
 				D4459B851B63D63B00DEB780 /* HWorkViewController.m in Sources */,
 				D4B2F3941B033E51007B017E /* AFHTTPRequestOperationManager.m in Sources */,
 				CA20AA3F1B5AAF5300598370 /* CourseData.m in Sources */,
@@ -2362,6 +2381,7 @@
 				D7EE43CC1B709F75004FB295 /* TopicSetView.m in Sources */,
 				CACBFC931B540BF900FAD388 /* MessageModel.m in Sources */,
 				5963C36A1B2024A700A09D30 /* TestViewController.m in Sources */,
+				D788C9BF1BA6C9E500A196B0 /* NewMsgCell1.m in Sources */,
 				D4B2F3991B033E51007B017E /* AFURLRequestSerialization.m in Sources */,
 				D49C64ED1B3941BC006B6D37 /* ChapterInfo.m in Sources */,
 				065C03981B68B16D0090EA46 /* TopicInfo.m in Sources */,
