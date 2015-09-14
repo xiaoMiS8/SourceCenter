@@ -154,7 +154,7 @@
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
-    _dataArray=nil;
+//_dataArray=nil;
     searchBar.showsCancelButton=YES;
     searchString=searchText;
 //    [[SearchCoreManager share] Search:searchText searchArray:nil nameMatch:_searchByName phoneMatch:nil];
