@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -16,23 +16,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发送到：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AWx-gf-Caz">
-                        <rect key="frame" x="18" y="11" width="68" height="21"/>
+                        <rect key="frame" x="18" y="8" width="68" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EV-73-ZF3" customClass="TLTagsControl">
-                        <rect key="frame" x="88" y="11" width="214" height="21"/>
+                        <rect key="frame" x="88" y="8" width="214" height="27.5"/>
                     </scrollView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="8EV-73-ZF3" secondAttribute="bottom" constant="3" id="Clb-Oa-b1g"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="AWx-gf-Caz" secondAttribute="bottom" constant="3" id="EPg-YB-vE7"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8EV-73-ZF3" secondAttribute="bottom" id="Clb-Oa-b1g"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="AWx-gf-Caz" secondAttribute="bottom" id="EPg-YB-vE7"/>
                     <constraint firstItem="8EV-73-ZF3" firstAttribute="leading" secondItem="AWx-gf-Caz" secondAttribute="trailing" constant="2" id="Hig-HM-eIl"/>
-                    <constraint firstItem="8EV-73-ZF3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="K5j-wT-VP4"/>
+                    <constraint firstItem="8EV-73-ZF3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="K5j-wT-VP4"/>
                     <constraint firstItem="AWx-gf-Caz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Oeh-9B-gE3"/>
                     <constraint firstAttribute="trailingMargin" secondItem="8EV-73-ZF3" secondAttribute="trailing" constant="10" id="j0y-ar-YXF"/>
-                    <constraint firstItem="AWx-gf-Caz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="3" id="xF1-Q5-i7h"/>
+                    <constraint firstItem="AWx-gf-Caz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="xF1-Q5-i7h"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

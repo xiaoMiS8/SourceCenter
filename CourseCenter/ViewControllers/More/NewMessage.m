@@ -160,12 +160,32 @@ static BOOL isSelect;
 }
 -(void)sure
 {
-    SendMsgViewController *sendMessage = [SendMsgViewController new];
-//    SendMesage *sendMessage=[[SendMesage alloc]
-//                             init];
-    sendMessage.array=_subArray;
-    sendMessage.messageCenter=_messageCenter;
-    [((AppDelegate *)app).nav pushViewController:sendMessage animated:YES];
+    
+    if ([self returnSelectArray].count==0) {
+        [Tool showAlertView:@"提示" withMessage:@"请选择联系人" withTarget:nil withCancel:@"确定" other:nil];
+    }else
+    {
+        SendMsgViewController *sendMessage = [SendMsgViewController new];
+        //    SendMesage *sendMessage=[[SendMesage alloc]
+        //                             init];
+        sendMessage.array=_subArray;
+        sendMessage.messageCenter=_messageCenter;
+        [((AppDelegate *)app).nav pushViewController:sendMessage animated:YES];
+    }
+    
+}
+-(NSMutableArray *)returnSelectArray
+{
+    NSMutableArray *mArray=[[NSMutableArray alloc]init];
+    for (int i=0; i<((AppDelegate *)app).dicData.count; i++) {
+        NSArray *array=[((AppDelegate *)app).dicData objectForKey:[NSString stringWithFormat:@"%d",i]];
+        for (int j=0; j<array.count; j++) {
+            if ([array[j]isEqualToString:@"SEL"]) {
+                [mArray addObject:[((NSArray *)[_subArray objectAtIndex:i])objectAtIndex:j]];
+            }
+        }
+    }
+    return mArray;
 }
 - (IBAction)selectAll:(UIButton *)sender {
     static BOOL isOk=YES;

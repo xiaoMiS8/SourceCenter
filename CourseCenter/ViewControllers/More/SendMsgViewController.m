@@ -81,10 +81,7 @@
 }
 
 - (void)done {
-    if ([self.datas[1] isEqualToString:@"请输入标题(可不填)"] || [self.datas[1] isEqualToString:@""]) {
-        [MBProgressHUD showError:@"请输入标题"];
-        return;
-    }
+    
     if ([self.datas[1] length] >= 50) {
         [MBProgressHUD showError:@"标题过长"];
         return;
@@ -107,11 +104,11 @@
         if (status==0) {
             wself.reob=(ResponseObject *)object;
             if ([wself.reob.errrorCode isEqualToString:@"0"]) {
-                [MBProgressHUD showSuccess:wself.reob.errorMessage];
                 [wself.navigationController popToViewController:wmsg animated:YES];
                 if (wself.imgs.count > 0) {
-                    [wself upLoadImgs];
+                    [wself upLoadImgsWithSourceID:[wself.reob.message intValue]];
                 }
+                return ;
             }
         }
         [MBProgressHUD showError:LOGINMESSAGE_F];
@@ -131,7 +128,7 @@
     return arrayIds;
 }
 
-- (void)upLoadImgs {
+- (void)upLoadImgsWithSourceID:(long)SourceID {
     if (self.imgs.count > 0) {
         for (int i=0; i<self.imgs.count; i++) {
             UIImage * image = self.imgs[i];
@@ -139,8 +136,7 @@
             data=[GTMBase64 encodeData:data];
             NSString *img_base64=[@"data:image/jpg;base64," stringByAppendingString:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]];
             [MBProgressHUD showMessage:@"图片上传中..."];
-            [self.manager uploadPictureWithSourceID:self.topicId
-                                             Source:@"ForumTopic" FileName:@"123.jpg" imgBytesIn:img_base64
+            [self.manager uploadPictureWithSourceID:SourceID Source:@"Message" FileName:@"123.jpg" imgBytesIn:img_base64
                                            finished:^(EnumServerStatus status, NSObject *object) {
                                                [MBProgressHUD hideHUD];
                                                if (status==0) {
