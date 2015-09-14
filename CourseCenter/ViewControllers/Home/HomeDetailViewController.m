@@ -26,6 +26,7 @@ static NSInteger tag;
     NSMutableArray *_arrayData;
     NSMutableArray *_moocFileArray;
     NSMutableDictionary *_dict;
+    NSMutableArray *_sectionArray;
     TeacherInfo *_teacherInfo;
     ChapterInfo *_chapterInfo;
 }
@@ -74,6 +75,7 @@ static NSInteger tag;
 {
     [MBProgressHUD showMessage:nil];
     [self.httpManager getAppOCMoocGetWithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
@@ -85,13 +87,15 @@ static NSInteger tag;
         [MBProgressHUD showError:LOGINMESSAGE_F];
     }];
     [self.httpManager getChapterStudyListwithOCID:self.OCID finished:^(EnumServerStatus status, NSObject *object) {
+        [MBProgressHUD hideHUD];
         if (status==0) {
             self.reob=(ResponseObject *)object;
             if ([self.reob.errrorCode isEqualToString:@"0"]) {
                 _arrayData=self.reob.resultArray;
                 [self addTableViewheader];
                 [self showCourseData];
-                [self loadOCMoocFile];
+                [self addMoocFileArray];
+              //  [self loadOCMoocFile];
                 return ;
             }
         }
@@ -122,23 +126,47 @@ static NSInteger tag;
     }
     [_tableView reloadData];
 }
--(void)loadOCMoocFile
+-(void)addMoocFileArray
 {
-        if (tag==_arrayData.count) {
-        [MBProgressHUD hideHUD];
-        return ;
-        }
-        long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:tag]).ChapterID;
+    for (int i=0; i<_arrayData.count; i++) {
+        [_moocFileArray addObject:[NSMutableArray arrayWithArray:nil]];
+    }
+}
+-(void)loadOCMoocFileWithSection:(NSInteger)section WithIsBlock:(BOOL)isBlock
+{
+//        if (tag==_arrayData.count) {
+//        [MBProgressHUD hideHUD];
+//        return ;
+//        }
+          if (!isBlock) {
+           for (NSNumber *num in _sectionArray) {
+              if ([num integerValue]==section) {
+                [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+                return;
+                        }
+                 }
+           }
+        long chapterID=((ChapterInfo *)[_arrayData objectAtIndex:section]).ChapterID;
+    if (((ChapterInfo *)[_arrayData objectAtIndex:tag]).TestID<=0)
+    {
         [self.httpManager getOCMoocFileStudyListwithOCID:self.OCID ChapterID:chapterID FileType:-1 finished:^(EnumServerStatus status, NSObject *object) {
             if (status==0) {
                 self.reob=(ResponseObject *)object;
                 if ([self.reob.errrorCode isEqualToString:@"0"]) {
-                    [_moocFileArray addObject:self.reob.resultArray];
-                    tag++;
-                    [self loadOCMoocFile];
+//                    [_moocFileArray addObject:self.reob.resultArray];
+//                    tag++;
+//                    [self loadOCMoocFile];
+                    _moocFileArray[section]=self.reob.resultArray;
+                    [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+                    [_sectionArray addObject:[NSNumber numberWithInteger:section]];
                 }
             }
         }];
+    }else
+    {
+        _moocFileArray[section]=[NSMutableArray arrayWithArray:nil];
+        [_tableView reloadSections:[NSIndexSet indexSetWithIndex:section] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 - (void)addTableViewheader
 {
@@ -325,7 +353,7 @@ static NSInteger tag;
         {
             [dicto setObject:[NSNumber numberWithBool:YES] forKey:SECTION_STATE];
         }
-        [_tableView reloadSections:[NSIndexSet indexSetWithIndex:but.tag-100] withRowAnimation:UITableViewRowAnimationNone];
+        [self loadOCMoocFileWithSection:but.tag-100 WithIsBlock:NO];
     }else
     {
         [Tool showAlertView:@"提示" withMessage:@"此处只能浏览第一节的内容,请去教程中学习!" withTarget:self withCancel:@"确定" other:nil];

@@ -53,10 +53,18 @@
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="aqa-gi-VjK"/>
                         <constraint firstAttribute="height" constant="1" id="dJy-lG-KJt"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="aqa-gi-VjK"/>
+                        </mask>
+                    </variation>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="请输入内容(必填)" translatesAutoresizingMaskIntoConstraints="NO" id="nbO-1o-RFt">
-                    <rect key="frame" x="0.0" y="82" width="320" height="436"/>
+                    <rect key="frame" x="0.0" y="82" width="320" height="140"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="140" id="Apv-UE-Tbx"/>
+                    </constraints>
                     <color key="textColor" red="0.75686317680000004" green="0.75686264039999995" blue="0.76078426840000002" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -64,7 +72,7 @@
                         <outlet property="delegate" destination="-1" id="Nxj-bU-q0X"/>
                     </connections>
                 </textView>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Z2-wg-QLV">
+                <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Z2-wg-QLV">
                     <rect key="frame" x="0.0" y="518" width="320" height="1"/>
                     <color key="backgroundColor" red="0.75686317680000004" green="0.75686264039999995" blue="0.76078426840000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -73,7 +81,7 @@
                         <constraint firstAttribute="height" constant="1" id="gdC-2y-SBI"/>
                     </constraints>
                 </view>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="la9-4P-0uF">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="la9-4P-0uF">
                     <rect key="frame" x="20" y="524" width="39" height="39"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="la9-4P-0uF" secondAttribute="height" multiplier="1:1" id="WLU-iU-b4C"/>
@@ -82,7 +90,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-mX-3rW">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tTk-mX-3rW">
                     <rect key="frame" x="69" y="524" width="39" height="39"/>
                     <state key="normal" image="btn_photo">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -122,6 +130,12 @@
                 <constraint firstItem="la9-4P-0uF" firstAttribute="height" secondItem="tTk-mX-3rW" secondAttribute="height" id="zpO-iF-MXP"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="VYZ-b8-CxD"/>
+                    <exclude reference="MyV-cS-GaS"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="228" y="-42"/>
         </view>
     </objects>
